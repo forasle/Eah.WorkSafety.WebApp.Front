@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 class CustomCardWidget extends StatelessWidget {
   final IconData cardIcon;
   final String cardText;
-  final double cardDouble;
+  final String cardSubText;
+  final dynamic cardDouble;
   final Color cardColor;
+  final Icon cardSubIcon;
   final void Function()? customCardWidgetOnTap;
   const CustomCardWidget({
     Key? key,
@@ -14,6 +16,8 @@ class CustomCardWidget extends StatelessWidget {
     required this.cardDouble,
     required this.cardColor,
     required this.customCardWidgetOnTap,
+    required this.cardSubText,
+    required this.cardSubIcon,
   }) : super(key: key);
 
   @override
@@ -55,10 +59,7 @@ class CustomCardWidget extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text('Detay İçin Tıklayınız'),
-                    Icon(Icons.arrow_right)
-                  ],
+                  children: [Text(cardSubText), cardSubIcon],
                 ),
               ]),
         ),

@@ -60,7 +60,10 @@ class CustomScaffold extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
         child: DrawerWidget(),
       ),
-      body: body,
+      body: Scrollbar(
+          child: SingleChildScrollView(
+        child: body,
+      )),
     );
   }
 }

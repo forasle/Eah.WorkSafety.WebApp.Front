@@ -41,7 +41,7 @@ class DrawerWidget extends StatelessWidget {
                 leading: Icon(Icons.supervisor_account),
                 title: Text('Çalışanlar'),
                 onTap: () {
-                  Navigator.of(context).popAndPushNamed(workersRoute);
+                  Navigator.of(context).popAndPushNamed(workersPageRoute);
                 },
               ),
               ListTile(

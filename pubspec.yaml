@@ -40,6 +40,7 @@ dependencies:
   syncfusion_flutter_calendar: ^20.1.50
   timezone: ^0.8.0
   json_table: ^2.0.1
+  get_server: ^1.1.1
 
 dev_dependencies:
   flutter_test:
