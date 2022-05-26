@@ -1,8 +1,11 @@
 import 'package:aeah_work_safety/constants/routes.dart';
+import 'package:aeah_work_safety/widgets/dayWithoutAccidentPage/dayWithoutAccident.dart';
 import 'package:aeah_work_safety/widgets/loginPage/login.dart';
 import 'package:aeah_work_safety/widgets/homePage/panaroma.dart';
 import 'package:aeah_work_safety/widgets/missionsPage/missions.dart';
-import 'package:aeah_work_safety/widgets/workersPage/workersPage.dart';
+import 'package:aeah_work_safety/widgets/workAccidentPage/workAccident.dart';
+import 'package:aeah_work_safety/widgets/workersDetailPage/workersDetailPage.dart';
+import 'package:aeah_work_safety/widgets/workersMainPage/workersMainPage.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +29,11 @@ class MyApp extends StatelessWidget {
         loginRoute: (context) => const Login(),
         panaromaRoute: (context) => const Panaroma(),
         missionsRoute: (context) => const Missions(),
-        workersPageRoute: (context) => const WorkersPage(),
+        workersMainPageRoute: (context) => const WorkersMainPage(),
+        workersDetailPageRoute: (context) => const WorkersDetailPage(),
+        dayWithoutAccidentPageRoute: (context) =>
+            const DayWithoutAccidentPage(),
+        workAccidentPageRoute: (context) => const WorkAccidentPage(),
       },
     );
   }

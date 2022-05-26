@@ -10,6 +10,7 @@ class CustomScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScrollController verticalScrollController = ScrollController();
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -61,9 +62,11 @@ class CustomScaffold extends StatelessWidget {
         child: DrawerWidget(),
       ),
       body: Scrollbar(
+          controller: verticalScrollController,
           child: SingleChildScrollView(
-        child: body,
-      )),
+            controller: verticalScrollController,
+            child: body,
+          )),
     );
   }
 }

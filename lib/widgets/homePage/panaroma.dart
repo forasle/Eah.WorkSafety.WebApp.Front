@@ -27,7 +27,6 @@ class Panaroma extends StatelessWidget {
               padding: EdgeInsets.all(5),
               controller: horizantalController,
               scrollDirection: Axis.horizontal,
-              //primary: false,
               child: Row(
                 children: [
                   [
@@ -36,7 +35,7 @@ class Panaroma extends StatelessWidget {
                     'Çalışan',
                     Colors.blueGrey,
                     () {
-                      Navigator.of(context).pushNamed(workersPageRoute);
+                      Navigator.of(context).pushNamed(workersMainPageRoute);
                     }
                   ],
                   [
@@ -45,7 +44,8 @@ class Panaroma extends StatelessWidget {
                     'Kazasız Gün',
                     Colors.blueAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersPageRoute);
+                      Navigator.of(context)
+                          .pushNamed(dayWithoutAccidentPageRoute);
                     }
                   ],
                   [
@@ -54,7 +54,7 @@ class Panaroma extends StatelessWidget {
                     'Ramak Kala',
                     Colors.yellowAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersPageRoute);
+                      Navigator.of(context).pushNamed(workersMainPageRoute);
                     }
                   ],
                   [
@@ -63,7 +63,7 @@ class Panaroma extends StatelessWidget {
                     'İş Kazası',
                     Colors.redAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersPageRoute);
+                      Navigator.of(context).pushNamed(workAccidentPageRoute);
                     }
                   ],
                   [
@@ -72,7 +72,7 @@ class Panaroma extends StatelessWidget {
                     'Uygunsuzluklar',
                     Colors.amberAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersPageRoute);
+                      Navigator.of(context).pushNamed(workersMainPageRoute);
                     }
                   ],
                   [
@@ -81,7 +81,7 @@ class Panaroma extends StatelessWidget {
                     'DÖF',
                     Colors.blueGrey.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersPageRoute);
+                      Navigator.of(context).pushNamed(workersMainPageRoute);
                     }
                   ],
                   [
@@ -90,7 +90,7 @@ class Panaroma extends StatelessWidget {
                     'Görevler',
                     Colors.blueAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersPageRoute);
+                      Navigator.of(context).pushNamed(workersMainPageRoute);
                     }
                   ],
                   [
@@ -99,7 +99,7 @@ class Panaroma extends StatelessWidget {
                     'Eğitim',
                     Colors.yellowAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersPageRoute);
+                      Navigator.of(context).pushNamed(workersMainPageRoute);
                     }
                   ],
                   [
@@ -108,7 +108,7 @@ class Panaroma extends StatelessWidget {
                     'Kronik Hastalık',
                     Colors.amberAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersPageRoute);
+                      Navigator.of(context).pushNamed(workersMainPageRoute);
                     }
                   ],
                   [
@@ -117,7 +117,7 @@ class Panaroma extends StatelessWidget {
                     'Meslek Hastalığı',
                     Colors.redAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersPageRoute);
+                      Navigator.of(context).pushNamed(workersMainPageRoute);
                     }
                   ],
                   [
@@ -126,7 +126,7 @@ class Panaroma extends StatelessWidget {
                     'Periyodik Muayene',
                     Colors.blueAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersPageRoute);
+                      Navigator.of(context).pushNamed(workersMainPageRoute);
                     }
                   ]
                 ]
@@ -149,7 +149,7 @@ class Panaroma extends StatelessWidget {
           ),
           Wrap(
             children: [
-              notificationCardWidget(
+              NotificationCardWidget(
                 color: Colors.redAccent.shade700,
                 date: 'Bugün',
                 notificationCount: 123,
@@ -166,7 +166,7 @@ class Panaroma extends StatelessWidget {
                   'Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar'
                 ],
               ),
-              notificationCardWidget(
+              NotificationCardWidget(
                 color: Colors.amberAccent.shade700,
                 date: 'Bu Hafta',
                 notificationCount: 654,
@@ -183,7 +183,7 @@ class Panaroma extends StatelessWidget {
                   'Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar'
                 ],
               ),
-              notificationCardWidget(
+              NotificationCardWidget(
                 color: Colors.blueAccent.shade700,
                 date: 'Bu Ay',
                 notificationCount: 6588,
@@ -200,7 +200,7 @@ class Panaroma extends StatelessWidget {
                   'Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar'
                 ],
               ),
-              notificationCardWidget(
+              NotificationCardWidget(
                 color: Colors.blueGrey.shade700,
                 date: 'Bu Yıl',
                 notificationCount: 1656,

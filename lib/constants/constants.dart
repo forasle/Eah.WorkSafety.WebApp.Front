@@ -15,3 +15,23 @@ double getHeight(context) {
   double height = MediaQuery.of(context).size.height;
   return height;
 }
+
+SizedBox sizedBoxBetweenPersonalDetailPage() {
+  return const SizedBox(
+    height: 10,
+  );
+}
+
+Divider dividerWithIndents() {
+  return const Divider(
+    endIndent: 50,
+    indent: 50,
+  );
+}
+
+VerticalDivider verticalDividerWithIndents() {
+  return const VerticalDivider(
+    endIndent: 75,
+    indent: 75,
+  );
+}

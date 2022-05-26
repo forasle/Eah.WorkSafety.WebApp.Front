@@ -27,9 +27,9 @@ class CustomCardWidget extends StatelessWidget {
       margin: EdgeInsets.all(8),
       elevation: 20,
       child: Container(
-        constraints: BoxConstraints(minWidth: 195, minHeight: 100),
-        //width: 195,
-        //height: 100,
+        //constraints: const BoxConstraints(minWidth: 195, minHeight: 100),
+        width: 200,
+        height: 110,
         child: InkWell(
           splashColor: Colors.black26,
           onTap: customCardWidgetOnTap,
@@ -45,21 +45,34 @@ class CustomCardWidget extends StatelessWidget {
                         cardIcon,
                         size: 60,
                       ),
-                      Column(
-                        children: [
-                          Text(
-                            cardDouble.toString(),
-                          ),
-                          const SizedBox(height: 20),
-                          Text(cardText),
-                        ],
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Text(
+                              cardDouble.toString(),
+                            ),
+                            const SizedBox(height: 20),
+                            Text(
+                              cardText,
+                              maxLines: 2,
+                              softWrap: true,
+                            ),
+                          ],
+                        ),
                       )
                     ],
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [Text(cardSubText), cardSubIcon],
+                  children: [
+                    Text(
+                      cardSubText,
+                      maxLines: 2,
+                      softWrap: true,
+                    ),
+                    cardSubIcon
+                  ],
                 ),
               ]),
         ),

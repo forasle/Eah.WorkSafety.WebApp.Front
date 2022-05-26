@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class notificationCardWidget extends StatelessWidget {
+class NotificationCardWidget extends StatelessWidget {
   final Color color;
   final String date;
   final double notificationCount;
@@ -8,7 +8,7 @@ class notificationCardWidget extends StatelessWidget {
   final List<String> actionNotifications;
   final List<String> documentNotifications;
   final List<String> workerNotifications;
-  const notificationCardWidget({
+  const NotificationCardWidget({
     Key? key,
     required this.color,
     required this.date,
@@ -22,14 +22,10 @@ class notificationCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(80),
-          bottomLeft: Radius.circular(70),
-          topRight: Radius.circular(40),
-        ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
       ),
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.all(15),
       elevation: 20,
       child: SizedBox(
         width: 400,
@@ -39,7 +35,8 @@ class notificationCardWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 color: color,
                 borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(40),
+                  topRight: Radius.circular(20),
+                  topLeft: Radius.circular(20),
                 ),
               ),
               padding: EdgeInsets.all(18),

@@ -13,7 +13,7 @@ class Login extends StatelessWidget {
           width: loginPageOuterContainerWidth,
           height: loginPageOuterContainerHeight,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(80), color: Colors.blueGrey),
+              borderRadius: BorderRadius.circular(20), color: Colors.blueGrey),
           child: Padding(
             padding: const EdgeInsets.all(18.0),
             child: Center(
@@ -32,7 +32,7 @@ class Login extends StatelessWidget {
                           icon: const Icon(Icons.email_rounded,
                               color: Colors.white),
                           border: UnderlineInputBorder(
-                            borderRadius: BorderRadius.circular(32),
+                            borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                       ),
@@ -52,7 +52,7 @@ class Login extends StatelessWidget {
                           filled: true,
                           icon: const Icon(Icons.password, color: Colors.white),
                           border: UnderlineInputBorder(
-                            borderRadius: BorderRadius.circular(32),
+                            borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                       ),
@@ -64,7 +64,7 @@ class Login extends StatelessWidget {
                         style: ButtonStyle(
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                         ),

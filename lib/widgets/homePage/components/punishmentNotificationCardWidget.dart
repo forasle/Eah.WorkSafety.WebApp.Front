@@ -18,9 +18,9 @@ class PunishmentNotificationCardWidget extends StatelessWidget {
     return Card(
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(80),
-          bottomLeft: Radius.circular(70),
-          topRight: Radius.circular(40),
+          bottomRight: Radius.circular(20),
+          bottomLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
         ),
       ),
       margin: EdgeInsets.all(20),
@@ -33,7 +33,7 @@ class PunishmentNotificationCardWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 color: color,
                 borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(40),
+                  topRight: Radius.circular(20),
                 ),
               ),
               padding: EdgeInsets.all(18),

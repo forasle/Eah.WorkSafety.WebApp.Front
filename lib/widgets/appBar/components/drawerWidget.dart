@@ -12,8 +12,8 @@ class DrawerWidget extends StatelessWidget {
       elevation: 50,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(30),
-          topRight: Radius.circular(30),
+          bottomRight: Radius.circular(20),
+          topRight: Radius.circular(20),
         ),
       ),
       child: ListView(
@@ -41,7 +41,7 @@ class DrawerWidget extends StatelessWidget {
                 leading: Icon(Icons.supervisor_account),
                 title: Text('Çalışanlar'),
                 onTap: () {
-                  Navigator.of(context).popAndPushNamed(workersPageRoute);
+                  Navigator.of(context).pushNamed(workersMainPageRoute);
                 },
               ),
               ListTile(

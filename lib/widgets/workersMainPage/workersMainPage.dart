@@ -1,12 +1,13 @@
-import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/appBar.dart';
 import 'package:aeah_work_safety/widgets/components/routingBarWidget.dart';
 import 'package:aeah_work_safety/widgets/components/cardWidget.dart';
-import 'package:aeah_work_safety/widgets/workersPage/components/dataTableWidget.dart';
+import 'package:aeah_work_safety/widgets/workAccidentPage/components/searchBar.dart';
+import 'package:aeah_work_safety/widgets/workersMainPage/components/dataTableWidget.dart';
 import 'package:flutter/material.dart';
 
-class WorkersPage extends StatelessWidget {
-  const WorkersPage({Key? key}) : super(key: key);
+class WorkersMainPage extends StatelessWidget {
+  const WorkersMainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +19,58 @@ class WorkersPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panaroma', routeName: '/panaroma'),
+              routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
               Icon(Icons.arrow_right),
               routingBarWidget(
-                  pageName: 'Çalışanlar', routeName: '/panaroma/workers'),
+                  pageName: 'Çalışanlar', routeName: workersMainPageRoute),
             ],
           ),
           Divider(
             indent: 50,
             endIndent: 50,
+          ),
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        'Çalışanlar',
+                        style: Theme.of(context).textTheme.headline4,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Flexible(
+                      child: Text(
+                        '(Yetki seviyenize göre görüntüleyebildiğiniz liste & raporlar)',
+                        style: Theme.of(context).textTheme.overline,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Flexible(
+                        child: ElevatedButton(
+                            onPressed: () {}, child: Text('Rapor Yazdır'))),
+                    SizedBox(width: 10),
+                    Flexible(
+                      child: SearchBarWidget(),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
           Scrollbar(
             controller: horizantalController,
@@ -43,7 +87,7 @@ class WorkersPage extends StatelessWidget {
                       cardText: 'Toplam Çalışan',
                       cardDouble: 500,
                       cardColor: Colors.blueGrey,
-                      customCardWidgetOnTap: () {},
+                      customCardWidgetOnTap: null,
                       cardSubText: '-'),
                   CustomCardWidget(
                       cardSubIcon: Icon(null),
@@ -51,7 +95,7 @@ class WorkersPage extends StatelessWidget {
                       cardText: 'Ortalama Yaş',
                       cardDouble: 29,
                       cardColor: Colors.amberAccent.shade700,
-                      customCardWidgetOnTap: () {},
+                      customCardWidgetOnTap: null,
                       cardSubText: '-'),
                   CustomCardWidget(
                       cardSubIcon: Icon(null),
@@ -59,7 +103,7 @@ class WorkersPage extends StatelessWidget {
                       cardText: 'Ortalama Çalışma Süresi',
                       cardDouble: 500,
                       cardColor: Colors.orangeAccent.shade700,
-                      customCardWidgetOnTap: () {},
+                      customCardWidgetOnTap: null,
                       cardSubText: '-'),
                 ],
               ),
@@ -69,7 +113,7 @@ class WorkersPage extends StatelessWidget {
             indent: 50,
             endIndent: 50,
           ),
-          DataTableDemo(),
+          DataTableForUser(),
         ],
       ),
     );
