@@ -1,11 +1,16 @@
 import 'package:aeah_work_safety/constants/routes.dart';
-import 'package:aeah_work_safety/widgets/dayWithoutAccidentPage/dayWithoutAccident.dart';
+import 'package:aeah_work_safety/widgets/chronic_diseases_page/chronic_diseases_page.dart';
+import 'package:aeah_work_safety/widgets/dayWithoutAccidentPage/day_without_accident.dart';
+import 'package:aeah_work_safety/widgets/education_page/education_page.dart';
+import 'package:aeah_work_safety/widgets/home_page/panaroma.dart';
+import 'package:aeah_work_safety/widgets/inconsistencies_page/inconsistencies_page.dart';
 import 'package:aeah_work_safety/widgets/loginPage/login.dart';
-import 'package:aeah_work_safety/widgets/homePage/panaroma.dart';
 import 'package:aeah_work_safety/widgets/missionsPage/missions.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/workAccident.dart';
-import 'package:aeah_work_safety/widgets/workersDetailPage/workersDetailPage.dart';
-import 'package:aeah_work_safety/widgets/workersMainPage/workersMainPage.dart';
+import 'package:aeah_work_safety/widgets/near_miss_page/near_miss.dart';
+import 'package:aeah_work_safety/widgets/preventive_activities_page/preventive_activities_page.dart';
+import 'package:aeah_work_safety/widgets/workAccidentPage/work_accident.dart';
+import 'package:aeah_work_safety/widgets/workersDetailPage/workers_detail_page.dart';
+import 'package:aeah_work_safety/widgets/workersMainPage/workers_main_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -28,12 +33,18 @@ class MyApp extends StatelessWidget {
       routes: {
         loginRoute: (context) => const Login(),
         panaromaRoute: (context) => const Panaroma(),
-        missionsRoute: (context) => const Missions(),
+        missionsPageRoute: (context) => const Missions(),
         workersMainPageRoute: (context) => const WorkersMainPage(),
         workersDetailPageRoute: (context) => const WorkersDetailPage(),
         dayWithoutAccidentPageRoute: (context) =>
             const DayWithoutAccidentPage(),
         workAccidentPageRoute: (context) => const WorkAccidentPage(),
+        nearMissPageRoute: (context) => const NearMissPage(),
+        inconsistenciesPageRoute: (context) => const InconsistenciesPage(),
+        preventiveActivitiesPageRoute: (context) =>
+            const PreventiveActivities(),
+        educationPageRoute: (context) => const EducationPage(),
+        chronicDiseasesPageRoute: (context) => const ChronicDiseasesPage(),
       },
     );
   }

@@ -1,8 +1,8 @@
 import 'package:aeah_work_safety/constants/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
-import 'package:aeah_work_safety/widgets/appBar/appBar.dart';
-import 'package:aeah_work_safety/widgets/components/routingBarWidget.dart';
-import 'package:aeah_work_safety/widgets/workersDetailPage/components/oldExperiencesDataTable.dart';
+import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
+import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
+import 'package:aeah_work_safety/widgets/workersDetailPage/components/oldExperiences_data_table.dart';
 import 'package:flutter/material.dart';
 
 class WorkersDetailPage extends StatelessWidget {

@@ -1,9 +1,9 @@
 import 'package:aeah_work_safety/constants/routes.dart';
-import 'package:aeah_work_safety/widgets/appBar/appBar.dart';
-import 'package:aeah_work_safety/widgets/components/routingBarWidget.dart';
-import 'package:aeah_work_safety/widgets/components/cardWidget.dart';
-import 'package:aeah_work_safety/widgets/homePage/components/notificationCardWidget.dart';
-import 'package:aeah_work_safety/widgets/homePage/components/punishmentNotificationCardWidget.dart';
+import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
+import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
+import 'package:aeah_work_safety/widgets/components/tappable_card_widget.dart';
+import 'package:aeah_work_safety/widgets/home_page/components/notification_card_widget.dart';
+import 'package:aeah_work_safety/widgets/home_page/components/punishment_notification_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class Panaroma extends StatelessWidget {
@@ -54,7 +54,7 @@ class Panaroma extends StatelessWidget {
                     'Ramak Kala',
                     Colors.yellowAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersMainPageRoute);
+                      Navigator.of(context).pushNamed(nearMissPageRoute);
                     }
                   ],
                   [
@@ -72,7 +72,7 @@ class Panaroma extends StatelessWidget {
                     'Uygunsuzluklar',
                     Colors.amberAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersMainPageRoute);
+                      Navigator.of(context).pushNamed(inconsistenciesPageRoute);
                     }
                   ],
                   [
@@ -81,7 +81,8 @@ class Panaroma extends StatelessWidget {
                     'DÖF',
                     Colors.blueGrey.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersMainPageRoute);
+                      Navigator.of(context)
+                          .pushNamed(preventiveActivitiesPageRoute);
                     }
                   ],
                   [
@@ -90,7 +91,7 @@ class Panaroma extends StatelessWidget {
                     'Görevler',
                     Colors.blueAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersMainPageRoute);
+                      Navigator.of(context).pushNamed(missionsPageRoute);
                     }
                   ],
                   [
@@ -99,7 +100,7 @@ class Panaroma extends StatelessWidget {
                     'Eğitim',
                     Colors.yellowAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersMainPageRoute);
+                      Navigator.of(context).pushNamed(educationPageRoute);
                     }
                   ],
                   [
@@ -108,7 +109,7 @@ class Panaroma extends StatelessWidget {
                     'Kronik Hastalık',
                     Colors.amberAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersMainPageRoute);
+                      Navigator.of(context).pushNamed(chronicDiseasesPageRoute);
                     }
                   ],
                   [

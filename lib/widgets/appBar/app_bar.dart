@@ -1,4 +1,4 @@
-import 'package:aeah_work_safety/widgets/appBar/components/drawerWidget.dart';
+import 'package:aeah_work_safety/widgets/appBar/components/drawer_widget.dart';
 import 'package:flutter/material.dart';
 
 class CustomScaffold extends StatelessWidget {

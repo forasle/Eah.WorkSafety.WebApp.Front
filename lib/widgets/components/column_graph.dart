@@ -8,11 +8,11 @@ class ColumnGraph extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var data = [
-      _ChartData('Ocak', 12),
-      _ChartData('Şubat', 15),
-      _ChartData('Mart', 30),
-      _ChartData('Nisan', 6.4),
-      _ChartData('Mayıs', 14),
+      _ChartData('2018', 12),
+      _ChartData('2019', 15),
+      _ChartData('2020', 30),
+      _ChartData('2021', 6.4),
+      _ChartData('2022', 14),
       _ChartData('Toplam', 144)
     ];
     return Padding(

@@ -1,9 +1,12 @@
+import 'package:aeah_work_safety/constants/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
-import 'package:aeah_work_safety/widgets/appBar/appBar.dart';
-import 'package:aeah_work_safety/widgets/components/routingBarWidget.dart';
-import 'package:aeah_work_safety/widgets/components/cardWidget.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/components/searchBar.dart';
-import 'package:aeah_work_safety/widgets/workersMainPage/components/dataTableWidget.dart';
+import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
+import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
+import 'package:aeah_work_safety/widgets/components/tappable_card_widget.dart';
+import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
+import 'package:aeah_work_safety/widgets/components/column_graph.dart';
+import 'package:aeah_work_safety/widgets/workAccidentPage/components/search_bar.dart';
+import 'package:aeah_work_safety/widgets/workersMainPage/components/data_table_for_user.dart';
 import 'package:flutter/material.dart';
 
 class WorkersMainPage extends StatelessWidget {
@@ -25,10 +28,7 @@ class WorkersMainPage extends StatelessWidget {
                   pageName: 'Çalışanlar', routeName: workersMainPageRoute),
             ],
           ),
-          Divider(
-            indent: 50,
-            endIndent: 50,
-          ),
+          dividerWithIndents(),
           Column(
             children: [
               Padding(
@@ -109,11 +109,68 @@ class WorkersMainPage extends StatelessWidget {
               ),
             ),
           ),
-          Divider(
-            indent: 50,
-            endIndent: 50,
-          ),
+          dividerWithIndents(),
           DataTableForUser(),
+          SizedBox(
+            height: 10,
+          ),
+          //dividerWithIndents(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Rapor',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+          ),
+          dividerWithIndents(),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                CircularGraph(
+                  title: 'Yaş Dağılımı',
+                  chartData: [
+                    ChartData('David', 25),
+                    ChartData('Steve', 38),
+                    ChartData('Jack', 34),
+                    ChartData('Others', 52),
+                    ChartData('Others', 52),
+                    ChartData('Others', 52),
+                    ChartData('Others', 52),
+                    ChartData('Others', 52)
+                  ],
+                ),
+                CircularGraph(
+                  title: 'Departmanlar',
+                  chartData: [
+                    ChartData('David', 25),
+                    ChartData('Steve', 38),
+                    ChartData('Jack', 34),
+                    ChartData('Others', 52),
+                  ],
+                ),
+                CircularGraph(
+                  title: 'Cinsiyet Dağılımı',
+                  chartData: [
+                    ChartData('David', 25),
+                    ChartData('Steve', 38),
+                    ChartData('Jack', 34),
+                  ],
+                ),
+                CircularGraph(
+                  title: 'Kan Grubu',
+                  chartData: [
+                    ChartData('David', 25),
+                    ChartData('Steve', 38),
+                  ],
+                ),
+                ColumnGraph(
+                  title: 'İşe Giriş Tarihi',
+                )
+              ],
+            ),
+          ),
+          dividerWithIndents(),
         ],
       ),
     );

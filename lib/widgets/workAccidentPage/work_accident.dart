@@ -1,12 +1,14 @@
 import 'package:aeah_work_safety/constants/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
-import 'package:aeah_work_safety/widgets/appBar/appBar.dart';
-import 'package:aeah_work_safety/widgets/components/routingBarWidget.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/components/accidentCardWidget.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/components/columnGraph.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/components/dataTableForAccident.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/components/circularGraph.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/components/searchBar.dart';
+import 'package:aeah_work_safety/models/accident.dart';
+import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
+import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
+import 'package:aeah_work_safety/widgets/components/card_widget.dart';
+import 'package:aeah_work_safety/widgets/components/column_graph.dart';
+import 'package:aeah_work_safety/widgets/workAccidentPage/components/data_table_for_accident.dart';
+import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
+import 'package:aeah_work_safety/widgets/workAccidentPage/components/search_bar.dart';
 import 'package:flutter/material.dart';
 
 class WorkAccidentPage extends StatelessWidget {
@@ -276,7 +278,18 @@ class WorkAccidentPage extends StatelessWidget {
               ],
             ),
           ),
-          DataTableForAccident(),
+          DataTableForAccident(
+            title: 'İş Kazası',
+            columnData: [
+              'Referans No',
+              'Açıklama',
+              'Tanımlayan',
+              'Kayıp Gün Sayısı',
+              'Etkilenenler',
+              'Tarih',
+              'Kök Neden Analizi Gerekiyor Mu'
+            ],
+          ),
           SizedBox(
             height: 10,
           ),

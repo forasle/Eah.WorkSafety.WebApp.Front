@@ -29,7 +29,7 @@ class DrawerWidget extends StatelessWidget {
             leading: Icon(Icons.access_time),
             title: Text('Görevler'),
             onTap: () {
-              Navigator.of(context).popAndPushNamed(missionsRoute);
+              Navigator.of(context).popAndPushNamed(missionsPageRoute);
             },
           ),
           ExpansionTile(

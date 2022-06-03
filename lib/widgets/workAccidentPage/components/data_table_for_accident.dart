@@ -4,6 +4,13 @@ import 'package:aeah_work_safety/models/person.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForAccident extends StatelessWidget {
+  String title;
+  List<String> columnData;
+  DataTableForAccident(
+      {Key? key, required this.title, required this.columnData})
+      : super(key: key);
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -14,19 +21,9 @@ class DataTableForAccident extends StatelessWidget {
           PaginatedDataTable(
             columnSpacing: 30,
             showCheckboxColumn: false,
-            header: Text('İş Kazaları'),
+            header: Text(title),
             rowsPerPage: 10,
-            columns: [
-              DataColumn(
-                label: Text('Referans No'),
-              ),
-              DataColumn(label: Text('Açıklama')),
-              DataColumn(label: Text('Tanımlayan')),
-              DataColumn(label: Text('Kayıp Gün Sayısı')),
-              DataColumn(label: Text('Etkilenenler')),
-              DataColumn(label: Text('Tarih')),
-              DataColumn(label: Text('Kök Neden Analizi Gerekiyor Mu')),
-            ],
+            columns: columnData.map((e) => DataColumn(label: Text(e))).toList(),
             source: _DataSource(context),
           ),
         ],
@@ -40,6 +37,7 @@ class _DataSource extends DataTableSource {
     _rows = [
       Accident(
           accidentIdentifier: Person(
+              chronicDiseases: 'null',
               address: 'test',
               department: 'test',
               identificationNumber: 123,

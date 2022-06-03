@@ -1,4 +1,3 @@
-import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:flutter/material.dart';
 
 class CardWidget extends StatelessWidget {
@@ -43,6 +42,7 @@ class CardWidget extends StatelessWidget {
                 cardSubText,
                 maxLines: 2,
                 softWrap: true,
+                style: TextStyle(overflow: TextOverflow.ellipsis),
               ),
             ],
           ),

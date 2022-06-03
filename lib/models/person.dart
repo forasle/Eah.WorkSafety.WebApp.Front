@@ -8,6 +8,7 @@ class Person {
   final String department;
   final String startDateOfEmployment;
   final String address;
+  final String chronicDiseases;
   bool selected = false;
 
   Person(
@@ -19,5 +20,6 @@ class Person {
       required this.position,
       required this.department,
       required this.startDateOfEmployment,
-      required this.address});
+      required this.address,
+      required this.chronicDiseases});
 }
