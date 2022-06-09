@@ -1,6 +1,7 @@
 import 'package:aeah_work_safety/widgets/chronic_diseases_page/components/data_table_for_chronic_diseases.dart';
 import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
 import 'package:aeah_work_safety/widgets/components/column_graph.dart';
+import 'package:aeah_work_safety/widgets/occupational_diseases_page/components/data_table_for_occupation_diseases.dart';
 import 'package:aeah_work_safety/widgets/preventive_activities_page/components/data_table_for_preventive_activities.dart';
 import 'package:aeah_work_safety/widgets/workAccidentPage/components/search_bar.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +11,8 @@ import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:aeah_work_safety/widgets/components/card_widget.dart';
 
-class ChronicDiseasesPage extends StatelessWidget {
-  const ChronicDiseasesPage({Key? key}) : super(key: key);
+class OccupationDiseasesPage extends StatelessWidget {
+  const OccupationDiseasesPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,8 @@ class ChronicDiseasesPage extends StatelessWidget {
               routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
               const Icon(Icons.arrow_right),
               routingBarWidget(
-                  pageName: 'Kronik Hastalık',
-                  routeName: chronicDiseasesPageRoute),
+                  pageName: 'Meslek Hastalıkları',
+                  routeName: occupationDiseasesPageRoute),
             ],
           ),
           dividerWithIndents(),
@@ -41,7 +42,7 @@ class ChronicDiseasesPage extends StatelessWidget {
                   children: [
                     Flexible(
                       child: Text(
-                        'Kronik Hastalık',
+                        'Meslek Hastalıkları',
                         style: Theme.of(context).textTheme.headline4,
                       ),
                     ),
@@ -80,20 +81,7 @@ class ChronicDiseasesPage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                       children: [
-                    ['Kronik Hast. Çalışan', '5984', Colors.blueGrey, '-'],
-                    [
-                      'Kronik Hast. Çalışan Yüzdesi',
-                      '2545',
-                      Colors.blueGrey.shade700,
-                      'KRONIK HASTALIKLI ÇALIŞAN / TOPLAM ÇALIŞAN * 100'
-                    ],
-                    [
-                      'Ort. Çalışma Süresi (Yıl)',
-                      '1240',
-                      Colors.blueAccent.shade700,
-                      '-'
-                    ],
-                    ['Ortalama Yaş', '28', Colors.greenAccent.shade700, '-'],
+                    ['Toplam', '258', Colors.blueGrey, '-'],
                   ]
                           .map(
                             (e) => CardWidget(
@@ -106,18 +94,14 @@ class ChronicDiseasesPage extends StatelessWidget {
                 ),
               ),
               dividerWithIndents(),
-              DataTableForChronicDiseases(
-                title: 'Eğitim',
+              DataTableForOccupationDiseases(
+                title: 'Meslek Hastalıkları',
                 columnData: const [
-                  'Sıra',
-                  'TC Kimlik No',
-                  'Sicil No',
-                  'Ad Soyad',
-                  'Görev',
-                  'Departman',
-                  'İşe Giriş Tarihi',
+                  'Referans Numarası',
+                  'Çalışan',
                   'Tanı',
-                  'Adres',
+                  'Kesin Tanı Tarihi',
+                  'Departman',
                 ],
               ),
               SizedBox(
@@ -138,42 +122,15 @@ class ChronicDiseasesPage extends StatelessWidget {
                 child: Row(
                   children: [
                     CircularGraph(
-                      title: 'Vucut Kitle Oranı',
+                      title: 'Hastalı Tanı Grupları',
                       chartData: [
-                        ChartData('Obez 1', 25),
-                        ChartData('Normal', 38),
-                        ChartData('Obez 2', 34),
-                        ChartData('Obez 3', 52),
-                        ChartData('Fazla Kilolu', 52),
-                        ChartData('Zayıf', 52),
-                        ChartData('Belirtilmemiş', 52),
+                        ChartData('Tanı 1', 25),
+                        ChartData('Tanı 2', 38),
+                        ChartData('Tanı 3', 34),
+                        ChartData('Tanı 4', 52),
+                        ChartData('Tanı 5', 52),
                       ],
                     ),
-                    CircularGraph(
-                      title: 'Sigara Kullanımı',
-                      chartData: [
-                        ChartData('Evet', 25),
-                        ChartData('Belirtilmemiş', 38),
-                      ],
-                    ),
-                    CircularGraph(
-                      title: 'Alkol Kullanımı',
-                      chartData: [
-                        ChartData('Evet', 25),
-                        ChartData('Hayır', 38),
-                        ChartData('Belirtilmemiş', 34),
-                      ],
-                    ),
-                    CircularGraph(
-                      title: 'Cisiyet Dağılımı',
-                      chartData: [
-                        ChartData('Erkek', 25),
-                        ChartData('Kadın', 38),
-                      ],
-                    ),
-                    ColumnGraph(
-                      title: 'Kronik Hastalık Kümeleri',
-                    )
                   ],
                 ),
               ),

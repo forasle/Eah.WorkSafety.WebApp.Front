@@ -1,12 +1,13 @@
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/models/inconsistencies.dart';
+import 'package:aeah_work_safety/models/occupation_diseases.dart';
 import 'package:aeah_work_safety/models/person.dart';
 import 'package:flutter/material.dart';
 
-class DataTableForChronicDiseases extends StatelessWidget {
+class DataTableForOccupationDiseases extends StatelessWidget {
   String title;
   List<String> columnData;
-  DataTableForChronicDiseases(
+  DataTableForOccupationDiseases(
       {Key? key, required this.title, required this.columnData})
       : super(key: key);
 
@@ -35,25 +36,32 @@ class DataTableForChronicDiseases extends StatelessWidget {
 class _DataSource extends DataTableSource {
   _DataSource(this.context) {
     _rows = [
-      Person(
-          number: 123,
-          identificationNumber: 123,
-          registrationNumber: '123',
-          name: 'name',
-          surname: 'surname',
-          position: 'position',
-          department: 'department',
-          startDateOfEmployment: 'startDateOfEmployment',
-          address: 'address',
-          chronicDiseases: 'chronicDiseases',
-          necessaryPeriodicMedicalExaminationDate:
-              'necessaryPeriodicMedicalExaminationDate',
-          periodicMedicalExaminationType: 'periodicMedicalExaminationType')
+      OccupationDiseases(
+        occupationDiseases: '123',
+        occupationDiseasesDiagnosis: '123',
+        occupationDiseasesDiagnosisdate: '123',
+        occupationDiseasesNumber: 123,
+        occupationDiseasesOwner: Person(
+            necessaryPeriodicMedicalExaminationDate:
+                'necessaryPeriodicMedicalExaminationDate',
+            periodicMedicalExaminationType: 'periodicMedicalExaminationType',
+            chronicDiseases: 'null',
+            number: 123,
+            identificationNumber: 159,
+            registrationNumber: 'Test',
+            name: 'Murat',
+            surname: 'Dogan',
+            position: 'Arge',
+            department: 'Arge',
+            startDateOfEmployment: 'EA',
+            address: 'Test'),
+        occupationDiseasesreferenceNumber: 'position',
+      )
     ];
   }
 
   final BuildContext context;
-  late List<Person> _rows;
+  late List<OccupationDiseases> _rows;
 
   final int _selectedCount = 0;
 
@@ -67,15 +75,11 @@ class _DataSource extends DataTableSource {
         Navigator.pushNamed(context, workersDetailPageRoute);
       },
       cells: [
-        DataCell(Text(row.number.toString())),
-        DataCell(Text(row.identificationNumber.toString())),
-        DataCell(Text(row.identificationNumber.toString())),
-        DataCell(Text(row.name.toString())),
-        DataCell(Text(row.position.toString())),
-        DataCell(Text(row.department.toString())),
-        DataCell(Text(row.startDateOfEmployment.toString())),
-        DataCell(Text(row.chronicDiseases.toString())),
-        DataCell(Text(row.address.toString())),
+        DataCell(Text(row.occupationDiseasesreferenceNumber.toString())),
+        DataCell(Text(row.occupationDiseasesOwner.toString())),
+        DataCell(Text(row.occupationDiseasesDiagnosis.toString())),
+        DataCell(Text(row.occupationDiseasesDiagnosisdate.toString())),
+        DataCell(Text(row.occupationDiseasesOwner.department)),
       ],
     ));
   }

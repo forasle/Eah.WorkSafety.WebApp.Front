@@ -8,12 +8,12 @@ class ColumnGraph extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var data = [
-      _ChartData('2018', 12),
-      _ChartData('2019', 15),
-      _ChartData('2020', 30),
-      _ChartData('2021', 6.4),
-      _ChartData('2022', 14),
-      _ChartData('Toplam', 144)
+      _ChartData('Nöropatiler', 12),
+      _ChartData('Migren', 15),
+      _ChartData('Kronik Bel Ağrısı', 30),
+      _ChartData('Kanser', 6.4),
+      _ChartData('Astım', 14),
+      _ChartData('Diabetes Mellitus', 144)
     ];
     return Padding(
       padding: const EdgeInsets.all(8.0),

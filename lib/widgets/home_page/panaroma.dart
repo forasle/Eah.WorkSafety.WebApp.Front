@@ -118,7 +118,8 @@ class Panaroma extends StatelessWidget {
                     'Meslek Hastalığı',
                     Colors.redAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersMainPageRoute);
+                      Navigator.of(context)
+                          .pushNamed(occupationDiseasesPageRoute);
                     }
                   ],
                   [
@@ -127,7 +128,8 @@ class Panaroma extends StatelessWidget {
                     'Periyodik Muayene',
                     Colors.blueAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workersMainPageRoute);
+                      Navigator.of(context)
+                          .pushNamed(periodicMedicalExaminationPageRoute);
                     }
                   ]
                 ]

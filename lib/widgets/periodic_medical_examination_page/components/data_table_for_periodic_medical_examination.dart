@@ -1,12 +1,12 @@
 import 'package:aeah_work_safety/constants/routes.dart';
-import 'package:aeah_work_safety/models/inconsistencies.dart';
+import 'package:aeah_work_safety/models/accident.dart';
 import 'package:aeah_work_safety/models/person.dart';
 import 'package:flutter/material.dart';
 
-class DataTableForChronicDiseases extends StatelessWidget {
+class DataTableForPeriodicMedicalExamination extends StatelessWidget {
   String title;
   List<String> columnData;
-  DataTableForChronicDiseases(
+  DataTableForPeriodicMedicalExamination(
       {Key? key, required this.title, required this.columnData})
       : super(key: key);
 
@@ -36,19 +36,19 @@ class _DataSource extends DataTableSource {
   _DataSource(this.context) {
     _rows = [
       Person(
-          number: 123,
-          identificationNumber: 123,
-          registrationNumber: '123',
-          name: 'name',
-          surname: 'surname',
-          position: 'position',
-          department: 'department',
-          startDateOfEmployment: 'startDateOfEmployment',
-          address: 'address',
-          chronicDiseases: 'chronicDiseases',
           necessaryPeriodicMedicalExaminationDate:
               'necessaryPeriodicMedicalExaminationDate',
-          periodicMedicalExaminationType: 'periodicMedicalExaminationType')
+          periodicMedicalExaminationType: 'periodicMedicalExaminationType',
+          chronicDiseases: 'null',
+          address: 'test',
+          department: 'test',
+          identificationNumber: 123,
+          name: 'Murat',
+          number: 5,
+          position: 'Engineer',
+          registrationNumber: '25',
+          startDateOfEmployment: 'Test',
+          surname: 'Dogan'),
     ];
   }
 
@@ -64,18 +64,19 @@ class _DataSource extends DataTableSource {
       index: index,
       selected: row.selected,
       onSelectChanged: (value) {
-        Navigator.pushNamed(context, workersDetailPageRoute);
+        Navigator.pushNamed(context, testPageRoute);
       },
       cells: [
         DataCell(Text(row.number.toString())),
         DataCell(Text(row.identificationNumber.toString())),
-        DataCell(Text(row.identificationNumber.toString())),
-        DataCell(Text(row.name.toString())),
-        DataCell(Text(row.position.toString())),
-        DataCell(Text(row.department.toString())),
-        DataCell(Text(row.startDateOfEmployment.toString())),
-        DataCell(Text(row.chronicDiseases.toString())),
-        DataCell(Text(row.address.toString())),
+        DataCell(Text(row.registrationNumber)),
+        DataCell(Text(row.name)),
+        DataCell(Text(row.position)),
+        DataCell(Text(row.department)),
+        DataCell(Text(row.startDateOfEmployment)),
+        DataCell(Text(row.periodicMedicalExaminationType)),
+        DataCell(Text(row.necessaryPeriodicMedicalExaminationDate)),
+        DataCell(Text(row.address)),
       ],
     ));
   }

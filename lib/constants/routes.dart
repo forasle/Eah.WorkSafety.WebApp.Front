@@ -11,3 +11,8 @@ String inconsistenciesPageRoute = '/panaroma/inconsistencies';
 String preventiveActivitiesPageRoute = '/panaroma/preventiveActivities';
 String educationPageRoute = '/panaroma/education';
 String chronicDiseasesPageRoute = '/panaroma/chronicDiseases';
+String occupationDiseasesPageRoute = '/panaroma/occupationDiseases';
+String periodicMedicalExaminationPageRoute =
+    '/panaroma/periodicMedicalExamination';
+String testPageRoute = '/panaroma/testPageRoute';
+String addNewWorkAccident = '/panaroma/nearMiss/addNewWorkAccident';

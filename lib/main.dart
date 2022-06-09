@@ -1,5 +1,7 @@
 import 'package:aeah_work_safety/constants/routes.dart';
+import 'package:aeah_work_safety/test.dart';
 import 'package:aeah_work_safety/widgets/chronic_diseases_page/chronic_diseases_page.dart';
+import 'package:aeah_work_safety/widgets/components/add_new_work_accident.dart';
 import 'package:aeah_work_safety/widgets/dayWithoutAccidentPage/day_without_accident.dart';
 import 'package:aeah_work_safety/widgets/education_page/education_page.dart';
 import 'package:aeah_work_safety/widgets/home_page/panaroma.dart';
@@ -7,6 +9,8 @@ import 'package:aeah_work_safety/widgets/inconsistencies_page/inconsistencies_pa
 import 'package:aeah_work_safety/widgets/loginPage/login.dart';
 import 'package:aeah_work_safety/widgets/missionsPage/missions.dart';
 import 'package:aeah_work_safety/widgets/near_miss_page/near_miss.dart';
+import 'package:aeah_work_safety/widgets/occupational_diseases_page/occupational_diseases_page.dart';
+import 'package:aeah_work_safety/widgets/periodic_medical_examination_page/periodic_medical_examination_page.dart';
 import 'package:aeah_work_safety/widgets/preventive_activities_page/preventive_activities_page.dart';
 import 'package:aeah_work_safety/widgets/workAccidentPage/work_accident.dart';
 import 'package:aeah_work_safety/widgets/workersDetailPage/workers_detail_page.dart';
@@ -45,6 +49,12 @@ class MyApp extends StatelessWidget {
             const PreventiveActivities(),
         educationPageRoute: (context) => const EducationPage(),
         chronicDiseasesPageRoute: (context) => const ChronicDiseasesPage(),
+        occupationDiseasesPageRoute: (context) =>
+            const OccupationDiseasesPage(),
+        periodicMedicalExaminationPageRoute: (context) =>
+            const PeriodicMedicalExaminationPage(),
+        testPageRoute: (context) => const Test(),
+        addNewWorkAccident: (context) => const AddNewWorkAccident(),
       },
     );
   }

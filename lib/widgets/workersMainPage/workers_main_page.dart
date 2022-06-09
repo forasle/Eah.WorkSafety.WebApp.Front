@@ -114,7 +114,7 @@ class WorkersMainPage extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          //dividerWithIndents(),
+          dividerWithIndents(),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(

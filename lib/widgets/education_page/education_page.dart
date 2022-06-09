@@ -23,7 +23,7 @@ class EducationPage extends StatelessWidget {
               routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
               const Icon(Icons.arrow_right),
               routingBarWidget(
-                  pageName: 'Eğitim', routeName: dayWithoutAccidentPageRoute),
+                  pageName: 'Eğitim', routeName: educationPageRoute),
             ],
           ),
           dividerWithIndents(),

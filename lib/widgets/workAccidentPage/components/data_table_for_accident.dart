@@ -37,6 +37,9 @@ class _DataSource extends DataTableSource {
     _rows = [
       Accident(
           accidentIdentifier: Person(
+              necessaryPeriodicMedicalExaminationDate:
+                  'necessaryPeriodicMedicalExaminationDate',
+              periodicMedicalExaminationType: 'periodicMedicalExaminationType',
               chronicDiseases: 'null',
               address: 'test',
               department: 'test',

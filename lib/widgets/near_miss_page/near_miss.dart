@@ -208,7 +208,9 @@ class NearMissPage extends StatelessWidget {
                       child: SizedBox(
                         width: 200,
                         child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, addNewWorkAccident);
+                            },
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(

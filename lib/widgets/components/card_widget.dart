@@ -19,9 +19,13 @@ class CardWidget extends StatelessWidget {
       color: cardColor,
       margin: EdgeInsets.all(8),
       elevation: 20,
-      child: SizedBox(
-        //constraints:
-        // const BoxConstraints(minWidth: 195, minHeight: 100, maxWidth: 225),
+      child: Container(
+        //width: double.infinity,
+        //constraints: const BoxConstraints(
+        //minWidth: 195,
+        // minHeight: 100,
+        //maxWidth: 225,
+        //),
         width: 200,
         height: 115,
         child: Padding(
