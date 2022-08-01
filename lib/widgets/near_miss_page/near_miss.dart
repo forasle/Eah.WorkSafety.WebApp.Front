@@ -209,7 +209,8 @@ class NearMissPage extends StatelessWidget {
                         width: 200,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, addNewWorkAccident);
+                              Navigator.pushNamed(
+                                  context, addNewWorkAccidentOrNearMiss);
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -254,7 +255,10 @@ class NearMissPage extends StatelessWidget {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               primary: Colors.blueGrey.shade700),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, addNewWorkAccidentOrNearMiss);
+                          },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
@@ -278,15 +282,18 @@ class NearMissPage extends StatelessWidget {
                 ),
               ),
               dividerWithIndents(),
-              DataTableForAccident(title: 'Ramak Kalalar', columnData: [
-                'Referans No',
-                'Açıklama',
-                'Tanımlayan',
-                'Kayıp Gün Sayısı',
-                'Etkilenenler',
-                'Tarih',
-                'Kök Neden Analizi Gerekiyor Mu'
-              ]),
+              DataTableForAccident(
+                  title: 'Ramak Kalalar',
+                  columnData: [
+                    'Referans No',
+                    'Açıklama',
+                    'Tanımlayan',
+                    'Kayıp Gün Sayısı',
+                    'Etkilenenler',
+                    'Tarih',
+                    'Kök Neden Analizi Gerekiyor Mu'
+                  ],
+                  detailRoute: nearMissDetailPage),
               SizedBox(
                 height: 10,
               ),

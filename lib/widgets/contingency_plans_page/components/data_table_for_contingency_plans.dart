@@ -1,12 +1,13 @@
+import 'package:aeah_work_safety/models/contingency_plan.dart';
 import 'package:aeah_work_safety/models/inconsistencies.dart';
 import 'package:aeah_work_safety/models/person.dart';
 import 'package:flutter/material.dart';
 
-class DataTableForPreventiveActivities extends StatelessWidget {
+class DataTableForContingencyPlans extends StatelessWidget {
   String title;
   String detailRoute;
   List<String> columnData;
-  DataTableForPreventiveActivities(
+  DataTableForContingencyPlans(
       {Key? key,
       required this.title,
       required this.columnData,
@@ -38,18 +39,14 @@ class DataTableForPreventiveActivities extends StatelessWidget {
 class _DataSource extends DataTableSource {
   _DataSource(this.context, this.detailRoute) {
     _rows = [
-      Inconsistencies(
-          inconsistenciesSupervisor: 'Murat',
-          inconsistenciesStatus: 'Açık',
-          inconsistenciesRootCauseAnalysis: true,
-          inconsistenciesRiskScore: 125,
-          inconsistenciesRelation: 'ilişki',
-          inconsistenciesReferenceNumber: 'Referans',
-          inconsistenciesName: 'Asansör',
-          inconsistenciesInfo: 'Bozuk',
-          inconsistenciesDate: 'Mayıs',
-          inconsistenciesDepartment: 'Arge',
-          inconsistenciesIdentifier: Person(
+      ContingencyPlans(
+          contingencyDate: 'Acil Durum Tarihi',
+          contingencyCreationTime: 'Acil Durum Tarihi',
+          contingencyInfo: 'Acil Durum Açıklaması',
+          contingencyPlansNumber: 123,
+          contingencyReferenceNumber: 'Referans',
+          contingencyName: 'Asansör',
+          contingencyIdentifier: Person(
               necessaryPeriodicMedicalExaminationDate:
                   'necessaryPeriodicMedicalExaminationDate',
               periodicMedicalExaminationType: 'periodicMedicalExaminationType',
@@ -67,7 +64,7 @@ class _DataSource extends DataTableSource {
   }
 
   final BuildContext context;
-  late List<Inconsistencies> _rows;
+  late List<ContingencyPlans> _rows;
   final String detailRoute;
 
   final int _selectedCount = 0;
@@ -82,17 +79,10 @@ class _DataSource extends DataTableSource {
         Navigator.pushNamed(context, detailRoute);
       },
       cells: [
-        DataCell(Text(row.inconsistenciesReferenceNumber.toString())),
-        DataCell(Text(row.inconsistenciesName.toString())),
-        DataCell(Text(row.inconsistenciesStatus.toString())),
-        DataCell(Text(row.inconsistenciesRiskScore.toString())),
-        DataCell(Text(row.inconsistenciesInfo.toString())),
-        DataCell(Text(row.inconsistenciesIdentifier.toString())),
-        DataCell(Text(row.inconsistenciesDepartment.toString())),
-        DataCell(Text(row.inconsistenciesSupervisor.toString())),
-        DataCell(Text(row.inconsistenciesRelation.toString())),
-        DataCell(Text(row.inconsistenciesDate.toString())),
-        DataCell(Text(row.inconsistenciesRootCauseAnalysis ? 'Evet' : 'Hayır')),
+        DataCell(Text(row.contingencyReferenceNumber.toString())),
+        DataCell(Text(row.contingencyName.toString())),
+        DataCell(Text(row.contingencyIdentifier.toString())),
+        DataCell(Text(row.contingencyCreationTime.toString())),
       ],
     ));
   }

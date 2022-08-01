@@ -1,12 +1,13 @@
+import 'package:aeah_work_safety/models/education.dart';
 import 'package:aeah_work_safety/models/inconsistencies.dart';
 import 'package:aeah_work_safety/models/person.dart';
 import 'package:flutter/material.dart';
 
-class DataTableForPreventiveActivities extends StatelessWidget {
+class DataTableForEducation extends StatelessWidget {
   String title;
   String detailRoute;
   List<String> columnData;
-  DataTableForPreventiveActivities(
+  DataTableForEducation(
       {Key? key,
       required this.title,
       required this.columnData,
@@ -38,18 +39,28 @@ class DataTableForPreventiveActivities extends StatelessWidget {
 class _DataSource extends DataTableSource {
   _DataSource(this.context, this.detailRoute) {
     _rows = [
-      Inconsistencies(
-          inconsistenciesSupervisor: 'Murat',
-          inconsistenciesStatus: 'Açık',
-          inconsistenciesRootCauseAnalysis: true,
-          inconsistenciesRiskScore: 125,
-          inconsistenciesRelation: 'ilişki',
-          inconsistenciesReferenceNumber: 'Referans',
-          inconsistenciesName: 'Asansör',
-          inconsistenciesInfo: 'Bozuk',
-          inconsistenciesDate: 'Mayıs',
-          inconsistenciesDepartment: 'Arge',
-          inconsistenciesIdentifier: Person(
+      Education(
+          educationalist: Person(
+              necessaryPeriodicMedicalExaminationDate:
+                  'necessaryPeriodicMedicalExaminationDate',
+              periodicMedicalExaminationType: 'periodicMedicalExaminationType',
+              chronicDiseases: 'null',
+              number: 123,
+              identificationNumber: 159,
+              registrationNumber: 'Test',
+              name: 'Murat',
+              surname: 'Dogan',
+              position: 'Arge',
+              department: 'Arge',
+              startDateOfEmployment: 'EA',
+              address: 'Test'),
+          educationName: 'Sağlık Konuları',
+          educationInfo: 'Test',
+          educationNumber: 4562,
+          educationStatus: true,
+          educationTime: 'time',
+          educationDate: 'education date',
+          educationIdentifier: Person(
               necessaryPeriodicMedicalExaminationDate:
                   'necessaryPeriodicMedicalExaminationDate',
               periodicMedicalExaminationType: 'periodicMedicalExaminationType',
@@ -67,7 +78,7 @@ class _DataSource extends DataTableSource {
   }
 
   final BuildContext context;
-  late List<Inconsistencies> _rows;
+  late List<Education> _rows;
   final String detailRoute;
 
   final int _selectedCount = 0;
@@ -82,17 +93,11 @@ class _DataSource extends DataTableSource {
         Navigator.pushNamed(context, detailRoute);
       },
       cells: [
-        DataCell(Text(row.inconsistenciesReferenceNumber.toString())),
-        DataCell(Text(row.inconsistenciesName.toString())),
-        DataCell(Text(row.inconsistenciesStatus.toString())),
-        DataCell(Text(row.inconsistenciesRiskScore.toString())),
-        DataCell(Text(row.inconsistenciesInfo.toString())),
-        DataCell(Text(row.inconsistenciesIdentifier.toString())),
-        DataCell(Text(row.inconsistenciesDepartment.toString())),
-        DataCell(Text(row.inconsistenciesSupervisor.toString())),
-        DataCell(Text(row.inconsistenciesRelation.toString())),
-        DataCell(Text(row.inconsistenciesDate.toString())),
-        DataCell(Text(row.inconsistenciesRootCauseAnalysis ? 'Evet' : 'Hayır')),
+        DataCell(Text(row.educationName.toString())),
+        DataCell(Text(row.educationDate.toString())),
+        DataCell(Text(row.educationalist.toString())),
+        DataCell(Text(row.educationTime.toString())),
+        DataCell(Text(row.educationStatus.toString())),
       ],
     ));
   }

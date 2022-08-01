@@ -85,9 +85,7 @@ class _DataSource extends DataTableSource {
     return (DataRow.byIndex(
       index: index,
       selected: row.selected,
-      onSelectChanged: (value) {
-        Navigator.pushNamed(context, workersDetailPageRoute);
-      },
+      onSelectChanged: (value) {},
       cells: [
         DataCell(Text(row.missionName)),
         DataCell(Text(row.missionDepartment)),

@@ -1,4 +1,12 @@
-import 'package:aeah_work_safety/widgets/preventive_activities_page/components/data_table_for_preventive_activities.dart';
+import 'package:aeah_work_safety/models/accident.dart';
+import 'package:aeah_work_safety/models/inconsistencies.dart';
+import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
+import 'package:aeah_work_safety/widgets/components/column_graph.dart';
+import 'package:aeah_work_safety/widgets/contingency_plans_page/components/data_table_for_contingency_plans.dart';
+import 'package:aeah_work_safety/widgets/near_miss_page/components/data_table_for_inconsistencies.dart';
+import 'package:aeah_work_safety/widgets/risk_assessment/components/data_table_for_risk_assessment.dart';
+import 'package:aeah_work_safety/widgets/workAccidentPage/components/data_table_for_accident.dart';
 import 'package:aeah_work_safety/widgets/workAccidentPage/components/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/constants.dart';
@@ -7,8 +15,8 @@ import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:aeah_work_safety/widgets/components/card_widget.dart';
 
-class PreventiveActivities extends StatelessWidget {
-  const PreventiveActivities({Key? key}) : super(key: key);
+class RiskAssessmentPage extends StatelessWidget {
+  const RiskAssessmentPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +31,8 @@ class PreventiveActivities extends StatelessWidget {
               routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
               Icon(Icons.arrow_right),
               routingBarWidget(
-                  pageName: 'Düzenleyici Önleyici Faaliyetler',
-                  routeName: dayWithoutAccidentPageRoute),
+                  pageName: 'Risk Değerlendirme',
+                  routeName: riskAssessmentPage),
             ],
           ),
           dividerWithIndents(),
@@ -38,7 +46,7 @@ class PreventiveActivities extends StatelessWidget {
                   children: [
                     Flexible(
                       child: Text(
-                        'Düzenleyici Önleyici Faaliyetler',
+                        'Risk Değerlendirme',
                         style: Theme.of(context).textTheme.headline4,
                       ),
                     ),
@@ -77,11 +85,7 @@ class PreventiveActivities extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                       children: [
-                    ['Ortalama Yaş(Gün)', '5', Colors.blueGrey, '-'],
-                    ['Açık DÖF\'ler', '-', Colors.yellowAccent.shade700, '-'],
-                    ['Açık', '-', Colors.blueAccent.shade700, '-'],
-                    ['Tamamlanmış', '-', Colors.orangeAccent.shade700, '-'],
-                    ['Reddedilmiş', '-', Colors.blueGrey.shade700, '-'],
+                    ['Toplam', '5', Colors.blueGrey, '-'],
                   ]
                           .map(
                             (e) => CardWidget(
@@ -101,40 +105,18 @@ class PreventiveActivities extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: SizedBox(
-                        width: 150,
+                        width: 275,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(
-                                  context, addNewPreventiveActivity);
+                              Navigator.of(context)
+                                  .pushNamed(addNewRiskAssessment);
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 children: [
                                   Icon(Icons.add),
-                                  Text('Yeni DÖF'),
-                                ],
-                              ),
-                            )),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                        width: 150,
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                primary: Colors.greenAccent.shade700),
-                            onPressed: () {},
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Icon(Icons.upload_rounded),
-                                  Text('DÖF Yükle'),
+                                  Text('Yeni Risk Değerlendirmesi Ekle'),
                                 ],
                               ),
                             )),
@@ -174,23 +156,15 @@ class PreventiveActivities extends StatelessWidget {
                 ),
               ),
               dividerWithIndents(),
-              DataTableForPreventiveActivities(
-                title: 'Düzenleyici Önleyici Faaliyetler',
-                columnData: const [
-                  'Referans No',
-                  'Ad',
-                  'Durum',
-                  'Sorumlu',
-                  'İlişki',
-                  'Termin Tarihi',
-                  'Süpervizör',
-                  'Açıklama',
-                  'Rapor Eden',
-                  'Oluşturulma Tarihi',
-                  'Kök Neden Analizi Gerekiyor Mu'
-                ],
-                detailRoute: preventiveActivityDetailPage,
-              ),
+              DataTableForRiskAssessment(
+                  title: 'Risk Değerlendirmeleri',
+                  columnData: [
+                    'Referans No',
+                    'Revizyon No',
+                    'Form Şablonu',
+                    'Oluşturma Tarihi',
+                  ],
+                  detailRoute: riskAssessmentDetailPage),
               SizedBox(
                 height: 10,
               ),

@@ -14,5 +14,27 @@ String chronicDiseasesPageRoute = '/panaroma/chronicDiseases';
 String occupationDiseasesPageRoute = '/panaroma/occupationDiseases';
 String periodicMedicalExaminationPageRoute =
     '/panaroma/periodicMedicalExamination';
-String testPageRoute = '/panaroma/testPageRoute';
-String addNewWorkAccident = '/panaroma/nearMiss/addNewWorkAccident';
+String addNewWorkAccidentOrNearMiss =
+    '/panaroma/nearMiss/addNewWorkAccidentOrNearMiss';
+String addNewInconsistencies =
+    '/panaroma/inconsistencies/addNewInconsistencies';
+String nearMissDetailPage = '/panaroma/nearMiss/nearMissDetailPage';
+String workAccidentDetailPage = '/panaroma/workAccident/workAccidentDetailPage';
+String inconsistenciesDetailPage =
+    '/panaroma/inconsistencies/inconsistenciesDetailPage';
+String addNewPreventiveActivity =
+    '/panaroma/preventiveActivities/addNewPreventiveActivity';
+String preventiveActivityDetailPage =
+    '/panaroma/preventiveActivities/preventiveActivityDetailPage';
+String addNewEducation = '/panaroma/education/addNewEducation';
+String contingencyPlansPage = '/panaroma/contingencyPlansPage';
+String addNewContingencyPlan =
+    '/panaroma/contingencyPlans/addNewContingencyPlan';
+String contingencyPlansDetailPage =
+    '/panaroma/contingencyPlans/contingencyPlansDetailPage';
+String addNewWorker = '/panaroma/addNewWorker';
+String riskAssessmentPage = '/panaroma/riskAssessmentPage';
+String riskAssessmentDetailPage =
+    '/panaroma/riskAssessmentPage/riskAssessmentDetailPage';
+String addNewRiskAssessment =
+    '/panaroma/riskAssessmentPage/addNewRiskAssessment';

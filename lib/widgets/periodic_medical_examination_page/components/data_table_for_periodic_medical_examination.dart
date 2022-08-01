@@ -63,9 +63,7 @@ class _DataSource extends DataTableSource {
     return (DataRow.byIndex(
       index: index,
       selected: row.selected,
-      onSelectChanged: (value) {
-        Navigator.pushNamed(context, testPageRoute);
-      },
+      onSelectChanged: (value) {},
       cells: [
         DataCell(Text(row.number.toString())),
         DataCell(Text(row.identificationNumber.toString())),

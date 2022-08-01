@@ -47,7 +47,9 @@ class DrawerWidget extends StatelessWidget {
               ListTile(
                 leading: Icon(Icons.person_add),
                 title: Text('Yeni Çalışan Ekle'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(addNewWorker);
+                },
               ),
             ],
           ),
@@ -59,27 +61,37 @@ class DrawerWidget extends StatelessWidget {
               ListTile(
                 leading: Icon(Icons.emergency_outlined),
                 title: Text('Acil Durum Planları'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(contingencyPlansPage);
+                },
               ),
               ListTile(
                 leading: Icon(Icons.add_moderator_outlined),
                 title: Text('Risk Değerlendirme'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(riskAssessmentPage);
+                },
               ),
               ListTile(
                 leading: Icon(Icons.cast_for_education_rounded),
                 title: Text('Eğitim'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(educationPageRoute);
+                },
               ),
               ListTile(
                 leading: Icon(Icons.healing_sharp),
                 title: Text('Kazalar'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(workAccidentPageRoute);
+                },
               ),
               ListTile(
                 leading: Icon(Icons.add_alert_outlined),
-                title: Text('Ramak Kalalar'),
-                onTap: () {},
+                title: Text('Ramak Kala'),
+                onTap: () {
+                  Navigator.of(context).pushNamed(nearMissPageRoute);
+                },
               ),
               ListTile(
                 leading: Icon(Icons.construction_outlined),
@@ -94,12 +106,17 @@ class DrawerWidget extends StatelessWidget {
               ListTile(
                 leading: Icon(Icons.dangerous_outlined),
                 title: Text('Uygunsuzluklar'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(inconsistenciesPageRoute);
+                },
               ),
               ListTile(
                 leading: Icon(Icons.list_alt_rounded),
                 title: Text('Düzenleyici/Önleyici Faaliyetler'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context)
+                      .pushNamed(preventiveActivitiesPageRoute);
+                },
               ),
             ],
           ),
@@ -121,12 +138,16 @@ class DrawerWidget extends StatelessWidget {
               ListTile(
                 leading: Icon(Icons.badge),
                 title: Text('Kronik Hastalıklar'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(chronicDiseasesPageRoute);
+                },
               ),
               ListTile(
                 leading: Icon(Icons.personal_injury_outlined),
                 title: Text('Meslek Hastalıkları'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(occupationDiseasesPageRoute);
+                },
               ),
               ExpansionTile(
                 childrenPadding: EdgeInsets.only(left: 35),

@@ -136,7 +136,10 @@ class InconsistenciesPage extends StatelessWidget {
                         child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 primary: Colors.greenAccent.shade700),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, addNewInconsistencies);
+                            },
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
@@ -182,19 +185,22 @@ class InconsistenciesPage extends StatelessWidget {
                 ),
               ),
               dividerWithIndents(),
-              DataTableForInconsistencies(title: 'Uygunsuzluklar', columnData: [
-                'Referans No',
-                'Ad',
-                'Durum',
-                'Risk Skoru',
-                'Açıklama',
-                'Tanımlayan',
-                'Departman',
-                'Süpervizör',
-                'ilişki',
-                'Tarih',
-                'Kök Neden Analizi Gerekiyor Mu'
-              ]),
+              DataTableForInconsistencies(
+                  title: 'Uygunsuzluklar',
+                  columnData: [
+                    'Referans No',
+                    'Ad',
+                    'Durum',
+                    'Risk Skoru',
+                    'Açıklama',
+                    'Tanımlayan',
+                    'Departman',
+                    'Süpervizör',
+                    'ilişki',
+                    'Tarih',
+                    'Kök Neden Analizi Gerekiyor Mu'
+                  ],
+                  detailRoute: inconsistenciesDetailPage),
               SizedBox(
                 height: 10,
               ),

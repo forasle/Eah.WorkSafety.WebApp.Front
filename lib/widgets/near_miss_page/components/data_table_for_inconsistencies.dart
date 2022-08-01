@@ -4,10 +4,14 @@ import 'package:aeah_work_safety/models/person.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForInconsistencies extends StatelessWidget {
+  String detailRoute;
   String title;
   List<String> columnData;
   DataTableForInconsistencies(
-      {Key? key, required this.title, required this.columnData})
+      {Key? key,
+      required this.title,
+      required this.columnData,
+      required this.detailRoute})
       : super(key: key);
 
   @override
@@ -24,7 +28,8 @@ class DataTableForInconsistencies extends StatelessWidget {
             header: Text(title),
             rowsPerPage: 10,
             columns: columnData.map((e) => DataColumn(label: Text(e))).toList(),
-            source: _DataSource(context),
+            source: _DataSource(
+                context: context, detailRoute: inconsistenciesDetailPage),
           ),
         ],
       ),
@@ -33,7 +38,8 @@ class DataTableForInconsistencies extends StatelessWidget {
 }
 
 class _DataSource extends DataTableSource {
-  _DataSource(this.context) {
+  String detailRoute;
+  _DataSource({required this.context, required this.detailRoute}) {
     _rows = [
       Inconsistencies(
           inconsistenciesSupervisor: 'Murat',
@@ -75,7 +81,7 @@ class _DataSource extends DataTableSource {
       index: index,
       selected: row.selected,
       onSelectChanged: (value) {
-        Navigator.pushNamed(context, workersDetailPageRoute);
+        Navigator.pushNamed(context, detailRoute);
       },
       cells: [
         DataCell(Text(row.inconsistenciesReferenceNumber.toString())),

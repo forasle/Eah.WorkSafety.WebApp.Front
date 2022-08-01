@@ -1,13 +1,16 @@
-import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/models/accident.dart';
 import 'package:aeah_work_safety/models/person.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForAccident extends StatelessWidget {
   String title;
+  String detailRoute;
   List<String> columnData;
   DataTableForAccident(
-      {Key? key, required this.title, required this.columnData})
+      {Key? key,
+      required this.title,
+      required this.columnData,
+      required this.detailRoute})
       : super(key: key);
 
   @override
@@ -24,7 +27,7 @@ class DataTableForAccident extends StatelessWidget {
             header: Text(title),
             rowsPerPage: 10,
             columns: columnData.map((e) => DataColumn(label: Text(e))).toList(),
-            source: _DataSource(context),
+            source: _DataSource(context: context, detailRoute: detailRoute),
           ),
         ],
       ),
@@ -33,7 +36,7 @@ class DataTableForAccident extends StatelessWidget {
 }
 
 class _DataSource extends DataTableSource {
-  _DataSource(this.context) {
+  _DataSource({required this.context, required this.detailRoute}) {
     _rows = [
       Accident(
           accidentIdentifier: Person(
@@ -60,6 +63,7 @@ class _DataSource extends DataTableSource {
   }
 
   final BuildContext context;
+  final String detailRoute;
   late List<Accident> _rows;
 
   final int _selectedCount = 0;
@@ -71,7 +75,7 @@ class _DataSource extends DataTableSource {
       index: index,
       selected: row.selected,
       onSelectChanged: (value) {
-        Navigator.pushNamed(context, workersDetailPageRoute);
+        Navigator.pushNamed(context, detailRoute);
       },
       cells: [
         DataCell(Text(row.referenceNumber)),

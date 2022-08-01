@@ -211,7 +211,10 @@ class WorkAccidentPage extends StatelessWidget {
                   child: SizedBox(
                     width: 200,
                     child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(
+                              context, addNewWorkAccidentOrNearMiss);
+                        },
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
@@ -255,7 +258,10 @@ class WorkAccidentPage extends StatelessWidget {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           primary: Colors.blueGrey.shade700),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(
+                            context, addNewWorkAccidentOrNearMiss);
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
@@ -289,6 +295,7 @@ class WorkAccidentPage extends StatelessWidget {
               'Tarih',
               'Kök Neden Analizi Gerekiyor Mu'
             ],
+            detailRoute: workAccidentDetailPage,
           ),
           SizedBox(
             height: 10,

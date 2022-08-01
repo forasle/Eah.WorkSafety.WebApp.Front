@@ -32,6 +32,7 @@ class Login extends StatelessWidget {
                           icon: const Icon(Icons.email_rounded,
                               color: Colors.white),
                           border: UnderlineInputBorder(
+                            borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
@@ -52,6 +53,7 @@ class Login extends StatelessWidget {
                           filled: true,
                           icon: const Icon(Icons.password, color: Colors.white),
                           border: UnderlineInputBorder(
+                            borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),

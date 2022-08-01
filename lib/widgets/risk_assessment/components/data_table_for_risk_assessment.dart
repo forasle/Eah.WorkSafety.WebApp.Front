@@ -1,12 +1,14 @@
+import 'package:aeah_work_safety/models/contingency_plan.dart';
 import 'package:aeah_work_safety/models/inconsistencies.dart';
 import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/risk_assessment.dart';
 import 'package:flutter/material.dart';
 
-class DataTableForPreventiveActivities extends StatelessWidget {
+class DataTableForRiskAssessment extends StatelessWidget {
   String title;
   String detailRoute;
   List<String> columnData;
-  DataTableForPreventiveActivities(
+  DataTableForRiskAssessment(
       {Key? key,
       required this.title,
       required this.columnData,
@@ -38,18 +40,15 @@ class DataTableForPreventiveActivities extends StatelessWidget {
 class _DataSource extends DataTableSource {
   _DataSource(this.context, this.detailRoute) {
     _rows = [
-      Inconsistencies(
-          inconsistenciesSupervisor: 'Murat',
-          inconsistenciesStatus: 'Açık',
-          inconsistenciesRootCauseAnalysis: true,
-          inconsistenciesRiskScore: 125,
-          inconsistenciesRelation: 'ilişki',
-          inconsistenciesReferenceNumber: 'Referans',
-          inconsistenciesName: 'Asansör',
-          inconsistenciesInfo: 'Bozuk',
-          inconsistenciesDate: 'Mayıs',
-          inconsistenciesDepartment: 'Arge',
-          inconsistenciesIdentifier: Person(
+      RiskAssessment(
+          riskAssessmentCreationTime: 'Risk Değerlendirme Oluşturma Tarihi',
+          riskAssessmentDate: 'Risk Değerlendirme Tarihi',
+          riskAssessmentInfo: 'Risk Değerlendirme Açıklaması',
+          riskAssessmentMethod: 'FineKinney',
+          riskAssessmentName: 'Risk Değerlendirme Adı',
+          riskAssessmentReferenceNumber: 'Risk Değerlendirme Referans No',
+          riskAssessmentRevisionDate: 'Risk Değerlendirme Revizyon Tarihi',
+          riskAssessmentIdentifier: Person(
               necessaryPeriodicMedicalExaminationDate:
                   'necessaryPeriodicMedicalExaminationDate',
               periodicMedicalExaminationType: 'periodicMedicalExaminationType',
@@ -67,7 +66,7 @@ class _DataSource extends DataTableSource {
   }
 
   final BuildContext context;
-  late List<Inconsistencies> _rows;
+  late List<RiskAssessment> _rows;
   final String detailRoute;
 
   final int _selectedCount = 0;
@@ -82,17 +81,10 @@ class _DataSource extends DataTableSource {
         Navigator.pushNamed(context, detailRoute);
       },
       cells: [
-        DataCell(Text(row.inconsistenciesReferenceNumber.toString())),
-        DataCell(Text(row.inconsistenciesName.toString())),
-        DataCell(Text(row.inconsistenciesStatus.toString())),
-        DataCell(Text(row.inconsistenciesRiskScore.toString())),
-        DataCell(Text(row.inconsistenciesInfo.toString())),
-        DataCell(Text(row.inconsistenciesIdentifier.toString())),
-        DataCell(Text(row.inconsistenciesDepartment.toString())),
-        DataCell(Text(row.inconsistenciesSupervisor.toString())),
-        DataCell(Text(row.inconsistenciesRelation.toString())),
-        DataCell(Text(row.inconsistenciesDate.toString())),
-        DataCell(Text(row.inconsistenciesRootCauseAnalysis ? 'Evet' : 'Hayır')),
+        DataCell(Text(row.riskAssessmentReferenceNumber.toString())),
+        DataCell(Text(row.riskAssessmentRevisionDate.toString())),
+        DataCell(Text(row.riskAssessmentMethod.toString())),
+        DataCell(Text(row.riskAssessmentCreationTime.toString())),
       ],
     ));
   }

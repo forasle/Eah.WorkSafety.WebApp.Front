@@ -1,3 +1,4 @@
+import 'package:aeah_work_safety/widgets/education_page/components/data_table_for_education.dart';
 import 'package:aeah_work_safety/widgets/preventive_activities_page/components/data_table_for_preventive_activities.dart';
 import 'package:aeah_work_safety/widgets/workAccidentPage/components/search_bar.dart';
 import 'package:flutter/material.dart';
@@ -110,7 +111,9 @@ class EducationPage extends StatelessWidget {
                       child: SizedBox(
                         width: 150,
                         child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, addNewEducation);
+                            },
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
@@ -178,7 +181,7 @@ class EducationPage extends StatelessWidget {
                 ),
               ),
               dividerWithIndents(),
-              DataTableForPreventiveActivities(
+              DataTableForEducation(
                 title: 'Eğitim',
                 columnData: const [
                   'Ad',
@@ -186,13 +189,8 @@ class EducationPage extends StatelessWidget {
                   'Eğitimci',
                   'Süre',
                   'Durum',
-                  'Termin Tarihi',
-                  'Süpervizör',
-                  'Açıklama',
-                  'Rapor Eden',
-                  'Oluşturulma Tarihi',
-                  'Kök Neden Analizi Gerekiyor Mu'
                 ],
+                detailRoute: addNewEducation,
               ),
               SizedBox(
                 height: 10,
