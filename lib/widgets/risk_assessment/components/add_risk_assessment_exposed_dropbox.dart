@@ -1,4 +1,5 @@
 import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/widgets/risk_assessment/components/risk_exposed_person_button.dart';
 import 'package:flutter/material.dart';
 
 class CheckBoxForExposedPerson extends StatefulWidget {
@@ -10,13 +11,12 @@ class CheckBoxForExposedPerson extends StatefulWidget {
 }
 
 class _CheckBoxForExposedPersonState extends State<CheckBoxForExposedPerson> {
-  bool monVal = false;
-  bool tuVal = false;
-  bool wedVal = false;
-  bool thurVal = false;
-  bool friVal = false;
-  bool satVal = false;
-  bool sunVal = false;
+  bool doctor = false;
+  bool nurse = false;
+  bool medTech = false;
+  bool companion = false;
+  bool guest = false;
+
   Widget checkbox(String title, bool boolValue) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -29,19 +29,19 @@ class _CheckBoxForExposedPersonState extends State<CheckBoxForExposedPerson> {
             setState(() {
               switch (title) {
                 case "Doktor":
-                  monVal = value!;
+                  doctor = value!;
                   break;
                 case "Hemşire":
-                  tuVal = value!;
+                  nurse = value!;
                   break;
                 case "Sağlık Tek.":
-                  wedVal = value!;
+                  medTech = value!;
                   break;
-                case "Refakatçi":
-                  thurVal = value!;
+                case "Refakatçı":
+                  companion = value!;
                   break;
                 case "Misafir":
-                  friVal = value!;
+                  guest = value!;
                   break;
               }
             });
@@ -56,15 +56,23 @@ class _CheckBoxForExposedPersonState extends State<CheckBoxForExposedPerson> {
     return Wrap(
       alignment: WrapAlignment.start,
       children: <Widget>[
-        Container(width: 100, child: checkbox("Doktor", monVal)),
+        Container(
+          width: 100,
+          child: Column(
+            children: [
+              checkbox("Doktor", doctor),
+              ElevatedButton(onPressed: () {}, child: Text('Risk Skoru Ekle')),
+            ],
+          ),
+        ),
         sizedBoxBetweenExposedPerson(),
-        Container(width: 100, child: checkbox("Hemşire", tuVal)),
+        Container(width: 100, child: checkbox("Hemşire", nurse)),
         sizedBoxBetweenExposedPerson(),
-        Container(width: 100, child: checkbox("Sağlık Tek.", wedVal)),
+        Container(width: 100, child: checkbox("Sağlık Tek.", medTech)),
         sizedBoxBetweenExposedPerson(),
-        Container(width: 100, child: checkbox("Refakatçi", thurVal)),
+        Container(width: 100, child: checkbox("Refakatçi", companion)),
         sizedBoxBetweenExposedPerson(),
-        Container(width: 100, child: checkbox("Misafir", friVal)),
+        Container(width: 100, child: checkbox("Misafir", guest)),
       ],
     );
   }

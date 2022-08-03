@@ -1,8 +1,5 @@
 import 'package:aeah_work_safety/widgets/components/dropdown_menu.dart';
-import 'package:aeah_work_safety/widgets/risk_assessment/components/add_new_risk_assesment_line.dart';
-import 'package:aeah_work_safety/widgets/risk_assessment/components/add_risk_assessment_exposed_dropbox.dart';
-import 'package:aeah_work_safety/widgets/risk_assessment/components/radio_button_for_fine_kinney_risk_score.dart';
-import 'package:aeah_work_safety/widgets/risk_assessment/components/risk_assessment_method_type.dart';
+import 'package:aeah_work_safety/widgets/risk_assessment/components/risk_exposed_person_button.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
@@ -30,18 +27,22 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
-              const Icon(Icons.arrow_right),
-              routingBarWidget(
-                  pageName: 'Risk Değerlendirme',
-                  routeName: riskAssessmentPage),
-              const Icon(Icons.arrow_right),
-              routingBarWidget(
-                  pageName: 'Yeni Risk Değerlendirme Ekle',
-                  routeName: addNewRiskAssessment),
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                routingBarWidget(
+                    pageName: 'Panaroma', routeName: panaromaRoute),
+                const Icon(Icons.arrow_right),
+                routingBarWidget(
+                    pageName: 'Risk Değerlendirme',
+                    routeName: riskAssessmentPage),
+                const Icon(Icons.arrow_right),
+                routingBarWidget(
+                    pageName: 'Yeni Risk Değerlendirme Ekle',
+                    routeName: addNewRiskAssessment),
+              ],
+            ),
           ),
           dividerWithIndents(),
           Column(
@@ -244,33 +245,31 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: SizedBox(
                                     height: 100,
-                                    child: Center(
-                                      child: Row(children: [
-                                        ElevatedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                methodType = methodType
-                                                    .map<bool>((v) => false)
-                                                    .toList();
-                                                methodType[0] = true;
-                                              });
-                                            },
-                                            child: Text('Fine Kinney Metodu')),
-                                        SizedBox(
-                                          width: 15,
-                                        ),
-                                        ElevatedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                methodType = methodType
-                                                    .map<bool>((v) => false)
-                                                    .toList();
-                                                methodType[1] = true;
-                                              });
-                                            },
-                                            child: Text('5x5 Matris Metodu'))
-                                      ]),
-                                    ),
+                                    child: Wrap(children: [
+                                      ElevatedButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              methodType = methodType
+                                                  .map<bool>((v) => false)
+                                                  .toList();
+                                              methodType[0] = true;
+                                            });
+                                          },
+                                          child: Text('Fine Kinney Metodu')),
+                                      SizedBox(
+                                        width: 15,
+                                      ),
+                                      ElevatedButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              methodType = methodType
+                                                  .map<bool>((v) => false)
+                                                  .toList();
+                                              methodType[1] = true;
+                                            });
+                                          },
+                                          child: Text('5x5 Matris Metodu'))
+                                    ]),
                                   ),
                                 ),
                               ],
@@ -378,11 +377,6 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                                       subtitle(
                                                           subtitle:
                                                               'Maruz Kalanlar:',
-                                                          height: 100,
-                                                          width: 150),
-                                                      subtitle(
-                                                          subtitle:
-                                                              'Risk Skoru:',
                                                           height: 100,
                                                           width: 150),
                                                     ],
@@ -508,27 +502,37 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                                                 .all(8.0),
                                                         child: SizedBox(
                                                           height: 100,
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
+                                                          child: Wrap(
                                                             children: [
-                                                              CheckBoxForExposedPerson(),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .all(8.0),
-                                                        child: SizedBox(
-                                                          child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              RadioGroupForFineKinneyScore(),
+                                                              RiskExposedPersonButton(
+                                                                text: 'Doktor',
+                                                              ),
+                                                              SizedBox(
+                                                                width: 20,
+                                                              ),
+                                                              RiskExposedPersonButton(
+                                                                text: 'Hemşire',
+                                                              ),
+                                                              SizedBox(
+                                                                width: 20,
+                                                              ),
+                                                              RiskExposedPersonButton(
+                                                                text:
+                                                                    'Teknisyen',
+                                                              ),
+                                                              SizedBox(
+                                                                width: 20,
+                                                              ),
+                                                              RiskExposedPersonButton(
+                                                                text:
+                                                                    'Refakatçi',
+                                                              ),
+                                                              SizedBox(
+                                                                width: 20,
+                                                              ),
+                                                              RiskExposedPersonButton(
+                                                                text: 'Misafir',
+                                                              )
                                                             ],
                                                           ),
                                                         ),
