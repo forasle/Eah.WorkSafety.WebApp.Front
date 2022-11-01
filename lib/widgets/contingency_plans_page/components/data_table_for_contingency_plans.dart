@@ -1,5 +1,4 @@
 import 'package:aeah_work_safety/models/contingency_plan.dart';
-import 'package:aeah_work_safety/models/inconsistencies.dart';
 import 'package:aeah_work_safety/models/person.dart';
 import 'package:flutter/material.dart';
 
@@ -51,7 +50,7 @@ class _DataSource extends DataTableSource {
                   'necessaryPeriodicMedicalExaminationDate',
               periodicMedicalExaminationType: 'periodicMedicalExaminationType',
               chronicDiseases: 'null',
-              number: 123,
+              id: 123,
               identificationNumber: 159,
               registrationNumber: 'Test',
               name: 'Murat',

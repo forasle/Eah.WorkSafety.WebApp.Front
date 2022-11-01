@@ -1,5 +1,3 @@
-import 'package:aeah_work_safety/constants/routes.dart';
-import 'package:aeah_work_safety/models/accident.dart';
 import 'package:aeah_work_safety/models/mission.dart';
 import 'package:aeah_work_safety/models/person.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +48,7 @@ class _DataSource extends DataTableSource {
               department: 'test',
               identificationNumber: 123,
               name: 'Murat',
-              number: 5,
+              id: 5,
               position: 'Engineer',
               registrationNumber: '25',
               startDateOfEmployment: 'Test',
@@ -65,7 +63,7 @@ class _DataSource extends DataTableSource {
               department: 'test',
               identificationNumber: 123,
               name: 'Murat',
-              number: 5,
+              id: 5,
               position: 'Engineer',
               registrationNumber: '25',
               startDateOfEmployment: 'Test',

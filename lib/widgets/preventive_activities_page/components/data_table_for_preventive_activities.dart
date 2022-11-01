@@ -54,7 +54,7 @@ class _DataSource extends DataTableSource {
                   'necessaryPeriodicMedicalExaminationDate',
               periodicMedicalExaminationType: 'periodicMedicalExaminationType',
               chronicDiseases: 'null',
-              number: 123,
+              id: 123,
               identificationNumber: 159,
               registrationNumber: 'Test',
               name: 'Murat',

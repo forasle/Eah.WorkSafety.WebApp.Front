@@ -43,7 +43,7 @@ class _DataSource extends DataTableSource {
               'necessaryPeriodicMedicalExaminationDate',
           periodicMedicalExaminationType: 'periodicMedicalExaminationType',
           chronicDiseases: 'null',
-          number: 1,
+          id: 1,
           identificationNumber: 1655,
           registrationNumber: 'MM132',
           name: 'Murat',
@@ -58,7 +58,7 @@ class _DataSource extends DataTableSource {
               'necessaryPeriodicMedicalExaminationDate',
           periodicMedicalExaminationType: 'periodicMedicalExaminationType',
           chronicDiseases: 'null',
-          number: 2,
+          id: 2,
           identificationNumber: 1655,
           registrationNumber: 'MM132',
           name: 'Selda',
@@ -87,7 +87,7 @@ class _DataSource extends DataTableSource {
         Navigator.pushNamed(context, workersDetailPageRoute);
       },
       cells: [
-        DataCell(Text(row.number.toString())),
+        DataCell(Text(row.id.toString())),
         DataCell(Text(row.identificationNumber.toString())),
         DataCell(Text(row.registrationNumber)),
         DataCell(Text(row.name + ' ' + row.surname)),

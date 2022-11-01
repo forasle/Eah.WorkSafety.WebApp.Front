@@ -1,7 +1,7 @@
 class Person {
-  final double number;
-  final double identificationNumber;
-  final String registrationNumber;
+  final double id;
+  final double identificationNumber;  //tc kimlik numarası
+  final String registrationNumber;  //sicil numarası
   final String name;
   final String surname;
   final String position;
@@ -14,7 +14,7 @@ class Person {
   bool selected = false;
 
   Person({
-    required this.number,
+    required this.id,
     required this.identificationNumber,
     required this.registrationNumber,
     required this.name,

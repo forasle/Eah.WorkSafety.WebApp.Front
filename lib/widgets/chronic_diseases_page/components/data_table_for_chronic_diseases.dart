@@ -1,5 +1,4 @@
 import 'package:aeah_work_safety/constants/routes.dart';
-import 'package:aeah_work_safety/models/inconsistencies.dart';
 import 'package:aeah_work_safety/models/person.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +35,7 @@ class _DataSource extends DataTableSource {
   _DataSource(this.context) {
     _rows = [
       Person(
-          number: 123,
+          id: 123,
           identificationNumber: 123,
           registrationNumber: '123',
           name: 'name',
@@ -67,7 +66,7 @@ class _DataSource extends DataTableSource {
         Navigator.pushNamed(context, workersDetailPageRoute);
       },
       cells: [
-        DataCell(Text(row.number.toString())),
+        DataCell(Text(row.id.toString())),
         DataCell(Text(row.identificationNumber.toString())),
         DataCell(Text(row.identificationNumber.toString())),
         DataCell(Text(row.name.toString())),
