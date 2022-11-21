@@ -34,9 +34,7 @@ class _DataSource extends DataTableSource {
   _DataSource(this.context) {
     _rows = [
       Person(
-          necessaryPeriodicMedicalExaminationDate:
-              'necessaryPeriodicMedicalExaminationDate',
-          periodicMedicalExaminationType: 'periodicMedicalExaminationType',
+
           chronicDiseases: 'null',
           address: 'test',
           department: 'test',
@@ -70,8 +68,8 @@ class _DataSource extends DataTableSource {
         DataCell(Text(row.position)),
         DataCell(Text(row.department)),
         DataCell(Text(row.startDateOfEmployment)),
-        DataCell(Text(row.periodicMedicalExaminationType)),
-        DataCell(Text(row.necessaryPeriodicMedicalExaminationDate)),
+        DataCell(Text("row.periodicMedicalExaminationType")),
+        DataCell(Text("row.necessaryPeriodicMedicalExaminationDate")),
         DataCell(Text(row.address)),
       ],
     ));

@@ -45,9 +45,7 @@ class _DataSource extends DataTableSource {
           startDateOfEmployment: 'startDateOfEmployment',
           address: 'address',
           chronicDiseases: 'chronicDiseases',
-          necessaryPeriodicMedicalExaminationDate:
-              'necessaryPeriodicMedicalExaminationDate',
-          periodicMedicalExaminationType: 'periodicMedicalExaminationType')
+          )
     ];
   }
 

@@ -43,13 +43,11 @@ class _DataSource extends DataTableSource {
           riskAssessmentDate: 'Risk Değerlendirme Tarihi',
           riskAssessmentInfo: 'Risk Değerlendirme Açıklaması',
           riskAssessmentMethod: 'FineKinney',
-          riskAssessmentName: 'Risk Değerlendirme Adı',
-          riskAssessmentReferenceNumber: 'Risk Değerlendirme Referans No',
-          riskAssessmentRevisionDate: 'Risk Değerlendirme Revizyon Tarihi',
+          name: 'Risk Değerlendirme Adı',
+          referenceNumber: 'Risk Değerlendirme Referans No',
+          revisionDate: 'Risk Değerlendirme Revizyon Tarihi',
           riskAssessmentIdentifier: Person(
-              necessaryPeriodicMedicalExaminationDate:
-                  'necessaryPeriodicMedicalExaminationDate',
-              periodicMedicalExaminationType: 'periodicMedicalExaminationType',
+
               chronicDiseases: 'null',
               id: 123,
               identificationNumber: 159,
@@ -79,8 +77,8 @@ class _DataSource extends DataTableSource {
         Navigator.pushNamed(context, detailRoute);
       },
       cells: [
-        DataCell(Text(row.riskAssessmentReferenceNumber.toString())),
-        DataCell(Text(row.riskAssessmentRevisionDate.toString())),
+        DataCell(Text(row.referenceNumber.toString())),
+        DataCell(Text(row.revisionDate.toString())),
         DataCell(Text(row.riskAssessmentMethod.toString())),
         DataCell(Text(row.riskAssessmentCreationTime.toString())),
       ],

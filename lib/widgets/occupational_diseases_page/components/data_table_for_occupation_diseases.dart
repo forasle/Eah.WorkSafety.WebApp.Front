@@ -41,10 +41,7 @@ class _DataSource extends DataTableSource {
         occupationDiseasesDiagnosisdate: '123',
         occupationDiseasesNumber: 123,
         occupationDiseasesOwner: Person(
-            necessaryPeriodicMedicalExaminationDate:
-                'necessaryPeriodicMedicalExaminationDate',
-            periodicMedicalExaminationType: 'periodicMedicalExaminationType',
-            chronicDiseases: 'null',
+                      chronicDiseases: 'null',
             id: 123,
             identificationNumber: 159,
             registrationNumber: 'Test',

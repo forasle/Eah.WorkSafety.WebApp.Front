@@ -46,9 +46,7 @@ class _DataSource extends DataTableSource {
           contingencyReferenceNumber: 'Referans',
           contingencyName: 'Asansör',
           contingencyIdentifier: Person(
-              necessaryPeriodicMedicalExaminationDate:
-                  'necessaryPeriodicMedicalExaminationDate',
-              periodicMedicalExaminationType: 'periodicMedicalExaminationType',
+
               chronicDiseases: 'null',
               id: 123,
               identificationNumber: 159,

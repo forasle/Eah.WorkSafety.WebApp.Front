@@ -1,13 +1,13 @@
 import 'package:aeah_work_safety/models/person.dart';
 
 class ContingencyPlans {
-  final double contingencyPlansNumber;
-  final String contingencyName;
-  final String contingencyReferenceNumber;
-  final String contingencyInfo;
-  final Person contingencyIdentifier;
-  final String contingencyDate;
-  final String contingencyCreationTime;
+  final double contingencyPlansNumber;//
+  final String contingencyName;//
+  final String contingencyReferenceNumber;//
+  final String contingencyInfo;//
+  final Person contingencyIdentifier;//
+  final String contingencyDate;//
+  final String contingencyCreationTime;//
 
   bool selected = false;
 

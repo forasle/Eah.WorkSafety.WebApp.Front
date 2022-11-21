@@ -1,11 +1,11 @@
 import 'package:aeah_work_safety/models/person.dart';
 
 class OccupationDiseases {
-  final double occupationDiseasesNumber;
-  final String occupationDiseasesreferenceNumber;
-  final String occupationDiseasesDiagnosis;
-  final Person occupationDiseasesOwner;
-  final String occupationDiseasesDiagnosisdate;
+  final double occupationDiseasesNumber;//
+  final String occupationDiseasesreferenceNumber;//
+  final String occupationDiseasesDiagnosis;//
+  final Person occupationDiseasesOwner;//
+  final String occupationDiseasesDiagnosisdate;//
   final String occupationDiseases;
 
   bool selected = false;

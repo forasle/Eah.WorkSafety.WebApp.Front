@@ -53,9 +53,7 @@ class _DataSource extends DataTableSource {
           inconsistenciesDate: 'Mayıs',
           inconsistenciesDepartment: 'Arge',
           inconsistenciesIdentifier: Person(
-              necessaryPeriodicMedicalExaminationDate:
-                  'necessaryPeriodicMedicalExaminationDate',
-              periodicMedicalExaminationType: 'periodicMedicalExaminationType',
+
               chronicDiseases: 'null',
               id: 123,
               identificationNumber: 159,

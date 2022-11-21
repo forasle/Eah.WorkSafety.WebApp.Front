@@ -9,8 +9,6 @@ class Person {
   final String startDateOfEmployment;
   final String address;
   final String chronicDiseases;
-  final String periodicMedicalExaminationType;
-  final String necessaryPeriodicMedicalExaminationDate;
   bool selected = false;
 
   Person({
@@ -24,7 +22,5 @@ class Person {
     required this.startDateOfEmployment,
     required this.address,
     required this.chronicDiseases,
-    required this.periodicMedicalExaminationType,
-    required this.necessaryPeriodicMedicalExaminationDate,
   });
 }

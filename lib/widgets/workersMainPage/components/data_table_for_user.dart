@@ -39,9 +39,7 @@ class _DataSource extends DataTableSource {
   _DataSource(this.context) {
     _rows = [
       Person(
-          necessaryPeriodicMedicalExaminationDate:
-              'necessaryPeriodicMedicalExaminationDate',
-          periodicMedicalExaminationType: 'periodicMedicalExaminationType',
+
           chronicDiseases: 'null',
           id: 1,
           identificationNumber: 1655,
@@ -54,9 +52,7 @@ class _DataSource extends DataTableSource {
           address:
               'Adres: Varlık Mh. Kazım Karabekir Cd. 07100 /Antalya Tel: +90 242 249 44 00 E -Mail: antalyaeah@saglik.gov.tr'),
       Person(
-          necessaryPeriodicMedicalExaminationDate:
-              'necessaryPeriodicMedicalExaminationDate',
-          periodicMedicalExaminationType: 'periodicMedicalExaminationType',
+
           chronicDiseases: 'null',
           id: 2,
           identificationNumber: 1655,

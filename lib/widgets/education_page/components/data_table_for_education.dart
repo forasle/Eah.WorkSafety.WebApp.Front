@@ -40,9 +40,7 @@ class _DataSource extends DataTableSource {
     _rows = [
       Education(
           educationalist: Person(
-              necessaryPeriodicMedicalExaminationDate:
-                  'necessaryPeriodicMedicalExaminationDate',
-              periodicMedicalExaminationType: 'periodicMedicalExaminationType',
+
               chronicDiseases: 'null',
               id: 123,
               identificationNumber: 159,
@@ -60,10 +58,7 @@ class _DataSource extends DataTableSource {
           educationTime: 'time',
           educationDate: 'education date',
           educationIdentifier: Person(
-              necessaryPeriodicMedicalExaminationDate:
-                  'necessaryPeriodicMedicalExaminationDate',
-              periodicMedicalExaminationType: 'periodicMedicalExaminationType',
-              chronicDiseases: 'null',
+                           chronicDiseases: 'null',
               id: 123,
               identificationNumber: 159,
               registrationNumber: 'Test',

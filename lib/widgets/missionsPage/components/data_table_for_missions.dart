@@ -40,9 +40,7 @@ class _DataSource extends DataTableSource {
           missionDepartment: 'Arge',
           missionId: 123,
           missionIdentifier: Person(
-              necessaryPeriodicMedicalExaminationDate:
-                  'necessaryPeriodicMedicalExaminationDate',
-              periodicMedicalExaminationType: 'periodicMedicalExaminationType',
+
               chronicDiseases: 'null',
               address: 'test',
               department: 'test',
@@ -55,9 +53,7 @@ class _DataSource extends DataTableSource {
               surname: 'Dogan'),
           missionName: 'Tehlike',
           missionOwner: Person(
-              necessaryPeriodicMedicalExaminationDate:
-                  'necessaryPeriodicMedicalExaminationDate',
-              periodicMedicalExaminationType: 'periodicMedicalExaminationType',
+
               chronicDiseases: 'null',
               address: 'test',
               department: 'test',
