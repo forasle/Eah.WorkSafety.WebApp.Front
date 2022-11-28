@@ -31,7 +31,7 @@ class OccupationDiseasesPage extends StatelessWidget {
                   routeName: occupationDiseasesPageRoute),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -93,7 +93,7 @@ class OccupationDiseasesPage extends StatelessWidget {
                           .toList()),
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               DataTableForOccupationDiseases(
                 title: 'Meslek Hastalıkları',
                 columnData: const [
@@ -107,7 +107,7 @@ class OccupationDiseasesPage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              //dividerWithIndents(),
+              //Constant.dividerWithIndents(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
@@ -116,7 +116,7 @@ class OccupationDiseasesPage extends StatelessWidget {
                 ),
               ),
 
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -134,7 +134,7 @@ class OccupationDiseasesPage extends StatelessWidget {
                   ],
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
             ],
           ),
         ],

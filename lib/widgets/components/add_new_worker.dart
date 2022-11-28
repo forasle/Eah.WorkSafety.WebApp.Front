@@ -23,7 +23,7 @@ class AddNewWorker extends StatelessWidget {
             Icon(Icons.arrow_right),
           ],
         ),
-        dividerWithIndents(),
+        Constant.dividerWithIndents(),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -81,7 +81,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -97,7 +97,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -113,12 +113,12 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                               child: DropdownMenu(
-                            menuItems: menuItemsForGender,
+                            menuItems: Constant.menuItemsForGender,
                           )),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -134,7 +134,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -150,7 +150,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -166,7 +166,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -182,7 +182,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -198,7 +198,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -214,7 +214,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -230,7 +230,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -246,7 +246,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -262,7 +262,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -279,7 +279,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -295,7 +295,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -311,7 +311,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -327,7 +327,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -343,7 +343,7 @@ class AddNewWorker extends StatelessWidget {
                               ),
                             ),
                           ),
-                          sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBoxBetweenPersonalDetailPage(),
                         ],
                       ),
                     ),
@@ -353,7 +353,7 @@ class AddNewWorker extends StatelessWidget {
             ),
           ],
         ),
-        dividerWithIndents(),
+        Constant.dividerWithIndents(),
       ]),
     );
   }

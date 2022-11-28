@@ -27,7 +27,7 @@ class EducationPage extends StatelessWidget {
                   pageName: 'Eğitim', routeName: educationPageRoute),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -101,7 +101,7 @@ class EducationPage extends StatelessWidget {
                           .toList()),
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Wrap(
@@ -180,7 +180,7 @@ class EducationPage extends StatelessWidget {
                   ],
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               DataTableForEducation(
                 title: 'Eğitim',
                 columnData: const [
@@ -195,7 +195,7 @@ class EducationPage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
             ],
           ),
         ],

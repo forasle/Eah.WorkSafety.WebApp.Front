@@ -27,7 +27,7 @@ class ContingencyPlansPage extends StatelessWidget {
                   routeName: contingencyPlansPage),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -89,7 +89,7 @@ class ContingencyPlansPage extends StatelessWidget {
                           .toList()),
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Wrap(
@@ -148,7 +148,7 @@ class ContingencyPlansPage extends StatelessWidget {
                   ],
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               DataTableForContingencyPlans(
                   title: 'Acil Durum Planları',
                   columnData: [
@@ -161,7 +161,7 @@ class ContingencyPlansPage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
             ],
           ),
         ],

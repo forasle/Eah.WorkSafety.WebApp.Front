@@ -30,7 +30,7 @@ class PeriodicMedicalExaminationPage extends StatelessWidget {
                   routeName: workAccidentPageRoute),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -140,7 +140,7 @@ class PeriodicMedicalExaminationPage extends StatelessWidget {
               ),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Wrap(
@@ -235,7 +235,7 @@ class PeriodicMedicalExaminationPage extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
@@ -243,7 +243,7 @@ class PeriodicMedicalExaminationPage extends StatelessWidget {
               style: Theme.of(context).textTheme.headline4,
             ),
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -297,7 +297,7 @@ class PeriodicMedicalExaminationPage extends StatelessWidget {
               ],
             ),
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
         ],
       ),
     );

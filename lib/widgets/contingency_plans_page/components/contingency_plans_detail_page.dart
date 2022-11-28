@@ -29,7 +29,7 @@ class ContingencyPlanDetailPage extends StatelessWidget {
                   routeName: contingencyPlansDetailPage),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -37,7 +37,7 @@ class ContingencyPlanDetailPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   title(context, 'Acil Durum Planı Bilgileri'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -139,7 +139,7 @@ class ContingencyPlanDetailPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   title(context, 'Yeni Döküman Ekle'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(

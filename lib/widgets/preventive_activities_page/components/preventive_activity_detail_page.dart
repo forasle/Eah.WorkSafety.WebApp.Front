@@ -28,7 +28,7 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                   routeName: addNewPreventiveActivity),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -36,7 +36,7 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   title(context, 'Genel Bilgiler'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -153,7 +153,7 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   title(context, 'Olay Yeri'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -216,7 +216,7 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   title(context, 'Kaza Araştırma'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -277,7 +277,7 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   title(context, 'Yeni Döküman Ekle'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(

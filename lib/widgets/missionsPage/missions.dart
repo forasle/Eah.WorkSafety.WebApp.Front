@@ -24,7 +24,7 @@ class Missions extends StatelessWidget {
                   pageName: 'Görevler', routeName: missionsPageRoute),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             children: [
               Padding(
@@ -68,7 +68,7 @@ class Missions extends StatelessWidget {
               ),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           DataTableForMissions(columnData: [
             'Görev Adı',
             'Birim Adı',
@@ -81,7 +81,7 @@ class Missions extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
         ],
       ),
     );

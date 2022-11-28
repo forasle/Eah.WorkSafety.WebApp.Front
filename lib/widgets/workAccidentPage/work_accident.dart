@@ -22,15 +22,20 @@ class WorkAccidentPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
-              Icon(Icons.arrow_right),
-              routingBarWidget(
-                  pageName: 'İş Kazaları', routeName: workAccidentPageRoute),
-            ],
+          Scrollbar(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
+                  Icon(Icons.arrow_right),
+                  routingBarWidget(
+                      pageName: 'İş Kazaları', routeName: workAccidentPageRoute),
+                ],
+              ),
+            ),
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -201,7 +206,7 @@ class WorkAccidentPage extends StatelessWidget {
               ),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Wrap(
@@ -300,7 +305,7 @@ class WorkAccidentPage extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
@@ -308,7 +313,7 @@ class WorkAccidentPage extends StatelessWidget {
               style: Theme.of(context).textTheme.headline4,
             ),
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -362,7 +367,7 @@ class WorkAccidentPage extends StatelessWidget {
               ],
             ),
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
         ],
       ),
     );

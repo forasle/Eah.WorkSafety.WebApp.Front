@@ -35,7 +35,7 @@ class RiskAssessmentPage extends StatelessWidget {
                   routeName: riskAssessmentPage),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -97,7 +97,7 @@ class RiskAssessmentPage extends StatelessWidget {
                           .toList()),
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Wrap(
@@ -155,7 +155,7 @@ class RiskAssessmentPage extends StatelessWidget {
                   ],
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               DataTableForRiskAssessment(
                   title: 'Risk Değerlendirmeleri',
                   columnData: [
@@ -168,7 +168,7 @@ class RiskAssessmentPage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
             ],
           ),
         ],

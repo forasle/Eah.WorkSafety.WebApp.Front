@@ -28,7 +28,7 @@ class AddNewPreventiveActivity extends StatelessWidget {
                   routeName: addNewPreventiveActivity),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -36,7 +36,7 @@ class AddNewPreventiveActivity extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   title(context, 'Genel Bilgiler'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -90,7 +90,7 @@ class AddNewPreventiveActivity extends StatelessWidget {
                                       height: 50,
                                       child: DropdownMenu(
                                           menuItems:
-                                              menuItemsForPreventiveActivities)),
+                                          Constant.menuItemsForPreventiveActivities)),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -214,7 +214,7 @@ class AddNewPreventiveActivity extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   title(context, 'Olay Yeri'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -262,7 +262,7 @@ class AddNewPreventiveActivity extends StatelessWidget {
                                       child: Center(
                                           child: DropdownMenu(
                                               menuItems:
-                                                  menuItemsForDepartmentType))),
+                                              Constant.menuItemsForDepartmentType))),
                                 ),
                               ],
                             ),
@@ -273,7 +273,7 @@ class AddNewPreventiveActivity extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   title(context, 'Kaza Araştırma'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -334,7 +334,7 @@ class AddNewPreventiveActivity extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   title(context, 'Yeni Döküman Ekle'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(

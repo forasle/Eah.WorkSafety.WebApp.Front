@@ -30,11 +30,11 @@ class WorkAccidentDetailPage extends StatelessWidget {
                   pageName: 'İş Kazaları', routeName: workAccidentDetailPage),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             children: [
               title(context, 'Genel Bilgiler'),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               const SizedBox(height: 50),
               IntrinsicHeight(
                 child: Row(
@@ -146,7 +146,7 @@ class WorkAccidentDetailPage extends StatelessWidget {
               ),
               const SizedBox(height: 50),
               title(context, 'Olay Yeri'),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               const SizedBox(height: 50),
               IntrinsicHeight(
                 child: Row(
@@ -209,7 +209,7 @@ class WorkAccidentDetailPage extends StatelessWidget {
               ),
               const SizedBox(height: 50),
               title(context, 'Analiz'),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               const SizedBox(height: 50),
               IntrinsicHeight(
                 child: Row(
@@ -279,7 +279,7 @@ class WorkAccidentDetailPage extends StatelessWidget {
               ),
               const SizedBox(height: 50),
               title(context, 'Kaza Araştırma'),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               const SizedBox(height: 50),
               IntrinsicHeight(
                 child: Row(
@@ -445,7 +445,7 @@ class WorkAccidentDetailPage extends StatelessWidget {
               ),
               const SizedBox(height: 50),
               title(context, 'Tanık/Tanık İfadesi'),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               const SizedBox(height: 50),
               IntrinsicHeight(
                 child: Row(
@@ -502,7 +502,7 @@ class WorkAccidentDetailPage extends StatelessWidget {
               ),
               const SizedBox(height: 50),
               title(context, 'Dökümanlar'),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               const SizedBox(height: 50),
             ],
           ),

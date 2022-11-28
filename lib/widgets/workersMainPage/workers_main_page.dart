@@ -28,7 +28,7 @@ class WorkersMainPage extends StatelessWidget {
                   pageName: 'Çalışanlar', routeName: workersMainPageRoute),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             children: [
               Padding(
@@ -109,12 +109,12 @@ class WorkersMainPage extends StatelessWidget {
               ),
             ),
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           DataTableForUser(),
           SizedBox(
             height: 10,
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
@@ -122,7 +122,7 @@ class WorkersMainPage extends StatelessWidget {
               style: Theme.of(context).textTheme.headline4,
             ),
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -170,7 +170,7 @@ class WorkersMainPage extends StatelessWidget {
               ],
             ),
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
         ],
       ),
     );

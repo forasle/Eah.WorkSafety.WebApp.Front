@@ -8,12 +8,14 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey.shade100,
       body: Center(
         child: Container(
-          width: loginPageOuterContainerWidth,
-          height: loginPageOuterContainerHeight,
+
+          width: Constant.loginPageOuterContainerWidth,
+          height: Constant.loginPageOuterContainerHeight,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20), color: Colors.blueGrey),
+              borderRadius: BorderRadius.circular(20),color: Colors.blue),
           child: Padding(
             padding: const EdgeInsets.all(18.0),
             child: Center(

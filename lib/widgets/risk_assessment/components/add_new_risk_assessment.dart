@@ -44,7 +44,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
               ],
             ),
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -52,7 +52,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   title(context, 'Risk Değerlendirme Bilgileri'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -194,7 +194,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                   ),
                   const SizedBox(height: 50),
                   title(context, 'Yapısal Özellikler'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -237,7 +237,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                     height: 50,
                                     child: Center(
                                       child: DropdownMenu(
-                                          menuItems: menuItemsForTemplate),
+                                          menuItems: Constant.menuItemsForTemplate),
                                     ),
                                   ),
                                 ),
@@ -556,7 +556,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                   ),
                   const SizedBox(height: 50),
                   title(context, 'Yeni Döküman Ekle'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(

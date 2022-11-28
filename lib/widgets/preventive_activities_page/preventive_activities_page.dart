@@ -27,7 +27,7 @@ class PreventiveActivities extends StatelessWidget {
                   routeName: dayWithoutAccidentPageRoute),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -93,7 +93,7 @@ class PreventiveActivities extends StatelessWidget {
                           .toList()),
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Wrap(
@@ -173,7 +173,7 @@ class PreventiveActivities extends StatelessWidget {
                   ],
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               DataTableForPreventiveActivities(
                 title: 'Düzenleyici Önleyici Faaliyetler',
                 columnData: const [
@@ -194,7 +194,7 @@ class PreventiveActivities extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
             ],
           ),
         ],

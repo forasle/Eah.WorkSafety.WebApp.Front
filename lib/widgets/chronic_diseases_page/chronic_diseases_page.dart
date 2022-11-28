@@ -30,7 +30,7 @@ class ChronicDiseasesPage extends StatelessWidget {
                   routeName: chronicDiseasesPageRoute),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -105,7 +105,7 @@ class ChronicDiseasesPage extends StatelessWidget {
                           .toList()),
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               DataTableForChronicDiseases(
                 title: 'Eğitim',
                 columnData: const [
@@ -132,7 +132,7 @@ class ChronicDiseasesPage extends StatelessWidget {
                 ),
               ),
 
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -177,7 +177,7 @@ class ChronicDiseasesPage extends StatelessWidget {
                   ],
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
             ],
           ),
         ],

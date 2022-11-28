@@ -15,7 +15,7 @@ class CircularGraph extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(title, style: Theme.of(context).textTheme.headline5),
-          SizedBox(width: 500, child: dividerWithIndents()),
+          SizedBox(width: 500, child: Constant.dividerWithIndents()),
           SizedBox(
             width: 500,
             child: SfCircularChart(series: <CircularSeries>[

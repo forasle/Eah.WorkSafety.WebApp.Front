@@ -29,7 +29,7 @@ class NearMissPage extends StatelessWidget {
                   routeName: dayWithoutAccidentPageRoute),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -198,7 +198,7 @@ class NearMissPage extends StatelessWidget {
                           .toList()),
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Wrap(
@@ -281,7 +281,7 @@ class NearMissPage extends StatelessWidget {
                   ],
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               DataTableForAccident(
                   title: 'Ramak Kalalar',
                   columnData: [
@@ -297,7 +297,7 @@ class NearMissPage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
@@ -305,7 +305,7 @@ class NearMissPage extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -359,7 +359,7 @@ class NearMissPage extends StatelessWidget {
                   ],
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
             ],
           ),
         ],

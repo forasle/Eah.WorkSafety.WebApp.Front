@@ -28,7 +28,7 @@ class DayWithoutAccidentPage extends StatelessWidget {
                   routeName: dayWithoutAccidentPageRoute),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -197,7 +197,7 @@ class DayWithoutAccidentPage extends StatelessWidget {
                           .toList()),
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
@@ -205,7 +205,7 @@ class DayWithoutAccidentPage extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -259,7 +259,7 @@ class DayWithoutAccidentPage extends StatelessWidget {
                   ],
                 ),
               ),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
             ],
           ),
         ],

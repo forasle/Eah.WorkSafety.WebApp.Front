@@ -31,6 +31,8 @@ import 'package:aeah_work_safety/widgets/workersMainPage/workers_main_page.dart'
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'constants/colors.dart';
+import 'constants/texts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,8 +40,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -47,9 +47,9 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [Locale('en'), Locale('tr')],
       scrollBehavior: MyCustomScrollBehavior(),
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData.dark(),
-      initialRoute: '/',
+      title: ConstantText.materialAppTitle,
+      theme: ThemeData(primarySwatch: ConstantColor.themeDataPrimarySwatch,backgroundColor: Colors.blueGrey.shade100),
+      initialRoute: ConstantText.initialRoute,
       routes: {
         loginRoute: (context) => const Login(),
         panaromaRoute: (context) => const Panaroma(),
@@ -94,7 +94,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyCustomScrollBehavior extends MaterialScrollBehavior {
-  // Override behavior methods and getters like dragDevices
   @override
   Set<PointerDeviceKind> get dragDevices => {
         PointerDeviceKind.touch,

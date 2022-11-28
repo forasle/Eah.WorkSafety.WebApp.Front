@@ -16,19 +16,24 @@ class AddNewWorkAccidentOrNearMiss extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
-              Icon(Icons.arrow_right),
-              routingBarWidget(
-                  pageName: 'Ramak Kala', routeName: nearMissPageRoute),
-              Icon(Icons.arrow_right),
-              routingBarWidget(
-                  pageName: 'Yeni İş Kazası/Ramak Kala Ekle',
-                  routeName: addNewWorkAccidentOrNearMiss),
-            ],
+          Scrollbar(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
+                  Icon(Icons.arrow_right),
+                  routingBarWidget(
+                      pageName: 'Ramak Kala', routeName: nearMissPageRoute),
+                  Icon(Icons.arrow_right),
+                  routingBarWidget(
+                      pageName: 'Yeni İş Kazası/Ramak Kala Ekle',
+                      routeName: addNewWorkAccidentOrNearMiss),
+                ],
+              ),
+            ),
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -36,7 +41,7 @@ class AddNewWorkAccidentOrNearMiss extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   title(context, 'Genel Bilgiler'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -86,7 +91,7 @@ class AddNewWorkAccidentOrNearMiss extends StatelessWidget {
                                       height: 50,
                                       child: Center(
                                           child: DropdownMenu(
-                                        menuItems: menuItemsForEventType,
+                                        menuItems: Constant.menuItemsForEventType,
                                       ))),
                                 ),
                                 Padding(
@@ -213,7 +218,7 @@ class AddNewWorkAccidentOrNearMiss extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   title(context, 'Olay Yeri'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -261,7 +266,7 @@ class AddNewWorkAccidentOrNearMiss extends StatelessWidget {
                                       child: Center(
                                           child: DropdownMenu(
                                               menuItems:
-                                                  menuItemsForDepartmentType))),
+                                              Constant.menuItemsForDepartmentType))),
                                 ),
                               ],
                             ),
@@ -272,7 +277,7 @@ class AddNewWorkAccidentOrNearMiss extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   title(context, 'Analiz'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -342,7 +347,7 @@ class AddNewWorkAccidentOrNearMiss extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   title(context, 'Kaza Araştırma'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -536,7 +541,7 @@ class AddNewWorkAccidentOrNearMiss extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   title(context, 'Tanık/Tanık İfadesi'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -593,7 +598,7 @@ class AddNewWorkAccidentOrNearMiss extends StatelessWidget {
                   ),
                   const SizedBox(height: 50),
                   title(context, 'Yeni Döküman Ekle'),
-                  dividerWithIndents(),
+                  Constant.dividerWithIndents(),
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(

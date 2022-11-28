@@ -26,12 +26,12 @@ class AddNewEducation extends StatelessWidget {
                   pageName: 'Yeni Eğitim Ekle', routeName: addNewEducation),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               title(context, 'Eğitim Seans Bilgileri'),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               const SizedBox(height: 50),
               IntrinsicHeight(
                 child: Row(
@@ -230,7 +230,7 @@ class AddNewEducation extends StatelessWidget {
               ),
               const SizedBox(height: 50),
               title(context, 'Eğitici Bilgileri'),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               const SizedBox(height: 50),
               IntrinsicHeight(
                 child: Row(

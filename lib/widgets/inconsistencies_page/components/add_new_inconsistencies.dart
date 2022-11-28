@@ -28,12 +28,12 @@ class AddNewInconsistencies extends StatelessWidget {
                   routeName: addNewInconsistencies),
             ],
           ),
-          dividerWithIndents(),
+          Constant.dividerWithIndents(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               title(context, 'Genel Bilgiler'),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               const SizedBox(height: 50),
               IntrinsicHeight(
                 child: Row(
@@ -107,7 +107,7 @@ class AddNewInconsistencies extends StatelessWidget {
                                 child: Center(
                                   child: DropdownMenu(
                                       menuItems:
-                                          menuItemsForInconsistenciesType),
+                                      Constant.menuItemsForInconsistenciesType),
                                 ),
                               ),
                             ),
@@ -207,7 +207,7 @@ class AddNewInconsistencies extends StatelessWidget {
                                   height: 50,
                                   child: Center(
                                     child: DropdownMenu(
-                                        menuItems: menuItemsForDepartmentType),
+                                        menuItems: Constant.menuItemsForDepartmentType),
                                   )),
                             ),
                           ],
@@ -219,7 +219,7 @@ class AddNewInconsistencies extends StatelessWidget {
               ),
               const SizedBox(height: 50),
               title(context, 'Kaza Araştırma'),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               const SizedBox(height: 50),
               IntrinsicHeight(
                 child: Row(
@@ -267,7 +267,7 @@ class AddNewInconsistencies extends StatelessWidget {
               ),
               const SizedBox(height: 50),
               title(context, 'Yeni Döküman Ekle'),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               const SizedBox(height: 50),
               IntrinsicHeight(
                 child: Row(
@@ -382,7 +382,7 @@ class AddNewInconsistencies extends StatelessWidget {
               ),
               const SizedBox(height: 50),
               title(context, 'Önceliklendirme'),
-              dividerWithIndents(),
+              Constant.dividerWithIndents(),
               const SizedBox(height: 50),
               IntrinsicHeight(
                 child: Row(
@@ -426,7 +426,7 @@ class AddNewInconsistencies extends StatelessWidget {
                                 height: 50,
                                 child: Center(
                                   child: DropdownMenu(
-                                      menuItems: menuItemsForRiskMethodType),
+                                      menuItems: Constant.menuItemsForRiskMethodType),
                                 ),
                               ),
                             ),
