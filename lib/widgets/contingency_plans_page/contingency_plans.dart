@@ -1,11 +1,12 @@
 import 'package:aeah_work_safety/widgets/contingency_plans_page/components/data_table_for_contingency_plans.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/components/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:aeah_work_safety/widgets/components/card_widget.dart';
+
+import 'package:aeah_work_safety/widgets/accident_page/components/search_bar.dart';
 
 class ContingencyPlansPage extends StatelessWidget {
   const ContingencyPlansPage({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class ContingencyPlansPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
+              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               Icon(Icons.arrow_right),
               routingBarWidget(
                   pageName: 'Acil Durum Planları',

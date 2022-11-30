@@ -1,9 +1,9 @@
-import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/constants/mission/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:aeah_work_safety/widgets/missionsPage/components/data_table_for_missions.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/components/search_bar.dart';
+import 'package:aeah_work_safety/widgets/accident_page/components/search_bar.dart';
 import 'package:flutter/material.dart';
 
 class Missions extends StatelessWidget {
@@ -18,8 +18,8 @@ class Missions extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
-              Icon(Icons.arrow_right),
+              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+              const Icon(Icons.arrow_right),
               routingBarWidget(
                   pageName: 'Görevler', routeName: missionsPageRoute),
             ],
@@ -28,7 +28,7 @@ class Missions extends StatelessWidget {
           Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: Constant.padding,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -38,9 +38,7 @@ class Missions extends StatelessWidget {
                         style: Theme.of(context).textTheme.headline4,
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    Constant.sizedBoxWidth,
                     Flexible(
                       child: Text(
                         '(Yetki seviyenize göre görüntüleyebildiğiniz liste & raporlar)',
@@ -52,15 +50,16 @@ class Missions extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: Constant.padding,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Flexible(
                         child: ElevatedButton(
-                            onPressed: () {}, child: Text('Rapor Yazdır'))),
-                    SizedBox(width: 10),
-                    Flexible(
+                            onPressed: () {},
+                            child: const Text('Rapor Yazdır'))),
+                    Constant.sizedBoxWidth,
+                    const Flexible(
                       child: SearchBarWidget(),
                     ),
                   ],
@@ -69,7 +68,7 @@ class Missions extends StatelessWidget {
             ],
           ),
           Constant.dividerWithIndents(),
-          DataTableForMissions(columnData: [
+          DataTableForMissions(columnData: const [
             'Görev Adı',
             'Birim Adı',
             'Tanımlayan',
@@ -78,9 +77,7 @@ class Missions extends StatelessWidget {
             'Termin Tarihi',
             'Durumu'
           ], title: 'Görevler'),
-          SizedBox(
-            height: 10,
-          ),
+          Constant.sizedBoxHeight,
           Constant.dividerWithIndents(),
         ],
       ),

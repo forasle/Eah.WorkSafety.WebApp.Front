@@ -3,7 +3,6 @@ import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/dropdown_menu.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
-import 'package:aeah_work_safety/widgets/workersDetailPage/components/oldExperiences_data_table.dart';
 import 'package:flutter/material.dart';
 
 class AddNewWorker extends StatelessWidget {
@@ -16,7 +15,7 @@ class AddNewWorker extends StatelessWidget {
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Row(
           children: [
-            routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
+            routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
             Icon(Icons.arrow_right),
             routingBarWidget(
                 pageName: 'Yeni Çalışan Ekle', routeName: workersMainPageRoute),

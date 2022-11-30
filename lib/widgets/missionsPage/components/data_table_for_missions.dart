@@ -1,18 +1,19 @@
 import 'package:aeah_work_safety/models/mission.dart';
 import 'package:aeah_work_safety/models/person.dart';
 import 'package:flutter/material.dart';
+import 'package:aeah_work_safety/constants/mission/constants.dart';
 
 class DataTableForMissions extends StatelessWidget {
-  String title;
-  List<String> columnData;
-  DataTableForMissions(
+  final String title;
+  final List<String> columnData;
+  const DataTableForMissions(
       {Key? key, required this.title, required this.columnData})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         //mainAxisSize: MainAxisSize.min,

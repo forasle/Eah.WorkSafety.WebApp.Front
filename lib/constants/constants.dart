@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 class Constant{
-  static double loginPageOuterContainerWidth = 400;
-  static double loginPageOuterContainerHeight = 390;
-  static double goldenRatio = 1.618;
-
   static double getWidth(context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;

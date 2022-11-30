@@ -18,7 +18,7 @@ class RiskAssessmentDetailPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
+              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
               routingBarWidget(
                   pageName: 'Risk Değerlendirme',

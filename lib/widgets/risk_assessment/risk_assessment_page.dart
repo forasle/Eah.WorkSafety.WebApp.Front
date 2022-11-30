@@ -1,13 +1,5 @@
-import 'package:aeah_work_safety/models/accident.dart';
-import 'package:aeah_work_safety/models/inconsistencies.dart';
-import 'package:aeah_work_safety/models/person.dart';
-import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
-import 'package:aeah_work_safety/widgets/components/column_graph.dart';
-import 'package:aeah_work_safety/widgets/contingency_plans_page/components/data_table_for_contingency_plans.dart';
-import 'package:aeah_work_safety/widgets/near_miss_page/components/data_table_for_inconsistencies.dart';
 import 'package:aeah_work_safety/widgets/risk_assessment/components/data_table_for_risk_assessment.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/components/data_table_for_accident.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/components/search_bar.dart';
+import 'package:aeah_work_safety/widgets/accident_page/components/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
@@ -28,7 +20,7 @@ class RiskAssessmentPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
+              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               Icon(Icons.arrow_right),
               routingBarWidget(
                   pageName: 'Risk Değerlendirme',

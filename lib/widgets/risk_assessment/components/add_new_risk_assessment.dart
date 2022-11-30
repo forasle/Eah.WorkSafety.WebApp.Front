@@ -32,7 +32,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
             child: Row(
               children: [
                 routingBarWidget(
-                    pageName: 'Panaroma', routeName: panaromaRoute),
+                    pageName: 'Panorama', routeName: panoramaRoute),
                 const Icon(Icons.arrow_right),
                 routingBarWidget(
                     pageName: 'Risk Değerlendirme',

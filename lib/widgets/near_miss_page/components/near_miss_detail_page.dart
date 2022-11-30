@@ -21,7 +21,7 @@ class NearMissDetailPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
+              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               Icon(Icons.arrow_right),
               routingBarWidget(
                   pageName: 'Ramak Kala', routeName: nearMissPageRoute),

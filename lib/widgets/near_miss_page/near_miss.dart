@@ -1,9 +1,9 @@
 import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
 import 'package:aeah_work_safety/widgets/components/column_graph.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/components/data_table_for_accident.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/components/search_bar.dart';
+import 'package:aeah_work_safety/widgets/accident_page/components/data_table_for_accident.dart';
+import 'package:aeah_work_safety/widgets/accident_page/components/search_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/constants/near_miss/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
@@ -14,7 +14,7 @@ class NearMissPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScrollController horizantalController = ScrollController();
+    ScrollController horizontalController = ScrollController();
     return CustomScaffold(
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -22,14 +22,14 @@ class NearMissPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
-              Icon(Icons.arrow_right),
+              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+              const Icon(Icons.arrow_right),
               routingBarWidget(
                   pageName: 'Ramak Kala',
                   routeName: dayWithoutAccidentPageRoute),
             ],
           ),
-          Constant.dividerWithIndents(),
+          Constant.dividerWithIndent,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -44,9 +44,7 @@ class NearMissPage extends StatelessWidget {
                         style: Theme.of(context).textTheme.headline4,
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    Constant.sizedBoxWidth,
                     Flexible(
                       child: Text(
                         '(Yetki seviyenize göre görüntüleyebildiğiniz liste & raporlar)',
@@ -58,24 +56,25 @@ class NearMissPage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: Constant.padding,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Flexible(
                         child: ElevatedButton(
-                            onPressed: () {}, child: Text('Rapor Yazdır'))),
-                    SizedBox(width: 10),
-                    Flexible(
+                            onPressed: () {},
+                            child: const Text('Rapor Yazdır'))),
+                    Constant.sizedBoxWidth,
+                    const Flexible(
                       child: SearchBarWidget(),
                     ),
                   ],
                 ),
               ),
               Scrollbar(
-                controller: horizantalController,
+                controller: horizontalController,
                 child: SingleChildScrollView(
-                  controller: horizantalController,
+                  controller: horizontalController,
                   scrollDirection: Axis.horizontal,
                   child: Row(
                       children: [
@@ -198,24 +197,24 @@ class NearMissPage extends StatelessWidget {
                           .toList()),
                 ),
               ),
-              Constant.dividerWithIndents(),
+              Constant.dividerWithIndent,
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: Constant.padding,
                 child: Wrap(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: Constant.padding,
                       child: SizedBox(
                         width: 200,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(
-                                  context, addNewWorkAccidentOrNearMiss);
+                              //Navigator.pushNamed(
+                               //   context, addNewWorkAccidentOrNearMiss);
                             },
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: Row(
-                                children: [
+                                children: const [
                                   Icon(Icons.add),
                                   Text('Yeni İş Kazası Ekle'),
                                 ],
@@ -223,46 +222,43 @@ class NearMissPage extends StatelessWidget {
                             )),
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    Constant.sizedBoxWidth,
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: Constant.padding,
                       child: SizedBox(
                         width: 150,
                         child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                primary: Colors.amberAccent.shade700),
-                            onPressed: () {},
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Icon(Icons.download_rounded),
-                                  Text('Detaylı Excel'),
-                                ],
-                              ),
-                            )),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.amberAccent.shade700),
+                          onPressed: () {},
+                          child: Padding(
+                            padding: Constant.padding,
+                            child: Row(
+                              children: const [
+                                Icon(Icons.download_rounded),
+                                Text('Detaylı Excel'),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    Constant.sizedBoxWidth,
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: Constant.padding,
                       child: SizedBox(
                         width: 200,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: Colors.blueGrey.shade700),
+                              backgroundColor: Colors.blueGrey.shade700),
                           onPressed: () {
-                            Navigator.pushNamed(
-                                context, addNewWorkAccidentOrNearMiss);
+                           // Navigator.pushNamed(
+                           //     context, addNewWorkAccidentOrNearMiss);
                           },
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Row(
-                              children: [
+                              children: const [
                                 Icon(Icons.access_alarm_rounded),
                                 Text('Yeni Ramak Kala'),
                               ],
@@ -271,20 +267,18 @@ class NearMissPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    Constant.sizedBoxWidth,
+                    const Padding(
+                      padding: Constant.padding,
                       child: SearchBarWidget(),
                     ),
                   ],
                 ),
               ),
-              Constant.dividerWithIndents(),
+              Constant.dividerWithIndent,
               DataTableForAccident(
                   title: 'Ramak Kalalar',
-                  columnData: [
+                  columnData: const [
                     'Referans No',
                     'Açıklama',
                     'Tanımlayan',
@@ -294,10 +288,8 @@ class NearMissPage extends StatelessWidget {
                     'Kök Neden Analizi Gerekiyor Mu'
                   ],
                   detailRoute: nearMissDetailPage),
-              SizedBox(
-                height: 10,
-              ),
-              Constant.dividerWithIndents(),
+              Constant.sizedBoxHeight,
+              Constant.dividerWithIndent,
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
@@ -305,7 +297,7 @@ class NearMissPage extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ),
-              Constant.dividerWithIndents(),
+              Constant.dividerWithIndent,
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -359,7 +351,7 @@ class NearMissPage extends StatelessWidget {
                   ],
                 ),
               ),
-              Constant.dividerWithIndents(),
+              Constant.dividerWithIndent,
             ],
           ),
         ],

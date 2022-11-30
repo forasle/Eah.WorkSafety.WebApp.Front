@@ -1,13 +1,8 @@
-import 'package:aeah_work_safety/models/accident.dart';
-import 'package:aeah_work_safety/models/inconsistencies.dart';
-import 'package:aeah_work_safety/models/person.dart';
 import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
-import 'package:aeah_work_safety/widgets/components/column_graph.dart';
 import 'package:aeah_work_safety/widgets/near_miss_page/components/data_table_for_inconsistencies.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/components/data_table_for_accident.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/components/search_bar.dart';
+import 'package:aeah_work_safety/widgets/accident_page/components/search_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/constants/inconsistencies/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
@@ -18,7 +13,7 @@ class InconsistenciesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScrollController horizantalController = ScrollController();
+    ScrollController horizontalController = ScrollController();
     return CustomScaffold(
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -26,19 +21,19 @@ class InconsistenciesPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
-              Icon(Icons.arrow_right),
+              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+              const Icon(Icons.arrow_right),
               routingBarWidget(
                   pageName: 'Uygunsuzluklar',
                   routeName: dayWithoutAccidentPageRoute),
             ],
           ),
-          Constant.dividerWithIndents(),
+          Constant.dividerWithIndent,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: Constant.padding,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -48,9 +43,7 @@ class InconsistenciesPage extends StatelessWidget {
                         style: Theme.of(context).textTheme.headline4,
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    Constant.sizedBoxWidth,
                     Flexible(
                       child: Text(
                         '(Yetki seviyenize göre görüntüleyebildiğiniz liste & raporlar)',
@@ -69,17 +62,17 @@ class InconsistenciesPage extends StatelessWidget {
                     Flexible(
                         child: ElevatedButton(
                             onPressed: () {}, child: Text('Rapor Yazdır'))),
-                    SizedBox(width: 10),
-                    Flexible(
+                    Constant.sizedBoxWidth,
+                    const Flexible(
                       child: SearchBarWidget(),
                     ),
                   ],
                 ),
               ),
               Scrollbar(
-                controller: horizantalController,
+                controller: horizontalController,
                 child: SingleChildScrollView(
-                  controller: horizantalController,
+                  controller: horizontalController,
                   scrollDirection: Axis.horizontal,
                   child: Row(
                       children: [
@@ -104,7 +97,7 @@ class InconsistenciesPage extends StatelessWidget {
                           .toList()),
                 ),
               ),
-              Constant.dividerWithIndents(),
+              Constant.dividerWithIndent,
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Wrap(
@@ -118,7 +111,7 @@ class InconsistenciesPage extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
-                                children: [
+                                children: const [
                                   Icon(Icons.add),
                                   Text('Yeni Saha Denetimi'),
                                 ],
@@ -126,24 +119,22 @@ class InconsistenciesPage extends StatelessWidget {
                             )),
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    Constant.sizedBoxWidth,
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: Constant.padding,
                       child: SizedBox(
                         width: 200,
                         child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                primary: Colors.greenAccent.shade700),
+                                backgroundColor: Colors.greenAccent.shade700),
                             onPressed: () {
                               Navigator.pushNamed(
                                   context, addNewInconsistencies);
                             },
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: Row(
-                                children: [
+                                children: const [
                                   Icon(Icons.download_rounded),
                                   Text('Yeni Uygunsuzluk'),
                                 ],
@@ -151,21 +142,19 @@ class InconsistenciesPage extends StatelessWidget {
                             )),
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    Constant.sizedBoxWidth,
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: Constant.padding,
                       child: SizedBox(
                         width: 150,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: Colors.blueGrey.shade700),
+                              backgroundColor: Colors.blueGrey.shade700),
                           onPressed: () {},
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Row(
-                              children: [
+                              children: const [
                                 Icon(Icons.access_alarm_rounded),
                                 Text('Detaylı Excel'),
                               ],
@@ -174,20 +163,18 @@ class InconsistenciesPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    Constant.sizedBoxWidth,
+                    const Padding(
+                      padding: Constant.padding,
                       child: SearchBarWidget(),
                     ),
                   ],
                 ),
               ),
-              Constant.dividerWithIndents(),
+              Constant.dividerWithIndent,
               DataTableForInconsistencies(
                   title: 'Uygunsuzluklar',
-                  columnData: [
+                  columnData: const [
                     'Referans No',
                     'Ad',
                     'Durum',
@@ -201,10 +188,8 @@ class InconsistenciesPage extends StatelessWidget {
                     'Kök Neden Analizi Gerekiyor Mu'
                   ],
                   detailRoute: inconsistenciesDetailPage),
-              SizedBox(
-                height: 10,
-              ),
-              Constant.dividerWithIndents(),
+              Constant.sizedBoxHeight,
+              Constant.dividerWithIndent,
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -234,7 +219,7 @@ class InconsistenciesPage extends StatelessWidget {
                   ],
                 ),
               ),
-              Constant.dividerWithIndents(),
+              Constant.dividerWithIndent,
             ],
           ),
         ],

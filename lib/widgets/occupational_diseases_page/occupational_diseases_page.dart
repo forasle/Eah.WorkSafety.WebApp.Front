@@ -1,11 +1,8 @@
-import 'package:aeah_work_safety/widgets/chronic_diseases_page/components/data_table_for_chronic_diseases.dart';
 import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
-import 'package:aeah_work_safety/widgets/components/column_graph.dart';
 import 'package:aeah_work_safety/widgets/occupational_diseases_page/components/data_table_for_occupation_diseases.dart';
-import 'package:aeah_work_safety/widgets/preventive_activities_page/components/data_table_for_preventive_activities.dart';
-import 'package:aeah_work_safety/widgets/workAccidentPage/components/search_bar.dart';
+import 'package:aeah_work_safety/widgets/accident_page/components/search_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/constants/occupation_disease/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
@@ -16,7 +13,7 @@ class OccupationDiseasesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScrollController horizantalController = ScrollController();
+    ScrollController horizontalController = ScrollController();
     return CustomScaffold(
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -24,19 +21,19 @@ class OccupationDiseasesPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panaroma', routeName: panaromaRoute),
+              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
               routingBarWidget(
                   pageName: 'Meslek Hastalıkları',
                   routeName: occupationDiseasesPageRoute),
             ],
           ),
-          Constant.dividerWithIndents(),
+          Constant.dividerWithIndent,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: Constant.padding,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -46,9 +43,7 @@ class OccupationDiseasesPage extends StatelessWidget {
                         style: Theme.of(context).textTheme.headline4,
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    Constant.sizedBoxWidth,
                     Flexible(
                       child: Text(
                         '(Yetki seviyenize göre görüntüleyebildiğiniz liste & raporlar)',
@@ -60,24 +55,24 @@ class OccupationDiseasesPage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: Constant.padding,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Flexible(
                         child: ElevatedButton(
-                            onPressed: () {}, child: Text('Rapor Yazdır'))),
-                    SizedBox(width: 10),
-                    Flexible(
+                            onPressed: () {}, child: const Text('Rapor Yazdır'))),
+                    Constant.sizedBoxWidth,
+                    const Flexible(
                       child: SearchBarWidget(),
                     ),
                   ],
                 ),
               ),
               Scrollbar(
-                controller: horizantalController,
+                controller: horizontalController,
                 child: SingleChildScrollView(
-                  controller: horizantalController,
+                  controller: horizontalController,
                   scrollDirection: Axis.horizontal,
                   child: Row(
                       children: [
@@ -93,7 +88,7 @@ class OccupationDiseasesPage extends StatelessWidget {
                           .toList()),
                 ),
               ),
-              Constant.dividerWithIndents(),
+              Constant.dividerWithIndent,
               DataTableForOccupationDiseases(
                 title: 'Meslek Hastalıkları',
                 columnData: const [
@@ -104,19 +99,17 @@ class OccupationDiseasesPage extends StatelessWidget {
                   'Departman',
                 ],
               ),
-              SizedBox(
-                height: 10,
-              ),
+              Constant.sizedBoxHeight,
               //Constant.dividerWithIndents(),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: Constant.padding,
                 child: Text(
                   'Rapor',
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ),
 
-              Constant.dividerWithIndents(),
+              Constant.dividerWithIndent,
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -134,7 +127,7 @@ class OccupationDiseasesPage extends StatelessWidget {
                   ],
                 ),
               ),
-              Constant.dividerWithIndents(),
+              Constant.dividerWithIndent,
             ],
           ),
         ],
