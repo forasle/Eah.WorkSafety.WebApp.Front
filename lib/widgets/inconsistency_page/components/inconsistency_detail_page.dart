@@ -1,4 +1,3 @@
-import 'package:aeah_work_safety/models/near_miss.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/inconsistency/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
@@ -10,7 +9,6 @@ class InconsistenciesDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    NearMiss test;
     //ScrollController horizontalController = ScrollController();
     return CustomScaffold(
       body: Column(
