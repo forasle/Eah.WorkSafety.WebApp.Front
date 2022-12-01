@@ -1,17 +1,16 @@
 import 'package:aeah_work_safety/constants/accident/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
-import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:aeah_work_safety/widgets/components/card_widget.dart';
 import 'package:aeah_work_safety/widgets/components/column_graph.dart';
 import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
+import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:flutter/material.dart';
-
 import 'components/data_table_for_accident.dart';
 import 'components/search_bar.dart';
 
-class WorkAccidentPage extends StatelessWidget {
-  const WorkAccidentPage({Key? key}) : super(key: key);
+class AccidentPage extends StatelessWidget {
+  const AccidentPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +25,10 @@ class WorkAccidentPage extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+                  RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
                   const Icon(Icons.arrow_right),
-                  routingBarWidget(
-                      pageName: 'İş Kazaları', routeName: workAccidentPageRoute),
+                  RoutingBarWidget(
+                      pageName: 'İş Kazaları', routeName: accidentPageRoute),
                 ],
               ),
             ),
@@ -39,7 +38,7 @@ class WorkAccidentPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: Constant.padding,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -61,7 +60,7 @@ class WorkAccidentPage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: Constant.padding,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -205,11 +204,11 @@ class WorkAccidentPage extends StatelessWidget {
           ),
           Constant.dividerWithIndent,
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: Constant.padding,
             child: Wrap(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: Constant.padding,
                   child: SizedBox(
                     width: 200,
                     child: ElevatedButton(
@@ -218,7 +217,7 @@ class WorkAccidentPage extends StatelessWidget {
                               context, addNewAccident);
                         },
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: Constant.padding,
                           child: Row(
                             children: const [
                               Icon(Icons.add),
@@ -230,15 +229,15 @@ class WorkAccidentPage extends StatelessWidget {
                 ),
                 Constant.sizedBox,
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: Constant.padding,
                   child: SizedBox(
-                    width: 150,
+                    width: 160,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.amberAccent.shade700),
                         onPressed: () {},
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: Constant.padding,
                           child: Row(
                             children: const [
                               Icon(Icons.download_rounded),
@@ -291,7 +290,7 @@ class WorkAccidentPage extends StatelessWidget {
               'Tarih',
               'Kök Neden Analizi Gerekiyor Mu'
             ],
-            detailRoute: workAccidentDetailPage,
+            detailRoute: accidentDetailPage,
           ),
           Constant.sizedBox,
           Constant.dividerWithIndent,

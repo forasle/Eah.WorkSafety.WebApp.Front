@@ -18,6 +18,7 @@ class Login extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const Text("AEAH İSG YÖNETİM SİSTEMİ",style: Constant.title),
                   const Padding(
                     padding: Constant.padding,
                     child: TextField(

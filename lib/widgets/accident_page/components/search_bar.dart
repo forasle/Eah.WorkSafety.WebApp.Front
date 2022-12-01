@@ -16,13 +16,11 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
   Widget build(BuildContext context) {
     return TextFormField(
       onSaved: (searchByUser) {
-        this._searchByUsername = searchByUser;
-        print(searchByUser);
+        _searchByUsername = searchByUser;
       },
-      validator: (value) {
-        print('Validating');
-      },
-      decoration: (InputDecoration(
+      //validator: (value) {
+      //},
+      decoration: (const InputDecoration(
           border: OutlineInputBorder(),
           icon: Icon(Icons.person),
           hintText: 'Kullanıcı Adı',

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:aeah_work_safety/constants/components/constants.dart';
 class CardWidget extends StatelessWidget {
   final String cardText;
   final String cardSubText;
@@ -17,9 +17,9 @@ class CardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: cardColor,
-      margin: EdgeInsets.all(8),
+      margin: Constant.padding8,
       elevation: 20,
-      child: Container(
+      child: SizedBox(
         //width: double.infinity,
         //constraints: const BoxConstraints(
         //minWidth: 195,
@@ -29,7 +29,7 @@ class CardWidget extends StatelessWidget {
         width: 200,
         height: 115,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: Constant.padding8,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -46,7 +46,7 @@ class CardWidget extends StatelessWidget {
                 cardSubText,
                 maxLines: 2,
                 softWrap: true,
-                style: TextStyle(overflow: TextOverflow.ellipsis),
+                style: const TextStyle(overflow: TextOverflow.ellipsis),
               ),
             ],
           ),

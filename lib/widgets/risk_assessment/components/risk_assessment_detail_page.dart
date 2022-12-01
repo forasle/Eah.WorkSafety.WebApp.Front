@@ -1,6 +1,5 @@
-import 'package:aeah_work_safety/widgets/components/dropdown_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/constants/risk_assessment/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
@@ -10,7 +9,7 @@ class RiskAssessmentDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //ScrollController horizantalController = ScrollController();
+    //ScrollController horizontalController = ScrollController();
     return CustomScaffold(
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -18,18 +17,18 @@ class RiskAssessmentDetailPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+              RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              routingBarWidget(
+              RoutingBarWidget(
                   pageName: 'Risk Değerlendirme',
                   routeName: riskAssessmentPage),
               const Icon(Icons.arrow_right),
-              routingBarWidget(
+              RoutingBarWidget(
                   pageName: 'Risk Değerlendirme Detay',
                   routeName: riskAssessmentDetailPage),
             ],
           ),
-          Constant.dividerWithIndents(),
+          Constant.dividerWithIndent,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -37,7 +36,7 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   title(context, 'Risk Değerlendirme Bilgileri'),
-                  Constant.dividerWithIndents(),
+                  Constant.dividerWithIndent,
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -45,7 +44,7 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                         Flexible(
                           flex: 1,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
@@ -71,19 +70,16 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const VerticalDivider(
-                          endIndent: 5,
-                          indent: 5,
-                        ),
+                        Constant.verticalDivider,
                         Expanded(
                           flex: 4,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
                                       child: Column(
@@ -91,11 +87,11 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                                             CrossAxisAlignment.center,
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
-                                        children: [Text('Referans No')],
+                                        children: const [Text('Referans No')],
                                       )),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
                                       child: Column(
@@ -103,11 +99,11 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                                             CrossAxisAlignment.center,
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
-                                        children: [Text('01.01.2022')],
+                                        children: const [Text('01.01.2022')],
                                       )),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
                                       child: Column(
@@ -115,20 +111,21 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                                             CrossAxisAlignment.center,
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
-                                        children: [Text('01.02.2022')],
+                                        children: const [Text('01.02.2022')],
                                       )),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
-                                      height: 50,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [Text('Toplantı Odası')],
-                                      )),
+                                    height: 50,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: const [Text('Toplantı Odası')],
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -137,9 +134,9 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 50),
+                  Constant.sizedBox50H,
                   title(context, 'Yeni Döküman Ekle'),
-                  Constant.dividerWithIndents(),
+                  Constant.dividerWithIndent,
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -147,13 +144,13 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                         Flexible(
                           flex: 1,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
+                              children: const [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     width: 150,
@@ -166,7 +163,7 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     width: 150,
@@ -182,19 +179,16 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const VerticalDivider(
-                          endIndent: 5,
-                          indent: 5,
-                        ),
+                        Constant.verticalDivider,
                         Expanded(
                           flex: 4,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -206,18 +200,14 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                                           labelStyle: const TextStyle(
                                               color: Colors.white),
                                           //filled: true,
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFieldBorder
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -238,12 +228,7 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                                           labelStyle: const TextStyle(
                                               color: Colors.white),
                                           //filled: true,
-
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFieldBorder
                                         ),
                                       ),
                                     ),
@@ -267,7 +252,7 @@ class RiskAssessmentDetailPage extends StatelessWidget {
 
   Padding title(BuildContext context, String title) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -287,7 +272,7 @@ class RiskAssessmentDetailPage extends StatelessWidget {
       required double height,
       required double width}) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding,
       child: SizedBox(
         height: height,
         width: width,

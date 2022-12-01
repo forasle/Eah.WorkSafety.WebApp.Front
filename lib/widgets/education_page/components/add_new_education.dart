@@ -1,6 +1,5 @@
-import 'package:aeah_work_safety/widgets/components/dropdown_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/constants/education/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
@@ -10,28 +9,28 @@ class AddNewEducation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //ScrollController horizantalController = ScrollController();
+    //ScrollController horizontalController = ScrollController();
     return CustomScaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
-              Icon(Icons.arrow_right),
-              routingBarWidget(
+              RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+              const Icon(Icons.arrow_right),
+              RoutingBarWidget(
                   pageName: 'Eğitim', routeName: educationPageRoute),
-              Icon(Icons.arrow_right),
-              routingBarWidget(
+              const Icon(Icons.arrow_right),
+              RoutingBarWidget(
                   pageName: 'Yeni Eğitim Ekle', routeName: addNewEducation),
             ],
           ),
-          Constant.dividerWithIndents(),
+          Constant.dividerWithIndent,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               title(context, 'Eğitim Seans Bilgileri'),
-              Constant.dividerWithIndents(),
+              Constant.dividerWithIndent,
               const SizedBox(height: 50),
               IntrinsicHeight(
                 child: Row(
@@ -39,7 +38,7 @@ class AddNewEducation extends StatelessWidget {
                     Flexible(
                       flex: 1,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -65,19 +64,16 @@ class AddNewEducation extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const VerticalDivider(
-                      endIndent: 5,
-                      indent: 5,
-                    ),
+                    Constant.verticalDivider,
                     Expanded(
                       flex: 4,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 child: Center(
@@ -89,18 +85,14 @@ class AddNewEducation extends StatelessWidget {
                                       labelStyle:
                                           const TextStyle(color: Colors.white),
                                       //filled: true,
-                                      border: new OutlineInputBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(5.0),
-                                        borderSide: new BorderSide(),
-                                      ),
+                                      border: Constant.textFormFieldBorder
                                     ),
                                   ),
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 child: Center(
@@ -122,18 +114,14 @@ class AddNewEducation extends StatelessWidget {
                                           const TextStyle(color: Colors.white),
                                       //filled: true,
 
-                                      border: new OutlineInputBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(5.0),
-                                        borderSide: new BorderSide(),
-                                      ),
+                                      border: Constant.textFormFieldBorder
                                     ),
                                   ),
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 child: Center(
@@ -155,18 +143,14 @@ class AddNewEducation extends StatelessWidget {
                                           const TextStyle(color: Colors.white),
                                       //filled: true,
 
-                                      border: new OutlineInputBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(5.0),
-                                        borderSide: new BorderSide(),
-                                      ),
+                                      border: Constant.textFormFieldBorder
                                     ),
                                   ),
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 child: Center(
@@ -188,18 +172,14 @@ class AddNewEducation extends StatelessWidget {
                                           const TextStyle(color: Colors.white),
                                       //filled: true,
 
-                                      border: new OutlineInputBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(5.0),
-                                        borderSide: new BorderSide(),
-                                      ),
+                                      border: Constant.textFormFieldBorder
                                     ),
                                   ),
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 child: Center(
@@ -211,11 +191,7 @@ class AddNewEducation extends StatelessWidget {
                                       labelStyle:
                                           const TextStyle(color: Colors.white),
                                       //filled: true,
-                                      border: new OutlineInputBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(5.0),
-                                        borderSide: new BorderSide(),
-                                      ),
+                                      border: Constant.textFormFieldBorder
                                     ),
                                   ),
                                 ),
@@ -228,23 +204,23 @@ class AddNewEducation extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 50),
+             Constant.sizedBox50H,
               title(context, 'Eğitici Bilgileri'),
-              Constant.dividerWithIndents(),
-              const SizedBox(height: 50),
+              Constant.dividerWithIndent,
+              Constant.sizedBox50H,
               IntrinsicHeight(
                 child: Row(
                   children: [
                     Flexible(
                       flex: 1,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
+                          children: const [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 width: 150,
@@ -260,19 +236,16 @@ class AddNewEducation extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const VerticalDivider(
-                      endIndent: 5,
-                      indent: 5,
-                    ),
+                    Constant.verticalDivider,
                     Expanded(
                       flex: 4,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 child: Center(
@@ -284,11 +257,7 @@ class AddNewEducation extends StatelessWidget {
                                       labelStyle:
                                           const TextStyle(color: Colors.white),
                                       //filled: true,
-                                      border: new OutlineInputBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(5.0),
-                                        borderSide: new BorderSide(),
-                                      ),
+                                      border: Constant.textFormFieldBorder
                                     ),
                                   ),
                                 ),
@@ -310,7 +279,7 @@ class AddNewEducation extends StatelessWidget {
 
   Padding title(BuildContext context, String title) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -330,7 +299,7 @@ class AddNewEducation extends StatelessWidget {
       required double height,
       required double width}) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding,
       child: SizedBox(
         height: height,
         width: width,

@@ -18,13 +18,13 @@ class Missions extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+              RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              routingBarWidget(
+              RoutingBarWidget(
                   pageName: 'Görevler', routeName: missionsPageRoute),
             ],
           ),
-          Constant.dividerWithIndents(),
+          Constant.dividerWithIndent,
           Column(
             children: [
               Padding(
@@ -67,8 +67,8 @@ class Missions extends StatelessWidget {
               ),
             ],
           ),
-          Constant.dividerWithIndents(),
-          DataTableForMissions(columnData: const [
+          Constant.dividerWithIndent,
+          const DataTableForMissions(columnData: [
             'Görev Adı',
             'Birim Adı',
             'Tanımlayan',
@@ -78,7 +78,7 @@ class Missions extends StatelessWidget {
             'Durumu'
           ], title: 'Görevler'),
           Constant.sizedBoxHeight,
-          Constant.dividerWithIndents(),
+          Constant.dividerWithIndent,
         ],
       ),
     );

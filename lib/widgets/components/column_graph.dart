@@ -1,10 +1,10 @@
-import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/constants/components/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class ColumnGraph extends StatelessWidget {
-  ColumnGraph({Key? key, required this.title}) : super(key: key);
-  String title;
+  const ColumnGraph({Key? key, required this.title}) : super(key: key);
+  final String title;
   @override
   Widget build(BuildContext context) {
     var data = [
@@ -16,11 +16,11 @@ class ColumnGraph extends StatelessWidget {
       _ChartData('Diabetes Mellitus', 144)
     ];
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding8,
       child: Column(
         children: [
           Text(title, style: Theme.of(context).textTheme.headline5),
-          SizedBox(width: 500, child: Constant.dividerWithIndents()),
+          const SizedBox(width: 500, child: Constant.dividerWithIndent),
           SizedBox(
             width: 500,
             child: SfCartesianChart(

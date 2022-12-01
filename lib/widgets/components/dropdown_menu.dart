@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:aeah_work_safety/constants/components/constants.dart';
 
 class DropdownMenu extends StatefulWidget {
   final List<DropdownMenuItem<String>> menuItems;
@@ -14,7 +15,7 @@ class _DropdownMenuState extends State<DropdownMenu> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
-      hint: Text('Lütfen Seçiniz'),
+      hint: const Text('Lütfen Seçiniz'),
       items: widget.menuItems,
       onChanged: (String? newValue) {
         setState(() {
@@ -22,10 +23,7 @@ class _DropdownMenuState extends State<DropdownMenu> {
         });
       },
       decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5.0),
-          borderSide: const BorderSide(),
-        ),
+        border: Constant.textFormFieldBorder
       ),
     );
   }

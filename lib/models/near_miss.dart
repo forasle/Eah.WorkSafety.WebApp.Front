@@ -1,21 +1,21 @@
-import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/employee.dart';
 
 class NearMiss {
-  final double nearMissNumber;
+  final double number;
   final String referenceNumber;
-  final String nearMissInfo;
-  final Person nearMissIdentifier;
-  final String nearMissDate;
+  final String info;
+  final Employee identifier;
+  final String date;
   final bool rootCauseAnalysis;
 
   bool selected = false;
 
   NearMiss({
     required this.referenceNumber,
-    required this.nearMissInfo,
-    required this.nearMissIdentifier,
-    required this.nearMissNumber,
-    required this.nearMissDate,
+    required this.info,
+    required this.identifier,
+    required this.number,
+    required this.date,
     required this.rootCauseAnalysis,
   });
 }

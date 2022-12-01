@@ -1,4 +1,4 @@
-import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/employee.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForPeriodicMedicalExamination extends StatelessWidget {
@@ -33,7 +33,7 @@ class DataTableForPeriodicMedicalExamination extends StatelessWidget {
 class _DataSource extends DataTableSource {
   _DataSource(this.context) {
     _rows = [
-      Person(
+      Employee(
 
           chronicDiseases: 'null',
           address: 'test',
@@ -49,7 +49,7 @@ class _DataSource extends DataTableSource {
   }
 
   final BuildContext context;
-  late List<Person> _rows;
+  late List<Employee> _rows;
 
   final int _selectedCount = 0;
 

@@ -17,7 +17,7 @@ class Panorama extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+          RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
           Constant.divider,
           Scrollbar(
             controller: horizontalController,
@@ -61,7 +61,7 @@ class Panorama extends StatelessWidget {
                     'İş Kazası',
                     Colors.redAccent.shade700,
                     () {
-                      Navigator.of(context).pushNamed(workAccidentPageRoute);
+                      Navigator.of(context).pushNamed(accidentPageRoute);
                     }
                   ],
                   [

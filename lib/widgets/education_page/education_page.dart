@@ -20,9 +20,9 @@ class EducationPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+              RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              routingBarWidget(
+              RoutingBarWidget(
                   pageName: 'Eğitim', routeName: educationPageRoute),
             ],
           ),
@@ -148,7 +148,7 @@ class EducationPage extends StatelessWidget {
                     Padding(
                       padding: Constant.padding,
                       child: SizedBox(
-                        width: 150,
+                        width: 160,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blueGrey.shade700),

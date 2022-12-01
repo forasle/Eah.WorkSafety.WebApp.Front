@@ -22,15 +22,15 @@ class CustomScaffold extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: Icon(Icons.arrow_left),
+              icon: const Icon(Icons.arrow_left),
             ),
           ),
-          Flexible(child: Icon(Icons.apartment)),
-          Flexible(flex: 3, child: Text(' Aeah İSG'))
+          const Flexible(child: Icon(Icons.apartment)),
+          const Flexible(flex: 3, child: Text(' Aeah İSG'))
         ]),
         actions: [
           Row(
-            children: [
+            children: const [
               Icon(Icons.person),
               Center(
                 child: Text(' Murat Doğan'),
@@ -39,7 +39,7 @@ class CustomScaffold extends StatelessWidget {
           ),
           PopupMenuButton(
             itemBuilder: (context) {
-              return [
+              return const[
                 PopupMenuItem(
                   child: Text('Hesabım'),
                 ),

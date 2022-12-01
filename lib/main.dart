@@ -1,19 +1,19 @@
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/chronic_diseases_page/chronic_diseases_page.dart';
 import 'package:aeah_work_safety/widgets/components/add_new_near_miss.dart';
-import 'package:aeah_work_safety/widgets/components/add_new_worker.dart';
-import 'package:aeah_work_safety/widgets/contingency_plans_page/components/add_new_contingency_plan.dart';
-import 'package:aeah_work_safety/widgets/contingency_plans_page/components/contingency_plans_detail_page.dart';
-import 'package:aeah_work_safety/widgets/contingency_plans_page/contingency_plans.dart';
+import 'package:aeah_work_safety/widgets/components/add_new_employee.dart';
+import 'package:aeah_work_safety/widgets/contingency_plan_page/components/add_new_contingency_plan.dart';
+import 'package:aeah_work_safety/widgets/contingency_plan_page/components/contingency_plans_detail_page.dart';
+import 'package:aeah_work_safety/widgets/contingency_plan_page/contingency_plan.dart';
 import 'package:aeah_work_safety/widgets/day_without_accident_page/day_without_accident.dart';
 import 'package:aeah_work_safety/widgets/education_page/components/add_new_education.dart';
 import 'package:aeah_work_safety/widgets/employee_detail_page/employee_detail_page.dart';
 import 'package:aeah_work_safety/widgets/employee_page/employee.dart';
-import 'package:aeah_work_safety/widgets/inconsistencies_page/components/add_new_inconsistencies.dart';
 import 'package:aeah_work_safety/widgets/components/add_new_accident.dart';
 import 'package:aeah_work_safety/widgets/education_page/education_page.dart';
-import 'package:aeah_work_safety/widgets/inconsistencies_page/components/inconsistencies_detail_page.dart';
-import 'package:aeah_work_safety/widgets/inconsistencies_page/inconsistencies_page.dart';
+import 'package:aeah_work_safety/widgets/inconsistency_page/components/add_new_inconsistency.dart';
+import 'package:aeah_work_safety/widgets/inconsistency_page/components/inconsistency_detail_page.dart';
+import 'package:aeah_work_safety/widgets/inconsistency_page/inconsistency_page.dart';
 import 'package:aeah_work_safety/widgets/login_page/login.dart';
 import 'package:aeah_work_safety/widgets/missionsPage/missions.dart';
 import 'package:aeah_work_safety/widgets/near_miss_page/components/near_miss_detail_page.dart';
@@ -27,8 +27,8 @@ import 'package:aeah_work_safety/widgets/preventive_activities_page/preventive_a
 import 'package:aeah_work_safety/widgets/risk_assessment/components/add_new_risk_assessment.dart';
 import 'package:aeah_work_safety/widgets/risk_assessment/components/risk_assessment_detail_page.dart';
 import 'package:aeah_work_safety/widgets/risk_assessment/risk_assessment_page.dart';
-import 'package:aeah_work_safety/widgets/accident_page/components/work_accident_detail_page.dart';
-import 'package:aeah_work_safety/widgets/accident_page/work_accident.dart';
+import 'package:aeah_work_safety/widgets/accident_page/components/accident_detail_page.dart';
+import 'package:aeah_work_safety/widgets/accident_page/accident.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
         workersDetailPageRoute: (context) => const EmployeeDetail(),
         dayWithoutAccidentPageRoute: (context) =>
             const DayWithoutAccidentPage(),
-        workAccidentPageRoute: (context) => const WorkAccidentPage(),
+        accidentPageRoute: (context) => const AccidentPage(),
         nearMissPageRoute: (context) => const NearMissPage(),
         inconsistenciesPageRoute: (context) => const InconsistenciesPage(),
         preventiveActivitiesPageRoute: (context) =>
@@ -73,20 +73,20 @@ class MyApp extends StatelessWidget {
             const AddNewAccident(),
         addNewNearMiss: (context) =>
         const AddNewNearMiss(),
-        addNewInconsistencies: (context) => const AddNewInconsistencies(),
+        addNewInconsistencies: (context) => const AddNewInconsistency(),
         nearMissDetailPage: (context) => const NearMissDetailPage(),
-        workAccidentDetailPage: (context) => const WorkAccidentDetailPage(),
+        accidentDetailPage: (context) => const AccidentDetailPage(),
         inconsistenciesDetailPage: (context) =>
             const InconsistenciesDetailPage(),
         addNewPreventiveActivity: (context) => const AddNewPreventiveActivity(),
         preventiveActivityDetailPage: (context) =>
             const PreventiveActivityDetailPage(),
         addNewEducation: (context) => const AddNewEducation(),
-        contingencyPlansPage: (context) => const ContingencyPlansPage(),
+        contingencyPlanPage: (context) => const ContingencyPlanPage(),
         addNewContingencyPlan: (context) => const AddNewContingencyPlan(),
-        contingencyPlansDetailPage: (context) =>
+        contingencyPlanDetailPage: (context) =>
             const ContingencyPlanDetailPage(),
-        addNewWorker: (context) => const AddNewWorker(),
+        addNewWorker: (context) => const AddNewEmployee(),
         riskAssessmentPage: (context) => const RiskAssessmentPage(),
         riskAssessmentDetailPage: (context) => const RiskAssessmentDetailPage(),
         addNewRiskAssessment: (context) => const AddNewRiskAssessment(),

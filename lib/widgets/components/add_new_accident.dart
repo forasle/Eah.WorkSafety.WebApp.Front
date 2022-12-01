@@ -1,6 +1,6 @@
 import 'package:aeah_work_safety/widgets/components/dropdown_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/constants/accident/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
@@ -21,19 +21,20 @@ class AddNewAccident extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+                  RoutingBarWidget(
+                      pageName: 'Panorama', routeName: panoramaRoute),
                   const Icon(Icons.arrow_right),
-                  routingBarWidget(
-                      pageName: 'Ramak Kala', routeName: nearMissPageRoute),
+                  RoutingBarWidget(
+                      pageName: 'İş Kazası', routeName: accidentPageRoute),
                   const Icon(Icons.arrow_right),
-                  routingBarWidget(
-                      pageName: 'Yeni İş Kazası/Ramak Kala Ekle',
+                  RoutingBarWidget(
+                      pageName: 'Yeni İş Kazası Ekle',
                       routeName: addNewAccident),
                 ],
               ),
             ),
           ),
-          Constant.dividerWithIndents(),
+          Constant.dividerWithIndent,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -41,7 +42,7 @@ class AddNewAccident extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   title(context, 'Genel Bilgiler'),
-                  Constant.dividerWithIndents(),
+                  Constant.dividerWithIndent,
                   const SizedBox(height: 50),
                   IntrinsicHeight(
                     child: Row(
@@ -49,7 +50,7 @@ class AddNewAccident extends StatelessWidget {
                         Flexible(
                           flex: 1,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
@@ -74,28 +75,28 @@ class AddNewAccident extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const VerticalDivider(
-                          endIndent: 5,
-                          indent: 5,
-                        ),
+                        Constant.verticalDivider,
                         Expanded(
                           flex: 4,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                const Padding(
+                                  padding: Constant.padding,
                                   child: SizedBox(
-                                      height: 50,
-                                      child: Center(
-                                          child: DropdownMenu(
-                                        menuItems: Constant.menuItemsForEventType,
-                                      ))),
+                                    height: 50,
+                                    child: Center(
+                                      child: DropdownMenu(
+                                        menuItems:
+                                            Constant.menuItemsForEventType,
+                                      ),
+                                    ),
+                                  ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -112,21 +113,15 @@ class AddNewAccident extends StatelessWidget {
                                         decoration: InputDecoration(
                                           hintText: 'Lütfen Tarih Giriniz',
                                           labelText: 'Tarih Giriniz',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
                                           //filled: true,
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFieldBorder,
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -143,67 +138,52 @@ class AddNewAccident extends StatelessWidget {
                                         },
                                         maxLines: 5,
                                         decoration: InputDecoration(
-                                          hintText: 'Lütfen Saat Giriniz',
-                                          labelText: 'Saat Giriniz',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
-                                          //filled: true,
+                                            hintText: 'Lütfen Saat Giriniz',
+                                            labelText: 'Saat Giriniz',
+                                            labelStyle: const TextStyle(
+                                                color: Colors.white),
+                                            //filled: true,
 
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
-                                        ),
+                                            border: Constant.textFieldBorder),
                                       ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 150,
                                     child: Center(
                                       child: TextField(
                                         maxLines: 5,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              'Lütfen olay tanımını yapınız',
-                                          labelText: 'Olay Tanımı',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
-                                          //filled: true,
+                                            hintText:
+                                                'Lütfen olay tanımını yapınız',
+                                            labelText: 'Olay Tanımı',
+                                            labelStyle: const TextStyle(
+                                                color: Colors.white),
+                                            //filled: true,
 
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
-                                        ),
+                                            border: Constant.textFieldBorder),
                                       ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 100,
                                     child: Center(
                                       child: TextField(
                                         maxLines: 3,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              'Lütfen yapılan iş açıklaması giriniz',
-                                          labelText: 'Yapılan İş',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
-                                          //filled: true,
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
-                                        ),
+                                            hintText:
+                                                'Lütfen yapılan iş açıklaması giriniz',
+                                            labelText: 'Yapılan İş',
+                                            labelStyle: const TextStyle(
+                                                color: Colors.white),
+                                            //filled: true,
+                                            border: Constant.textFieldBorder),
                                       ),
                                     ),
                                   ),
@@ -215,23 +195,23 @@ class AddNewAccident extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 50),
+                  Constant.sizedBox50,
                   title(context, 'Olay Yeri'),
-                  Constant.dividerWithIndents(),
-                  const SizedBox(height: 50),
+                  Constant.dividerWithIndent,
+                  Constant.sizedBox50,
                   IntrinsicHeight(
                     child: Row(
                       children: [
                         Flexible(
                           flex: 1,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
+                              children: const [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     width: 150,
@@ -247,25 +227,22 @@ class AddNewAccident extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const VerticalDivider(
-                          endIndent: 5,
-                          indent: 5,
-                        ),
+                        Constant.verticalDivider,
                         Expanded(
                           flex: 4,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
+                              children: const [
                                 Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
                                       child: Center(
                                           child: DropdownMenu(
-                                              menuItems:
-                                              Constant.menuItemsForDepartmentType))),
+                                              menuItems: Constant
+                                                  .menuItemsForDepartmentType))),
                                 ),
                               ],
                             ),
@@ -274,17 +251,17 @@ class AddNewAccident extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 50),
+                  Constant.sizedBox50,
                   title(context, 'Analiz'),
-                  Constant.dividerWithIndents(),
-                  const SizedBox(height: 50),
+                  Constant.dividerWithIndent,
+                  Constant.sizedBox50,
                   IntrinsicHeight(
                     child: Row(
                       children: [
                         Flexible(
                           flex: 1,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
@@ -305,33 +282,30 @@ class AddNewAccident extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const VerticalDivider(
-                          endIndent: 5,
-                          indent: 5,
-                        ),
+                        Constant.verticalDivider,
                         Expanded(
                           flex: 4,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
                                       child: Switch(
                                           value: true, onChanged: (value) {})),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
                                       child: Switch(
                                           value: true, onChanged: (value) {})),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
                                       child: Switch(
@@ -344,17 +318,17 @@ class AddNewAccident extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 50),
+                  Constant.sizedBox50,
                   title(context, 'Kaza Araştırma'),
-                  Constant.dividerWithIndents(),
-                  const SizedBox(height: 50),
+                  Constant.dividerWithIndent,
+                  Constant.sizedBox50,
                   IntrinsicHeight(
                     child: Row(
                       children: [
                         Flexible(
                           flex: 1,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
@@ -405,61 +379,58 @@ class AddNewAccident extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const VerticalDivider(
-                          endIndent: 5,
-                          indent: 5,
-                        ),
+                        Constant.verticalDivider,
                         Expanded(
                           flex: 4,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
                                       child: Switch(
                                           value: true, onChanged: (value) {})),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
                                       child: Switch(
                                           value: true, onChanged: (value) {})),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
                                       child: Switch(
                                           value: false, onChanged: (value) {})),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
                                       child: Switch(
                                           value: false, onChanged: (value) {})),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
                                       child: Switch(
                                           value: false, onChanged: (value) {})),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
                                       child: Switch(
                                           value: false, onChanged: (value) {})),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
                                       child: Switch(
@@ -468,13 +439,13 @@ class AddNewAccident extends StatelessWidget {
                                 Expanded(
                                   flex: 4,
                                   child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: Constant.padding,
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.all(8.0),
+                                          padding: Constant.padding,
                                           child: SizedBox(
                                             height: 100,
                                             child: Center(
@@ -484,24 +455,15 @@ class AddNewAccident extends StatelessWidget {
                                                   hintText:
                                                       'Kullanılması Gereken KKD Giriniz',
                                                   labelText: 'KKD Giriniz',
-                                                  labelStyle: const TextStyle(
-                                                      color: Colors.white),
-                                                  //filled: true,
                                                   border:
-                                                      new OutlineInputBorder(
-                                                    borderRadius:
-                                                        new BorderRadius
-                                                            .circular(5.0),
-                                                    borderSide:
-                                                        new BorderSide(),
-                                                  ),
+                                                      Constant.textFieldBorder,
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.all(8.0),
+                                          padding: Constant.padding,
                                           child: SizedBox(
                                             height: 100,
                                             child: Center(
@@ -511,17 +473,8 @@ class AddNewAccident extends StatelessWidget {
                                                   hintText:
                                                       'Lütfen Sebep Giriniz',
                                                   labelText: 'Sebep Giriniz',
-                                                  labelStyle: const TextStyle(
-                                                      color: Colors.white),
-                                                  //filled: true,
                                                   border:
-                                                      new OutlineInputBorder(
-                                                    borderRadius:
-                                                        new BorderRadius
-                                                            .circular(5.0),
-                                                    borderSide:
-                                                        new BorderSide(),
-                                                  ),
+                                                      Constant.textFieldBorder,
                                                 ),
                                               ),
                                             ),
@@ -538,23 +491,23 @@ class AddNewAccident extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 50),
+                  Constant.sizedBox50,
                   title(context, 'Tanık/Tanık İfadesi'),
-                  Constant.dividerWithIndents(),
-                  const SizedBox(height: 50),
+                  Constant.dividerWithIndent,
+                  Constant.sizedBox50,
                   IntrinsicHeight(
                     child: Row(
                       children: [
                         Flexible(
                           flex: 1,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
+                              children: const [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     width: 150,
@@ -570,19 +523,16 @@ class AddNewAccident extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const VerticalDivider(
-                          endIndent: 5,
-                          indent: 5,
-                        ),
+                        Constant.verticalDivider,
                         Expanded(
                           flex: 4,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
                                       child: Switch(
@@ -595,23 +545,23 @@ class AddNewAccident extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 50),
+                  Constant.verticalDivider,
                   title(context, 'Yeni Döküman Ekle'),
-                  Constant.dividerWithIndents(),
-                  const SizedBox(height: 50),
+                  Constant.dividerWithIndent,
+                  Constant.verticalDivider,
                   IntrinsicHeight(
                     child: Row(
                       children: [
                         Flexible(
                           flex: 1,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
+                              children: const [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     width: 150,
@@ -624,7 +574,7 @@ class AddNewAccident extends StatelessWidget {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     width: 150,
@@ -640,19 +590,16 @@ class AddNewAccident extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const VerticalDivider(
-                          endIndent: 5,
-                          indent: 5,
-                        ),
+                        Constant.verticalDivider,
                         Expanded(
                           flex: 4,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -661,21 +608,14 @@ class AddNewAccident extends StatelessWidget {
                                         decoration: InputDecoration(
                                           hintText: 'Döküman adını giriniz',
                                           labelText: 'Döküman Adı',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
-                                          //filled: true,
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFieldBorder,
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -693,15 +633,7 @@ class AddNewAccident extends StatelessWidget {
                                           hintText:
                                               'Lütfen Düzenleme Tarihi Giriniz',
                                           labelText: 'Tarih Giriniz',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
-                                          //filled: true,
-
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFieldBorder,
                                         ),
                                       ),
                                     ),
@@ -725,7 +657,7 @@ class AddNewAccident extends StatelessWidget {
 
   Padding title(BuildContext context, String title) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -745,7 +677,7 @@ class AddNewAccident extends StatelessWidget {
       required double height,
       required double width}) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding,
       child: SizedBox(
         height: height,
         width: width,

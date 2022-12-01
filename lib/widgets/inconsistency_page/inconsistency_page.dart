@@ -1,12 +1,13 @@
 import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
-import 'package:aeah_work_safety/widgets/near_miss_page/components/data_table_for_inconsistencies.dart';
 import 'package:aeah_work_safety/widgets/accident_page/components/search_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:aeah_work_safety/constants/inconsistencies/constants.dart';
+import 'package:aeah_work_safety/constants/inconsistency/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:aeah_work_safety/widgets/components/card_widget.dart';
+
+import 'components/data_table_for_inconsistency.dart';
 
 class InconsistenciesPage extends StatelessWidget {
   const InconsistenciesPage({Key? key}) : super(key: key);
@@ -21,9 +22,9 @@ class InconsistenciesPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+              RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              routingBarWidget(
+              RoutingBarWidget(
                   pageName: 'Uygunsuzluklar',
                   routeName: dayWithoutAccidentPageRoute),
             ],
@@ -55,13 +56,13 @@ class InconsistenciesPage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: Constant.padding,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Flexible(
                         child: ElevatedButton(
-                            onPressed: () {}, child: Text('Rapor Yazdır'))),
+                            onPressed: () {}, child: const Text('Rapor Yazdır'))),
                     Constant.sizedBoxWidth,
                     const Flexible(
                       child: SearchBarWidget(),
@@ -146,7 +147,7 @@ class InconsistenciesPage extends StatelessWidget {
                     Padding(
                       padding: Constant.padding,
                       child: SizedBox(
-                        width: 150,
+                        width: 160,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blueGrey.shade700),
@@ -172,7 +173,7 @@ class InconsistenciesPage extends StatelessWidget {
                 ),
               ),
               Constant.dividerWithIndent,
-              DataTableForInconsistencies(
+              DataTableForInconsistency(
                   title: 'Uygunsuzluklar',
                   columnData: const [
                     'Referans No',

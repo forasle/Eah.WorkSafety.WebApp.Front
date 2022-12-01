@@ -1,10 +1,10 @@
 import 'package:aeah_work_safety/constants/routes.dart';
-import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/employee.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/employee/constants.dart';
 
-class DataTableForUser extends StatelessWidget {
-  const DataTableForUser({Key? key}) : super(key: key);
+class DataTableForEmployee extends StatelessWidget {
+  const DataTableForEmployee({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class DataTableForUser extends StatelessWidget {
 class _DataSource extends DataTableSource {
   _DataSource(this.context) {
     _rows = [
-      Person(
+      Employee(
           chronicDiseases: 'null',
           id: 1,
           identificationNumber: 1655,
@@ -54,7 +54,7 @@ class _DataSource extends DataTableSource {
           startDateOfEmployment: '01.01.2022',
           address:
               'Adres: Varlık Mh. Kazım Karabekir Cd. 07100 /Antalya Tel: +90 242 249 44 00 E -Mail: antalyaeah@saglik.gov.tr'),
-      Person(
+      Employee(
 
           chronicDiseases: 'null',
           id: 2,
@@ -71,7 +71,7 @@ class _DataSource extends DataTableSource {
   }
 
   final BuildContext context;
-  late List<Person> _rows;
+  late List<Employee> _rows;
 
   final int _selectedCount = 0;
 

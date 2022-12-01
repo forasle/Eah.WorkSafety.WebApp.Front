@@ -1,5 +1,5 @@
 import 'package:aeah_work_safety/models/education.dart';
-import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/employee.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForEducation extends StatelessWidget {
@@ -39,7 +39,7 @@ class _DataSource extends DataTableSource {
   _DataSource(this.context, this.detailRoute) {
     _rows = [
       Education(
-          educationalist: Person(
+          list: Employee(
 
               chronicDiseases: 'null',
               id: 123,
@@ -51,13 +51,13 @@ class _DataSource extends DataTableSource {
               department: 'Arge',
               startDateOfEmployment: 'EA',
               address: 'Test'),
-          educationName: 'Sağlık Konuları',
-          educationInfo: 'Test',
-          educationNumber: 4562,
-          educationStatus: true,
-          educationTime: 'time',
-          educationDate: 'education date',
-          educationIdentifier: Person(
+          name: 'Sağlık Konuları',
+          info: 'Test',
+          number: 4562,
+          status: true,
+          time: 'time',
+          date: 'education date',
+          identifier: Employee(
                            chronicDiseases: 'null',
               id: 123,
               identificationNumber: 159,
@@ -87,11 +87,11 @@ class _DataSource extends DataTableSource {
         Navigator.pushNamed(context, detailRoute);
       },
       cells: [
-        DataCell(Text(row.educationName.toString())),
-        DataCell(Text(row.educationDate.toString())),
-        DataCell(Text(row.educationalist.toString())),
-        DataCell(Text(row.educationTime.toString())),
-        DataCell(Text(row.educationStatus.toString())),
+        DataCell(Text(row.name.toString())),
+        DataCell(Text(row.date.toString())),
+        DataCell(Text(row.list.toString())),
+        DataCell(Text(row.time.toString())),
+        DataCell(Text(row.status.toString())),
       ],
     ));
   }

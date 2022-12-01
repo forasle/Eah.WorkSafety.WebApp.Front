@@ -1,23 +1,23 @@
-import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/employee.dart';
 
 class ContingencyPlans {
-  final double contingencyPlansNumber;//
-  final String contingencyName;//
-  final String contingencyReferenceNumber;//
-  final String contingencyInfo;//
-  final Person contingencyIdentifier;//
-  final String contingencyDate;//
-  final String contingencyCreationTime;//
+  final double number;//
+  final String name;//
+  final String referenceNumber;//
+  final String info;//
+  final Employee identifier;//
+  final String date;//
+  final String creationTime;//
 
   bool selected = false;
 
   ContingencyPlans({
-    required this.contingencyReferenceNumber,
-    required this.contingencyName,
-    required this.contingencyInfo,
-    required this.contingencyIdentifier,
-    required this.contingencyPlansNumber,
-    required this.contingencyDate,
-    required this.contingencyCreationTime,
+    required this.referenceNumber,
+    required this.name,
+    required this.info,
+    required this.identifier,
+    required this.number,
+    required this.date,
+    required this.creationTime,
   });
 }

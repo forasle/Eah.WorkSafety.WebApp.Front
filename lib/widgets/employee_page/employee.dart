@@ -8,7 +8,7 @@ import 'package:aeah_work_safety/widgets/components/column_graph.dart';
 import 'package:aeah_work_safety/widgets/accident_page/components/search_bar.dart';
 import 'package:flutter/material.dart';
 
-import 'components/data_table_for_user.dart';
+import 'components/data_table_for_employee.dart';
 
 class Employee extends StatelessWidget {
   const Employee({Key? key}) : super(key: key);
@@ -23,9 +23,9 @@ class Employee extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+              RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              routingBarWidget(
+              RoutingBarWidget(
                   pageName: 'Çalışanlar', routeName: workersMainPageRoute),
             ],
           ),
@@ -109,7 +109,7 @@ class Employee extends StatelessWidget {
             ),
           ),
           Constant.dividerWithIndent,
-          DataTableForUser(),
+          const DataTableForEmployee(),
           Constant.sizedBoxHeight,
           Constant.dividerWithIndent,
           Padding(

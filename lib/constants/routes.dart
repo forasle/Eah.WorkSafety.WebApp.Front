@@ -5,7 +5,7 @@ String missionsPageRoute = '/missions';
 String workersMainPageRoute = '/Panorama/workers';
 String workersDetailPageRoute = '/Panorama/workers/workersDetail';
 String dayWithoutAccidentPageRoute = '/Panorama/dayWithoutAccident';
-String workAccidentPageRoute = '/Panorama/workAccident';
+String accidentPageRoute = '/Panorama/accident';
 String nearMissPageRoute = '/Panorama/nearMiss';
 String inconsistenciesPageRoute = '/Panorama/inconsistencies';
 String preventiveActivitiesPageRoute = '/Panorama/preventiveActivities';
@@ -21,7 +21,7 @@ String addNewNearMiss =
 String addNewInconsistencies =
     '/Panorama/inconsistencies/addNewInconsistencies';
 String nearMissDetailPage = '/Panorama/nearMiss/nearMissDetailPage';
-String workAccidentDetailPage = '/Panorama/workAccident/workAccidentDetailPage';
+String accidentDetailPage = '/Panorama/accident/accidentDetailPage';
 String inconsistenciesDetailPage =
     '/Panorama/inconsistencies/inconsistenciesDetailPage';
 String addNewPreventiveActivity =
@@ -29,11 +29,11 @@ String addNewPreventiveActivity =
 String preventiveActivityDetailPage =
     '/Panorama/preventiveActivities/preventiveActivityDetailPage';
 String addNewEducation = '/Panorama/education/addNewEducation';
-String contingencyPlansPage = '/Panorama/contingencyPlansPage';
+String contingencyPlanPage = '/Panorama/contingencyPlanPage';
 String addNewContingencyPlan =
     '/Panorama/contingencyPlans/addNewContingencyPlan';
-String contingencyPlansDetailPage =
-    '/Panorama/contingencyPlans/contingencyPlansDetailPage';
+String contingencyPlanDetailPage =
+    '/Panorama/contingencyPlans/contingencyPlanDetailPage';
 String addNewWorker = '/Panorama/addNewWorker';
 String riskAssessmentPage = '/Panorama/riskAssessmentPage';
 String riskAssessmentDetailPage =

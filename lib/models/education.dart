@@ -1,25 +1,25 @@
-import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/employee.dart';
 
 class Education {
-  final String educationName;
-  final double educationNumber;
-  final String educationInfo;
-  final Person educationIdentifier;
-  final String educationDate;
-  final String educationTime;
-  final Person educationalist;
-  final bool educationStatus;
+  final String name;
+  final double number;
+  final String info;
+  final Employee identifier;
+  final String date;
+  final String time;
+  final Employee list;
+  final bool status;
 
   bool selected = false;
 
   Education({
-    required this.educationName,
-    required this.educationInfo,
-    required this.educationIdentifier,
-    required this.educationNumber,
-    required this.educationDate,
-    required this.educationStatus,
-    required this.educationTime,
-    required this.educationalist,
+    required this.name,
+    required this.info,
+    required this.identifier,
+    required this.number,
+    required this.date,
+    required this.status,
+    required this.time,
+    required this.list,
   });
 }

@@ -1,21 +1,21 @@
-import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/constants/components/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class CircularGraph extends StatelessWidget {
-  CircularGraph({Key? key, required this.chartData, required this.title})
+  const CircularGraph({Key? key, required this.chartData, required this.title})
       : super(key: key);
-  List<ChartData> chartData;
-  String title;
+  final List<ChartData> chartData;
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding8,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(title, style: Theme.of(context).textTheme.headline5),
-          SizedBox(width: 500, child: Constant.dividerWithIndents()),
+          const SizedBox(width: 500, child: Constant.dividerWithIndent),
           SizedBox(
             width: 500,
             child: SfCircularChart(series: <CircularSeries>[

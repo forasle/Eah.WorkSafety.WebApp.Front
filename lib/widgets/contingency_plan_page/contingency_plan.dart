@@ -1,6 +1,6 @@
-import 'package:aeah_work_safety/widgets/contingency_plans_page/components/data_table_for_contingency_plans.dart';
+import 'package:aeah_work_safety/widgets/contingency_plan_page/components/data_table_for_contingency_plans.dart';
 import 'package:flutter/material.dart';
-import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/constants/contingency_plan/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
@@ -8,12 +8,12 @@ import 'package:aeah_work_safety/widgets/components/card_widget.dart';
 
 import 'package:aeah_work_safety/widgets/accident_page/components/search_bar.dart';
 
-class ContingencyPlansPage extends StatelessWidget {
-  const ContingencyPlansPage({Key? key}) : super(key: key);
+class ContingencyPlanPage extends StatelessWidget {
+  const ContingencyPlanPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ScrollController horizantalController = ScrollController();
+    ScrollController horizontalController = ScrollController();
     return CustomScaffold(
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -21,19 +21,19 @@ class ContingencyPlansPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
-              Icon(Icons.arrow_right),
-              routingBarWidget(
+              RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+              const Icon(Icons.arrow_right),
+              RoutingBarWidget(
                   pageName: 'Acil Durum Planları',
-                  routeName: contingencyPlansPage),
+                  routeName: contingencyPlanPage),
             ],
           ),
-          Constant.dividerWithIndents(),
+          Constant.dividerWithIndent,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: Constant.padding8,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -43,9 +43,7 @@ class ContingencyPlansPage extends StatelessWidget {
                         style: Theme.of(context).textTheme.headline4,
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    Constant.sizedBox5W,
                     Flexible(
                       child: Text(
                         '(Yetki seviyenize göre görüntüleyebildiğiniz liste & raporlar)',
@@ -57,24 +55,25 @@ class ContingencyPlansPage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: Constant.padding8,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Flexible(
                         child: ElevatedButton(
-                            onPressed: () {}, child: Text('Rapor Yazdır'))),
-                    SizedBox(width: 10),
-                    Flexible(
+                            onPressed: () {},
+                            child: const Text('Rapor Yazdır'))),
+                    Constant.sizedBox5W,
+                    const Flexible(
                       child: SearchBarWidget(),
                     ),
                   ],
                 ),
               ),
               Scrollbar(
-                controller: horizantalController,
+                controller: horizontalController,
                 child: SingleChildScrollView(
-                  controller: horizantalController,
+                  controller: horizontalController,
                   scrollDirection: Axis.horizontal,
                   child: Row(
                       children: [
@@ -90,13 +89,13 @@ class ContingencyPlansPage extends StatelessWidget {
                           .toList()),
                 ),
               ),
-              Constant.dividerWithIndents(),
+              Constant.dividerWithIndent,
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: Constant.padding8,
                 child: Wrap(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: Constant.padding8,
                       child: SizedBox(
                         width: 250,
                         child: ElevatedButton(
@@ -105,9 +104,9 @@ class ContingencyPlansPage extends StatelessWidget {
                                   .pushNamed(addNewContingencyPlan);
                             },
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding8,
                               child: Row(
-                                children: [
+                                children: const [
                                   Icon(Icons.add),
                                   Text('Yeni Acil Durum Planı Ekle'),
                                 ],
@@ -115,22 +114,19 @@ class ContingencyPlansPage extends StatelessWidget {
                             )),
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    Constant.sizedBox5W,
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: Constant.padding8,
                       child: SizedBox(
                         width: 150,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-
                               backgroundColor: Colors.blueGrey.shade700),
                           onPressed: () {},
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding8,
                             child: Row(
-                              children: [
+                              children: const [
                                 Icon(Icons.access_alarm_rounded),
                                 Text('Detaylı Excel'),
                               ],
@@ -139,30 +135,26 @@ class ContingencyPlansPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    Constant.sizedBox5W,
+                    const Padding(
+                      padding: Constant.padding8,
                       child: SearchBarWidget(),
                     ),
                   ],
                 ),
               ),
-              Constant.dividerWithIndents(),
+              Constant.dividerWithIndent,
               DataTableForContingencyPlans(
                   title: 'Acil Durum Planları',
-                  columnData: [
+                  columnData: const [
                     'Referans No',
                     'Ad',
                     'Tanımlayan',
                     'Oluşturma Tarihi',
                   ],
-                  detailRoute: contingencyPlansDetailPage),
-              SizedBox(
-                height: 10,
-              ),
-              Constant.dividerWithIndents(),
+                  detailRoute: contingencyPlanDetailPage),
+              Constant.sizedBox10H,
+              Constant.dividerWithIndent,
             ],
           ),
         ],

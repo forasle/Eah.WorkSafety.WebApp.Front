@@ -20,9 +20,9 @@ class PreventiveActivities extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+              RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              routingBarWidget(
+              RoutingBarWidget(
                   pageName: 'Düzenleyici Önleyici Faaliyetler',
                   routeName: dayWithoutAccidentPageRoute),
             ],
@@ -42,7 +42,7 @@ class PreventiveActivities extends StatelessWidget {
                         style: Theme.of(context).textTheme.headline4,
                       ),
                     ),
-                    Constant.sizedBoxWidth,
+                    Constant.sizedBox10W,
                     Flexible(
                       child: Text(
                         '(Yetki seviyenize göre görüntüleyebildiğiniz liste & raporlar)',
@@ -61,7 +61,7 @@ class PreventiveActivities extends StatelessWidget {
                     Flexible(
                         child: ElevatedButton(
                             onPressed: () {}, child: const Text('Rapor Yazdır'))),
-                    Constant.sizedBoxWidth,
+                    Constant.sizedBox10W,
                     const Flexible(
                       child: SearchBarWidget(),
                     ),
@@ -116,7 +116,7 @@ class PreventiveActivities extends StatelessWidget {
                             )),
                       ),
                     ),
-                    Constant.sizedBoxWidth,
+                    Constant.sizedBox10W,
                     Padding(
                       padding: Constant.padding,
                       child: SizedBox(
@@ -136,11 +136,11 @@ class PreventiveActivities extends StatelessWidget {
                             )),
                       ),
                     ),
-                    Constant.sizedBoxWidth,
+                    Constant.sizedBox10W,
                     Padding(
                       padding: Constant.padding,
                       child: SizedBox(
-                        width: 150,
+                        width: 160,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blueGrey.shade700),
@@ -157,7 +157,7 @@ class PreventiveActivities extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Constant.sizedBoxWidth,
+                    Constant.sizedBox10W,
                     const Padding(
                       padding: Constant.padding,
                       child: SearchBarWidget(),
@@ -183,7 +183,7 @@ class PreventiveActivities extends StatelessWidget {
                 ],
                 detailRoute: preventiveActivityDetailPage,
               ),
-              Constant.sizedBoxHeight,
+              Constant.sizedBox10H,
               Constant.dividerWithIndent,
             ],
           ),

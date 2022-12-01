@@ -1,25 +1,25 @@
-import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/employee.dart';
 
 class Mission {
-  final double missionId;
-  final String missionName;
-  final String missionDepartment;
-  final Person missionIdentifier;
-  final Person missionOwner;
-  final String missionDate;
-  final String missionDeadline;
-  final bool missionStatus;
+  final double id;
+  final String name;
+  final String department;
+  final Employee identifier;
+  final Employee owner;
+  final String date;
+  final String deadline;
+  final bool status;
 
   bool selected = false;
 
   Mission({
-    required this.missionId,
-    required this.missionName,
-    required this.missionDepartment,
-    required this.missionIdentifier,
-    required this.missionOwner,
-    required this.missionDate,
-    required this.missionDeadline,
-    required this.missionStatus,
+    required this.id,
+    required this.name,
+    required this.department,
+    required this.identifier,
+    required this.owner,
+    required this.date,
+    required this.deadline,
+    required this.status,
   });
 }

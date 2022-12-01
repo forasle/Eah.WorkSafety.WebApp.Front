@@ -22,11 +22,11 @@ class PeriodicMedicalExaminationPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+              RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              routingBarWidget(
+              RoutingBarWidget(
                   pageName: 'Periyodik Muayene',
-                  routeName: workAccidentPageRoute),
+                  routeName: accidentPageRoute),
             ],
           ),
           Constant.dividerWithIndent,
@@ -164,7 +164,7 @@ class PeriodicMedicalExaminationPage extends StatelessWidget {
                 Padding(
                   padding: Constant.padding,
                   child: SizedBox(
-                    width: 150,
+                    width: 160,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.amberAccent.shade700),
@@ -184,7 +184,7 @@ class PeriodicMedicalExaminationPage extends StatelessWidget {
                 Padding(
                   padding: Constant.padding,
                   child: SizedBox(
-                    width: 220,
+                    width: 230,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blueGrey.shade700),
@@ -211,7 +211,7 @@ class PeriodicMedicalExaminationPage extends StatelessWidget {
           ),
           DataTableForPeriodicMedicalExamination(
             title: 'İş Kazası',
-            columnData: [
+            columnData: const [
               'Sıra',
               'Tc Kimlik No',
               'Sicil No',
@@ -281,7 +281,7 @@ class PeriodicMedicalExaminationPage extends StatelessWidget {
                     ChartData('David', 25),
                   ],
                 ),
-                ColumnGraph(
+                const ColumnGraph(
                   title: 'Dönemsel Kaza Adedi',
                 )
               ],

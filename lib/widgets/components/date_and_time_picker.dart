@@ -20,7 +20,7 @@ class _DateAndTimePicker extends State<DateAndTimePicker> {
 
   Future<DateTime> _selectDate(BuildContext context) async {
     final selected = await showDatePicker(
-      locale: Locale('tr'),
+      locale: const Locale('tr'),
       context: context,
       initialDate: selectedDate,
       firstDate: DateTime(2000),
@@ -29,7 +29,6 @@ class _DateAndTimePicker extends State<DateAndTimePicker> {
     if (selected != null) {
       setState(() {
         selectedDate = selected;
-        print('selectedDate:' + selectedDate.toString());
       });
     }
     return selectedDate;
@@ -43,7 +42,6 @@ class _DateAndTimePicker extends State<DateAndTimePicker> {
     if (selected != null) {
       setState(() {
         selectedTime = selected;
-        print('selectedTime:' + selectedTime.toString());
       });
     }
     return selectedTime;
@@ -60,7 +58,6 @@ class _DateAndTimePicker extends State<DateAndTimePicker> {
         time.hour,
         time.minute,
       );
-      print('DateTime:' + dateTime.toString());
     });
   }
 
@@ -86,7 +83,7 @@ class _DateAndTimePicker extends State<DateAndTimePicker> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
+          SizedBox(
             //padding: const EdgeInsets.symmetric(horizontal: 15),
             width: double.infinity,
             child: ElevatedButton(

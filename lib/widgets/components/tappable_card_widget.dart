@@ -1,4 +1,4 @@
-import 'package:aeah_work_safety/constants/routes.dart';
+import 'package:aeah_work_safety/constants/components/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardWidget extends StatelessWidget {
@@ -24,9 +24,9 @@ class CustomCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: cardColor,
-      margin: EdgeInsets.all(8),
+      margin: Constant.padding8,
       elevation: 20,
-      child: Container(
+      child: SizedBox(
         //constraints: const BoxConstraints(minWidth: 195, minHeight: 100),
         width: 200,
         height: 110,
@@ -37,7 +37,7 @@ class CustomCardWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: Constant.padding8,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [

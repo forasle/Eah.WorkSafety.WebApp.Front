@@ -1,7 +1,7 @@
 import 'package:aeah_work_safety/widgets/components/dropdown_menu.dart';
 import 'package:aeah_work_safety/widgets/risk_assessment/components/risk_exposed_person_button.dart';
 import 'package:flutter/material.dart';
-import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/constants/risk_assessment/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
@@ -21,7 +21,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
 
   @override
   Widget build(BuildContext context) {
-    //ScrollController horizantalController = ScrollController();
+    //ScrollController horizontalController = ScrollController();
     return CustomScaffold(
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -31,20 +31,20 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                routingBarWidget(
+                RoutingBarWidget(
                     pageName: 'Panorama', routeName: panoramaRoute),
                 const Icon(Icons.arrow_right),
-                routingBarWidget(
+                RoutingBarWidget(
                     pageName: 'Risk Değerlendirme',
                     routeName: riskAssessmentPage),
                 const Icon(Icons.arrow_right),
-                routingBarWidget(
+                RoutingBarWidget(
                     pageName: 'Yeni Risk Değerlendirme Ekle',
                     routeName: addNewRiskAssessment),
               ],
             ),
           ),
-          Constant.dividerWithIndents(),
+          Constant.dividerWithIndent,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -52,15 +52,15 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   title(context, 'Risk Değerlendirme Bilgileri'),
-                  Constant.dividerWithIndents(),
-                  const SizedBox(height: 50),
+                  Constant.dividerWithIndent,
+                  Constant.sizedBox50H,
                   IntrinsicHeight(
                     child: Row(
                       children: [
                         Flexible(
                           flex: 1,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
@@ -82,19 +82,16 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                             ),
                           ),
                         ),
-                        const VerticalDivider(
-                          endIndent: 5,
-                          indent: 5,
-                        ),
+                        Constant.verticalDivider,
                         Expanded(
                           flex: 4,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -108,18 +105,14 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                               color: Colors.white),
                                           //filled: true,
 
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFieldBorder,
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -141,18 +134,14 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                               color: Colors.white),
                                           //filled: true,
 
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFieldBorder,
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -175,11 +164,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                               color: Colors.white),
                                           //filled: true,
 
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFieldBorder,
                                         ),
                                       ),
                                     ),
@@ -192,17 +177,17 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 50),
+                  Constant.sizedBox50H,
                   title(context, 'Yapısal Özellikler'),
-                  Constant.dividerWithIndents(),
-                  const SizedBox(height: 50),
+                  Constant.dividerWithIndent,
+                  Constant.sizedBox50H,
                   IntrinsicHeight(
                     child: Row(
                       children: [
                         Flexible(
                           flex: 1,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
@@ -220,29 +205,27 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                             ),
                           ),
                         ),
-                        const VerticalDivider(
-                          endIndent: 5,
-                          indent: 5,
-                        ),
+                        Constant.verticalDivider,
                         Expanded(
                           flex: 4,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                const Padding(
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
                                       child: DropdownMenu(
-                                          menuItems: Constant.menuItemsForTemplate),
+                                          menuItems:
+                                              Constant.menuItemsForTemplate),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 100,
                                     child: Wrap(children: [
@@ -255,10 +238,9 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                               methodType[0] = true;
                                             });
                                           },
-                                          child: Text('Fine Kinney Metodu')),
-                                      SizedBox(
-                                        width: 15,
-                                      ),
+                                          child:
+                                              const Text('Fine Kinney Metodu')),
+                                      Constant.sizedBox10W,
                                       ElevatedButton(
                                           onPressed: () {
                                             setState(() {
@@ -268,7 +250,8 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                               methodType[1] = true;
                                             });
                                           },
-                                          child: Text('5x5 Matris Metodu'))
+                                          child:
+                                              const Text('5x5 Matris Metodu'))
                                     ]),
                                   ),
                                 ),
@@ -279,12 +262,13 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 50),
+                  Constant.sizedBox50H,
                   Visibility(
                     visible: methodType[0],
                     child: SizedBox(
-                        width: double.infinity,
-                        child: Column(children: [
+                      width: double.infinity,
+                      child: Column(
+                        children: [
                           const SizedBox(height: 50),
                           IntrinsicHeight(
                             child: Row(
@@ -292,7 +276,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                 Flexible(
                                   flex: 1,
                                   child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: Constant.padding,
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -307,20 +291,17 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                     ),
                                   ),
                                 ),
-                                const VerticalDivider(
-                                  endIndent: 5,
-                                  indent: 5,
-                                ),
+                                Constant.verticalDivider,
                                 Expanded(
                                   flex: 4,
                                   child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: Constant.padding,
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.all(8.0),
+                                          padding: Constant.padding,
                                           child: SizedBox(
                                             height: 50,
                                             child: Center(
@@ -334,13 +315,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                                       color: Colors.white),
                                                   //filled: true,
                                                   border:
-                                                      new OutlineInputBorder(
-                                                    borderRadius:
-                                                        new BorderRadius
-                                                            .circular(5.0),
-                                                    borderSide:
-                                                        new BorderSide(),
-                                                  ),
+                                                      Constant.textFieldBorder,
                                                 ),
                                               ),
                                             ),
@@ -352,8 +327,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                               Flexible(
                                                 flex: 1,
                                                 child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
+                                                  padding: Constant.padding,
                                                   child: Column(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment.start,
@@ -383,15 +357,11 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                                   ),
                                                 ),
                                               ),
-                                              const VerticalDivider(
-                                                endIndent: 5,
-                                                indent: 5,
-                                              ),
+                                              Constant.verticalDivider,
                                               Expanded(
                                                 flex: 4,
                                                 child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
+                                                  padding: Constant.padding,
                                                   child: Column(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
@@ -402,108 +372,80 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsets
-                                                                .all(8.0),
+                                                            Constant.padding,
                                                         child: SizedBox(
                                                           height: 50,
                                                           child: Center(
                                                             child: TextField(
                                                               decoration:
                                                                   InputDecoration(
-                                                                hintText:
-                                                                    'Mevcut Tehlike Giriniz',
-                                                                labelText:
-                                                                    'Mevcut Tehlike',
-                                                                labelStyle: const TextStyle(
-                                                                    color: Colors
-                                                                        .white),
-                                                                //filled: true,
-                                                                border:
-                                                                    new OutlineInputBorder(
-                                                                  borderRadius:
-                                                                      new BorderRadius
-                                                                              .circular(
-                                                                          5.0),
-                                                                  borderSide:
-                                                                      new BorderSide(),
-                                                                ),
-                                                              ),
+                                                                      hintText:
+                                                                          'Mevcut Tehlike Giriniz',
+                                                                      labelText:
+                                                                          'Mevcut Tehlike',
+                                                                      labelStyle: const TextStyle(
+                                                                          color: Colors
+                                                                              .white),
+                                                                      //filled: true,
+                                                                      border: Constant
+                                                                          .textFieldBorder),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsets
-                                                                .all(8.0),
+                                                            Constant.padding,
                                                         child: SizedBox(
                                                           height: 50,
                                                           child: Center(
                                                             child: TextField(
                                                               decoration:
                                                                   InputDecoration(
-                                                                hintText:
-                                                                    'Oluşacak Risk Giriniz',
-                                                                labelText:
-                                                                    'Oluşacak Risk',
-                                                                labelStyle: const TextStyle(
-                                                                    color: Colors
-                                                                        .white),
-                                                                //filled: true,
-                                                                border:
-                                                                    new OutlineInputBorder(
-                                                                  borderRadius:
-                                                                      new BorderRadius
-                                                                              .circular(
-                                                                          5.0),
-                                                                  borderSide:
-                                                                      new BorderSide(),
-                                                                ),
-                                                              ),
+                                                                      hintText:
+                                                                          'Oluşacak Risk Giriniz',
+                                                                      labelText:
+                                                                          'Oluşacak Risk',
+                                                                      labelStyle: const TextStyle(
+                                                                          color: Colors
+                                                                              .white),
+                                                                      //filled: true,
+                                                                      border: Constant
+                                                                          .textFieldBorder),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsets
-                                                                .all(8.0),
+                                                            Constant.padding,
                                                         child: SizedBox(
                                                           height: 50,
                                                           child: Center(
                                                             child: TextField(
                                                               decoration:
                                                                   InputDecoration(
-                                                                hintText:
-                                                                    'Sonuç Giriniz',
-                                                                labelText:
-                                                                    'Sonuç',
-                                                                labelStyle: const TextStyle(
-                                                                    color: Colors
-                                                                        .white),
-                                                                //filled: true,
-                                                                border:
-                                                                    new OutlineInputBorder(
-                                                                  borderRadius:
-                                                                      new BorderRadius
-                                                                              .circular(
-                                                                          5.0),
-                                                                  borderSide:
-                                                                      new BorderSide(),
-                                                                ),
-                                                              ),
+                                                                      hintText:
+                                                                          'Sonuç Giriniz',
+                                                                      labelText:
+                                                                          'Sonuç',
+                                                                      labelStyle: const TextStyle(
+                                                                          color: Colors
+                                                                              .white),
+                                                                      //filled: true,
+                                                                      border: Constant
+                                                                          .textFieldBorder),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsets
-                                                                .all(8.0),
+                                                            Constant.padding,
                                                         child: SizedBox(
                                                           height: 100,
                                                           child: Wrap(
-                                                            children: [
+                                                            children: const [
                                                               RiskExposedPersonButton(
                                                                 text: 'Doktor',
                                                               ),
@@ -551,26 +493,28 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 50),
-                        ])),
+                          Constant.sizedBox50H
+                        ],
+                      ),
+                    ),
                   ),
-                  const SizedBox(height: 50),
+                  Constant.sizedBox50H,
                   title(context, 'Yeni Döküman Ekle'),
-                  Constant.dividerWithIndents(),
-                  const SizedBox(height: 50),
+                  Constant.dividerWithIndent,
+                  Constant.sizedBox50H,
                   IntrinsicHeight(
                     child: Row(
                       children: [
                         Flexible(
                           flex: 1,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
+                              children: const [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     width: 150,
@@ -583,7 +527,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     width: 150,
@@ -599,19 +543,16 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                             ),
                           ),
                         ),
-                        const VerticalDivider(
-                          endIndent: 5,
-                          indent: 5,
-                        ),
+                        Constant.verticalDivider,
                         Expanded(
                           flex: 4,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -623,18 +564,14 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                           labelStyle: const TextStyle(
                                               color: Colors.white),
                                           //filled: true,
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFieldBorder
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -656,11 +593,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                               color: Colors.white),
                                           //filled: true,
 
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFieldBorder
                                         ),
                                       ),
                                     ),
@@ -684,7 +617,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
 
   Padding title(BuildContext context, String title) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -704,7 +637,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
       required double height,
       required double width}) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding,
       child: SizedBox(
         height: height,
         width: width,

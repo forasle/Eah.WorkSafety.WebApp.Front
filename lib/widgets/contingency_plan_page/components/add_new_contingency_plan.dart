@@ -1,6 +1,5 @@
-import 'package:aeah_work_safety/widgets/components/dropdown_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/constants/contingency_plan/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
@@ -10,7 +9,7 @@ class AddNewContingencyPlan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //ScrollController horizantalController = ScrollController();
+    //ScrollController horizontalController = ScrollController();
     return CustomScaffold(
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -18,18 +17,18 @@ class AddNewContingencyPlan extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+              RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              routingBarWidget(
+              RoutingBarWidget(
                   pageName: 'Acil Durum Planları',
-                  routeName: contingencyPlansPage),
+                  routeName: contingencyPlanPage),
               const Icon(Icons.arrow_right),
-              routingBarWidget(
+              RoutingBarWidget(
                   pageName: 'Yeni Acil Durum Planı Ekle',
                   routeName: addNewContingencyPlan),
             ],
           ),
-          Constant.dividerWithIndents(),
+          Constant.dividerWithIndent,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -37,15 +36,15 @@ class AddNewContingencyPlan extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   title(context, 'Acil Durum Planı Bilgileri'),
-                  Constant.dividerWithIndents(),
-                  const SizedBox(height: 50),
+                  Constant.dividerWithIndent,
+                  Constant.sizedBox50H,
                   IntrinsicHeight(
                     child: Row(
                       children: [
                         Flexible(
                           flex: 1,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding8,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
@@ -71,19 +70,16 @@ class AddNewContingencyPlan extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const VerticalDivider(
-                          endIndent: 5,
-                          indent: 5,
-                        ),
+                        Constant.verticalDivider,
                         Expanded(
                           flex: 4,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding8,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding8,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -97,18 +93,14 @@ class AddNewContingencyPlan extends StatelessWidget {
                                               color: Colors.white),
                                           //filled: true,
 
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFormFieldBorder
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding8,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -130,18 +122,14 @@ class AddNewContingencyPlan extends StatelessWidget {
                                               color: Colors.white),
                                           //filled: true,
 
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFormFieldBorder
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding8,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -164,18 +152,14 @@ class AddNewContingencyPlan extends StatelessWidget {
                                               color: Colors.white),
                                           //filled: true,
 
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFormFieldBorder
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding8,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -189,11 +173,7 @@ class AddNewContingencyPlan extends StatelessWidget {
                                               color: Colors.white),
                                           //filled: true,
 
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFormFieldBorder
                                         ),
                                       ),
                                     ),
@@ -206,23 +186,23 @@ class AddNewContingencyPlan extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 50),
+                  Constant.sizedBox50H,
                   title(context, 'Yeni Döküman Ekle'),
-                  Constant.dividerWithIndents(),
-                  const SizedBox(height: 50),
+                  Constant.dividerWithIndent,
+                  Constant.sizedBox50H,
                   IntrinsicHeight(
                     child: Row(
                       children: [
                         Flexible(
                           flex: 1,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding8,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
+                              children: const [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding8,
                                   child: SizedBox(
                                     height: 50,
                                     width: 150,
@@ -235,7 +215,7 @@ class AddNewContingencyPlan extends StatelessWidget {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding8,
                                   child: SizedBox(
                                     height: 50,
                                     width: 150,
@@ -251,19 +231,16 @@ class AddNewContingencyPlan extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const VerticalDivider(
-                          endIndent: 5,
-                          indent: 5,
-                        ),
+                      Constant.verticalDivider,
                         Expanded(
                           flex: 4,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: Constant.padding8,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding8,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -275,18 +252,14 @@ class AddNewContingencyPlan extends StatelessWidget {
                                           labelStyle: const TextStyle(
                                               color: Colors.white),
                                           //filled: true,
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFormFieldBorder
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: Constant.padding8,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
@@ -308,11 +281,7 @@ class AddNewContingencyPlan extends StatelessWidget {
                                               color: Colors.white),
                                           //filled: true,
 
-                                          border: new OutlineInputBorder(
-                                            borderRadius:
-                                                new BorderRadius.circular(5.0),
-                                            borderSide: new BorderSide(),
-                                          ),
+                                          border: Constant.textFormFieldBorder
                                         ),
                                       ),
                                     ),
@@ -336,7 +305,7 @@ class AddNewContingencyPlan extends StatelessWidget {
 
   Padding title(BuildContext context, String title) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding8,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -356,7 +325,7 @@ class AddNewContingencyPlan extends StatelessWidget {
       required double height,
       required double width}) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding8,
       child: SizedBox(
         height: height,
         width: width,

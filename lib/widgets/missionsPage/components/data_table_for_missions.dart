@@ -1,5 +1,5 @@
 import 'package:aeah_work_safety/models/mission.dart';
-import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/employee.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/mission/constants.dart';
 
@@ -36,11 +36,11 @@ class _DataSource extends DataTableSource {
   _DataSource(this.context) {
     _rows = [
       Mission(
-          missionDate: 'tarih',
-          missionDeadline: 'bitiş tarihi',
-          missionDepartment: 'Arge',
-          missionId: 123,
-          missionIdentifier: Person(
+          date: 'tarih',
+          deadline: 'bitiş tarihi',
+          department: 'Arge',
+          id: 123,
+          identifier: Employee(
 
               chronicDiseases: 'null',
               address: 'test',
@@ -52,8 +52,8 @@ class _DataSource extends DataTableSource {
               registrationNumber: '25',
               startDateOfEmployment: 'Test',
               surname: 'Dogan'),
-          missionName: 'Tehlike',
-          missionOwner: Person(
+          name: 'Tehlike',
+          owner: Employee(
 
               chronicDiseases: 'null',
               address: 'test',
@@ -65,7 +65,7 @@ class _DataSource extends DataTableSource {
               registrationNumber: '25',
               startDateOfEmployment: 'Test',
               surname: 'Dogan'),
-          missionStatus: true),
+          status: true),
     ];
   }
 
@@ -82,13 +82,13 @@ class _DataSource extends DataTableSource {
       selected: row.selected,
       onSelectChanged: (value) {},
       cells: [
-        DataCell(Text(row.missionName)),
-        DataCell(Text(row.missionDepartment)),
-        DataCell(Text(row.missionIdentifier.surname)),
-        DataCell(Text(row.missionOwner.name)),
-        DataCell(Text(row.missionDate)),
-        DataCell(Text(row.missionDeadline)),
-        DataCell(Text(row.missionStatus ? 'Tamamlanmış' : 'Tamamlanmamış')),
+        DataCell(Text(row.name)),
+        DataCell(Text(row.department)),
+        DataCell(Text(row.identifier.surname)),
+        DataCell(Text(row.owner.name)),
+        DataCell(Text(row.date)),
+        DataCell(Text(row.deadline)),
+        DataCell(Text(row.status ? 'Tamamlanmış' : 'Tamamlanmamış')),
       ],
     ));
   }

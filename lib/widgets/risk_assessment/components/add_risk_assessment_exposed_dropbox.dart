@@ -1,5 +1,4 @@
-import 'package:aeah_work_safety/constants/constants.dart';
-import 'package:aeah_work_safety/widgets/risk_assessment/components/risk_exposed_person_button.dart';
+import 'package:aeah_work_safety/constants/risk_assessment/constants.dart';
 import 'package:flutter/material.dart';
 
 class CheckBoxForExposedPerson extends StatefulWidget {
@@ -56,23 +55,23 @@ class _CheckBoxForExposedPersonState extends State<CheckBoxForExposedPerson> {
     return Wrap(
       alignment: WrapAlignment.start,
       children: <Widget>[
-        Container(
+        SizedBox(
           width: 100,
           child: Column(
             children: [
               checkbox("Doktor", doctor),
-              ElevatedButton(onPressed: () {}, child: Text('Risk Skoru Ekle')),
+              ElevatedButton(onPressed: () {}, child: const Text('Risk Skoru Ekle')),
             ],
           ),
         ),
-        Constant.sizedBoxBetweenExposedPerson(),
-        Container(width: 100, child: checkbox("Hemşire", nurse)),
-        Constant.sizedBoxBetweenExposedPerson(),
-        Container(width: 100, child: checkbox("Sağlık Tek.", medTech)),
-        Constant.sizedBoxBetweenExposedPerson(),
-        Container(width: 100, child: checkbox("Refakatçi", companion)),
-        Constant.sizedBoxBetweenExposedPerson(),
-        Container(width: 100, child: checkbox("Misafir", guest)),
+        Constant.sizedBox20W,
+        SizedBox(width: 100, child: checkbox("Hemşire", nurse)),
+        Constant.sizedBox20W,
+        SizedBox(width: 100, child: checkbox("Sağlık Tek.", medTech)),
+        Constant.sizedBox20W,
+        SizedBox(width: 100, child: checkbox("Refakatçi", companion)),
+        Constant.sizedBox20W,
+        SizedBox(width: 100, child: checkbox("Misafir", guest)),
       ],
     );
   }

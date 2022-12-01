@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Constant {
   static const double outerContainerWidth = 450;
@@ -21,4 +20,6 @@ class Constant {
   static const TextStyle buttonTextStyle = TextStyle(color: Colors.black,fontSize: 25);
 
   static const TextStyle subTextStyle = TextStyle(color: Colors.black,fontSize: 15);
+
+  static const TextStyle title = TextStyle(color: Colors.blueGrey,fontSize: 25,fontWeight: FontWeight.bold);
 }

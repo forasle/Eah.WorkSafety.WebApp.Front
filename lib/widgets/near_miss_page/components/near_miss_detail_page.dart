@@ -1,19 +1,15 @@
-import 'package:aeah_work_safety/models/near_miss.dart';
-import 'package:aeah_work_safety/models/person.dart';
-import 'package:aeah_work_safety/widgets/components/dropdown_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:aeah_work_safety/constants/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
+import 'package:aeah_work_safety/constants/accident/constants.dart';
 
 class NearMissDetailPage extends StatelessWidget {
   const NearMissDetailPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    NearMiss test;
-    //ScrollController horizantalController = ScrollController();
+    //ScrollController horizontalController = ScrollController();
     return CustomScaffold(
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -21,20 +17,20 @@ class NearMissDetailPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
-              Icon(Icons.arrow_right),
-              routingBarWidget(
-                  pageName: 'Ramak Kala', routeName: nearMissPageRoute),
-              Icon(Icons.arrow_right),
-              routingBarWidget(
-                  pageName: 'Ramak Kalalar', routeName: nearMissDetailPage),
+              RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+              const Icon(Icons.arrow_right),
+              RoutingBarWidget(
+                  pageName: 'Ramak Kalalar', routeName: nearMissPageRoute),
+              const Icon(Icons.arrow_right),
+              RoutingBarWidget(
+                  pageName: 'Ramak Kala', routeName: nearMissDetailPage),
             ],
           ),
-          Constant.dividerWithIndents(),
+          Constant.dividerWithIndent,
           Column(
             children: [
               title(context, 'Genel Bilgiler'),
-              Constant.dividerWithIndents(),
+              Constant.dividerWithIndent,
               const SizedBox(height: 50),
               IntrinsicHeight(
                 child: Row(
@@ -42,7 +38,7 @@ class NearMissDetailPage extends StatelessWidget {
                     Flexible(
                       flex: 1,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           children: [
                             subtitle(
@@ -62,76 +58,73 @@ class NearMissDetailPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const VerticalDivider(
-                      endIndent: 5,
-                      indent: 5,
-                    ),
+                    Constant.verticalDivider,
                     Expanded(
                       flex: 4,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           //mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text('Ramak Kala'),
+                                  children: const [
+                                    Text('İş Kazası'),
                                   ],
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
+                                  children: const [
                                     Text('01.01.2023'),
                                   ],
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 child: Column(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                    CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [Text('00:00')]),
+                                    children: const [Text('00:00')]),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 150,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
+                                  children: const [
                                     Text('Olay Tanımı'),
                                   ],
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 100,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
+                                  children: const [
                                     Text('Yapılan İş'),
                                   ],
                                 ),
@@ -144,23 +137,23 @@ class NearMissDetailPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 50),
+              Constant.sizedBox50,
               title(context, 'Olay Yeri'),
-              Constant.dividerWithIndents(),
-              const SizedBox(height: 50),
+              Constant.dividerWithIndent,
+              Constant.sizedBox50,
               IntrinsicHeight(
                 child: Row(
                   children: [
                     Flexible(
                       flex: 1,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
+                          children: const [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 width: 150,
@@ -176,25 +169,22 @@ class NearMissDetailPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const VerticalDivider(
-                      endIndent: 5,
-                      indent: 5,
-                    ),
+                    Constant.verticalDivider,
                     Expanded(
                       flex: 4,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
+                                  children: const [
                                     Text('Acil'),
                                   ],
                                 ),
@@ -207,17 +197,17 @@ class NearMissDetailPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 50),
+              Constant.sizedBox50,
               title(context, 'Analiz'),
-              Constant.dividerWithIndents(),
-              const SizedBox(height: 50),
+              Constant.dividerWithIndent,
+              Constant.sizedBox50,
               IntrinsicHeight(
                 child: Row(
                   children: [
                     Flexible(
                       flex: 1,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -238,33 +228,30 @@ class NearMissDetailPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const VerticalDivider(
-                      endIndent: 5,
-                      indent: 5,
-                    ),
+                    Constant.verticalDivider,
                     Expanded(
                       flex: 4,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: true, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: true, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
@@ -277,17 +264,17 @@ class NearMissDetailPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 50),
+              Constant.sizedBox50,
               title(context, 'Kaza Araştırma'),
-              Constant.dividerWithIndents(),
-              const SizedBox(height: 50),
+              Constant.dividerWithIndent,
+              Constant.sizedBox50,
               IntrinsicHeight(
                 child: Row(
                   children: [
                     Flexible(
                       flex: 1,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -308,88 +295,85 @@ class NearMissDetailPage extends StatelessWidget {
                                 height: 50,
                                 width: 150,
                                 subtitle:
-                                    'Operasyonel Kaza / Rutin İş Esnasında?   '),
+                                'Operasyonel Kaza / Rutin İş Esnasında?   '),
                             subtitle(
                                 height: 50,
                                 width: 150,
                                 subtitle:
-                                    'İş durdu mu/aksadı mı? (Çalışan kayıp gün durumu hariç)?   '),
+                                'İş durdu mu/aksadı mı? (Çalışan kayıp gün durumu hariç)?   '),
                             subtitle(
                                 height: 50,
                                 width: 150,
                                 subtitle:
-                                    'Olaya katkıda bulunan faktörler risk değerlendirmesinde belirtilmiş mi?   '),
+                                'Olaya katkıda bulunan faktörler risk değerlendirmesinde belirtilmiş mi?   '),
                             subtitle(
                                 height: 50,
                                 width: 150,
                                 subtitle:
-                                    'Risk değerlendirmede belirtilen önlemler alınmış mı? Çalışma şekillerine uyulmuş mu?   '),
+                                'Risk değerlendirmede belirtilen önlemler alınmış mı? Çalışma şekillerine uyulmuş mu?   '),
                             subtitle(
                                 height: 100,
                                 width: 150,
                                 subtitle:
-                                    'Kullanılması Gereken (Kullanılmamış) KKD:   '),
+                                'Kullanılması Gereken (Kullanılmamış) KKD:   '),
                             subtitle(
                                 height: 100, width: 150, subtitle: 'Sebep:   '),
                           ],
                         ),
                       ),
                     ),
-                    const VerticalDivider(
-                      endIndent: 5,
-                      indent: 5,
-                    ),
+                    Constant.verticalDivider,
                     Expanded(
                       flex: 4,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: true, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: true, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: false, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: false, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: false, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: false, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
@@ -398,35 +382,35 @@ class NearMissDetailPage extends StatelessWidget {
                             Expanded(
                               flex: 4,
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: Constant.padding,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                      padding: Constant.padding,
                                       child: SizedBox(
                                         height: 100,
                                         child: Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
+                                          MainAxisAlignment.center,
+                                          children: const [
                                             Text('KKD'),
                                           ],
                                         ),
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                      padding: Constant.padding,
                                       child: SizedBox(
                                         height: 100,
                                         child: Column(
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
+                                          MainAxisAlignment.center,
+                                          children: const [
                                             Text('Sebep'),
                                           ],
                                         ),
@@ -443,23 +427,23 @@ class NearMissDetailPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 50),
+              Constant.sizedBox50,
               title(context, 'Tanık/Tanık İfadesi'),
-              Constant.dividerWithIndents(),
-              const SizedBox(height: 50),
+              Constant.dividerWithIndent,
+              Constant.sizedBox50,
               IntrinsicHeight(
                 child: Row(
                   children: [
                     Flexible(
                       flex: 1,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
+                          children: const [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 width: 150,
@@ -475,19 +459,16 @@ class NearMissDetailPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const VerticalDivider(
-                      endIndent: 5,
-                      indent: 5,
-                    ),
+                    Constant.verticalDivider,
                     Expanded(
                       flex: 4,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
@@ -500,10 +481,10 @@ class NearMissDetailPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 50),
+              Constant.sizedBox50,
               title(context, 'Dökümanlar'),
-              Constant.dividerWithIndents(),
-              const SizedBox(height: 50),
+              Constant.dividerWithIndent,
+              Constant.sizedBox50,
             ],
           ),
         ],
@@ -513,7 +494,7 @@ class NearMissDetailPage extends StatelessWidget {
 
   Padding title(BuildContext context, String title) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -530,10 +511,10 @@ class NearMissDetailPage extends StatelessWidget {
 
   Padding subtitle(
       {required String subtitle,
-      required double height,
-      required double width}) {
+        required double height,
+        required double width}) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding,
       child: SizedBox(
         height: height,
         width: width,

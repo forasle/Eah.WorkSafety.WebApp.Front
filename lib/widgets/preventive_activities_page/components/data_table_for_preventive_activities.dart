@@ -1,5 +1,5 @@
-import 'package:aeah_work_safety/models/inconsistencies.dart';
-import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/inconsisteny.dart';
+import 'package:aeah_work_safety/models/employee.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForPreventiveActivities extends StatelessWidget {
@@ -38,18 +38,18 @@ class DataTableForPreventiveActivities extends StatelessWidget {
 class _DataSource extends DataTableSource {
   _DataSource(this.context, this.detailRoute) {
     _rows = [
-      Inconsistencies(
-          inconsistenciesSupervisor: 'Murat',
-          inconsistenciesStatus: 'Açık',
-          inconsistenciesRootCauseAnalysis: true,
-          inconsistenciesRiskScore: 125,
-          inconsistenciesRelation: 'ilişki',
-          inconsistenciesReferenceNumber: 'Referans',
-          inconsistenciesName: 'Asansör',
-          inconsistenciesInfo: 'Bozuk',
-          inconsistenciesDate: 'Mayıs',
-          inconsistenciesDepartment: 'Arge',
-          inconsistenciesIdentifier: Person(
+      Inconsistency(
+          supervisor: 'Murat',
+          status: 'Açık',
+          rootCauseAnalysis: true,
+          riskScore: 125,
+          relation: 'ilişki',
+          referenceNumber: 'Referans',
+          name: 'Asansör',
+          info: 'Bozuk',
+          date: 'Mayıs',
+          department: 'Arge',
+          identifier: Employee(
 
               chronicDiseases: 'null',
               id: 123,
@@ -65,7 +65,7 @@ class _DataSource extends DataTableSource {
   }
 
   final BuildContext context;
-  late List<Inconsistencies> _rows;
+  late List<Inconsistency> _rows;
   final String detailRoute;
 
   final int _selectedCount = 0;
@@ -80,17 +80,17 @@ class _DataSource extends DataTableSource {
         Navigator.pushNamed(context, detailRoute);
       },
       cells: [
-        DataCell(Text(row.inconsistenciesReferenceNumber.toString())),
-        DataCell(Text(row.inconsistenciesName.toString())),
-        DataCell(Text(row.inconsistenciesStatus.toString())),
-        DataCell(Text(row.inconsistenciesRiskScore.toString())),
-        DataCell(Text(row.inconsistenciesInfo.toString())),
-        DataCell(Text(row.inconsistenciesIdentifier.toString())),
-        DataCell(Text(row.inconsistenciesDepartment.toString())),
-        DataCell(Text(row.inconsistenciesSupervisor.toString())),
-        DataCell(Text(row.inconsistenciesRelation.toString())),
-        DataCell(Text(row.inconsistenciesDate.toString())),
-        DataCell(Text(row.inconsistenciesRootCauseAnalysis ? 'Evet' : 'Hayır')),
+        DataCell(Text(row.referenceNumber.toString())),
+        DataCell(Text(row.name.toString())),
+        DataCell(Text(row.status.toString())),
+        DataCell(Text(row.riskScore.toString())),
+        DataCell(Text(row.info.toString())),
+        DataCell(Text(row.identifier.toString())),
+        DataCell(Text(row.department.toString())),
+        DataCell(Text(row.supervisor.toString())),
+        DataCell(Text(row.relation.toString())),
+        DataCell(Text(row.date.toString())),
+        DataCell(Text(row.rootCauseAnalysis ? 'Evet' : 'Hayır')),
       ],
     ));
   }

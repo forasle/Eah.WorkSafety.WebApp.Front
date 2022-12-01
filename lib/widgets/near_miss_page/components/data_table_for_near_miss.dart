@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 
 import 'package:aeah_work_safety/constants/accident/constants.dart';
 
-class DataTableForAccident extends StatelessWidget {
+class DataTableForNearMiss extends StatelessWidget {
   final String title;
   final String detailRoute;
   final List<String> columnData;
-  const DataTableForAccident(
+  const DataTableForNearMiss(
       {Key? key,
-      required this.title,
-      required this.columnData,
-      required this.detailRoute})
+        required this.title,
+        required this.columnData,
+        required this.detailRoute})
       : super(key: key);
 
   @override

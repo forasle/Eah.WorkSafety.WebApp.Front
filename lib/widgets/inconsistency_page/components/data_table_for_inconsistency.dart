@@ -1,14 +1,14 @@
-import 'package:aeah_work_safety/models/accident.dart';
+import 'package:aeah_work_safety/models/inconsisteny.dart';
 import 'package:aeah_work_safety/models/employee.dart';
 import 'package:flutter/material.dart';
 
-import 'package:aeah_work_safety/constants/accident/constants.dart';
+import 'package:aeah_work_safety/constants/inconsistency/constants.dart';
 
-class DataTableForAccident extends StatelessWidget {
+class DataTableForInconsistency extends StatelessWidget {
   final String title;
   final String detailRoute;
   final List<String> columnData;
-  const DataTableForAccident(
+  const DataTableForInconsistency(
       {Key? key,
       required this.title,
       required this.columnData,
@@ -40,31 +40,35 @@ class DataTableForAccident extends StatelessWidget {
 class _DataSource extends DataTableSource {
   _DataSource({required this.context, required this.detailRoute}) {
     _rows = [
-      Accident(
-          identifier: Employee(
-
-              chronicDiseases: 'null',
-              address: 'test',
-              department: 'test',
-              identificationNumber: 123,
-              name: 'Murat',
-              id: 5,
-              position: 'Engineer',
-              registrationNumber: '25',
-              startDateOfEmployment: 'Test',
-              surname: 'Dogan'),
-          info: 'Test',
-          number: 123,
-          referenceNumber: '456',
-          date: 'Tomorrow',
-          rootCauseAnalysis: true,
-          lostDays: 5),
+      Inconsistency(
+        identifier: Employee(
+            chronicDiseases: 'null',
+            address: 'test',
+            department: 'test',
+            identificationNumber: 123,
+            name: 'Murat',
+            id: 5,
+            position: 'Engineer',
+            registrationNumber: '25',
+            startDateOfEmployment: 'Test',
+            surname: 'Dogan'),
+        referenceNumber: '',
+        info: '',
+        date: '',
+        rootCauseAnalysis: true,
+        department: '',
+        status: '',
+        supervisor: '',
+        relation: '',
+        riskScore: 5,
+        name: '',
+      )
     ];
   }
 
   final BuildContext context;
   final String detailRoute;
-  late List<Accident> _rows;
+  late List<Inconsistency> _rows;
 
   final int _selectedCount = 0;
 
@@ -79,11 +83,16 @@ class _DataSource extends DataTableSource {
       },
       cells: [
         DataCell(Text(row.referenceNumber)),
+        DataCell(Text(row.name)),
+        DataCell(Text(row.status.toString())),
+        DataCell(Text(row.riskScore.toString())),
         DataCell(Text(row.info)),
-        DataCell(Text(row.identifier.surname)),
-        DataCell(Text(row.lostDays.toString())),
         DataCell(Text(row.identifier.name)),
+        DataCell(Text(row.department)),
+        DataCell(Text(row.supervisor)),
+        DataCell(Text(row.relation)),
         DataCell(Text(row.date)),
+
         DataCell(Text(row.rootCauseAnalysis ? 'Evet' : 'Hayır')),
       ],
     ));

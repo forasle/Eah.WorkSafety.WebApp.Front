@@ -1,10 +1,10 @@
-import 'package:aeah_work_safety/constants/routes.dart';
+import 'package:aeah_work_safety/constants/components/constants.dart';
 import 'package:flutter/material.dart';
 
-class routingBarWidget extends StatelessWidget {
+class RoutingBarWidget extends StatelessWidget {
   final String pageName;
   final String routeName;
-  const routingBarWidget({
+  const RoutingBarWidget({
     Key? key,
     required this.pageName,
     required this.routeName,
@@ -13,7 +13,7 @@ class routingBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding8,
       child: InkWell(
         onTap: () {
           ModalRoute.of(context)!.settings.name != routeName

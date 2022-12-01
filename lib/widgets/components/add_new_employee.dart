@@ -1,33 +1,33 @@
-import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/constants/components/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/dropdown_menu.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:flutter/material.dart';
 
-class AddNewWorker extends StatelessWidget {
-  const AddNewWorker({Key? key}) : super(key: key);
+class AddNewEmployee extends StatelessWidget {
+  const AddNewEmployee({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    //ScrollController horizantalScrollController = ScrollController();
+    //ScrollController horizontalScrollController = ScrollController();
     return CustomScaffold(
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Row(
           children: [
-            routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
-            Icon(Icons.arrow_right),
-            routingBarWidget(
+            RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+            const Icon(Icons.arrow_right),
+            RoutingBarWidget(
                 pageName: 'Yeni Çalışan Ekle', routeName: workersMainPageRoute),
-            Icon(Icons.arrow_right),
+            const Icon(Icons.arrow_right),
           ],
         ),
-        Constant.dividerWithIndents(),
+        Constant.dividerWithIndent,
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: Constant.padding20,
               child: Text('Çalışan Bilgileri',
                   style: Theme.of(context).textTheme.headline4),
             ),
@@ -39,29 +39,24 @@ class AddNewWorker extends StatelessWidget {
                     child: Column(
                       children: [
                         SizedBox.fromSize(
-                          size: Size.fromRadius(125),
-                          child: FittedBox(
+                          size: const Size.fromRadius(125),
+                          child: const FittedBox(
                             child: Icon(Icons.person),
                           ),
                         ),
                         ElevatedButton(
                           onPressed: () {},
-                          child: Text('Ekle'),
+                          child: const Text('Ekle'),
                         ),
                       ],
                     ),
                   ),
-                  VerticalDivider(
-                    endIndent: 75,
-                    indent: 75,
-                  ),
-                  SizedBox(
-                    width: 50,
-                  ),
+                  Constant.verticalDivider,
+                  Constant.sizedBox,
                   Flexible(
                     flex: 2,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: Constant.padding8,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -73,14 +68,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -89,14 +81,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -105,19 +94,16 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
-                          Center(
+                          Constant.sizedBox10H,
+                          const Center(
                               child: DropdownMenu(
                             menuItems: Constant.menuItemsForGender,
                           )),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -126,14 +112,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -142,14 +125,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -158,14 +138,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -174,14 +151,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -190,14 +164,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -206,14 +177,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -222,14 +190,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border:Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -238,14 +203,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border:Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -254,14 +216,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border:Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -271,14 +230,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border:Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -287,14 +243,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border:Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -303,14 +256,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border:Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -319,14 +269,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border:Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                           Center(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -335,14 +282,11 @@ class AddNewWorker extends StatelessWidget {
                                 labelStyle:
                                     const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border: new OutlineInputBorder(
-                                  borderRadius: new BorderRadius.circular(5.0),
-                                  borderSide: new BorderSide(),
-                                ),
+                                border:Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
-                          Constant.sizedBoxBetweenPersonalDetailPage(),
+                          Constant.sizedBox10H,
                         ],
                       ),
                     ),
@@ -352,7 +296,7 @@ class AddNewWorker extends StatelessWidget {
             ),
           ],
         ),
-        Constant.dividerWithIndents(),
+        Constant.dividerWithIndent,
       ]),
     );
   }

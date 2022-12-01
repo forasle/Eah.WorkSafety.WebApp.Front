@@ -1,5 +1,6 @@
 import 'package:aeah_work_safety/widgets/risk_assessment/components/slider_for_risk_exposed.dart';
 import 'package:flutter/material.dart';
+import 'package:aeah_work_safety/constants/risk_assessment/constants.dart';
 
 class RiskExposedPersonButton extends StatefulWidget {
   final String text;
@@ -12,11 +13,10 @@ class RiskExposedPersonButton extends StatefulWidget {
 }
 
 class _RiskExposedPersonButtonState extends State<RiskExposedPersonButton> {
-  double _currentSliderValue = 100;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding,
       child: SizedBox(
         width: 100,
         height: 40,
@@ -24,7 +24,6 @@ class _RiskExposedPersonButtonState extends State<RiskExposedPersonButton> {
           onPressed: () => showDialog<String>(
             context: context,
             builder: (BuildContext context) => AlertDialog(
-              contentPadding: EdgeInsets.all(0.0),
               title: const Text('Risk Skoru'),
               content: SizedBox(
                   height: 150,
@@ -36,7 +35,7 @@ class _RiskExposedPersonButtonState extends State<RiskExposedPersonButton> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
+                        children: const [
                           Text('Şiddet '),
                           SliderForRiskExposed(),
                         ],
@@ -44,7 +43,7 @@ class _RiskExposedPersonButtonState extends State<RiskExposedPersonButton> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
+                        children: const [
                           Text('Olasılık '),
                           SliderForRiskExposed(),
                         ],
@@ -52,7 +51,7 @@ class _RiskExposedPersonButtonState extends State<RiskExposedPersonButton> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
+                        children: const [
                           Text('Sıklık '),
                           SliderForRiskExposed(),
                         ],

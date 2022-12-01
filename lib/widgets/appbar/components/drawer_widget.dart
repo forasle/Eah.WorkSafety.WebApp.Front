@@ -1,5 +1,6 @@
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:aeah_work_safety/constants/appbar/constants.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({
@@ -10,43 +11,38 @@ class DrawerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       elevation: 50,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(20),
-          topRight: Radius.circular(20),
-        ),
-      ),
+      shape: Constant.drawerBorder,
       child: ListView(
         children: [
           ListTile(
-            leading: Icon(Icons.home_filled),
-            title: Text('Panorama'),
+            leading: const Icon(Icons.home_filled),
+            title: const Text('Panorama'),
             onTap: () {
               Navigator.of(context).popAndPushNamed(panoramaRoute);
             },
           ),
           ListTile(
-            leading: Icon(Icons.access_time),
-            title: Text('Görevler'),
+            leading: const Icon(Icons.access_time),
+            title: const Text('Görevler'),
             onTap: () {
               Navigator.of(context).popAndPushNamed(missionsPageRoute);
             },
           ),
           ExpansionTile(
-            childrenPadding: EdgeInsets.only(left: 35),
-            leading: Icon(Icons.supervisor_account),
-            title: Text('Çalışanlar'),
+            childrenPadding: Constant.drawerExpansionTileChildrenPadding,
+            leading: const Icon(Icons.supervisor_account),
+            title: const Text('Çalışanlar'),
             children: [
               ListTile(
-                leading: Icon(Icons.supervisor_account),
-                title: Text('Çalışanlar'),
+                leading: const Icon(Icons.supervisor_account),
+                title: const Text('Çalışanlar'),
                 onTap: () {
                   Navigator.of(context).pushNamed(workersMainPageRoute);
                 },
               ),
               ListTile(
-                leading: Icon(Icons.person_add),
-                title: Text('Yeni Çalışan Ekle'),
+                leading: const Icon(Icons.person_add),
+                title: const Text('Yeni Çalışan Ekle'),
                 onTap: () {
                   Navigator.of(context).pushNamed(addNewWorker);
                 },
@@ -54,65 +50,65 @@ class DrawerWidget extends StatelessWidget {
             ],
           ),
           ExpansionTile(
-            childrenPadding: EdgeInsets.only(left: 35),
-            leading: Icon(Icons.security),
-            title: Text('İş Güvenliği'),
+            childrenPadding: Constant.drawerExpansionTileChildrenPadding,
+            leading: const Icon(Icons.security),
+            title: const Text('İş Güvenliği'),
             children: [
               ListTile(
-                leading: Icon(Icons.emergency_outlined),
-                title: Text('Acil Durum Planları'),
+                leading: const Icon(Icons.emergency_outlined),
+                title: const Text('Acil Durum Planları'),
                 onTap: () {
-                  Navigator.of(context).pushNamed(contingencyPlansPage);
+                  Navigator.of(context).pushNamed(contingencyPlanPage);
                 },
               ),
               ListTile(
-                leading: Icon(Icons.add_moderator_outlined),
-                title: Text('Risk Değerlendirme'),
+                leading: const Icon(Icons.add_moderator_outlined),
+                title: const Text('Risk Değerlendirme'),
                 onTap: () {
                   Navigator.of(context).pushNamed(riskAssessmentPage);
                 },
               ),
               ListTile(
-                leading: Icon(Icons.cast_for_education_rounded),
-                title: Text('Eğitim'),
+                leading: const Icon(Icons.cast_for_education_rounded),
+                title: const Text('Eğitim'),
                 onTap: () {
                   Navigator.of(context).pushNamed(educationPageRoute);
                 },
               ),
               ListTile(
-                leading: Icon(Icons.healing_sharp),
-                title: Text('Kazalar'),
+                leading: const  Icon(Icons.healing_sharp),
+                title: const  Text('Kazalar'),
                 onTap: () {
-                  Navigator.of(context).pushNamed(workAccidentPageRoute);
+                  Navigator.of(context).pushNamed(accidentPageRoute);
                 },
               ),
               ListTile(
-                leading: Icon(Icons.add_alert_outlined),
-                title: Text('Ramak Kala'),
+                leading: const  Icon(Icons.add_alert_outlined),
+                title: const  Text('Ramak Kala'),
                 onTap: () {
                   Navigator.of(context).pushNamed(nearMissPageRoute);
                 },
               ),
               ListTile(
-                leading: Icon(Icons.construction_outlined),
-                title: Text('Periyodik Kontroller'),
+                leading: const  Icon(Icons.construction_outlined),
+                title: const  Text('Periyodik Kontroller'),
                 onTap: () {},
               ),
               ListTile(
-                leading: Icon(Icons.group_work_sharp),
-                title: Text('Ortam Ölçümleri'),
+                leading: const  Icon(Icons.group_work_sharp),
+                title: const  Text('Ortam Ölçümleri'),
                 onTap: () {},
               ),
               ListTile(
-                leading: Icon(Icons.dangerous_outlined),
-                title: Text('Uygunsuzluklar'),
+                leading: const  Icon(Icons.dangerous_outlined),
+                title: const  Text('Uygunsuzluklar'),
                 onTap: () {
                   Navigator.of(context).pushNamed(inconsistenciesPageRoute);
                 },
               ),
               ListTile(
-                leading: Icon(Icons.list_alt_rounded),
-                title: Text('Düzenleyici/Önleyici Faaliyetler'),
+                leading: const  Icon(Icons.list_alt_rounded),
+                title: const  Text('Düzenleyici/Önleyici Faaliyetler'),
                 onTap: () {
                   Navigator.of(context)
                       .pushNamed(preventiveActivitiesPageRoute);
@@ -121,47 +117,47 @@ class DrawerWidget extends StatelessWidget {
             ],
           ),
           ExpansionTile(
-            childrenPadding: EdgeInsets.only(left: 35),
-            leading: Icon(Icons.health_and_safety_outlined),
-            title: Text('İş Sağlığı'),
+            childrenPadding: Constant.drawerExpansionTileChildrenPadding,
+            leading: const  Icon(Icons.health_and_safety_outlined),
+            title: const  Text('İş Sağlığı'),
             children: [
               ListTile(
-                leading: Icon(Icons.group_remove_outlined),
-                title: Text('Risk Grupları'),
+                leading: const  Icon(Icons.group_remove_outlined),
+                title: const  Text('Risk Grupları'),
                 onTap: () {},
               ),
               ListTile(
-                leading: Icon(Icons.playlist_play_rounded),
-                title: Text('Tetkik'),
+                leading: const  Icon(Icons.playlist_play_rounded),
+                title: const  Text('Tetkik'),
                 onTap: () {},
               ),
               ListTile(
-                leading: Icon(Icons.badge),
-                title: Text('Kronik Hastalıklar'),
+                leading: const  Icon(Icons.badge),
+                title: const  Text('Kronik Hastalıklar'),
                 onTap: () {
                   Navigator.of(context).pushNamed(chronicDiseasesPageRoute);
                 },
               ),
               ListTile(
-                leading: Icon(Icons.personal_injury_outlined),
-                title: Text('Meslek Hastalıkları'),
+                leading: const  Icon(Icons.personal_injury_outlined),
+                title: const  Text('Meslek Hastalıkları'),
                 onTap: () {
                   Navigator.of(context).pushNamed(occupationDiseasesPageRoute);
                 },
               ),
               ExpansionTile(
-                childrenPadding: EdgeInsets.only(left: 35),
-                leading: Icon(Icons.add_alert_outlined),
-                title: Text('Muayeneler'),
+                childrenPadding: Constant.drawerExpansionTileChildrenPadding,
+                leading: const  Icon(Icons.add_alert_outlined),
+                title: const  Text('Muayeneler'),
                 children: [
                   ListTile(
-                    leading: Icon(Icons.accessibility_new_sharp),
-                    title: Text('İşe Giriş/Periyodik Muayene'),
+                    leading: const  Icon(Icons.accessibility_new_sharp),
+                    title: const  Text('İşe Giriş/Periyodik Muayene'),
                     onTap: () {},
                   ),
                   ListTile(
-                    leading: Icon(Icons.replay_circle_filled_rounded),
-                    title: Text('İşe Dönüş Muayene'),
+                    leading: const  Icon(Icons.replay_circle_filled_rounded),
+                    title: const  Text('İşe Dönüş Muayene'),
                     onTap: () {},
                   ),
                 ],
@@ -169,45 +165,45 @@ class DrawerWidget extends StatelessWidget {
             ],
           ),
           ExpansionTile(
-            childrenPadding: EdgeInsets.only(left: 35),
-            leading: Icon(Icons.date_range_outlined),
-            title: Text('Takvim & Yıllık Planlar'),
+            childrenPadding: Constant.drawerExpansionTileChildrenPadding,
+            leading: const  Icon(Icons.date_range_outlined),
+            title: const  Text('Takvim & Yıllık Planlar'),
             children: [
               ListTile(
-                leading: Icon(Icons.playlist_add_check),
-                title: Text('Yıllık Çalışma Planı'),
+                leading: const Icon(Icons.playlist_add_check),
+                title: const Text('Yıllık Çalışma Planı'),
                 onTap: () {},
               ),
               ListTile(
-                leading: Icon(Icons.cast_for_education_rounded),
-                title: Text('Tesis Eğitim Planı'),
+                leading: const Icon(Icons.cast_for_education_rounded),
+                title: const Text('Tesis Eğitim Planı'),
                 onTap: () {},
               ),
               ListTile(
-                leading: Icon(Icons.home_work_rounded),
-                title: Text('Tesis İzleme Planı'),
+                leading: const Icon(Icons.home_work_rounded),
+                title: const Text('Tesis İzleme Planı'),
                 onTap: () {},
               ),
             ],
           ),
           ExpansionTile(
-            childrenPadding: EdgeInsets.only(left: 35),
-            leading: Icon(Icons.settings),
-            title: Text('Ayarlar'),
+            childrenPadding: Constant.drawerExpansionTileChildrenPadding,
+            leading: const Icon(Icons.settings),
+            title: const Text('Ayarlar'),
             children: [
               ListTile(
-                leading: Icon(Icons.person_pin),
-                title: Text('Profil'),
+                leading: const Icon(Icons.person_pin),
+                title: const Text('Profil'),
                 onTap: () {},
               ),
               ListTile(
-                leading: Icon(Icons.safety_divider_outlined),
-                title: Text('Kullancılar'),
+                leading: const Icon(Icons.safety_divider_outlined),
+                title: const Text('Kullancılar'),
                 onTap: () {},
               ),
               ListTile(
-                leading: Icon(Icons.help),
-                title: Text('Yardım'),
+                leading: const Icon(Icons.help),
+                title: const Text('Yardım'),
                 onTap: () {},
               ),
             ],

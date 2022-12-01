@@ -1,21 +1,21 @@
-import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/employee.dart';
 
 class OccupationDiseases {
-  final double occupationDiseasesNumber;//
-  final String occupationDiseasesreferenceNumber;//
-  final String occupationDiseasesDiagnosis;//
-  final Person occupationDiseasesOwner;//
-  final String occupationDiseasesDiagnosisdate;//
+  final double number;//
+  final String referenceNumber;//
+  final String diagnosis;//
+  final Employee owner;//
+  final String diagnosisDate;//
   final String occupationDiseases;
 
   bool selected = false;
 
   OccupationDiseases({
     required this.occupationDiseases,
-    required this.occupationDiseasesDiagnosis,
-    required this.occupationDiseasesDiagnosisdate,
-    required this.occupationDiseasesNumber,
-    required this.occupationDiseasesOwner,
-    required this.occupationDiseasesreferenceNumber,
+    required this.diagnosis,
+    required this.diagnosisDate,
+    required this.number,
+    required this.owner,
+    required this.referenceNumber,
   });
 }

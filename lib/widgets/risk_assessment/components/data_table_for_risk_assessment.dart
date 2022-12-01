@@ -1,12 +1,13 @@
-import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/employee.dart';
 import 'package:aeah_work_safety/models/risk_assessment.dart';
 import 'package:flutter/material.dart';
+import 'package:aeah_work_safety/constants/risk_assessment/constants.dart';
 
 class DataTableForRiskAssessment extends StatelessWidget {
-  String title;
-  String detailRoute;
-  List<String> columnData;
-  DataTableForRiskAssessment(
+  final String title;
+  final String detailRoute;
+  final List<String> columnData;
+  const DataTableForRiskAssessment(
       {Key? key,
       required this.title,
       required this.columnData,
@@ -16,7 +17,7 @@ class DataTableForRiskAssessment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         //mainAxisSize: MainAxisSize.min,
@@ -46,7 +47,7 @@ class _DataSource extends DataTableSource {
           name: 'Risk Değerlendirme Adı',
           referenceNumber: 'Risk Değerlendirme Referans No',
           revisionDate: 'Risk Değerlendirme Revizyon Tarihi',
-          riskAssessmentIdentifier: Person(
+          riskAssessmentIdentifier: Employee(
 
               chronicDiseases: 'null',
               id: 123,

@@ -1,19 +1,17 @@
 import 'package:aeah_work_safety/models/near_miss.dart';
-import 'package:aeah_work_safety/models/person.dart';
-import 'package:aeah_work_safety/widgets/components/dropdown_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:aeah_work_safety/constants/constants.dart';
+import 'package:aeah_work_safety/constants/inconsistency/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 
-class WorkAccidentDetailPage extends StatelessWidget {
-  const WorkAccidentDetailPage({Key? key}) : super(key: key);
+class InconsistenciesDetailPage extends StatelessWidget {
+  const InconsistenciesDetailPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     NearMiss test;
-    //ScrollController horizantalController = ScrollController();
+    //ScrollController horizontalController = ScrollController();
     return CustomScaffold(
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -21,20 +19,22 @@ class WorkAccidentDetailPage extends StatelessWidget {
         children: [
           Row(
             children: [
-              routingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
-              Icon(Icons.arrow_right),
-              routingBarWidget(
-                  pageName: 'İş Kazası', routeName: workAccidentPageRoute),
-              Icon(Icons.arrow_right),
-              routingBarWidget(
-                  pageName: 'İş Kazaları', routeName: workAccidentDetailPage),
+              RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+              const Icon(Icons.arrow_right),
+              RoutingBarWidget(
+                  pageName: 'Uygunsuzluklar',
+                  routeName: inconsistenciesPageRoute),
+              const Icon(Icons.arrow_right),
+              RoutingBarWidget(
+                  pageName: 'Uygunsuzluk Detayları',
+                  routeName: inconsistenciesDetailPage),
             ],
           ),
-          Constant.dividerWithIndents(),
+          Constant.dividerWithIndent,
           Column(
             children: [
               title(context, 'Genel Bilgiler'),
-              Constant.dividerWithIndents(),
+              Constant.dividerWithIndent,
               const SizedBox(height: 50),
               IntrinsicHeight(
                 child: Row(
@@ -42,7 +42,7 @@ class WorkAccidentDetailPage extends StatelessWidget {
                     Flexible(
                       flex: 1,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           children: [
                             subtitle(
@@ -62,76 +62,73 @@ class WorkAccidentDetailPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const VerticalDivider(
-                      endIndent: 5,
-                      indent: 5,
-                    ),
+                   Constant.verticalDivider,
                     Expanded(
                       flex: 4,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           //mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text('İş Kazası'),
+                                  children: const [
+                                    Text('Uygunsuzluk'),
                                   ],
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
+                                  children: const [
                                     Text('01.01.2023'),
                                   ],
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [Text('00:00')]),
+                                    children: const [Text('00:00')]),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 150,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
+                                  children: const [
                                     Text('Olay Tanımı'),
                                   ],
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 100,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
+                                  children: const [
                                     Text('Yapılan İş'),
                                   ],
                                 ),
@@ -144,23 +141,23 @@ class WorkAccidentDetailPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 50),
+              Constant.sizedBox50H,
               title(context, 'Olay Yeri'),
-              Constant.dividerWithIndents(),
-              const SizedBox(height: 50),
+              Constant.dividerWithIndent,
+              Constant.sizedBox50H,
               IntrinsicHeight(
                 child: Row(
                   children: [
                     Flexible(
                       flex: 1,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
+                          children: const [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 width: 150,
@@ -176,25 +173,22 @@ class WorkAccidentDetailPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const VerticalDivider(
-                      endIndent: 5,
-                      indent: 5,
-                    ),
+                    Constant.verticalDivider,
                     Expanded(
                       flex: 4,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
+                                  children: const [
                                     Text('Acil'),
                                   ],
                                 ),
@@ -207,17 +201,17 @@ class WorkAccidentDetailPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 50),
+              Constant.sizedBox50H,
               title(context, 'Analiz'),
-              Constant.dividerWithIndents(),
-              const SizedBox(height: 50),
+              Constant.dividerWithIndent,
+              Constant.sizedBox50H,
               IntrinsicHeight(
                 child: Row(
                   children: [
                     Flexible(
                       flex: 1,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -238,33 +232,30 @@ class WorkAccidentDetailPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const VerticalDivider(
-                      endIndent: 5,
-                      indent: 5,
-                    ),
+                    Constant.verticalDivider,
                     Expanded(
                       flex: 4,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: true, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: true, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
@@ -277,17 +268,17 @@ class WorkAccidentDetailPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 50),
+              Constant.sizedBox50H,
               title(context, 'Kaza Araştırma'),
-              Constant.dividerWithIndents(),
-              const SizedBox(height: 50),
+              Constant.dividerWithIndent,
+             Constant.sizedBox50H,
               IntrinsicHeight(
                 child: Row(
                   children: [
                     Flexible(
                       flex: 1,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -335,61 +326,58 @@ class WorkAccidentDetailPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const VerticalDivider(
-                      endIndent: 5,
-                      indent: 5,
-                    ),
+                    Constant.verticalDivider,
                     Expanded(
                       flex: 4,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: true, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: true, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: false, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: false, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: false, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
                                       value: false, onChanged: (value) {})),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
@@ -398,12 +386,12 @@ class WorkAccidentDetailPage extends StatelessWidget {
                             Expanded(
                               flex: 4,
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: Constant.padding,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                      padding: Constant.padding,
                                       child: SizedBox(
                                         height: 100,
                                         child: Column(
@@ -411,14 +399,14 @@ class WorkAccidentDetailPage extends StatelessWidget {
                                               CrossAxisAlignment.center,
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
-                                          children: [
+                                          children: const [
                                             Text('KKD'),
                                           ],
                                         ),
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                      padding: Constant.padding,
                                       child: SizedBox(
                                         height: 100,
                                         child: Column(
@@ -426,7 +414,7 @@ class WorkAccidentDetailPage extends StatelessWidget {
                                               CrossAxisAlignment.center,
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
-                                          children: [
+                                          children: const [
                                             Text('Sebep'),
                                           ],
                                         ),
@@ -443,23 +431,23 @@ class WorkAccidentDetailPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 50),
+              Constant.sizedBox50H,
               title(context, 'Tanık/Tanık İfadesi'),
-              Constant.dividerWithIndents(),
-              const SizedBox(height: 50),
+              Constant.dividerWithIndent,
+              Constant.sizedBox50H,
               IntrinsicHeight(
                 child: Row(
                   children: [
                     Flexible(
                       flex: 1,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
+                          children: const [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                 height: 50,
                                 width: 150,
@@ -475,19 +463,16 @@ class WorkAccidentDetailPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const VerticalDivider(
-                      endIndent: 5,
-                      indent: 5,
-                    ),
+                    Constant.verticalDivider,
                     Expanded(
                       flex: 4,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: Constant.padding,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: Constant.padding,
                               child: SizedBox(
                                   height: 50,
                                   child: Switch(
@@ -500,10 +485,10 @@ class WorkAccidentDetailPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 50),
+              Constant.sizedBox50H,
               title(context, 'Dökümanlar'),
-              Constant.dividerWithIndents(),
-              const SizedBox(height: 50),
+              Constant.dividerWithIndent,
+              Constant.sizedBox50H,
             ],
           ),
         ],
@@ -513,7 +498,7 @@ class WorkAccidentDetailPage extends StatelessWidget {
 
   Padding title(BuildContext context, String title) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -533,7 +518,7 @@ class WorkAccidentDetailPage extends StatelessWidget {
       required double height,
       required double width}) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: Constant.padding,
       child: SizedBox(
         height: height,
         width: width,

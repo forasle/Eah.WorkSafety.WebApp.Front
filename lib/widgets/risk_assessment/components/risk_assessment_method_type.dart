@@ -1,5 +1,3 @@
-import 'package:aeah_work_safety/constants/constants.dart';
-import 'package:aeah_work_safety/widgets/components/dropdown_menu.dart';
 import 'package:flutter/material.dart';
 
 enum MethodType { fineKinneyMethod, matrixMethod }

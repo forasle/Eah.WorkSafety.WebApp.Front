@@ -1,6 +1,6 @@
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/models/occupation_diseases.dart';
-import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/employee.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForOccupationDiseases extends StatelessWidget {
@@ -37,10 +37,10 @@ class _DataSource extends DataTableSource {
     _rows = [
       OccupationDiseases(
         occupationDiseases: '123',
-        occupationDiseasesDiagnosis: '123',
-        occupationDiseasesDiagnosisdate: '123',
-        occupationDiseasesNumber: 123,
-        occupationDiseasesOwner: Person(
+        diagnosis: '123',
+        diagnosisDate: '123',
+        number: 123,
+        owner: Employee(
                       chronicDiseases: 'null',
             id: 123,
             identificationNumber: 159,
@@ -51,7 +51,7 @@ class _DataSource extends DataTableSource {
             department: 'Arge',
             startDateOfEmployment: 'EA',
             address: 'Test'),
-        occupationDiseasesreferenceNumber: 'position',
+        referenceNumber: 'position',
       )
     ];
   }
@@ -71,11 +71,11 @@ class _DataSource extends DataTableSource {
         Navigator.pushNamed(context, workersDetailPageRoute);
       },
       cells: [
-        DataCell(Text(row.occupationDiseasesreferenceNumber.toString())),
-        DataCell(Text(row.occupationDiseasesOwner.toString())),
-        DataCell(Text(row.occupationDiseasesDiagnosis.toString())),
-        DataCell(Text(row.occupationDiseasesDiagnosisdate.toString())),
-        DataCell(Text(row.occupationDiseasesOwner.department)),
+        DataCell(Text(row.referenceNumber.toString())),
+        DataCell(Text(row.owner.toString())),
+        DataCell(Text(row.diagnosis.toString())),
+        DataCell(Text(row.diagnosisDate.toString())),
+        DataCell(Text(row.owner.department)),
       ],
     ));
   }

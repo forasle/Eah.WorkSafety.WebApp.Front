@@ -11,17 +11,25 @@ class Constant{
     indent: 5,
   );
 
-
-  static const sizedBoxWidth = SizedBox(
-    width: 10,
-  );
-
-  static const sizedBoxHeight = SizedBox(
-    height: 10,
-  );
-
   static const padding = EdgeInsets.all(8.0);
 
+  static const sizedBox10W = SizedBox(
+    width: 10,
+  );
+  static const sizedBox5W = SizedBox(
+    width: 5,
+  );
+  static const sizedBox50H = SizedBox(
+    height: 50,
+  );
+
+  static const sizedBox50W = SizedBox(
+    width: 50,
+  );
+
+  static const sizedBox10H=SizedBox(
+  height: 10,
+  );
 
   static const List<DropdownMenuItem<String>> menuItemsForEventType = [
     DropdownMenuItem(child: Text("İş Kazası"), value: "1"),
@@ -38,7 +46,14 @@ class Constant{
     BorderRadius.circular(5.0),
   );
 
-  static const sizedBox50 = SizedBox(
-    height: 50,
+  static const List<DropdownMenuItem<String>> menuItemsForTemplate = [
+    DropdownMenuItem(child: Text("Şablonsuz"), value: "1"),
+    DropdownMenuItem(child: Text("Acil Servis"), value: "2"),
+    DropdownMenuItem(child: Text("Yoğun Bakım"), value: "3"),
+    DropdownMenuItem(child: Text("Servis"), value: "4"),
+  ];
+
+  static const sizedBox20W = SizedBox(
+  width: 20,
   );
 }

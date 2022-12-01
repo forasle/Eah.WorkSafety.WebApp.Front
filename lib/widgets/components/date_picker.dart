@@ -22,7 +22,7 @@ class _DateTimePickerState extends State<DateTimePicker> {
     return Row(
       children: [
         ElevatedButton(
-          style: ElevatedButton.styleFrom(primary: Colors.white),
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
           onPressed: () {
             DatePicker.showDatePicker(context,
                 theme: const DatePickerTheme(
@@ -32,7 +32,6 @@ class _DateTimePickerState extends State<DateTimePicker> {
                 minTime: DateTime(2021, 1, 1),
                 maxTime: DateTime(2023, 12, 31), onConfirm: (date) {
               _date = '${date.year} - ${date.month} - ${date.day}';
-              print('confirm $date');
               setState(() {});
             },
                 //currentTime: DateTime.now(),
@@ -48,23 +47,21 @@ class _DateTimePickerState extends State<DateTimePicker> {
               children: <Widget>[
                 Row(
                   children: <Widget>[
-                    Container(
-                      child: Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.date_range,
-                            size: 18.0,
-                            color: Colors.black,
-                          ),
-                          Text(
-                            " $_date",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18.0),
-                          ),
-                        ],
-                      ),
+                    Row(
+                      children: <Widget>[
+                        const Icon(
+                          Icons.date_range,
+                          size: 18.0,
+                          color: Colors.black,
+                        ),
+                        Text(
+                          " $_date",
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.0),
+                        ),
+                      ],
                     )
                   ],
                 ),
@@ -73,19 +70,18 @@ class _DateTimePickerState extends State<DateTimePicker> {
           ),
           //color: Colors.white,
         ),
-        SizedBox(
+        const SizedBox(
           width: 20.0,
         ),
         ElevatedButton(
-          style: ElevatedButton.styleFrom(primary: Colors.white),
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
           onPressed: () {
             DatePicker.showTimePicker(context,
-                theme: DatePickerTheme(
+                theme: const DatePickerTheme(
                   containerHeight: 210.0,
                 ),
                 showTitleActions: true, onConfirm: (time) {
               _time = '${time.hour} : ${time.minute} : ${time.second}';
-              print('confirm $time');
               setState(() {});
             }, locale: LocaleType.tr);
             setState(() {});
@@ -99,23 +95,21 @@ class _DateTimePickerState extends State<DateTimePicker> {
               children: <Widget>[
                 Row(
                   children: <Widget>[
-                    Container(
-                      child: Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.access_time,
-                            size: 18.0,
-                            color: Colors.black,
-                          ),
-                          Text(
-                            " $_time",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18.0),
-                          ),
-                        ],
-                      ),
+                    Row(
+                      children: <Widget>[
+                        const Icon(
+                          Icons.access_time,
+                          size: 18.0,
+                          color: Colors.black,
+                        ),
+                        Text(
+                          " $_time",
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.0),
+                        ),
+                      ],
                     )
                   ],
                 ),

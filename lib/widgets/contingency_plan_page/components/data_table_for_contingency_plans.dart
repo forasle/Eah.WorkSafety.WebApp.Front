@@ -1,5 +1,5 @@
 import 'package:aeah_work_safety/models/contingency_plan.dart';
-import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/employee.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForContingencyPlans extends StatelessWidget {
@@ -39,13 +39,13 @@ class _DataSource extends DataTableSource {
   _DataSource(this.context, this.detailRoute) {
     _rows = [
       ContingencyPlans(
-          contingencyDate: 'Acil Durum Tarihi',
-          contingencyCreationTime: 'Acil Durum Tarihi',
-          contingencyInfo: 'Acil Durum Açıklaması',
-          contingencyPlansNumber: 123,
-          contingencyReferenceNumber: 'Referans',
-          contingencyName: 'Asansör',
-          contingencyIdentifier: Person(
+          date: 'Acil Durum Tarihi',
+          creationTime: 'Acil Durum Tarihi',
+          info: 'Acil Durum Açıklaması',
+          number: 123,
+          referenceNumber: 'Referans',
+          name: 'Asansör',
+          identifier: Employee(
 
               chronicDiseases: 'null',
               id: 123,
@@ -76,10 +76,10 @@ class _DataSource extends DataTableSource {
         Navigator.pushNamed(context, detailRoute);
       },
       cells: [
-        DataCell(Text(row.contingencyReferenceNumber.toString())),
-        DataCell(Text(row.contingencyName.toString())),
-        DataCell(Text(row.contingencyIdentifier.toString())),
-        DataCell(Text(row.contingencyCreationTime.toString())),
+        DataCell(Text(row.referenceNumber.toString())),
+        DataCell(Text(row.name.toString())),
+        DataCell(Text(row.identifier.toString())),
+        DataCell(Text(row.creationTime.toString())),
       ],
     ));
   }

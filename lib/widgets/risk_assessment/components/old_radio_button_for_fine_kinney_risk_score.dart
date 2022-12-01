@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:aeah_work_safety/constants/risk_assessment/constants.dart';
 
 class RadioGroupForFineKinneyScore extends StatefulWidget {
   const RadioGroupForFineKinneyScore({Key? key}) : super(key: key);
@@ -30,7 +31,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Text('Şiddet'),
+                  const Text('Şiddet'),
                   Wrap(
                     //alignment: WrapAlignment.start,
                     crossAxisAlignment: WrapCrossAlignment.center,
@@ -47,7 +48,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '100',
                       ),
                       Radio(
@@ -60,7 +61,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '40',
                       ),
                       Radio(
@@ -74,7 +75,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '15',
                       ),
                       Radio(
@@ -88,7 +89,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '7',
                       ),
                       Radio(
@@ -102,7 +103,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '3',
                       ),
                       Radio(
@@ -116,23 +117,21 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '1',
                       ),
                     ],
                   ),
-                  Text('$radioButtonItemForSeverity'),
+                  Text(radioButtonItemForSeverity),
                 ],
               ),
             ),
-            SizedBox(
-              width: 50,
-            ),
+            Constant.sizedBox50W,
             Card(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Text('Olasılık'),
+                  const Text('Olasılık'),
                   Wrap(
                     //alignment: WrapAlignment.start,
                     crossAxisAlignment: WrapCrossAlignment.center,
@@ -148,7 +147,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '10',
                       ),
                       Radio(
@@ -161,7 +160,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '6',
                       ),
                       Radio(
@@ -175,7 +174,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '3',
                       ),
                       Radio(
@@ -188,7 +187,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '1',
                       ),
                       Radio(
@@ -202,7 +201,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '0.5',
                       ),
                       Radio(
@@ -216,23 +215,21 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '0.2',
                       ),
                     ],
                   ),
-                  Text('$radioButtonItemForProbability'),
+                  Text(radioButtonItemForProbability),
                 ],
               ),
             ),
-            SizedBox(
-              width: 50,
-            ),
+            Constant.sizedBox50W,
             Card(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Text('Sıklık'),
+                  const Text('Sıklık'),
                   Wrap(
                     //alignment: WrapAlignment.start,
                     crossAxisAlignment: WrapCrossAlignment.center,
@@ -249,7 +246,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '10',
                       ),
                       Radio(
@@ -263,7 +260,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '6',
                       ),
                       Radio(
@@ -277,7 +274,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '3',
                       ),
                       Radio(
@@ -291,7 +288,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '2',
                       ),
                       Radio(
@@ -305,7 +302,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '1',
                       ),
                       Radio(
@@ -319,7 +316,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                           });
                         },
                       ),
-                      Text(
+                      const Text(
                         '0.5',
                       ),
                     ],
@@ -328,9 +325,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                 ],
               ),
             ),
-            SizedBox(
-              height: 50,
-            ),
+            Constant.sizedBox50W
           ],
         ),
         Card(
@@ -341,7 +336,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 Text('Tolerans Gösterilemez Risk : 10.000,00'),
               ],
             ),

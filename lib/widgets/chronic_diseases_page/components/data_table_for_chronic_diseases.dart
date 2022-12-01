@@ -1,11 +1,11 @@
 import 'package:aeah_work_safety/constants/routes.dart';
-import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/employee.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForChronicDiseases extends StatelessWidget {
-  String title;
-  List<String> columnData;
-  DataTableForChronicDiseases(
+  final String title;
+  final List<String> columnData;
+  const DataTableForChronicDiseases(
       {Key? key, required this.title, required this.columnData})
       : super(key: key);
 
@@ -34,7 +34,7 @@ class DataTableForChronicDiseases extends StatelessWidget {
 class _DataSource extends DataTableSource {
   _DataSource(this.context) {
     _rows = [
-      Person(
+      Employee(
           id: 123,
           identificationNumber: 123,
           registrationNumber: '123',
@@ -50,7 +50,7 @@ class _DataSource extends DataTableSource {
   }
 
   final BuildContext context;
-  late List<Person> _rows;
+  late List<Employee> _rows;
 
   final int _selectedCount = 0;
 

@@ -1,11 +1,11 @@
-import 'package:aeah_work_safety/models/person.dart';
+import 'package:aeah_work_safety/models/employee.dart';
 
 class RiskAssessment {
   final String revisionDate;
   final String name;//
   final String referenceNumber;//
   final String riskAssessmentInfo;//
-  final Person riskAssessmentIdentifier;//
+  final Employee riskAssessmentIdentifier;//
   final String riskAssessmentDate;//
   final String riskAssessmentCreationTime;//
   final String riskAssessmentMethod;
