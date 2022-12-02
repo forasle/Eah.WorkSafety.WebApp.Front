@@ -41,24 +41,15 @@ class _DataSource extends DataTableSource {
   _DataSource({required this.context, required this.detailRoute}) {
     _rows = [
       Accident(
-          identifier: Employee(
-
-              chronicDiseases: 'null',
-              address: 'test',
-              department: 'test',
-              identificationNumber: 123,
-              name: 'Murat',
-              id: 5,
-              position: 'Engineer',
-              registrationNumber: '25',
-              startDateOfEmployment: 'Test',
-              surname: 'Dogan'),
-          info: 'Test',
-          number: 123,
-          referenceNumber: '456',
-          date: 'Tomorrow',
           rootCauseAnalysis: true,
-          lostDays: 5),
+          referenceNumber: "referenceNumber",
+          lostDays: 5,
+          id: 2,
+          employees: [1,2,3],
+          date: DateTime.now(),
+          creatorUserId: 1,
+          accidentInfo: "accidentInfo"
+      ),
     ];
   }
 
@@ -73,17 +64,17 @@ class _DataSource extends DataTableSource {
     final row = _rows[index];
     return (DataRow.byIndex(
       index: index,
-      selected: row.selected,
+      //selected: row.selected,
       onSelectChanged: (value) {
         Navigator.pushNamed(context, detailRoute);
       },
       cells: [
         DataCell(Text(row.referenceNumber)),
-        DataCell(Text(row.info)),
-        DataCell(Text(row.identifier.surname)),
+        DataCell(Text(row.accidentInfo)),
+        DataCell(Text(row.creatorUserId.toString())),
         DataCell(Text(row.lostDays.toString())),
-        DataCell(Text(row.identifier.name)),
-        DataCell(Text(row.date)),
+        DataCell(Text(row.creatorUserId.toString())),
+        DataCell(Text(row.date.toString())),
         DataCell(Text(row.rootCauseAnalysis ? 'Evet' : 'Hayır')),
       ],
     ));

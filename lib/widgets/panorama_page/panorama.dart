@@ -7,6 +7,8 @@ import 'package:aeah_work_safety/widgets/panorama_page/components/punishment_not
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/panaroma/constants.dart';
 
+import '../../services/api_service.dart';
+
 class Panorama extends StatelessWidget {
   const Panorama({Key? key}) : super(key: key);
 
@@ -34,6 +36,7 @@ class Panorama extends StatelessWidget {
                     Colors.blueGrey,
                     () {
                       Navigator.of(context).pushNamed(workersMainPageRoute);
+                      print(ApiService().getUsers().toString());
                     }
                   ],
                   [

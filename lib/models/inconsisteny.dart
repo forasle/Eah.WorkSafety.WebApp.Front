@@ -1,31 +1,53 @@
-import 'package:aeah_work_safety/models/employee.dart';
+import 'dart:convert';
+
+Inconsistency inconsistencyFromJson(String str) => Inconsistency.fromJson(json.decode(str));
+
+String inconsistencyToJson(Inconsistency data) => json.encode(data.toJson());
 
 class Inconsistency {
-  final String name;
-  final String referenceNumber;
-  final String info;
-  final Employee identifier;
-  final String date;
-  final bool rootCauseAnalysis;
-  final String department;
-  final String status;
-  final String supervisor;
-  final String relation;
-  final double riskScore;
-
-  bool selected = false;
-
   Inconsistency({
+    required this.id,
     required this.referenceNumber,
-    required this.info,
-    required this.identifier,
+    required this.information,
     required this.date,
-    required this.rootCauseAnalysis,
+    required this.rootCauseAnalysisRequirement,
     required this.department,
     required this.status,
-    required this.supervisor,
-    required this.relation,
     required this.riskScore,
-    required this.name,
+    required this.creatorUserId,
   });
+
+  int id;
+  String referenceNumber;
+  String information;
+  DateTime date;
+  bool rootCauseAnalysisRequirement;
+  String department;
+  bool status;
+  int riskScore;
+  int creatorUserId;
+
+  factory Inconsistency.fromJson(Map<String, dynamic> json) => Inconsistency(
+    id: json["id"],
+    referenceNumber: json["referenceNumber"],
+    information: json["information"],
+    date: DateTime.parse(json["date"]),
+    rootCauseAnalysisRequirement: json["rootCauseAnalysisRequirement"],
+    department: json["department"],
+    status: json["status"],
+    riskScore: json["riskScore"],
+    creatorUserId: json["creatorUserId"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "referenceNumber": referenceNumber,
+    "information": information,
+    "date": date.toIso8601String(),
+    "rootCauseAnalysisRequirement": rootCauseAnalysisRequirement,
+    "department": department,
+    "status": status,
+    "riskScore": riskScore,
+    "creatorUserId": creatorUserId,
+  };
 }

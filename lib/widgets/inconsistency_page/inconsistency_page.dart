@@ -183,8 +183,6 @@ class InconsistenciesPage extends StatelessWidget {
                     'Açıklama',
                     'Tanımlayan',
                     'Departman',
-                    'Süpervizör',
-                    'ilişki',
                     'Tarih',
                     'Kök Neden Analizi Gerekiyor Mu'
                   ],

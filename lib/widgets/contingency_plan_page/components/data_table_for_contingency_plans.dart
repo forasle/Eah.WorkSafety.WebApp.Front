@@ -3,10 +3,10 @@ import 'package:aeah_work_safety/models/employee.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForContingencyPlans extends StatelessWidget {
-  String title;
-  String detailRoute;
-  List<String> columnData;
-  DataTableForContingencyPlans(
+  final String title;
+  final String detailRoute;
+  final List<String> columnData;
+  const DataTableForContingencyPlans(
       {Key? key,
       required this.title,
       required this.columnData,
@@ -38,30 +38,21 @@ class DataTableForContingencyPlans extends StatelessWidget {
 class _DataSource extends DataTableSource {
   _DataSource(this.context, this.detailRoute) {
     _rows = [
-      ContingencyPlans(
-          date: 'Acil Durum Tarihi',
-          creationTime: 'Acil Durum Tarihi',
-          info: 'Acil Durum Açıklaması',
-          number: 123,
-          referenceNumber: 'Referans',
-          name: 'Asansör',
-          identifier: Employee(
-
-              chronicDiseases: 'null',
-              id: 123,
-              identificationNumber: 159,
-              registrationNumber: 'Test',
-              name: 'Murat',
-              surname: 'Dogan',
-              position: 'Arge',
-              department: 'Arge',
-              startDateOfEmployment: 'EA',
-              address: 'Test')),
-    ];
+      ContingencyPlan(
+          creatorUserId: 1,
+    date: DateTime.now(),
+    id: 2,
+    referenceNumber: "referenceNumber",
+    creationTime: DateTime.now(),
+    information: "information"
+    ,
+    name: "name",
+    planNumber: 2
+    )];
   }
 
   final BuildContext context;
-  late List<ContingencyPlans> _rows;
+  late List<ContingencyPlan> _rows;
   final String detailRoute;
 
   final int _selectedCount = 0;
@@ -71,14 +62,14 @@ class _DataSource extends DataTableSource {
     final row = _rows[index];
     return (DataRow.byIndex(
       index: index,
-      selected: row.selected,
+      //selected: row.selected,
       onSelectChanged: (value) {
         Navigator.pushNamed(context, detailRoute);
       },
       cells: [
         DataCell(Text(row.referenceNumber.toString())),
         DataCell(Text(row.name.toString())),
-        DataCell(Text(row.identifier.toString())),
+        DataCell(Text(row.creatorUserId.toString())),
         DataCell(Text(row.creationTime.toString())),
       ],
     ));

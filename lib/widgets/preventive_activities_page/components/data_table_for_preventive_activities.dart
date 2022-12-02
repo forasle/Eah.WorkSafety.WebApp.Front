@@ -3,10 +3,10 @@ import 'package:aeah_work_safety/models/employee.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForPreventiveActivities extends StatelessWidget {
-  String title;
-  String detailRoute;
-  List<String> columnData;
-  DataTableForPreventiveActivities(
+  final String title;
+  final String detailRoute;
+  final List<String> columnData;
+  const DataTableForPreventiveActivities(
       {Key? key,
       required this.title,
       required this.columnData,
@@ -39,28 +39,16 @@ class _DataSource extends DataTableSource {
   _DataSource(this.context, this.detailRoute) {
     _rows = [
       Inconsistency(
-          supervisor: 'Murat',
-          status: 'Açık',
-          rootCauseAnalysis: true,
-          riskScore: 125,
-          relation: 'ilişki',
-          referenceNumber: 'Referans',
-          name: 'Asansör',
-          info: 'Bozuk',
-          date: 'Mayıs',
-          department: 'Arge',
-          identifier: Employee(
-
-              chronicDiseases: 'null',
-              id: 123,
-              identificationNumber: 159,
-              registrationNumber: 'Test',
-              name: 'Murat',
-              surname: 'Dogan',
-              position: 'Arge',
-              department: 'Arge',
-              startDateOfEmployment: 'EA',
-              address: 'Test')),
+          information: "information",
+          referenceNumber: "referenceNumber",
+          id: 1,
+          date: DateTime.now(),
+          creatorUserId: 2,
+          department: "department",
+          riskScore: 5,
+          rootCauseAnalysisRequirement: false,
+          status: true
+      )
     ];
   }
 
@@ -75,22 +63,22 @@ class _DataSource extends DataTableSource {
     final row = _rows[index];
     return (DataRow.byIndex(
       index: index,
-      selected: row.selected,
+      //selected: row.selected,
       onSelectChanged: (value) {
         Navigator.pushNamed(context, detailRoute);
       },
       cells: [
         DataCell(Text(row.referenceNumber.toString())),
-        DataCell(Text(row.name.toString())),
+        DataCell(Text(row.creatorUserId.toString())),
         DataCell(Text(row.status.toString())),
         DataCell(Text(row.riskScore.toString())),
-        DataCell(Text(row.info.toString())),
-        DataCell(Text(row.identifier.toString())),
+        DataCell(Text(row.information.toString())),
+        DataCell(Text(row.creatorUserId.toString())),
         DataCell(Text(row.department.toString())),
-        DataCell(Text(row.supervisor.toString())),
-        DataCell(Text(row.relation.toString())),
+        DataCell(Text(row.creatorUserId.toString())),
+        DataCell(Text(row.information.toString())),
         DataCell(Text(row.date.toString())),
-        DataCell(Text(row.rootCauseAnalysis ? 'Evet' : 'Hayır')),
+        DataCell(Text(row.rootCauseAnalysisRequirement ? 'Evet' : 'Hayır')),
       ],
     ));
   }
