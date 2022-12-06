@@ -36,7 +36,6 @@ class Panorama extends StatelessWidget {
                     Colors.blueGrey,
                     () {
                       Navigator.of(context).pushNamed(workersMainPageRoute);
-                      print(ApiService().getUsers().toString());
                     }
                   ],
                   [

@@ -1,21 +1,14 @@
-import 'dart:developer';
+import 'package:aeah_work_safety/services/api_constants.dart';
+import 'package:flutter/material.dart';
+import '../models/user.dart';
 import 'package:http/http.dart' as http;
 
-import '../models/user.dart';
-import 'api_constants.dart';
-
 class ApiService {
-  Future<List<User>?> getUsers() async {
-    try {
-      var url = Uri.parse(ApiConstants.baseUrl + ApiConstants.usersEndpoint);
-      var response = await http.get(url);
-      if (response.statusCode == 200) {
-        List<User> _model = userFromJson(response.body) as List<User>;
-        return _model;
-      }
-    } catch (e) {
-      log(e.toString());
-    }
-    return null;
+  static Future<List<User>> getUserData() async{
+    List<User> _list=[];
+    var response = await http.get(Uri.parse("http://localhost/api/user"));
+
+    debugPrint(response.body.toString());
+    return _list;
   }
 }

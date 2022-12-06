@@ -43,6 +43,7 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    ApiService.getUserData();
     return MaterialApp(
       localizationsDelegates: const [GlobalMaterialLocalizations.delegate],
       supportedLocales: const [Locale('en'), Locale('tr')],
