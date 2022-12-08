@@ -1,4 +1,5 @@
 import 'package:aeah_work_safety/constants/routes.dart';
+import 'package:aeah_work_safety/models/user.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:aeah_work_safety/widgets/components/tappable_card_widget.dart';
@@ -7,13 +8,13 @@ import 'package:aeah_work_safety/widgets/panorama_page/components/punishment_not
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/panaroma/constants.dart';
 
-import '../../services/api_service.dart';
-
 class Panorama extends StatelessWidget {
   const Panorama({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final User args = ModalRoute.of(context)!.settings.arguments as User;
+    print(args.token);
     ScrollController horizontalController = ScrollController();
     return CustomScaffold(
       body: Column(

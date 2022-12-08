@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-User userFromJson(String str) => User.fromJson(json.decode(str));
+List<User> userFromJson(String str) => List<User>.from(json.decode(str).map((x) => User.fromJson(x)));
 
-String userToJson(User data) => json.encode(data.toJson());
+String userToJson(List<User> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class User {
   User({
@@ -14,26 +14,32 @@ class User {
     required this.riskAssessments,
     required this.inconsistencies,
     required this.contingencyPlans,
+    required this.preventiveActivities,
+    required this.token,
   });
 
   String username;
   int roleId;
   List<dynamic> accidents;
-  List<int> missions;
+  List<dynamic> missions;
   List<dynamic> nearMisses;
   List<int> riskAssessments;
-  List<int> inconsistencies;
+  List<dynamic> inconsistencies;
   List<dynamic> contingencyPlans;
+  List<int> preventiveActivities;
+  String token;
 
   factory User.fromJson(Map<String, dynamic> json) => User(
     username: json["username"],
     roleId: json["roleId"],
     accidents: List<dynamic>.from(json["accidents"].map((x) => x)),
-    missions: List<int>.from(json["missions"].map((x) => x)),
+    missions: List<dynamic>.from(json["missions"].map((x) => x)),
     nearMisses: List<dynamic>.from(json["nearMisses"].map((x) => x)),
     riskAssessments: List<int>.from(json["riskAssessments"].map((x) => x)),
-    inconsistencies: List<int>.from(json["inconsistencies"].map((x) => x)),
+    inconsistencies: List<dynamic>.from(json["inconsistencies"].map((x) => x)),
     contingencyPlans: List<dynamic>.from(json["contingencyPlans"].map((x) => x)),
+    preventiveActivities: List<int>.from(json["preventiveActivities"].map((x) => x)),
+    token: json["token"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -45,5 +51,7 @@ class User {
     "riskAssessments": List<dynamic>.from(riskAssessments.map((x) => x)),
     "inconsistencies": List<dynamic>.from(inconsistencies.map((x) => x)),
     "contingencyPlans": List<dynamic>.from(contingencyPlans.map((x) => x)),
+    "preventiveActivities": List<dynamic>.from(preventiveActivities.map((x) => x)),
+    "token": token,
   };
 }

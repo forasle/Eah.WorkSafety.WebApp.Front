@@ -1,5 +1,4 @@
 import 'package:aeah_work_safety/constants/routes.dart';
-import 'package:aeah_work_safety/services/api_service.dart';
 import 'package:aeah_work_safety/widgets/chronic_diseases_page/chronic_diseases_page.dart';
 import 'package:aeah_work_safety/widgets/components/add_new_near_miss.dart';
 import 'package:aeah_work_safety/widgets/components/add_new_employee.dart';
@@ -43,9 +42,8 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    ApiService.getUserData();
     return MaterialApp(
-      localizationsDelegates: const [GlobalMaterialLocalizations.delegate],
+      localizationsDelegates: const [GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate],
       supportedLocales: const [Locale('en'), Locale('tr')],
       scrollBehavior: MyCustomScrollBehavior(),
       debugShowCheckedModeBanner: false,
