@@ -1,11 +1,11 @@
-import 'package:aeah_work_safety/models/employee.dart';
+import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
 
 class Mission {
   final double id;
   final String name;
   final String department;
-  final Employee identifier;
-  final Employee owner;
+  final EmployeeResponse identifier;
+  final EmployeeResponse owner;
   final String date;
   final String deadline;
   final bool status;

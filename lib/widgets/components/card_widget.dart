@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/components/constants.dart';
+
 class CardWidget extends StatelessWidget {
   final String cardText;
   final String cardSubText;
   final String cardDouble;
   final Color cardColor;
+
   const CardWidget({
     Key? key,
     required this.cardText,

@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class CircularGraph extends StatelessWidget {
-  const CircularGraph({Key? key, required this.chartData, required this.title})
-      : super(key: key);
+  const CircularGraph({Key? key, required this.chartData, required this.title}) : super(key: key);
   final List<ChartData> chartData;
   final String title;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,8 +28,7 @@ class CircularGraph extends StatelessWidget {
                       labelIntersectAction: LabelIntersectAction.shift,
                       labelPosition: ChartDataLabelPosition.outside,
                       useSeriesColor: true,
-                      connectorLineSettings: ConnectorLineSettings(
-                          type: ConnectorType.curve, length: '25%')),
+                      connectorLineSettings: ConnectorLineSettings(type: ConnectorType.curve, length: '25%')),
                   dataSource: chartData,
                   pointColorMapper: (ChartData data, _) => data.color,
                   xValueMapper: (ChartData data, _) => data.x,
@@ -44,6 +43,7 @@ class CircularGraph extends StatelessWidget {
 
 class ChartData {
   ChartData(this.x, this.y, [this.color]);
+
   final String x;
   final double y;
   final Color? color;

@@ -5,16 +5,14 @@ class RadioGroupForFineKinneyScore extends StatefulWidget {
   const RadioGroupForFineKinneyScore({Key? key}) : super(key: key);
 
   @override
-  RadioGroupForFineKinneyScoreWidget createState() =>
-      RadioGroupForFineKinneyScoreWidget();
+  RadioGroupForFineKinneyScoreWidget createState() => RadioGroupForFineKinneyScoreWidget();
 }
 
 class RadioGroupForFineKinneyScoreWidget extends State {
   // Default Radio Button Selected Item When App Starts.
   String radioButtonItemForSeverity = 'Birden Fazla Ölümlü Kaza';
   String radioButtonItemForProbability = 'Neredeyse Kesin';
-  String radioButtonItemForFrequency =
-      'Hemen Hemen Sürekli (Bir saatte birkaç defa)';
+  String radioButtonItemForFrequency = 'Hemen Hemen Sürekli (Bir saatte birkaç defa)';
 
   // Group Value for Radio Button.
   int severity = 1;
@@ -42,8 +40,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                         groupValue: severity,
                         onChanged: (val) {
                           setState(() {
-                            radioButtonItemForSeverity =
-                                'Birden Fazla Ölümlü Kaza';
+                            radioButtonItemForSeverity = 'Birden Fazla Ölümlü Kaza';
                             severity = 1;
                           });
                         },
@@ -69,8 +66,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                         groupValue: severity,
                         onChanged: (val) {
                           setState(() {
-                            radioButtonItemForSeverity =
-                                'Kalıcı Hasar/Yaralanma, İş Kaybı';
+                            radioButtonItemForSeverity = 'Kalıcı Hasar/Yaralanma, İş Kaybı';
                             severity = 3;
                           });
                         },
@@ -83,8 +79,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                         groupValue: severity,
                         onChanged: (val) {
                           setState(() {
-                            radioButtonItemForSeverity =
-                                'Önemli Hasar/Yaralanma, Dış İlk Yardım';
+                            radioButtonItemForSeverity = 'Önemli Hasar/Yaralanma, Dış İlk Yardım';
                             severity = 4;
                           });
                         },
@@ -97,8 +92,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                         groupValue: severity,
                         onChanged: (val) {
                           setState(() {
-                            radioButtonItemForSeverity =
-                                'Küçük Hasar/Yaralanma, Dahili İlk Yardım';
+                            radioButtonItemForSeverity = 'Küçük Hasar/Yaralanma, Dahili İlk Yardım';
                             severity = 5;
                           });
                         },
@@ -111,8 +105,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                         groupValue: severity,
                         onChanged: (val) {
                           setState(() {
-                            radioButtonItemForSeverity =
-                                'Ucuz Atlatma, Ramak Kala';
+                            radioButtonItemForSeverity = 'Ucuz Atlatma, Ramak Kala';
                             severity = 6;
                           });
                         },
@@ -168,8 +161,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                         groupValue: probability,
                         onChanged: (val) {
                           setState(() {
-                            radioButtonItemForProbability =
-                                'Olağandışı Ama Mümkün';
+                            radioButtonItemForProbability = 'Olağandışı Ama Mümkün';
                             probability = 13;
                           });
                         },
@@ -195,8 +187,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                         groupValue: probability,
                         onChanged: (val) {
                           setState(() {
-                            radioButtonItemForProbability =
-                                'Beklenmez Fakat Mümkün';
+                            radioButtonItemForProbability = 'Beklenmez Fakat Mümkün';
                             probability = 15;
                           });
                         },
@@ -209,8 +200,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                         groupValue: probability,
                         onChanged: (val) {
                           setState(() {
-                            radioButtonItemForProbability =
-                                'Pratik Olarak İmkansız';
+                            radioButtonItemForProbability = 'Pratik Olarak İmkansız';
                             probability = 16;
                           });
                         },
@@ -240,8 +230,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                         groupValue: frequency,
                         onChanged: (val) {
                           setState(() {
-                            radioButtonItemForFrequency =
-                                'Hemen Hemen Sürekli (Bir saatte birkaç defa)';
+                            radioButtonItemForFrequency = 'Hemen Hemen Sürekli (Bir saatte birkaç defa)';
                             frequency = 21;
                           });
                         },
@@ -254,8 +243,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                         groupValue: frequency,
                         onChanged: (val) {
                           setState(() {
-                            radioButtonItemForFrequency =
-                                'Sıklıkla (Günde bir veya birkaç defa )';
+                            radioButtonItemForFrequency = 'Sıklıkla (Günde bir veya birkaç defa )';
                             frequency = 22;
                           });
                         },
@@ -268,8 +256,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                         groupValue: frequency,
                         onChanged: (val) {
                           setState(() {
-                            radioButtonItemForFrequency =
-                                'Ara Sıra (Haftada 1 veya birkaç defa)';
+                            radioButtonItemForFrequency = 'Ara Sıra (Haftada 1 veya birkaç defa)';
                             frequency = 23;
                           });
                         },
@@ -282,8 +269,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                         groupValue: frequency,
                         onChanged: (val) {
                           setState(() {
-                            radioButtonItemForFrequency =
-                                'Seyrek (Ayda bir veya birkaç defa)';
+                            radioButtonItemForFrequency = 'Seyrek (Ayda bir veya birkaç defa)';
                             frequency = 24;
                           });
                         },
@@ -296,8 +282,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                         groupValue: frequency,
                         onChanged: (val) {
                           setState(() {
-                            radioButtonItemForFrequency =
-                                'Nadir (Yılda birkaç defa)';
+                            radioButtonItemForFrequency = 'Nadir (Yılda birkaç defa)';
                             frequency = 25;
                           });
                         },
@@ -310,8 +295,7 @@ class RadioGroupForFineKinneyScoreWidget extends State {
                         groupValue: frequency,
                         onChanged: (val) {
                           setState(() {
-                            radioButtonItemForFrequency =
-                                'Çok Nadir (Yılda bir veya daha az)';
+                            radioButtonItemForFrequency = 'Çok Nadir (Yılda bir veya daha az)';
                             frequency = 26;
                           });
                         },

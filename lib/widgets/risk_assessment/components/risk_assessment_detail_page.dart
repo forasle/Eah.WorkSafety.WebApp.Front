@@ -19,13 +19,9 @@ class RiskAssessmentDetailPage extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Risk Değerlendirme',
-                  routeName: riskAssessmentPage),
+              RoutingBarWidget(pageName: 'Risk Değerlendirme', routeName: riskAssessmentPage),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Risk Değerlendirme Detay',
-                  routeName: riskAssessmentDetailPage),
+              RoutingBarWidget(pageName: 'Risk Değerlendirme Detay', routeName: riskAssessmentDetailPage),
             ],
           ),
           Constant.dividerWithIndent,
@@ -49,23 +45,10 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                subtitle(
-                                    subtitle: 'Referans No:',
-                                    height: 50,
-                                    width: 150),
-                                subtitle(
-                                    subtitle: 'Belge Hazırlama Tarihi:',
-                                    height: 50,
-                                    width: 150),
-                                subtitle(
-                                    subtitle:
-                                        'Bir Sonraki Acil Durum Planı Tarihi:',
-                                    height: 50,
-                                    width: 150),
-                                subtitle(
-                                    subtitle: 'Toplanma Yeri:',
-                                    height: 50,
-                                    width: 150),
+                                subtitle(subtitle: 'Referans No:', height: 50, width: 150),
+                                subtitle(subtitle: 'Belge Hazırlama Tarihi:', height: 50, width: 150),
+                                subtitle(subtitle: 'Bir Sonraki Acil Durum Planı Tarihi:', height: 50, width: 150),
+                                subtitle(subtitle: 'Toplanma Yeri:', height: 50, width: 150),
                               ],
                             ),
                           ),
@@ -83,10 +66,8 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                                   child: SizedBox(
                                       height: 50,
                                       child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: const [Text('Referans No')],
                                       )),
                                 ),
@@ -95,10 +76,8 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                                   child: SizedBox(
                                       height: 50,
                                       child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: const [Text('01.01.2022')],
                                       )),
                                 ),
@@ -107,10 +86,8 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                                   child: SizedBox(
                                       height: 50,
                                       child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: const [Text('01.02.2022')],
                                       )),
                                 ),
@@ -119,10 +96,8 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                                   child: SizedBox(
                                     height: 50,
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
                                       children: const [Text('Toplantı Odası')],
                                     ),
                                   ),
@@ -195,13 +170,11 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                                       child: TextField(
                                         maxLines: 3,
                                         decoration: InputDecoration(
-                                          hintText: 'Döküman adını giriniz',
-                                          labelText: 'Döküman Adı',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
-                                          //filled: true,
-                                          border: Constant.textFieldBorder
-                                        ),
+                                            hintText: 'Döküman adını giriniz',
+                                            labelText: 'Döküman Adı',
+                                            labelStyle: const TextStyle(color: Colors.white),
+                                            //filled: true,
+                                            border: Constant.textFieldBorder),
                                       ),
                                     ),
                                   ),
@@ -222,14 +195,11 @@ class RiskAssessmentDetailPage extends StatelessWidget {
                                         },
                                         maxLines: 5,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              'Lütfen Düzenleme Tarihi Giriniz',
-                                          labelText: 'Tarih Giriniz',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
-                                          //filled: true,
-                                          border: Constant.textFieldBorder
-                                        ),
+                                            hintText: 'Lütfen Düzenleme Tarihi Giriniz',
+                                            labelText: 'Tarih Giriniz',
+                                            labelStyle: const TextStyle(color: Colors.white),
+                                            //filled: true,
+                                            border: Constant.textFieldBorder),
                                       ),
                                     ),
                                   ),
@@ -267,10 +237,7 @@ class RiskAssessmentDetailPage extends StatelessWidget {
     );
   }
 
-  Padding subtitle(
-      {required String subtitle,
-      required double height,
-      required double width}) {
+  Padding subtitle({required String subtitle, required double height, required double width}) {
     return Padding(
       padding: Constant.padding,
       child: SizedBox(

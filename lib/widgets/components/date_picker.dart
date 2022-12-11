@@ -56,10 +56,7 @@ class _DateTimePickerState extends State<DateTimePicker> {
                         ),
                         Text(
                           " $_date",
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18.0),
+                          style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18.0),
                         ),
                       ],
                     )
@@ -104,10 +101,7 @@ class _DateTimePickerState extends State<DateTimePicker> {
                         ),
                         Text(
                           " $_time",
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18.0),
+                          style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18.0),
                         ),
                       ],
                     )

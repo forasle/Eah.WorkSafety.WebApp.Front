@@ -26,24 +26,24 @@ class Accident {
   List<int> employees;
 
   factory Accident.fromJson(Map<String, dynamic> json) => Accident(
-    id: json["id"],
-    referenceNumber: json["referenceNumber"],
-    accidentInfo: json["accidentInfo"],
-    date: DateTime.parse(json["date"]),
-    rootCauseAnalysis: json["rootCauseAnalysis"],
-    lostDays: json["lostDays"],
-    creatorUserId: json["creatorUserId"],
-    employees: List<int>.from(json["employees"].map((x) => x)),
-  );
+        id: json["id"],
+        referenceNumber: json["referenceNumber"],
+        accidentInfo: json["accidentInfo"],
+        date: DateTime.parse(json["date"]),
+        rootCauseAnalysis: json["rootCauseAnalysis"],
+        lostDays: json["lostDays"],
+        creatorUserId: json["creatorUserId"],
+        employees: List<int>.from(json["employees"].map((x) => x)),
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "referenceNumber": referenceNumber,
-    "accidentInfo": accidentInfo,
-    "date": date.toIso8601String(),
-    "rootCauseAnalysis": rootCauseAnalysis,
-    "lostDays": lostDays,
-    "creatorUserId": creatorUserId,
-    "employees": List<dynamic>.from(employees.map((x) => x)),
-  };
+        "id": id,
+        "referenceNumber": referenceNumber,
+        "accidentInfo": accidentInfo,
+        "date": date.toIso8601String(),
+        "rootCauseAnalysis": rootCauseAnalysis,
+        "lostDays": lostDays,
+        "creatorUserId": creatorUserId,
+        "employees": List<dynamic>.from(employees.map((x) => x)),
+      };
 }

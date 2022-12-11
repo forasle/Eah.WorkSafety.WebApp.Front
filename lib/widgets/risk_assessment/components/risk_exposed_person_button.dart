@@ -4,12 +4,11 @@ import 'package:aeah_work_safety/constants/risk_assessment/constants.dart';
 
 class RiskExposedPersonButton extends StatefulWidget {
   final String text;
-  const RiskExposedPersonButton({Key? key, required this.text})
-      : super(key: key);
+
+  const RiskExposedPersonButton({Key? key, required this.text}) : super(key: key);
 
   @override
-  State<RiskExposedPersonButton> createState() =>
-      _RiskExposedPersonButtonState();
+  State<RiskExposedPersonButton> createState() => _RiskExposedPersonButtonState();
 }
 
 class _RiskExposedPersonButtonState extends State<RiskExposedPersonButton> {

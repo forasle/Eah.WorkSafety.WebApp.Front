@@ -25,8 +25,7 @@ class Employee extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Çalışanlar', routeName: workersMainPageRoute),
+              RoutingBarWidget(pageName: 'Çalışanlar', routeName: workersMainPageRoute),
             ],
           ),
           Constant.dividerWithIndent,
@@ -59,9 +58,7 @@ class Employee extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Flexible(
-                        child: ElevatedButton(
-                            onPressed: () {}, child: const Text('Rapor Yazdır'))),
+                    Flexible(child: ElevatedButton(onPressed: () {}, child: const Text('Rapor Yazdır'))),
                     Constant.sizedBoxWidth,
                     const Flexible(
                       child: SearchBarWidget(),

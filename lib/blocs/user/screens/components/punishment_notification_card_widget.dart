@@ -6,6 +6,7 @@ class PunishmentNotificationCardWidget extends StatelessWidget {
   final String title;
   final String notificationCount;
   final List<String> generalNotifications;
+
   const PunishmentNotificationCardWidget({
     Key? key,
     required this.color,
@@ -25,10 +26,7 @@ class PunishmentNotificationCardWidget extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              decoration: BoxDecoration(
-                color: color,
-                borderRadius: Constant.borderRadius
-              ),
+              decoration: BoxDecoration(color: color, borderRadius: Constant.borderRadius),
               padding: Constant.paddingOfCardWidget,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

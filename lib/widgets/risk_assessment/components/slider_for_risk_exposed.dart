@@ -9,6 +9,7 @@ class SliderForRiskExposed extends StatefulWidget {
 
 class _SliderForRiskExposedState extends State<SliderForRiskExposed> {
   double _value = 1;
+
   @override
   Widget build(BuildContext context) {
     return Slider(

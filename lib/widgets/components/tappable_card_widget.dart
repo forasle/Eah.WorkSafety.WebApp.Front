@@ -9,6 +9,7 @@ class CustomCardWidget extends StatelessWidget {
   final Color cardColor;
   final Icon cardSubIcon;
   final void Function()? customCardWidgetOnTap;
+
   const CustomCardWidget({
     Key? key,
     required this.cardIcon,
@@ -33,48 +34,46 @@ class CustomCardWidget extends StatelessWidget {
         child: InkWell(
           splashColor: Colors.black26,
           onTap: customCardWidgetOnTap,
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: Constant.padding8,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Icon(
-                        cardIcon,
-                        size: 60,
-                      ),
-                      Expanded(
-                        child: Column(
-                          children: [
-                            Text(
-                              cardDouble.toString(),
-                            ),
-                            const SizedBox(height: 20),
-                            Text(
-                              cardText,
-                              maxLines: 2,
-                              softWrap: true,
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+          child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Padding(
+              padding: Constant.padding8,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Icon(
+                    cardIcon,
+                    size: 60,
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      cardSubText,
-                      maxLines: 2,
-                      softWrap: true,
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text(
+                          cardDouble.toString(),
+                        ),
+                        const SizedBox(height: 20),
+                        Text(
+                          cardText,
+                          maxLines: 2,
+                          softWrap: true,
+                        ),
+                      ],
                     ),
-                    cardSubIcon
-                  ],
+                  )
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  cardSubText,
+                  maxLines: 2,
+                  softWrap: true,
                 ),
-              ]),
+                cardSubIcon
+              ],
+            ),
+          ]),
         ),
       ),
     );

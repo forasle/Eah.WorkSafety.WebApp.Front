@@ -22,9 +22,7 @@ class PreventiveActivities extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Düzenleyici Önleyici Faaliyetler',
-                  routeName: dayWithoutAccidentPageRoute),
+              RoutingBarWidget(pageName: 'Düzenleyici Önleyici Faaliyetler', routeName: dayWithoutAccidentPageRoute),
             ],
           ),
           Constant.dividerWithIndent,
@@ -58,9 +56,7 @@ class PreventiveActivities extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Flexible(
-                        child: ElevatedButton(
-                            onPressed: () {}, child: const Text('Rapor Yazdır'))),
+                    Flexible(child: ElevatedButton(onPressed: () {}, child: const Text('Rapor Yazdır'))),
                     Constant.sizedBox10W,
                     const Flexible(
                       child: SearchBarWidget(),
@@ -102,8 +98,7 @@ class PreventiveActivities extends StatelessWidget {
                         width: 150,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(
-                                  context, addNewPreventiveActivity);
+                              Navigator.pushNamed(context, addNewPreventiveActivity);
                             },
                             child: Padding(
                               padding: Constant.padding,
@@ -122,8 +117,7 @@ class PreventiveActivities extends StatelessWidget {
                       child: SizedBox(
                         width: 150,
                         child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.greenAccent.shade700),
+                            style: ElevatedButton.styleFrom(backgroundColor: Colors.greenAccent.shade700),
                             onPressed: () {},
                             child: Padding(
                               padding: Constant.padding,
@@ -142,8 +136,7 @@ class PreventiveActivities extends StatelessWidget {
                       child: SizedBox(
                         width: 160,
                         child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blueGrey.shade700),
+                          style: ElevatedButton.styleFrom(backgroundColor: Colors.blueGrey.shade700),
                           onPressed: () {},
                           child: Padding(
                             padding: Constant.padding,

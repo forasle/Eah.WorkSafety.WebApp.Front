@@ -24,9 +24,7 @@ class InconsistenciesPage extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Uygunsuzluklar',
-                  routeName: dayWithoutAccidentPageRoute),
+              RoutingBarWidget(pageName: 'Uygunsuzluklar', routeName: dayWithoutAccidentPageRoute),
             ],
           ),
           Constant.dividerWithIndent,
@@ -60,9 +58,7 @@ class InconsistenciesPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Flexible(
-                        child: ElevatedButton(
-                            onPressed: () {}, child: const Text('Rapor Yazdır'))),
+                    Flexible(child: ElevatedButton(onPressed: () {}, child: const Text('Rapor Yazdır'))),
                     Constant.sizedBoxWidth,
                     const Flexible(
                       child: SearchBarWidget(),
@@ -78,12 +74,7 @@ class InconsistenciesPage extends StatelessWidget {
                   child: Row(
                       children: [
                     ['Toplam Uygunsuzluk', '5', Colors.blueGrey, '-'],
-                    [
-                      'Ortalama Yaş(Gün)',
-                      '-',
-                      Colors.yellowAccent.shade700,
-                      '-'
-                    ],
+                    ['Ortalama Yaş(Gün)', '-', Colors.yellowAccent.shade700, '-'],
                     ['Açık', '-', Colors.blueAccent.shade700, '-'],
                     ['Tamamlanmış', '-', Colors.orangeAccent.shade700, '-'],
                     ['Reddedilmiş', '-', Colors.blueGrey.shade700, '-'],
@@ -126,11 +117,9 @@ class InconsistenciesPage extends StatelessWidget {
                       child: SizedBox(
                         width: 200,
                         child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.greenAccent.shade700),
+                            style: ElevatedButton.styleFrom(backgroundColor: Colors.greenAccent.shade700),
                             onPressed: () {
-                              Navigator.pushNamed(
-                                  context, addNewInconsistencies);
+                              Navigator.pushNamed(context, addNewInconsistencies);
                             },
                             child: Padding(
                               padding: Constant.padding,
@@ -149,8 +138,7 @@ class InconsistenciesPage extends StatelessWidget {
                       child: SizedBox(
                         width: 160,
                         child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blueGrey.shade700),
+                          style: ElevatedButton.styleFrom(backgroundColor: Colors.blueGrey.shade700),
                           onPressed: () {},
                           child: Padding(
                             padding: Constant.padding,

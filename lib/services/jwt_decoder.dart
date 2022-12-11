@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 Map<String, dynamic> parseJwt(String token) {
+  Map<String,dynamic> result={};
   final parts = token.split('.');
   if (parts.length != 3) {
     throw Exception('invalid token');
@@ -12,7 +13,10 @@ Map<String, dynamic> parseJwt(String token) {
     throw Exception('invalid payload');
   }
 
-  return payloadMap;
+  result['role']=payloadMap['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+  result['username']=payloadMap['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+  result['id']=payloadMap['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'].toString();
+  return result;
 }
 
 String _decodeBase64(String str) {

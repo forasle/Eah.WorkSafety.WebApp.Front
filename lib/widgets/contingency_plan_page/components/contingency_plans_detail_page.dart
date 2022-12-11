@@ -19,13 +19,9 @@ class ContingencyPlanDetailPage extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Acil Durum Planları',
-                  routeName: contingencyPlanPage),
+              RoutingBarWidget(pageName: 'Acil Durum Planları', routeName: contingencyPlanPage),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Acil Durum Planı Detayları',
-                  routeName: contingencyPlanDetailPage),
+              RoutingBarWidget(pageName: 'Acil Durum Planı Detayları', routeName: contingencyPlanDetailPage),
             ],
           ),
           Constant.dividerWithIndent,
@@ -49,23 +45,10 @@ class ContingencyPlanDetailPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                subtitle(
-                                    subtitle: 'Referans No:',
-                                    height: 50,
-                                    width: 150),
-                                subtitle(
-                                    subtitle: 'Belge Hazırlama Tarihi:',
-                                    height: 50,
-                                    width: 150),
-                                subtitle(
-                                    subtitle:
-                                        'Bir Sonraki Acil Durum Planı Tarihi:',
-                                    height: 50,
-                                    width: 150),
-                                subtitle(
-                                    subtitle: 'Toplanma Yeri:',
-                                    height: 50,
-                                    width: 150),
+                                subtitle(subtitle: 'Referans No:', height: 50, width: 150),
+                                subtitle(subtitle: 'Belge Hazırlama Tarihi:', height: 50, width: 150),
+                                subtitle(subtitle: 'Bir Sonraki Acil Durum Planı Tarihi:', height: 50, width: 150),
+                                subtitle(subtitle: 'Toplanma Yeri:', height: 50, width: 150),
                               ],
                             ),
                           ),
@@ -83,10 +66,8 @@ class ContingencyPlanDetailPage extends StatelessWidget {
                                   child: SizedBox(
                                       height: 50,
                                       child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: const [Text('Referans No')],
                                       )),
                                 ),
@@ -95,34 +76,29 @@ class ContingencyPlanDetailPage extends StatelessWidget {
                                   child: SizedBox(
                                       height: 50,
                                       child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: const [Text('01.01.2022')],
                                       )),
                                 ),
                                 Padding(
                                   padding: Constant.padding8,
                                   child: SizedBox(
-                                      height: 50,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: const [Text('01.02.2022')],
-                                      ),),
+                                    height: 50,
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: const [Text('01.02.2022')],
+                                    ),
+                                  ),
                                 ),
                                 Padding(
                                   padding: Constant.padding8,
                                   child: SizedBox(
                                       height: 50,
                                       child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: const [Text('Toplantı Odası')],
                                       )),
                                 ),
@@ -194,13 +170,11 @@ class ContingencyPlanDetailPage extends StatelessWidget {
                                       child: TextField(
                                         maxLines: 3,
                                         decoration: InputDecoration(
-                                          hintText: 'Döküman adını giriniz',
-                                          labelText: 'Döküman Adı',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
-                                          //filled: true,
-                                          border: Constant.textFormFieldBorder
-                                        ),
+                                            hintText: 'Döküman adını giriniz',
+                                            labelText: 'Döküman Adı',
+                                            labelStyle: const TextStyle(color: Colors.white),
+                                            //filled: true,
+                                            border: Constant.textFormFieldBorder),
                                       ),
                                     ),
                                   ),
@@ -221,15 +195,12 @@ class ContingencyPlanDetailPage extends StatelessWidget {
                                         },
                                         maxLines: 5,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              'Lütfen Düzenleme Tarihi Giriniz',
-                                          labelText: 'Tarih Giriniz',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
-                                          //filled: true,
+                                            hintText: 'Lütfen Düzenleme Tarihi Giriniz',
+                                            labelText: 'Tarih Giriniz',
+                                            labelStyle: const TextStyle(color: Colors.white),
+                                            //filled: true,
 
-                                          border: Constant.textFormFieldBorder
-                                        ),
+                                            border: Constant.textFormFieldBorder),
                                       ),
                                     ),
                                   ),
@@ -267,10 +238,7 @@ class ContingencyPlanDetailPage extends StatelessWidget {
     );
   }
 
-  Padding subtitle(
-      {required String subtitle,
-      required double height,
-      required double width}) {
+  Padding subtitle({required String subtitle, required double height, required double width}) {
     return Padding(
       padding: Constant.padding8,
       child: SizedBox(

@@ -18,11 +18,9 @@ class AddNewEducation extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Eğitim', routeName: educationPageRoute),
+              RoutingBarWidget(pageName: 'Eğitim', routeName: educationPageRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Yeni Eğitim Ekle', routeName: addNewEducation),
+              RoutingBarWidget(pageName: 'Yeni Eğitim Ekle', routeName: addNewEducation),
             ],
           ),
           Constant.dividerWithIndent,
@@ -44,22 +42,10 @@ class AddNewEducation extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             subtitle(subtitle: 'Süre:', height: 50, width: 150),
-                            subtitle(
-                                subtitle: 'Başlangıç Tarihi:',
-                                height: 50,
-                                width: 150),
-                            subtitle(
-                                subtitle: 'Bitiş Tarihi:',
-                                height: 50,
-                                width: 150),
-                            subtitle(
-                                subtitle: 'Sertifika Tarihi:',
-                                height: 50,
-                                width: 150),
-                            subtitle(
-                                subtitle: 'Eğitim Yeri:',
-                                height: 50,
-                                width: 150),
+                            subtitle(subtitle: 'Başlangıç Tarihi:', height: 50, width: 150),
+                            subtitle(subtitle: 'Bitiş Tarihi:', height: 50, width: 150),
+                            subtitle(subtitle: 'Sertifika Tarihi:', height: 50, width: 150),
+                            subtitle(subtitle: 'Eğitim Yeri:', height: 50, width: 150),
                           ],
                         ),
                       ),
@@ -80,13 +66,11 @@ class AddNewEducation extends StatelessWidget {
                                   child: TextField(
                                     maxLines: 3,
                                     decoration: InputDecoration(
-                                      hintText: 'Lütfen Eğitim Süresi Giriniz',
-                                      labelText: 'Süre',
-                                      labelStyle:
-                                          const TextStyle(color: Colors.white),
-                                      //filled: true,
-                                      border: Constant.textFormFieldBorder
-                                    ),
+                                        hintText: 'Lütfen Eğitim Süresi Giriniz',
+                                        labelText: 'Süre',
+                                        labelStyle: const TextStyle(color: Colors.white),
+                                        //filled: true,
+                                        border: Constant.textFormFieldBorder),
                                   ),
                                 ),
                               ),
@@ -107,15 +91,12 @@ class AddNewEducation extends StatelessWidget {
                                     },
                                     maxLines: 5,
                                     decoration: InputDecoration(
-                                      hintText:
-                                          'Lütfen Eğitim Başlangıç Tarihini Giriniz',
-                                      labelText: 'Başlangıç Tarihini Giriniz',
-                                      labelStyle:
-                                          const TextStyle(color: Colors.white),
-                                      //filled: true,
+                                        hintText: 'Lütfen Eğitim Başlangıç Tarihini Giriniz',
+                                        labelText: 'Başlangıç Tarihini Giriniz',
+                                        labelStyle: const TextStyle(color: Colors.white),
+                                        //filled: true,
 
-                                      border: Constant.textFormFieldBorder
-                                    ),
+                                        border: Constant.textFormFieldBorder),
                                   ),
                                 ),
                               ),
@@ -136,15 +117,12 @@ class AddNewEducation extends StatelessWidget {
                                     },
                                     maxLines: 5,
                                     decoration: InputDecoration(
-                                      hintText:
-                                          'Lütfen Eğitim Bitiş Tarihini Giriniz',
-                                      labelText: 'Bitiş Tarihini Giriniz',
-                                      labelStyle:
-                                          const TextStyle(color: Colors.white),
-                                      //filled: true,
+                                        hintText: 'Lütfen Eğitim Bitiş Tarihini Giriniz',
+                                        labelText: 'Bitiş Tarihini Giriniz',
+                                        labelStyle: const TextStyle(color: Colors.white),
+                                        //filled: true,
 
-                                      border: Constant.textFormFieldBorder
-                                    ),
+                                        border: Constant.textFormFieldBorder),
                                   ),
                                 ),
                               ),
@@ -165,15 +143,12 @@ class AddNewEducation extends StatelessWidget {
                                     },
                                     maxLines: 5,
                                     decoration: InputDecoration(
-                                      hintText:
-                                          'Lütfen Eğitim Sertifika Tarihini Giriniz',
-                                      labelText: 'Sertifika Tarihini Giriniz',
-                                      labelStyle:
-                                          const TextStyle(color: Colors.white),
-                                      //filled: true,
+                                        hintText: 'Lütfen Eğitim Sertifika Tarihini Giriniz',
+                                        labelText: 'Sertifika Tarihini Giriniz',
+                                        labelStyle: const TextStyle(color: Colors.white),
+                                        //filled: true,
 
-                                      border: Constant.textFormFieldBorder
-                                    ),
+                                        border: Constant.textFormFieldBorder),
                                   ),
                                 ),
                               ),
@@ -186,13 +161,11 @@ class AddNewEducation extends StatelessWidget {
                                   child: TextField(
                                     maxLines: 3,
                                     decoration: InputDecoration(
-                                      hintText: 'Lütfen eğitim yerini giriniz',
-                                      labelText: 'Eğitim Yeri',
-                                      labelStyle:
-                                          const TextStyle(color: Colors.white),
-                                      //filled: true,
-                                      border: Constant.textFormFieldBorder
-                                    ),
+                                        hintText: 'Lütfen eğitim yerini giriniz',
+                                        labelText: 'Eğitim Yeri',
+                                        labelStyle: const TextStyle(color: Colors.white),
+                                        //filled: true,
+                                        border: Constant.textFormFieldBorder),
                                   ),
                                 ),
                               ),
@@ -204,7 +177,7 @@ class AddNewEducation extends StatelessWidget {
                   ],
                 ),
               ),
-             Constant.sizedBox50H,
+              Constant.sizedBox50H,
               title(context, 'Eğitici Bilgileri'),
               Constant.dividerWithIndent,
               Constant.sizedBox50H,
@@ -252,13 +225,11 @@ class AddNewEducation extends StatelessWidget {
                                   child: TextField(
                                     maxLines: 3,
                                     decoration: InputDecoration(
-                                      hintText: 'Lütfen Eğitici Adını Giriniz',
-                                      labelText: 'Eğitici Adı',
-                                      labelStyle:
-                                          const TextStyle(color: Colors.white),
-                                      //filled: true,
-                                      border: Constant.textFormFieldBorder
-                                    ),
+                                        hintText: 'Lütfen Eğitici Adını Giriniz',
+                                        labelText: 'Eğitici Adı',
+                                        labelStyle: const TextStyle(color: Colors.white),
+                                        //filled: true,
+                                        border: Constant.textFormFieldBorder),
                                   ),
                                 ),
                               ),
@@ -294,10 +265,7 @@ class AddNewEducation extends StatelessWidget {
     );
   }
 
-  Padding subtitle(
-      {required String subtitle,
-      required double height,
-      required double width}) {
+  Padding subtitle({required String subtitle, required double height, required double width}) {
     return Padding(
       padding: Constant.padding,
       child: SizedBox(

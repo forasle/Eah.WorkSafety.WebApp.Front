@@ -1,16 +1,13 @@
 import 'package:aeah_work_safety/models/education.dart';
-import 'package:aeah_work_safety/models/employee.dart';
+import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForEducation extends StatelessWidget {
   String title;
   String detailRoute;
   List<String> columnData;
-  DataTableForEducation(
-      {Key? key,
-      required this.title,
-      required this.columnData,
-      required this.detailRoute})
+
+  DataTableForEducation({Key? key, required this.title, required this.columnData, required this.detailRoute})
       : super(key: key);
 
   @override
@@ -39,8 +36,7 @@ class _DataSource extends DataTableSource {
   _DataSource(this.context, this.detailRoute) {
     _rows = [
       Education(
-          list: Employee(
-
+          list: EmployeeResponse(
               chronicDiseases: 'null',
               id: 123,
               identificationNumber: 159,
@@ -57,8 +53,8 @@ class _DataSource extends DataTableSource {
           status: true,
           time: 'time',
           date: 'education date',
-          identifier: Employee(
-                           chronicDiseases: 'null',
+          identifier: EmployeeResponse(
+              chronicDiseases: 'null',
               id: 123,
               identificationNumber: 159,
               registrationNumber: 'Test',

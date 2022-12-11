@@ -12,16 +12,16 @@ class Constant {
     topRight: Radius.circular(10),
     topLeft: Radius.circular(10),
   );
-  static const paddingOfCardWidget =EdgeInsets.all(18);
+  static const paddingOfCardWidget = EdgeInsets.all(18);
 
 //components/punishment_notification_card_widget
 
-static const punishmentCardBorderRadius = RoundedRectangleBorder(
-  borderRadius: BorderRadius.only(
-    bottomRight: Radius.circular(20),
-    bottomLeft: Radius.circular(20),
-    topRight: Radius.circular(20),
-  ),
-);
-static const marginOfPunishmentCard = EdgeInsets.all(20);
+  static const punishmentCardBorderRadius = RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      bottomRight: Radius.circular(20),
+      bottomLeft: Radius.circular(20),
+      topRight: Radius.circular(20),
+    ),
+  );
+  static const marginOfPunishmentCard = EdgeInsets.all(20);
 }

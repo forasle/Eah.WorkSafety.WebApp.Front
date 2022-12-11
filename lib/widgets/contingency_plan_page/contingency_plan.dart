@@ -23,9 +23,7 @@ class ContingencyPlanPage extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Acil Durum Planları',
-                  routeName: contingencyPlanPage),
+              RoutingBarWidget(pageName: 'Acil Durum Planları', routeName: contingencyPlanPage),
             ],
           ),
           Constant.dividerWithIndent,
@@ -59,10 +57,7 @@ class ContingencyPlanPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Flexible(
-                        child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text('Rapor Yazdır'))),
+                    Flexible(child: ElevatedButton(onPressed: () {}, child: const Text('Rapor Yazdır'))),
                     Constant.sizedBox5W,
                     const Flexible(
                       child: SearchBarWidget(),
@@ -100,8 +95,7 @@ class ContingencyPlanPage extends StatelessWidget {
                         width: 250,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.of(context)
-                                  .pushNamed(addNewContingencyPlan);
+                              Navigator.of(context).pushNamed(addNewContingencyPlan);
                             },
                             child: Padding(
                               padding: Constant.padding8,
@@ -120,8 +114,7 @@ class ContingencyPlanPage extends StatelessWidget {
                       child: SizedBox(
                         width: 150,
                         child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blueGrey.shade700),
+                          style: ElevatedButton.styleFrom(backgroundColor: Colors.blueGrey.shade700),
                           onPressed: () {},
                           child: Padding(
                             padding: Constant.padding8,

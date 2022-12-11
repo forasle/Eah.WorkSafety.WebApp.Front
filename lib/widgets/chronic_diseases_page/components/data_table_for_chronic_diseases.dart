@@ -1,13 +1,12 @@
 import 'package:aeah_work_safety/constants/routes.dart';
-import 'package:aeah_work_safety/models/employee.dart';
+import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForChronicDiseases extends StatelessWidget {
   final String title;
   final List<String> columnData;
-  const DataTableForChronicDiseases(
-      {Key? key, required this.title, required this.columnData})
-      : super(key: key);
+
+  const DataTableForChronicDiseases({Key? key, required this.title, required this.columnData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,23 +33,23 @@ class DataTableForChronicDiseases extends StatelessWidget {
 class _DataSource extends DataTableSource {
   _DataSource(this.context) {
     _rows = [
-      Employee(
-          id: 123,
-          identificationNumber: 123,
-          registrationNumber: '123',
-          name: 'name',
-          surname: 'surname',
-          position: 'position',
-          department: 'department',
-          startDateOfEmployment: 'startDateOfEmployment',
-          address: 'address',
-          chronicDiseases: 'chronicDiseases',
-          )
+      EmployeeResponse(
+        id: 123,
+        identificationNumber: 123,
+        registrationNumber: '123',
+        name: 'name',
+        surname: 'surname',
+        position: 'position',
+        department: 'department',
+        startDateOfEmployment: 'startDateOfEmployment',
+        address: 'address',
+        chronicDiseases: 'chronicDiseases',
+      )
     ];
   }
 
   final BuildContext context;
-  late List<Employee> _rows;
+  late List<EmployeeResponse> _rows;
 
   final int _selectedCount = 0;
 

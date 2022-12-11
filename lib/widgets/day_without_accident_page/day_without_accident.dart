@@ -23,9 +23,7 @@ class DayWithoutAccidentPage extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Kazasız Geçen Gün',
-                  routeName: dayWithoutAccidentPageRoute),
+              RoutingBarWidget(pageName: 'Kazasız Geçen Gün', routeName: dayWithoutAccidentPageRoute),
             ],
           ),
           Constant.dividerWithIndent,
@@ -59,9 +57,7 @@ class DayWithoutAccidentPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Flexible(
-                        child: ElevatedButton(
-                            onPressed: () {}, child: const Text('Rapor Yazdır'))),
+                    Flexible(child: ElevatedButton(onPressed: () {}, child: const Text('Rapor Yazdır'))),
                     Constant.sizedBox,
                     const Flexible(
                       child: SearchBarWidget(),
@@ -76,36 +72,11 @@ class DayWithoutAccidentPage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                       children: [
-                    [
-                      'Kazasız geçen gün',
-                      '5',
-                      Colors.blueGrey,
-                      'SON IŞ KAZASI ÜZERINDEN GEÇEN ZAMAN'
-                    ],
-                    [
-                      'Toplam kayıp gün',
-                      '-',
-                      Colors.yellowAccent.shade700,
-                      '-'
-                    ],
-                    [
-                      'Kaza Geçiren Çalışan',
-                      '-',
-                      Colors.blueAccent.shade700,
-                      '-'
-                    ],
-                    [
-                      'Kaza Sıklık Oranı',
-                      '-',
-                      Colors.orangeAccent.shade700,
-                      'TOPLAM KAZA X 1M / YILLIK ADAM SAAT'
-                    ],
-                    [
-                      'Kaza Ağırlık Oranı',
-                      '-',
-                      Colors.blueGrey.shade700,
-                      'TOPLAM KAYIP GÜN X 1M / YILLIK ADAM SAAT'
-                    ],
+                    ['Kazasız geçen gün', '5', Colors.blueGrey, 'SON IŞ KAZASI ÜZERINDEN GEÇEN ZAMAN'],
+                    ['Toplam kayıp gün', '-', Colors.yellowAccent.shade700, '-'],
+                    ['Kaza Geçiren Çalışan', '-', Colors.blueAccent.shade700, '-'],
+                    ['Kaza Sıklık Oranı', '-', Colors.orangeAccent.shade700, 'TOPLAM KAZA X 1M / YILLIK ADAM SAAT'],
+                    ['Kaza Ağırlık Oranı', '-', Colors.blueGrey.shade700, 'TOPLAM KAYIP GÜN X 1M / YILLIK ADAM SAAT'],
                     [
                       'Kayıp Günlü Kaza Sıklık Oranı',
                       '-',
@@ -118,18 +89,8 @@ class DayWithoutAccidentPage extends StatelessWidget {
                       Colors.lightBlueAccent.shade700,
                       'İLKYARDIM GEREKTIREN KAZA X 1M/YILLIK ADAM SAAT'
                     ],
-                    [
-                      'Kaza Sıklık Oranı',
-                      '-',
-                      Colors.orangeAccent.shade700,
-                      'TOPLAM KAZA X 1M / YILLIK ADAM SAAT'
-                    ],
-                    [
-                      'Kaza Ağırlık Oranı',
-                      '-',
-                      Colors.blueGrey.shade700,
-                      'TOPLAM KAYIP GÜN X 1M / YILLIK ADAM SAAT'
-                    ],
+                    ['Kaza Sıklık Oranı', '-', Colors.orangeAccent.shade700, 'TOPLAM KAZA X 1M / YILLIK ADAM SAAT'],
+                    ['Kaza Ağırlık Oranı', '-', Colors.blueGrey.shade700, 'TOPLAM KAYIP GÜN X 1M / YILLIK ADAM SAAT'],
                     [
                       'Kayıp Günlü Kaza Sıklık Oranı',
                       '-',
@@ -148,12 +109,7 @@ class DayWithoutAccidentPage extends StatelessWidget {
                       Colors.orangeAccent.shade700,
                       'KAYIP GÜNLÜ KAZA X 200,000 / YILLIK ADAM SAAT'
                     ],
-                    [
-                      'Kaza Ağırlık Oranı',
-                      '-',
-                      Colors.green.shade700,
-                      'TOPLAM KAYIP GÜN X 200,000 / YILLIK ADAM SAAT'
-                    ],
+                    ['Kaza Ağırlık Oranı', '-', Colors.green.shade700, 'TOPLAM KAYIP GÜN X 200,000 / YILLIK ADAM SAAT'],
                     [
                       'Kayıp Günlü Kaza Sıklık Oranı',
                       '-',
@@ -166,24 +122,14 @@ class DayWithoutAccidentPage extends StatelessWidget {
                       Colors.blueGrey.shade700,
                       'İLKYARDIM GEREKTIREN KAZA X 200,000/YILLIK ADAM SAAT'
                     ],
-                    [
-                      'Şiddet(Severity) Oranı',
-                      '-',
-                      Colors.green.shade700,
-                      'KAYIP GÜN / KAYIP GÜNLÜ KAZA'
-                    ],
+                    ['Şiddet(Severity) Oranı', '-', Colors.green.shade700, 'KAYIP GÜN / KAYIP GÜNLÜ KAZA'],
                     [
                       'Tıbbi Müdahele Gerektiren',
                       '-',
                       Colors.blueAccent.shade700,
                       'KAYIP GÜN OLMAYAN VE MÜDAHELE GEREKTIREN'
                     ],
-                    [
-                      'Toplam Olay',
-                      '-',
-                      Colors.amberAccent.shade700,
-                      'TOPLAM RAMAK KALA + İŞ KAZASI'
-                    ],
+                    ['Toplam Olay', '-', Colors.amberAccent.shade700, 'TOPLAM RAMAK KALA + İŞ KAZASI'],
                   ]
                           .map(
                             (e) => CardWidget(

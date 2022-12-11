@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Constant{
+class Constant {
   static const dividerWithIndent = Divider(
     endIndent: 50,
     indent: 50,

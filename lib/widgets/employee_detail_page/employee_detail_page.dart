@@ -16,11 +16,9 @@ class EmployeeDetail extends StatelessWidget {
           children: [
             RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
             const Icon(Icons.arrow_right),
-            RoutingBarWidget(
-                pageName: 'Çalışanlar', routeName: workersMainPageRoute),
+            RoutingBarWidget(pageName: 'Çalışanlar', routeName: workersMainPageRoute),
             const Icon(Icons.arrow_right),
-            RoutingBarWidget(
-                pageName: 'Murat Doğan', routeName: workersDetailPageRoute),
+            RoutingBarWidget(pageName: 'Murat Doğan', routeName: workersDetailPageRoute),
           ],
         ),
         Constant.dividerWithIndent,
@@ -29,8 +27,7 @@ class EmployeeDetail extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Text('Çalışan Bilgileri',
-                  style: Theme.of(context).textTheme.headline4),
+              child: Text('Çalışan Bilgileri', style: Theme.of(context).textTheme.headline4),
             ),
             IntrinsicHeight(
               child: Row(
@@ -249,10 +246,7 @@ class EmployeeDetail extends StatelessWidget {
                           ),
                           Constant.sizedBoxForEmployee,
                           ElevatedButton(
-                            style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.redAccent)),
+                            style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.redAccent)),
                             child: const Text(
                               'Alerji',
                               overflow: TextOverflow.ellipsis,

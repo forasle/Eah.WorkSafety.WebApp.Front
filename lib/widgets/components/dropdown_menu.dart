@@ -3,6 +3,7 @@ import 'package:aeah_work_safety/constants/components/constants.dart';
 
 class DropdownMenu extends StatefulWidget {
   final List<DropdownMenuItem<String>> menuItems;
+
   const DropdownMenu({Key? key, required this.menuItems}) : super(key: key);
 
   @override
@@ -22,9 +23,7 @@ class _DropdownMenuState extends State<DropdownMenu> {
           selectedValue = newValue!;
         });
       },
-      decoration: InputDecoration(
-        border: Constant.textFormFieldBorder
-      ),
+      decoration: InputDecoration(border: Constant.textFormFieldBorder),
     );
   }
 }

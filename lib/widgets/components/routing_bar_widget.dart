@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class RoutingBarWidget extends StatelessWidget {
   final String pageName;
   final String routeName;
+
   const RoutingBarWidget({
     Key? key,
     required this.pageName,
@@ -16,9 +17,7 @@ class RoutingBarWidget extends StatelessWidget {
       padding: Constant.padding8,
       child: InkWell(
         onTap: () {
-          ModalRoute.of(context)!.settings.name != routeName
-              ? Navigator.pushNamed(context, routeName)
-              : null;
+          ModalRoute.of(context)!.settings.name != routeName ? Navigator.pushNamed(context, routeName) : null;
         },
         child: Text(pageName),
       ),

@@ -24,9 +24,7 @@ class NearMissPage extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Ramak Kala',
-                  routeName: dayWithoutAccidentPageRoute),
+              RoutingBarWidget(pageName: 'Ramak Kala', routeName: dayWithoutAccidentPageRoute),
             ],
           ),
           Constant.dividerWithIndent,
@@ -60,10 +58,7 @@ class NearMissPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Flexible(
-                        child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text('Rapor Yazdır'))),
+                    Flexible(child: ElevatedButton(onPressed: () {}, child: const Text('Rapor Yazdır'))),
                     Constant.sizedBoxWidth,
                     const Flexible(
                       child: SearchBarWidget(),
@@ -78,36 +73,11 @@ class NearMissPage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                       children: [
-                    [
-                      'Ramak Kalalar',
-                      '5',
-                      Colors.blueGrey,
-                      'TÜM KAZA VE RAMAK KALALAR'
-                    ],
-                    [
-                      'Toplam kayıp gün',
-                      '-',
-                      Colors.yellowAccent.shade700,
-                      '-'
-                    ],
-                    [
-                      'Kaza Geçiren Çalışan',
-                      '-',
-                      Colors.blueAccent.shade700,
-                      '-'
-                    ],
-                    [
-                      'Kaza Sıklık Oranı',
-                      '-',
-                      Colors.orangeAccent.shade700,
-                      'TOPLAM KAZA X 1M / YILLIK ADAM SAAT'
-                    ],
-                    [
-                      'Kaza Ağırlık Oranı',
-                      '-',
-                      Colors.blueGrey.shade700,
-                      'TOPLAM KAYIP GÜN X 1M / YILLIK ADAM SAAT'
-                    ],
+                    ['Ramak Kalalar', '5', Colors.blueGrey, 'TÜM KAZA VE RAMAK KALALAR'],
+                    ['Toplam kayıp gün', '-', Colors.yellowAccent.shade700, '-'],
+                    ['Kaza Geçiren Çalışan', '-', Colors.blueAccent.shade700, '-'],
+                    ['Kaza Sıklık Oranı', '-', Colors.orangeAccent.shade700, 'TOPLAM KAZA X 1M / YILLIK ADAM SAAT'],
+                    ['Kaza Ağırlık Oranı', '-', Colors.blueGrey.shade700, 'TOPLAM KAYIP GÜN X 1M / YILLIK ADAM SAAT'],
                     [
                       'Kayıp Günlü Kaza Sıklık Oranı',
                       '-',
@@ -120,18 +90,8 @@ class NearMissPage extends StatelessWidget {
                       Colors.lightBlueAccent.shade700,
                       'İLKYARDIM GEREKTIREN KAZA X 1M/YILLIK ADAM SAAT'
                     ],
-                    [
-                      'Kaza Sıklık Oranı',
-                      '-',
-                      Colors.orangeAccent.shade700,
-                      'TOPLAM KAZA X 1M / YILLIK ADAM SAAT'
-                    ],
-                    [
-                      'Kaza Ağırlık Oranı',
-                      '-',
-                      Colors.blueGrey.shade700,
-                      'TOPLAM KAYIP GÜN X 1M / YILLIK ADAM SAAT'
-                    ],
+                    ['Kaza Sıklık Oranı', '-', Colors.orangeAccent.shade700, 'TOPLAM KAZA X 1M / YILLIK ADAM SAAT'],
+                    ['Kaza Ağırlık Oranı', '-', Colors.blueGrey.shade700, 'TOPLAM KAYIP GÜN X 1M / YILLIK ADAM SAAT'],
                     [
                       'Kayıp Günlü Kaza Sıklık Oranı',
                       '-',
@@ -150,12 +110,7 @@ class NearMissPage extends StatelessWidget {
                       Colors.orangeAccent.shade700,
                       'KAYIP GÜNLÜ KAZA X 200,000 / YILLIK ADAM SAAT'
                     ],
-                    [
-                      'Kaza Ağırlık Oranı',
-                      '-',
-                      Colors.green.shade700,
-                      'TOPLAM KAYIP GÜN X 200,000 / YILLIK ADAM SAAT'
-                    ],
+                    ['Kaza Ağırlık Oranı', '-', Colors.green.shade700, 'TOPLAM KAYIP GÜN X 200,000 / YILLIK ADAM SAAT'],
                     [
                       'Kayıp Günlü Kaza Sıklık Oranı',
                       '-',
@@ -168,24 +123,14 @@ class NearMissPage extends StatelessWidget {
                       Colors.blueGrey.shade700,
                       'İLKYARDIM GEREKTIREN KAZA X 200,000/YILLIK ADAM SAAT'
                     ],
-                    [
-                      'Şiddet(Severity) Oranı',
-                      '-',
-                      Colors.green.shade700,
-                      'KAYIP GÜN / KAYIP GÜNLÜ KAZA'
-                    ],
+                    ['Şiddet(Severity) Oranı', '-', Colors.green.shade700, 'KAYIP GÜN / KAYIP GÜNLÜ KAZA'],
                     [
                       'Tıbbi Müdahele Gerektiren',
                       '-',
                       Colors.blueAccent.shade700,
                       'KAYIP GÜN OLMAYAN VE MÜDAHELE GEREKTIREN'
                     ],
-                    [
-                      'Toplam Olay',
-                      '-',
-                      Colors.amberAccent.shade700,
-                      'TOPLAM RAMAK KALA + İŞ KAZASI'
-                    ],
+                    ['Toplam Olay', '-', Colors.amberAccent.shade700, 'TOPLAM RAMAK KALA + İŞ KAZASI'],
                   ]
                           .map(
                             (e) => CardWidget(
@@ -209,7 +154,7 @@ class NearMissPage extends StatelessWidget {
                         child: ElevatedButton(
                             onPressed: () {
                               //Navigator.pushNamed(
-                               //   context, addNewWorkAccidentOrNearMiss);
+                              //   context, addNewWorkAccidentOrNearMiss);
                             },
                             child: Padding(
                               padding: Constant.padding,
@@ -228,8 +173,7 @@ class NearMissPage extends StatelessWidget {
                       child: SizedBox(
                         width: 160,
                         child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.amberAccent.shade700),
+                          style: ElevatedButton.styleFrom(backgroundColor: Colors.amberAccent.shade700),
                           onPressed: () {},
                           child: Padding(
                             padding: Constant.padding,
@@ -249,11 +193,10 @@ class NearMissPage extends StatelessWidget {
                       child: SizedBox(
                         width: 200,
                         child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blueGrey.shade700),
+                          style: ElevatedButton.styleFrom(backgroundColor: Colors.blueGrey.shade700),
                           onPressed: () {
-                           // Navigator.pushNamed(
-                           //     context, addNewWorkAccidentOrNearMiss);
+                            // Navigator.pushNamed(
+                            //     context, addNewWorkAccidentOrNearMiss);
                           },
                           child: Padding(
                             padding: Constant.padding,

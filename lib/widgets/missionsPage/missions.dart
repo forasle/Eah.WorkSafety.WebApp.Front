@@ -20,8 +20,7 @@ class Missions extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Görevler', routeName: missionsPageRoute),
+              RoutingBarWidget(pageName: 'Görevler', routeName: missionsPageRoute),
             ],
           ),
           Constant.dividerWithIndent,
@@ -54,10 +53,7 @@ class Missions extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Flexible(
-                        child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text('Rapor Yazdır'))),
+                    Flexible(child: ElevatedButton(onPressed: () {}, child: const Text('Rapor Yazdır'))),
                     Constant.sizedBoxWidth,
                     const Flexible(
                       child: SearchBarWidget(),

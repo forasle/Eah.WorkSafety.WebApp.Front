@@ -17,8 +17,7 @@ class AddNewEmployee extends StatelessWidget {
           children: [
             RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
             const Icon(Icons.arrow_right),
-            RoutingBarWidget(
-                pageName: 'Yeni Çalışan Ekle', routeName: workersMainPageRoute),
+            RoutingBarWidget(pageName: 'Yeni Çalışan Ekle', routeName: workersMainPageRoute),
             const Icon(Icons.arrow_right),
           ],
         ),
@@ -28,8 +27,7 @@ class AddNewEmployee extends StatelessWidget {
           children: [
             Padding(
               padding: Constant.padding20,
-              child: Text('Çalışan Bilgileri',
-                  style: Theme.of(context).textTheme.headline4),
+              child: Text('Çalışan Bilgileri', style: Theme.of(context).textTheme.headline4),
             ),
             IntrinsicHeight(
               child: Row(
@@ -65,8 +63,7 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'Ad-Soyad',
                                 labelText: 'Çalışan Adı-Soyadını Giriniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
                                 border: Constant.textFormFieldBorder,
                               ),
@@ -78,8 +75,7 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'TC Kimlik No',
                                 labelText: 'TC Kimlik No Giriniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
                                 border: Constant.textFormFieldBorder,
                               ),
@@ -91,8 +87,7 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'Yaş',
                                 labelText: 'Yaş Giriniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
                                 border: Constant.textFormFieldBorder,
                               ),
@@ -109,8 +104,7 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'Doğum Yeri',
                                 labelText: 'Doğum Yeri Giriniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
                                 border: Constant.textFormFieldBorder,
                               ),
@@ -122,8 +116,7 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'Uyruğu',
                                 labelText: 'Uyruğu Giriniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
                                 border: Constant.textFormFieldBorder,
                               ),
@@ -135,8 +128,7 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'Medeni Durumu',
                                 labelText: 'Medeni Durumu Giriniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
                                 border: Constant.textFormFieldBorder,
                               ),
@@ -148,8 +140,7 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'Çocuk Sayısı',
                                 labelText: 'Çocuk Sayısı Giriniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
                                 border: Constant.textFormFieldBorder,
                               ),
@@ -161,8 +152,7 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'Birim-Departman',
                                 labelText: 'Birim-Departman Seçiniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
                                 border: Constant.textFormFieldBorder,
                               ),
@@ -174,8 +164,7 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'Çalışan Sicil No',
                                 labelText: 'Çalışan Sicil No Giriniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
                                 border: Constant.textFormFieldBorder,
                               ),
@@ -187,10 +176,9 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'Eğitim Durumu',
                                 labelText: 'Eğitim Durumu Seçiniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border:Constant.textFormFieldBorder,
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
@@ -200,10 +188,9 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'Mezun Olduğu Bölüm',
                                 labelText: 'Mezun Olduğu Bölüm Seçiniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border:Constant.textFormFieldBorder,
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
@@ -213,10 +200,9 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'İşe Giriş Tarihi',
                                 labelText: 'İşe Giriş Tarihi Giriniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border:Constant.textFormFieldBorder,
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
@@ -225,12 +211,10 @@ class AddNewEmployee extends StatelessWidget {
                             child: TextFormField(
                               decoration: InputDecoration(
                                 hintText: 'Geçerli Görevine Başlama Tarihi ',
-                                labelText:
-                                    'Geçerli Görevine Başlama Tarihi Giriniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelText: 'Geçerli Görevine Başlama Tarihi Giriniz',
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border:Constant.textFormFieldBorder,
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
@@ -240,10 +224,9 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'Görevi',
                                 labelText: 'Görevini Giriniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border:Constant.textFormFieldBorder,
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
@@ -253,10 +236,9 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'Ünvanı',
                                 labelText: 'Ünvanını Giriniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border:Constant.textFormFieldBorder,
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
@@ -266,10 +248,9 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'Yaptığı İş Tanımı',
                                 labelText: 'Yaptığı İş Tanımını Giriniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border:Constant.textFormFieldBorder,
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),
@@ -279,10 +260,9 @@ class AddNewEmployee extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'Risk Grupları',
                                 labelText: 'Risk Gurubu Seçiniz',
-                                labelStyle:
-                                    const TextStyle(color: Colors.white),
+                                labelStyle: const TextStyle(color: Colors.white),
                                 //filled: true,
-                                border:Constant.textFormFieldBorder,
+                                border: Constant.textFormFieldBorder,
                               ),
                             ),
                           ),

@@ -21,15 +21,11 @@ class AddNewAccident extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  RoutingBarWidget(
-                      pageName: 'Panorama', routeName: panoramaRoute),
+                  RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
                   const Icon(Icons.arrow_right),
-                  RoutingBarWidget(
-                      pageName: 'İş Kazası', routeName: accidentPageRoute),
+                  RoutingBarWidget(pageName: 'İş Kazası', routeName: accidentPageRoute),
                   const Icon(Icons.arrow_right),
-                  RoutingBarWidget(
-                      pageName: 'Yeni İş Kazası Ekle',
-                      routeName: addNewAccident),
+                  RoutingBarWidget(pageName: 'Yeni İş Kazası Ekle', routeName: addNewAccident),
                 ],
               ),
             ),
@@ -55,22 +51,11 @@ class AddNewAccident extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                subtitle(
-                                    subtitle: 'Olay Türü:',
-                                    height: 50,
-                                    width: 150),
-                                subtitle(
-                                    subtitle: 'Tarih:', height: 50, width: 150),
-                                subtitle(
-                                    subtitle: 'Saat:', height: 50, width: 150),
-                                subtitle(
-                                    subtitle: 'Olay Tanımı:',
-                                    height: 150,
-                                    width: 150),
-                                subtitle(
-                                    subtitle: 'Yapılan İş:',
-                                    height: 100,
-                                    width: 150),
+                                subtitle(subtitle: 'Olay Türü:', height: 50, width: 150),
+                                subtitle(subtitle: 'Tarih:', height: 50, width: 150),
+                                subtitle(subtitle: 'Saat:', height: 50, width: 150),
+                                subtitle(subtitle: 'Olay Tanımı:', height: 150, width: 150),
+                                subtitle(subtitle: 'Yapılan İş:', height: 100, width: 150),
                               ],
                             ),
                           ),
@@ -89,8 +74,7 @@ class AddNewAccident extends StatelessWidget {
                                     height: 50,
                                     child: Center(
                                       child: DropdownMenu(
-                                        menuItems:
-                                            Constant.menuItemsForEventType,
+                                        menuItems: Constant.menuItemsForEventType,
                                       ),
                                     ),
                                   ),
@@ -140,8 +124,7 @@ class AddNewAccident extends StatelessWidget {
                                         decoration: InputDecoration(
                                             hintText: 'Lütfen Saat Giriniz',
                                             labelText: 'Saat Giriniz',
-                                            labelStyle: const TextStyle(
-                                                color: Colors.white),
+                                            labelStyle: const TextStyle(color: Colors.white),
                                             //filled: true,
 
                                             border: Constant.textFieldBorder),
@@ -157,11 +140,9 @@ class AddNewAccident extends StatelessWidget {
                                       child: TextField(
                                         maxLines: 5,
                                         decoration: InputDecoration(
-                                            hintText:
-                                                'Lütfen olay tanımını yapınız',
+                                            hintText: 'Lütfen olay tanımını yapınız',
                                             labelText: 'Olay Tanımı',
-                                            labelStyle: const TextStyle(
-                                                color: Colors.white),
+                                            labelStyle: const TextStyle(color: Colors.white),
                                             //filled: true,
 
                                             border: Constant.textFieldBorder),
@@ -177,11 +158,9 @@ class AddNewAccident extends StatelessWidget {
                                       child: TextField(
                                         maxLines: 3,
                                         decoration: InputDecoration(
-                                            hintText:
-                                                'Lütfen yapılan iş açıklaması giriniz',
+                                            hintText: 'Lütfen yapılan iş açıklaması giriniz',
                                             labelText: 'Yapılan İş',
-                                            labelStyle: const TextStyle(
-                                                color: Colors.white),
+                                            labelStyle: const TextStyle(color: Colors.white),
                                             //filled: true,
                                             border: Constant.textFieldBorder),
                                       ),
@@ -239,10 +218,8 @@ class AddNewAccident extends StatelessWidget {
                                   padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
-                                      child: Center(
-                                          child: DropdownMenu(
-                                              menuItems: Constant
-                                                  .menuItemsForDepartmentType))),
+                                      child:
+                                          Center(child: DropdownMenu(menuItems: Constant.menuItemsForDepartmentType))),
                                 ),
                               ],
                             ),
@@ -266,18 +243,9 @@ class AddNewAccident extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                subtitle(
-                                    height: 50,
-                                    width: 150,
-                                    subtitle: 'İlk Yardım Gerektirdi Mi?   '),
-                                subtitle(
-                                    height: 50,
-                                    width: 150,
-                                    subtitle: 'Tıbbi Müdehale Yapıldı Mı?   '),
-                                subtitle(
-                                    height: 50,
-                                    width: 150,
-                                    subtitle: 'Alt Yüklenici Kazası Mı?   '),
+                                subtitle(height: 50, width: 150, subtitle: 'İlk Yardım Gerektirdi Mi?   '),
+                                subtitle(height: 50, width: 150, subtitle: 'Tıbbi Müdehale Yapıldı Mı?   '),
+                                subtitle(height: 50, width: 150, subtitle: 'Alt Yüklenici Kazası Mı?   '),
                               ],
                             ),
                           ),
@@ -292,24 +260,15 @@ class AddNewAccident extends StatelessWidget {
                               children: [
                                 Padding(
                                   padding: Constant.padding,
-                                  child: SizedBox(
-                                      height: 50,
-                                      child: Switch(
-                                          value: true, onChanged: (value) {})),
+                                  child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
                                 ),
                                 Padding(
                                   padding: Constant.padding,
-                                  child: SizedBox(
-                                      height: 50,
-                                      child: Switch(
-                                          value: true, onChanged: (value) {})),
+                                  child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
                                 ),
                                 Padding(
                                   padding: Constant.padding,
-                                  child: SizedBox(
-                                      height: 50,
-                                      child: Switch(
-                                          value: false, onChanged: (value) {})),
+                                  child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
                                 ),
                               ],
                             ),
@@ -333,29 +292,14 @@ class AddNewAccident extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
+                                subtitle(height: 50, width: 150, subtitle: 'Kök Neden Analizi Gerekiyor Mu?   '),
+                                subtitle(height: 50, width: 150, subtitle: 'Maddi hasar var mı?   '),
+                                subtitle(height: 50, width: 150, subtitle: 'Kamera kaydı var mı?   '),
+                                subtitle(height: 50, width: 150, subtitle: 'Operasyonel Kaza / Rutin İş Esnasında?   '),
                                 subtitle(
                                     height: 50,
                                     width: 150,
-                                    subtitle:
-                                        'Kök Neden Analizi Gerekiyor Mu?   '),
-                                subtitle(
-                                    height: 50,
-                                    width: 150,
-                                    subtitle: 'Maddi hasar var mı?   '),
-                                subtitle(
-                                    height: 50,
-                                    width: 150,
-                                    subtitle: 'Kamera kaydı var mı?   '),
-                                subtitle(
-                                    height: 50,
-                                    width: 150,
-                                    subtitle:
-                                        'Operasyonel Kaza / Rutin İş Esnasında?   '),
-                                subtitle(
-                                    height: 50,
-                                    width: 150,
-                                    subtitle:
-                                        'İş durdu mu/aksadı mı? (Çalışan kayıp gün durumu hariç)?   '),
+                                    subtitle: 'İş durdu mu/aksadı mı? (Çalışan kayıp gün durumu hariç)?   '),
                                 subtitle(
                                     height: 50,
                                     width: 150,
@@ -367,14 +311,8 @@ class AddNewAccident extends StatelessWidget {
                                     subtitle:
                                         'Risk değerlendirmede belirtilen önlemler alınmış mı? Çalışma şekillerine uyulmuş mu?   '),
                                 subtitle(
-                                    height: 100,
-                                    width: 150,
-                                    subtitle:
-                                        'Kullanılması Gereken (Kullanılmamış) KKD:   '),
-                                subtitle(
-                                    height: 100,
-                                    width: 150,
-                                    subtitle: 'Sebep:   '),
+                                    height: 100, width: 150, subtitle: 'Kullanılması Gereken (Kullanılmamış) KKD:   '),
+                                subtitle(height: 100, width: 150, subtitle: 'Sebep:   '),
                               ],
                             ),
                           ),
@@ -389,60 +327,38 @@ class AddNewAccident extends StatelessWidget {
                               children: [
                                 Padding(
                                   padding: Constant.padding,
-                                  child: SizedBox(
-                                      height: 50,
-                                      child: Switch(
-                                          value: true, onChanged: (value) {})),
+                                  child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
                                 ),
                                 Padding(
                                   padding: Constant.padding,
-                                  child: SizedBox(
-                                      height: 50,
-                                      child: Switch(
-                                          value: true, onChanged: (value) {})),
+                                  child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
                                 ),
                                 Padding(
                                   padding: Constant.padding,
-                                  child: SizedBox(
-                                      height: 50,
-                                      child: Switch(
-                                          value: false, onChanged: (value) {})),
+                                  child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
                                 ),
                                 Padding(
                                   padding: Constant.padding,
-                                  child: SizedBox(
-                                      height: 50,
-                                      child: Switch(
-                                          value: false, onChanged: (value) {})),
+                                  child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
                                 ),
                                 Padding(
                                   padding: Constant.padding,
-                                  child: SizedBox(
-                                      height: 50,
-                                      child: Switch(
-                                          value: false, onChanged: (value) {})),
+                                  child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
                                 ),
                                 Padding(
                                   padding: Constant.padding,
-                                  child: SizedBox(
-                                      height: 50,
-                                      child: Switch(
-                                          value: false, onChanged: (value) {})),
+                                  child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
                                 ),
                                 Padding(
                                   padding: Constant.padding,
-                                  child: SizedBox(
-                                      height: 50,
-                                      child: Switch(
-                                          value: false, onChanged: (value) {})),
+                                  child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
                                 ),
                                 Expanded(
                                   flex: 4,
                                   child: Padding(
                                     padding: Constant.padding,
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Padding(
                                           padding: Constant.padding,
@@ -452,11 +368,9 @@ class AddNewAccident extends StatelessWidget {
                                               child: TextField(
                                                 maxLines: 3,
                                                 decoration: InputDecoration(
-                                                  hintText:
-                                                      'Kullanılması Gereken KKD Giriniz',
+                                                  hintText: 'Kullanılması Gereken KKD Giriniz',
                                                   labelText: 'KKD Giriniz',
-                                                  border:
-                                                      Constant.textFieldBorder,
+                                                  border: Constant.textFieldBorder,
                                                 ),
                                               ),
                                             ),
@@ -470,11 +384,9 @@ class AddNewAccident extends StatelessWidget {
                                               child: TextField(
                                                 maxLines: 3,
                                                 decoration: InputDecoration(
-                                                  hintText:
-                                                      'Lütfen Sebep Giriniz',
+                                                  hintText: 'Lütfen Sebep Giriniz',
                                                   labelText: 'Sebep Giriniz',
-                                                  border:
-                                                      Constant.textFieldBorder,
+                                                  border: Constant.textFieldBorder,
                                                 ),
                                               ),
                                             ),
@@ -533,10 +445,7 @@ class AddNewAccident extends StatelessWidget {
                               children: [
                                 Padding(
                                   padding: Constant.padding,
-                                  child: SizedBox(
-                                      height: 50,
-                                      child: Switch(
-                                          value: true, onChanged: (value) {})),
+                                  child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
                                 ),
                               ],
                             ),
@@ -630,8 +539,7 @@ class AddNewAccident extends StatelessWidget {
                                         },
                                         maxLines: 5,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              'Lütfen Düzenleme Tarihi Giriniz',
+                                          hintText: 'Lütfen Düzenleme Tarihi Giriniz',
                                           labelText: 'Tarih Giriniz',
                                           border: Constant.textFieldBorder,
                                         ),
@@ -672,10 +580,7 @@ class AddNewAccident extends StatelessWidget {
     );
   }
 
-  Padding subtitle(
-      {required String subtitle,
-      required double height,
-      required double width}) {
+  Padding subtitle({required String subtitle, required double height, required double width}) {
     return Padding(
       padding: Constant.padding,
       child: SizedBox(

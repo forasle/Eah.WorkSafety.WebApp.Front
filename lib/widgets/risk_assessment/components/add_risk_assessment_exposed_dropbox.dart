@@ -5,8 +5,7 @@ class CheckBoxForExposedPerson extends StatefulWidget {
   const CheckBoxForExposedPerson({Key? key}) : super(key: key);
 
   @override
-  State<CheckBoxForExposedPerson> createState() =>
-      _CheckBoxForExposedPersonState();
+  State<CheckBoxForExposedPerson> createState() => _CheckBoxForExposedPersonState();
 }
 
 class _CheckBoxForExposedPersonState extends State<CheckBoxForExposedPerson> {

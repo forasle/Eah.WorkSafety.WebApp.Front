@@ -25,9 +25,7 @@ class ChronicDiseasesPage extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Kronik Hastalık',
-                  routeName: chronicDiseasesPageRoute),
+              RoutingBarWidget(pageName: 'Kronik Hastalık', routeName: chronicDiseasesPageRoute),
             ],
           ),
           Constant.dividerWithIndent,
@@ -45,7 +43,7 @@ class ChronicDiseasesPage extends StatelessWidget {
                         style: Theme.of(context).textTheme.headline4,
                       ),
                     ),
-                   Constant.sizedBoxWidth,
+                    Constant.sizedBoxWidth,
                     Flexible(
                       child: Text(
                         '(Yetki seviyenize göre görüntüleyebildiğiniz liste & raporlar)',
@@ -61,9 +59,7 @@ class ChronicDiseasesPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Flexible(
-                        child: ElevatedButton(
-                            onPressed: () {}, child: const Text('Rapor Yazdır'))),
+                    Flexible(child: ElevatedButton(onPressed: () {}, child: const Text('Rapor Yazdır'))),
                     Constant.sizedBoxWidth,
                     const Flexible(
                       child: SearchBarWidget(),
@@ -85,12 +81,7 @@ class ChronicDiseasesPage extends StatelessWidget {
                       Colors.blueGrey.shade700,
                       'KRONIK HASTALIKLI ÇALIŞAN / TOPLAM ÇALIŞAN * 100'
                     ],
-                    [
-                      'Ort. Çalışma Süresi (Yıl)',
-                      '1240',
-                      Colors.blueAccent.shade700,
-                      '-'
-                    ],
+                    ['Ort. Çalışma Süresi (Yıl)', '1240', Colors.blueAccent.shade700, '-'],
                     ['Ortalama Yaş', '28', Colors.greenAccent.shade700, '-'],
                   ]
                           .map(

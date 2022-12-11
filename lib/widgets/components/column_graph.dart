@@ -5,6 +5,7 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 class ColumnGraph extends StatelessWidget {
   const ColumnGraph({Key? key, required this.title}) : super(key: key);
   final String title;
+
   @override
   Widget build(BuildContext context) {
     var data = [
@@ -25,8 +26,7 @@ class ColumnGraph extends StatelessWidget {
             width: 500,
             child: SfCartesianChart(
                 primaryXAxis: CategoryAxis(),
-                primaryYAxis:
-                    NumericAxis(minimum: 0, maximum: 150, interval: 30),
+                primaryYAxis: NumericAxis(minimum: 0, maximum: 150, interval: 30),
                 tooltipBehavior: TooltipBehavior(enable: true),
                 series: <ChartSeries<_ChartData, String>>[
                   ColumnSeries<_ChartData, String>(
@@ -46,6 +46,7 @@ class ColumnGraph extends StatelessWidget {
 
 class _ChartData {
   _ChartData(this.x, this.y);
+
   final String x;
   final double y;
 }

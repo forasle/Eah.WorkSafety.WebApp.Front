@@ -1,16 +1,14 @@
 import 'package:aeah_work_safety/models/contingency_plan.dart';
-import 'package:aeah_work_safety/models/employee.dart';
+import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForContingencyPlans extends StatelessWidget {
   final String title;
   final String detailRoute;
   final List<String> columnData;
+
   const DataTableForContingencyPlans(
-      {Key? key,
-      required this.title,
-      required this.columnData,
-      required this.detailRoute})
+      {Key? key, required this.title, required this.columnData, required this.detailRoute})
       : super(key: key);
 
   @override
@@ -40,15 +38,14 @@ class _DataSource extends DataTableSource {
     _rows = [
       ContingencyPlan(
           creatorUserId: 1,
-    date: DateTime.now(),
-    id: 2,
-    referenceNumber: "referenceNumber",
-    creationTime: DateTime.now(),
-    information: "information"
-    ,
-    name: "name",
-    planNumber: 2
-    )];
+          date: DateTime.now(),
+          id: 2,
+          referenceNumber: "referenceNumber",
+          creationTime: DateTime.now(),
+          information: "information",
+          name: "name",
+          planNumber: 2)
+    ];
   }
 
   final BuildContext context;

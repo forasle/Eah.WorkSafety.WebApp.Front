@@ -22,8 +22,7 @@ class EducationPage extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Eğitim', routeName: educationPageRoute),
+              RoutingBarWidget(pageName: 'Eğitim', routeName: educationPageRoute),
             ],
           ),
           Constant.dividerWithIndent,
@@ -57,10 +56,7 @@ class EducationPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Flexible(
-                        child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text('Rapor Yazdır'))),
+                    Flexible(child: ElevatedButton(onPressed: () {}, child: const Text('Rapor Yazdır'))),
                     Constant.sizedBoxWidth,
                     const Flexible(
                       child: SearchBarWidget(),
@@ -76,18 +72,8 @@ class EducationPage extends StatelessWidget {
                   child: Row(
                       children: [
                     ['Toplam Sertifika', '5984', Colors.blueGrey, '-'],
-                    [
-                      'Toplam Zorunlu Sertifika',
-                      '2545',
-                      Colors.blueGrey.shade700,
-                      '-'
-                    ],
-                    [
-                      'Eğitim Verilen Kişi',
-                      '1240',
-                      Colors.blueAccent.shade700,
-                      '-'
-                    ],
+                    ['Toplam Zorunlu Sertifika', '2545', Colors.blueGrey.shade700, '-'],
+                    ['Eğitim Verilen Kişi', '1240', Colors.blueAccent.shade700, '-'],
                   ]
                           .map(
                             (e) => CardWidget(
@@ -130,8 +116,7 @@ class EducationPage extends StatelessWidget {
                       child: SizedBox(
                         width: 150,
                         child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.greenAccent.shade700),
+                            style: ElevatedButton.styleFrom(backgroundColor: Colors.greenAccent.shade700),
                             onPressed: () {},
                             child: Padding(
                               padding: Constant.padding,
@@ -150,8 +135,7 @@ class EducationPage extends StatelessWidget {
                       child: SizedBox(
                         width: 160,
                         child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blueGrey.shade700),
+                          style: ElevatedButton.styleFrom(backgroundColor: Colors.blueGrey.shade700),
                           onPressed: () {},
                           child: Padding(
                             padding: Constant.padding,

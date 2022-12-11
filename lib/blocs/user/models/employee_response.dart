@@ -1,7 +1,7 @@
-class Employee {
+class EmployeeResponse {
   final double id;
-  final double identificationNumber;  //tc kimlik numarası
-  final String registrationNumber;  //sicil numarası
+  final double identificationNumber; //tc kimlik numarası
+  final String registrationNumber; //sicil numarası
   final String name;
   final String surname;
   final String position;
@@ -11,7 +11,7 @@ class Employee {
   final String chronicDiseases;
   bool selected = false;
 
-  Employee({
+  EmployeeResponse({
     required this.id,
     required this.identificationNumber,
     required this.registrationNumber,

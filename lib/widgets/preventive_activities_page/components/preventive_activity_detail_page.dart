@@ -19,12 +19,9 @@ class PreventiveActivityDetailPage extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'DÖF', routeName: preventiveActivitiesPageRoute),
+              RoutingBarWidget(pageName: 'DÖF', routeName: preventiveActivitiesPageRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'DÖF Detayları',
-                  routeName: addNewPreventiveActivity),
+              RoutingBarWidget(pageName: 'DÖF Detayları', routeName: addNewPreventiveActivity),
             ],
           ),
           Constant.dividerWithIndent,
@@ -48,26 +45,11 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                subtitle(
-                                    subtitle: 'Döf Türü:',
-                                    height: 50,
-                                    width: 150),
-                                subtitle(
-                                    subtitle: 'Oluşturma Tarihi:',
-                                    height: 50,
-                                    width: 150),
-                                subtitle(
-                                    subtitle: 'Tespit Tarihi:',
-                                    height: 50,
-                                    width: 150),
-                                subtitle(
-                                    subtitle: 'Açıklama:',
-                                    height: 150,
-                                    width: 150),
-                                subtitle(
-                                    subtitle: 'Faaliyet İsmi Giriniz:',
-                                    height: 100,
-                                    width: 150),
+                                subtitle(subtitle: 'Döf Türü:', height: 50, width: 150),
+                                subtitle(subtitle: 'Oluşturma Tarihi:', height: 50, width: 150),
+                                subtitle(subtitle: 'Tespit Tarihi:', height: 50, width: 150),
+                                subtitle(subtitle: 'Açıklama:', height: 150, width: 150),
+                                subtitle(subtitle: 'Faaliyet İsmi Giriniz:', height: 100, width: 150),
                               ],
                             ),
                           ),
@@ -85,10 +67,8 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                                   child: SizedBox(
                                       height: 50,
                                       child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: const [Text('Düzenleyici')],
                                       )),
                                 ),
@@ -97,10 +77,8 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                                   child: SizedBox(
                                       height: 50,
                                       child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: const [Text('01.01.2023')],
                                       )),
                                 ),
@@ -109,10 +87,8 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                                   child: SizedBox(
                                       height: 50,
                                       child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: const [Text('01.01.2023')],
                                       )),
                                 ),
@@ -121,10 +97,8 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                                   child: SizedBox(
                                       height: 150,
                                       child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: const [Text('Açıklama')],
                                       )),
                                 ),
@@ -133,10 +107,8 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                                   child: SizedBox(
                                     height: 100,
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
                                       children: const [Text('Faaliyet ismi')],
                                     ),
                                   ),
@@ -193,10 +165,8 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                                   child: SizedBox(
                                     height: 50,
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
                                       children: const [Text('Acil')],
                                     ),
                                   ),
@@ -223,16 +193,9 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
+                                subtitle(height: 50, width: 150, subtitle: 'Kök Neden Analizi Gerekiyor Mu?   '),
                                 subtitle(
-                                    height: 50,
-                                    width: 150,
-                                    subtitle:
-                                        'Kök Neden Analizi Gerekiyor Mu?   '),
-                                subtitle(
-                                    height: 50,
-                                    width: 150,
-                                    subtitle:
-                                        'Yıllık Çalışma Planına Dahil Edilsin Mi?  '),
+                                    height: 50, width: 150, subtitle: 'Yıllık Çalışma Planına Dahil Edilsin Mi?  '),
                               ],
                             ),
                           ),
@@ -247,17 +210,11 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                               children: [
                                 Padding(
                                   padding: Constant.padding,
-                                  child: SizedBox(
-                                      height: 50,
-                                      child: Switch(
-                                          value: true, onChanged: (value) {})),
+                                  child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
                                 ),
                                 Padding(
                                   padding: Constant.padding,
-                                  child: SizedBox(
-                                      height: 50,
-                                      child: Switch(
-                                          value: true, onChanged: (value) {})),
+                                  child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
                                 ),
                               ],
                             ),
@@ -327,13 +284,11 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                                       child: TextField(
                                         maxLines: 3,
                                         decoration: InputDecoration(
-                                          hintText: 'Döküman adını giriniz',
-                                          labelText: 'Döküman Adı',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
-                                          //filled: true,
-                                          border: Constant.textFormFieldBorder
-                                        ),
+                                            hintText: 'Döküman adını giriniz',
+                                            labelText: 'Döküman Adı',
+                                            labelStyle: const TextStyle(color: Colors.white),
+                                            //filled: true,
+                                            border: Constant.textFormFieldBorder),
                                       ),
                                     ),
                                   ),
@@ -354,15 +309,12 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                                         },
                                         maxLines: 5,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              'Lütfen Düzenleme Tarihi Giriniz',
-                                          labelText: 'Tarih Giriniz',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
-                                          //filled: true,
+                                            hintText: 'Lütfen Düzenleme Tarihi Giriniz',
+                                            labelText: 'Tarih Giriniz',
+                                            labelStyle: const TextStyle(color: Colors.white),
+                                            //filled: true,
 
-                                          border: Constant.textFormFieldBorder
-                                        ),
+                                            border: Constant.textFormFieldBorder),
                                       ),
                                     ),
                                   ),
@@ -400,10 +352,7 @@ class PreventiveActivityDetailPage extends StatelessWidget {
     );
   }
 
-  Padding subtitle(
-      {required String subtitle,
-      required double height,
-      required double width}) {
+  Padding subtitle({required String subtitle, required double height, required double width}) {
     return Padding(
       padding: Constant.padding,
       child: SizedBox(

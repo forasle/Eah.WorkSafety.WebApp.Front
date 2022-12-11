@@ -1,5 +1,5 @@
 import 'package:aeah_work_safety/models/inconsisteny.dart';
-import 'package:aeah_work_safety/models/employee.dart';
+import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
 import 'package:flutter/material.dart';
 
 import 'package:aeah_work_safety/constants/inconsistency/constants.dart';
@@ -8,11 +8,8 @@ class DataTableForInconsistency extends StatelessWidget {
   final String title;
   final String detailRoute;
   final List<String> columnData;
-  const DataTableForInconsistency(
-      {Key? key,
-      required this.title,
-      required this.columnData,
-      required this.detailRoute})
+
+  const DataTableForInconsistency({Key? key, required this.title, required this.columnData, required this.detailRoute})
       : super(key: key);
 
   @override
@@ -41,16 +38,15 @@ class _DataSource extends DataTableSource {
   _DataSource({required this.context, required this.detailRoute}) {
     _rows = [
       Inconsistency(
-       information: "information",
-        referenceNumber: "referenceNumber",
-        id: 1,
-        date: DateTime.now(),
-        creatorUserId: 2,
-        department: "department",
-        riskScore: 5,
-        rootCauseAnalysisRequirement: false,
-        status: true
-      )
+          information: "information",
+          referenceNumber: "referenceNumber",
+          id: 1,
+          date: DateTime.now(),
+          creatorUserId: 2,
+          department: "department",
+          riskScore: 5,
+          rootCauseAnalysisRequirement: false,
+          status: true)
     ];
   }
 
@@ -78,7 +74,6 @@ class _DataSource extends DataTableSource {
         DataCell(Text(row.creatorUserId.toString())),
         DataCell(Text(row.department)),
         DataCell(Text(row.date.toString())),
-
         DataCell(Text(row.rootCauseAnalysisRequirement ? 'Evet' : 'Hayır')),
       ],
     ));

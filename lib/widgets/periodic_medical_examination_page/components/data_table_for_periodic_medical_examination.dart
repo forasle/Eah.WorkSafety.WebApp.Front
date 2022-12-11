@@ -1,12 +1,11 @@
-import 'package:aeah_work_safety/models/employee.dart';
+import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForPeriodicMedicalExamination extends StatelessWidget {
   String title;
   List<String> columnData;
-  DataTableForPeriodicMedicalExamination(
-      {Key? key, required this.title, required this.columnData})
-      : super(key: key);
+
+  DataTableForPeriodicMedicalExamination({Key? key, required this.title, required this.columnData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +32,7 @@ class DataTableForPeriodicMedicalExamination extends StatelessWidget {
 class _DataSource extends DataTableSource {
   _DataSource(this.context) {
     _rows = [
-      Employee(
-
+      EmployeeResponse(
           chronicDiseases: 'null',
           address: 'test',
           department: 'test',
@@ -49,7 +47,7 @@ class _DataSource extends DataTableSource {
   }
 
   final BuildContext context;
-  late List<Employee> _rows;
+  late List<EmployeeResponse> _rows;
 
   final int _selectedCount = 0;
 

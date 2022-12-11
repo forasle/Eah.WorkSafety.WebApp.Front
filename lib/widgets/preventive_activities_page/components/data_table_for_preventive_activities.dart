@@ -1,16 +1,14 @@
 import 'package:aeah_work_safety/models/inconsisteny.dart';
-import 'package:aeah_work_safety/models/employee.dart';
+import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForPreventiveActivities extends StatelessWidget {
   final String title;
   final String detailRoute;
   final List<String> columnData;
+
   const DataTableForPreventiveActivities(
-      {Key? key,
-      required this.title,
-      required this.columnData,
-      required this.detailRoute})
+      {Key? key, required this.title, required this.columnData, required this.detailRoute})
       : super(key: key);
 
   @override
@@ -47,8 +45,7 @@ class _DataSource extends DataTableSource {
           department: "department",
           riskScore: 5,
           rootCauseAnalysisRequirement: false,
-          status: true
-      )
+          status: true)
     ];
   }
 

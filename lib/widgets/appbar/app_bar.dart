@@ -1,8 +1,11 @@
-import 'package:aeah_work_safety/widgets/appBar/components/drawer_widget.dart';
+import 'package:aeah_work_safety/blocs/auth/screens/login.dart';
+import 'package:aeah_work_safety/blocs/user/user_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomScaffold extends StatelessWidget {
   final Widget body;
+
   const CustomScaffold({
     Key? key,
     required this.body,
@@ -12,9 +15,9 @@ class CustomScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     ScrollController verticalScrollController = ScrollController();
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
+/*      floatingActionButton: FloatingActionButton(
         onPressed: () {},
-      ),
+      ),*/
       appBar: AppBar(
         title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
           Flexible(
@@ -30,37 +33,43 @@ class CustomScaffold extends StatelessWidget {
         ]),
         actions: [
           Row(
-            children: const [
-              Icon(Icons.person),
+            children: [
+              const Icon(Icons.person),
               Center(
-                child: Text(' Murat Doğan'),
+                child: BlocBuilder<UserBloc, UserState>(
+                  builder: (context, state) {
+                    if (state is UserData) {
+                      return Text(state.userResponse.username);
+                    } else {
+                      return const SizedBox();
+                    }
+                  },
+                ),
               ),
             ],
           ),
           PopupMenuButton(
             itemBuilder: (context) {
-              return const[
-                PopupMenuItem(
-                  child: Text('Hesabım'),
-                ),
-                PopupMenuItem(
-                  child: Text('Görevlerim'),
-                ),
-                PopupMenuItem(
+              return [
+                const PopupMenuItem(
                   child: Text('Şifre Değiştir'),
                 ),
                 PopupMenuItem(
-                  child: Text('Çıkış Yap'),
+                  child: const Text('Çıkış Yap'),
+                  onTap: () {
+                    Navigator.pushAndRemoveUntil(context,
+                        MaterialPageRoute(builder: (BuildContext context) => const Login()), ModalRoute.withName('/'));
+                  },
                 ),
               ];
             },
           )
         ],
       ),
-      drawer: const Padding(
+/*      drawer: const Padding(
         padding: EdgeInsets.fromLTRB(0, 60, 0, 0),
         child: DrawerWidget(),
-      ),
+      ),*/
       body: Scrollbar(
           controller: verticalScrollController,
           child: SingleChildScrollView(

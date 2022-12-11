@@ -1,5 +1,5 @@
 import 'package:aeah_work_safety/models/accident.dart';
-import 'package:aeah_work_safety/models/employee.dart';
+import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
 import 'package:flutter/material.dart';
 
 import 'package:aeah_work_safety/constants/accident/constants.dart';
@@ -8,11 +8,8 @@ class DataTableForNearMiss extends StatelessWidget {
   final String title;
   final String detailRoute;
   final List<String> columnData;
-  const DataTableForNearMiss(
-      {Key? key,
-        required this.title,
-        required this.columnData,
-        required this.detailRoute})
+
+  const DataTableForNearMiss({Key? key, required this.title, required this.columnData, required this.detailRoute})
       : super(key: key);
 
   @override
@@ -45,11 +42,10 @@ class _DataSource extends DataTableSource {
           referenceNumber: "referenceNumber",
           lostDays: 5,
           id: 2,
-          employees: [1,2,3],
+          employees: [1, 2, 3],
           date: DateTime.now(),
           creatorUserId: 1,
-          accidentInfo: "accidentInfo"
-      ),
+          accidentInfo: "accidentInfo"),
     ];
   }
 

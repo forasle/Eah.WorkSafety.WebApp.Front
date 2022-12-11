@@ -1,13 +1,13 @@
-import 'package:aeah_work_safety/models/employee.dart';
+import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
 
 class RiskAssessment {
   final String revisionDate;
-  final String name;//
-  final String referenceNumber;//
-  final String riskAssessmentInfo;//
-  final Employee riskAssessmentIdentifier;//
-  final String riskAssessmentDate;//
-  final String riskAssessmentCreationTime;//
+  final String name; //
+  final String referenceNumber; //
+  final String riskAssessmentInfo; //
+  final EmployeeResponse riskAssessmentIdentifier; //
+  final String riskAssessmentDate; //
+  final String riskAssessmentCreationTime; //
   final String riskAssessmentMethod;
 
   bool selected = false;

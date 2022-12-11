@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Constant{
+class Constant {
   static const drawerBorder = RoundedRectangleBorder(
     borderRadius: BorderRadius.only(
       bottomRight: Radius.circular(20),

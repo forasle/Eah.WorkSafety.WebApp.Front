@@ -14,10 +14,7 @@ class AddNewRiskAssessment extends StatefulWidget {
 }
 
 class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
-  List<bool> methodType = [
-    false,
-    false
-  ]; //[fine kinney method, 5x5 matrix method]
+  List<bool> methodType = [false, false]; //[fine kinney method, 5x5 matrix method]
 
   @override
   Widget build(BuildContext context) {
@@ -31,16 +28,11 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                RoutingBarWidget(
-                    pageName: 'Panorama', routeName: panoramaRoute),
+                RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
                 const Icon(Icons.arrow_right),
-                RoutingBarWidget(
-                    pageName: 'Risk Değerlendirme',
-                    routeName: riskAssessmentPage),
+                RoutingBarWidget(pageName: 'Risk Değerlendirme', routeName: riskAssessmentPage),
                 const Icon(Icons.arrow_right),
-                RoutingBarWidget(
-                    pageName: 'Yeni Risk Değerlendirme Ekle',
-                    routeName: addNewRiskAssessment),
+                RoutingBarWidget(pageName: 'Yeni Risk Değerlendirme Ekle', routeName: addNewRiskAssessment),
               ],
             ),
           ),
@@ -65,19 +57,10 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
+                                subtitle(subtitle: 'Referans No:', height: 50, width: 150),
+                                subtitle(subtitle: 'Revizyon Tarihi:', height: 50, width: 150),
                                 subtitle(
-                                    subtitle: 'Referans No:',
-                                    height: 50,
-                                    width: 150),
-                                subtitle(
-                                    subtitle: 'Revizyon Tarihi:',
-                                    height: 50,
-                                    width: 150),
-                                subtitle(
-                                    subtitle:
-                                        'Bir Sonraki (Azami) Risk Değerlendirme Tarihi',
-                                    height: 50,
-                                    width: 150),
+                                    subtitle: 'Bir Sonraki (Azami) Risk Değerlendirme Tarihi', height: 50, width: 150),
                               ],
                             ),
                           ),
@@ -99,10 +82,8 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                         maxLines: 5,
                                         decoration: InputDecoration(
                                           hintText: 'Referans No',
-                                          labelText:
-                                              'Lütfen Risk Değerlendirme Revizyon Tarihini Giriniz',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
+                                          labelText: 'Lütfen Risk Değerlendirme Revizyon Tarihini Giriniz',
+                                          labelStyle: const TextStyle(color: Colors.white),
                                           //filled: true,
 
                                           border: Constant.textFieldBorder,
@@ -128,10 +109,8 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                         maxLines: 5,
                                         decoration: InputDecoration(
                                           hintText: 'Revizyon Tarihi',
-                                          labelText:
-                                              'Lütfen Revizyon Tarihini Giriniz',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
+                                          labelText: 'Lütfen Revizyon Tarihini Giriniz',
+                                          labelStyle: const TextStyle(color: Colors.white),
                                           //filled: true,
 
                                           border: Constant.textFieldBorder,
@@ -156,12 +135,9 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                         },
                                         maxLines: 5,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              'Bir Sonraki Risk Değerlendirme Tarihi',
-                                          labelText:
-                                              'Lütfen Bir Sonraki Risk Değerlendirme Tarihini Giriniz',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
+                                          hintText: 'Bir Sonraki Risk Değerlendirme Tarihi',
+                                          labelText: 'Lütfen Bir Sonraki Risk Değerlendirme Tarihini Giriniz',
+                                          labelStyle: const TextStyle(color: Colors.white),
                                           //filled: true,
 
                                           border: Constant.textFieldBorder,
@@ -192,15 +168,8 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                subtitle(
-                                    subtitle:
-                                        'Risk Değerlendirme Şablonu Seçiniz:',
-                                    height: 50,
-                                    width: 150),
-                                subtitle(
-                                    subtitle: 'Risk Değerlendirme Yöntemi:',
-                                    height: 100,
-                                    width: 150),
+                                subtitle(subtitle: 'Risk Değerlendirme Şablonu Seçiniz:', height: 50, width: 150),
+                                subtitle(subtitle: 'Risk Değerlendirme Yöntemi:', height: 100, width: 150),
                               ],
                             ),
                           ),
@@ -218,9 +187,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
-                                      child: DropdownMenu(
-                                          menuItems:
-                                              Constant.menuItemsForTemplate),
+                                      child: DropdownMenu(menuItems: Constant.menuItemsForTemplate),
                                     ),
                                   ),
                                 ),
@@ -232,26 +199,20 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                       ElevatedButton(
                                           onPressed: () {
                                             setState(() {
-                                              methodType = methodType
-                                                  .map<bool>((v) => false)
-                                                  .toList();
+                                              methodType = methodType.map<bool>((v) => false).toList();
                                               methodType[0] = true;
                                             });
                                           },
-                                          child:
-                                              const Text('Fine Kinney Metodu')),
+                                          child: const Text('Fine Kinney Metodu')),
                                       Constant.sizedBox10W,
                                       ElevatedButton(
                                           onPressed: () {
                                             setState(() {
-                                              methodType = methodType
-                                                  .map<bool>((v) => false)
-                                                  .toList();
+                                              methodType = methodType.map<bool>((v) => false).toList();
                                               methodType[1] = true;
                                             });
                                           },
-                                          child:
-                                              const Text('5x5 Matris Metodu'))
+                                          child: const Text('5x5 Matris Metodu'))
                                     ]),
                                   ),
                                 ),
@@ -278,15 +239,10 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                   child: Padding(
                                     padding: Constant.padding,
                                     child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        subtitle(
-                                            subtitle: 'Genel Tehlike:',
-                                            height: 50,
-                                            width: 150),
+                                        subtitle(subtitle: 'Genel Tehlike:', height: 50, width: 150),
                                       ],
                                     ),
                                   ),
@@ -297,8 +253,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                   child: Padding(
                                     padding: Constant.padding,
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Padding(
                                           padding: Constant.padding,
@@ -307,15 +262,11 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                             child: Center(
                                               child: TextField(
                                                 decoration: InputDecoration(
-                                                  hintText:
-                                                      'Genel Tehlike Adını Giriniz',
-                                                  labelText:
-                                                      'Genel Tehlike Adı',
-                                                  labelStyle: const TextStyle(
-                                                      color: Colors.white),
+                                                  hintText: 'Genel Tehlike Adını Giriniz',
+                                                  labelText: 'Genel Tehlike Adı',
+                                                  labelStyle: const TextStyle(color: Colors.white),
                                                   //filled: true,
-                                                  border:
-                                                      Constant.textFieldBorder,
+                                                  border: Constant.textFieldBorder,
                                                 ),
                                               ),
                                             ),
@@ -329,30 +280,13 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                                 child: Padding(
                                                   padding: Constant.padding,
                                                   child: Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment.end,
+                                                    mainAxisAlignment: MainAxisAlignment.start,
+                                                    crossAxisAlignment: CrossAxisAlignment.end,
                                                     children: [
-                                                      subtitle(
-                                                          subtitle:
-                                                              'Mevcut Tehlike:',
-                                                          height: 50,
-                                                          width: 150),
-                                                      subtitle(
-                                                          subtitle:
-                                                              'Oluşacak Risk:',
-                                                          height: 50,
-                                                          width: 150),
-                                                      subtitle(
-                                                          subtitle: 'Sonuç:',
-                                                          height: 50,
-                                                          width: 150),
-                                                      subtitle(
-                                                          subtitle:
-                                                              'Maruz Kalanlar:',
-                                                          height: 100,
-                                                          width: 150),
+                                                      subtitle(subtitle: 'Mevcut Tehlike:', height: 50, width: 150),
+                                                      subtitle(subtitle: 'Oluşacak Risk:', height: 50, width: 150),
+                                                      subtitle(subtitle: 'Sonuç:', height: 50, width: 150),
+                                                      subtitle(subtitle: 'Maruz Kalanlar:', height: 100, width: 150),
                                                     ],
                                                   ),
                                                 ),
@@ -363,85 +297,59 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                                 child: Padding(
                                                   padding: Constant.padding,
                                                   child: Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
+                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
                                                     children: [
                                                       Padding(
-                                                        padding:
-                                                            Constant.padding,
+                                                        padding: Constant.padding,
                                                         child: SizedBox(
                                                           height: 50,
                                                           child: Center(
                                                             child: TextField(
-                                                              decoration:
-                                                                  InputDecoration(
-                                                                      hintText:
-                                                                          'Mevcut Tehlike Giriniz',
-                                                                      labelText:
-                                                                          'Mevcut Tehlike',
-                                                                      labelStyle: const TextStyle(
-                                                                          color: Colors
-                                                                              .white),
-                                                                      //filled: true,
-                                                                      border: Constant
-                                                                          .textFieldBorder),
+                                                              decoration: InputDecoration(
+                                                                  hintText: 'Mevcut Tehlike Giriniz',
+                                                                  labelText: 'Mevcut Tehlike',
+                                                                  labelStyle: const TextStyle(color: Colors.white),
+                                                                  //filled: true,
+                                                                  border: Constant.textFieldBorder),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
                                                       Padding(
-                                                        padding:
-                                                            Constant.padding,
+                                                        padding: Constant.padding,
                                                         child: SizedBox(
                                                           height: 50,
                                                           child: Center(
                                                             child: TextField(
-                                                              decoration:
-                                                                  InputDecoration(
-                                                                      hintText:
-                                                                          'Oluşacak Risk Giriniz',
-                                                                      labelText:
-                                                                          'Oluşacak Risk',
-                                                                      labelStyle: const TextStyle(
-                                                                          color: Colors
-                                                                              .white),
-                                                                      //filled: true,
-                                                                      border: Constant
-                                                                          .textFieldBorder),
+                                                              decoration: InputDecoration(
+                                                                  hintText: 'Oluşacak Risk Giriniz',
+                                                                  labelText: 'Oluşacak Risk',
+                                                                  labelStyle: const TextStyle(color: Colors.white),
+                                                                  //filled: true,
+                                                                  border: Constant.textFieldBorder),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
                                                       Padding(
-                                                        padding:
-                                                            Constant.padding,
+                                                        padding: Constant.padding,
                                                         child: SizedBox(
                                                           height: 50,
                                                           child: Center(
                                                             child: TextField(
-                                                              decoration:
-                                                                  InputDecoration(
-                                                                      hintText:
-                                                                          'Sonuç Giriniz',
-                                                                      labelText:
-                                                                          'Sonuç',
-                                                                      labelStyle: const TextStyle(
-                                                                          color: Colors
-                                                                              .white),
-                                                                      //filled: true,
-                                                                      border: Constant
-                                                                          .textFieldBorder),
+                                                              decoration: InputDecoration(
+                                                                  hintText: 'Sonuç Giriniz',
+                                                                  labelText: 'Sonuç',
+                                                                  labelStyle: const TextStyle(color: Colors.white),
+                                                                  //filled: true,
+                                                                  border: Constant.textFieldBorder),
                                                             ),
                                                           ),
                                                         ),
                                                       ),
                                                       Padding(
-                                                        padding:
-                                                            Constant.padding,
+                                                        padding: Constant.padding,
                                                         child: SizedBox(
                                                           height: 100,
                                                           child: Wrap(
@@ -459,15 +367,13 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                                                 width: 20,
                                                               ),
                                                               RiskExposedPersonButton(
-                                                                text:
-                                                                    'Teknisyen',
+                                                                text: 'Teknisyen',
                                                               ),
                                                               SizedBox(
                                                                 width: 20,
                                                               ),
                                                               RiskExposedPersonButton(
-                                                                text:
-                                                                    'Refakatçi',
+                                                                text: 'Refakatçi',
                                                               ),
                                                               SizedBox(
                                                                 width: 20,
@@ -559,13 +465,11 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                       child: TextField(
                                         maxLines: 3,
                                         decoration: InputDecoration(
-                                          hintText: 'Döküman adını giriniz',
-                                          labelText: 'Döküman Adı',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
-                                          //filled: true,
-                                          border: Constant.textFieldBorder
-                                        ),
+                                            hintText: 'Döküman adını giriniz',
+                                            labelText: 'Döküman Adı',
+                                            labelStyle: const TextStyle(color: Colors.white),
+                                            //filled: true,
+                                            border: Constant.textFieldBorder),
                                       ),
                                     ),
                                   ),
@@ -586,15 +490,12 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                         },
                                         maxLines: 5,
                                         decoration: InputDecoration(
-                                          hintText:
-                                              'Lütfen Düzenleme Tarihi Giriniz',
-                                          labelText: 'Tarih Giriniz',
-                                          labelStyle: const TextStyle(
-                                              color: Colors.white),
-                                          //filled: true,
+                                            hintText: 'Lütfen Düzenleme Tarihi Giriniz',
+                                            labelText: 'Tarih Giriniz',
+                                            labelStyle: const TextStyle(color: Colors.white),
+                                            //filled: true,
 
-                                          border: Constant.textFieldBorder
-                                        ),
+                                            border: Constant.textFieldBorder),
                                       ),
                                     ),
                                   ),
@@ -632,10 +533,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
     );
   }
 
-  Padding subtitle(
-      {required String subtitle,
-      required double height,
-      required double width}) {
+  Padding subtitle({required String subtitle, required double height, required double width}) {
     return Padding(
       padding: Constant.padding,
       child: SizedBox(

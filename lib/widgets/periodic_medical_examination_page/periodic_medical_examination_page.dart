@@ -24,9 +24,7 @@ class PeriodicMedicalExaminationPage extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Periyodik Muayene',
-                  routeName: accidentPageRoute),
+              RoutingBarWidget(pageName: 'Periyodik Muayene', routeName: accidentPageRoute),
             ],
           ),
           Constant.dividerWithIndent,
@@ -60,10 +58,7 @@ class PeriodicMedicalExaminationPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Flexible(
-                        child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text('Rapor Yazdır'))),
+                    Flexible(child: ElevatedButton(onPressed: () {}, child: const Text('Rapor Yazdır'))),
                     Constant.sizedBoxWidth,
                     const Flexible(
                       child: SearchBarWidget(),
@@ -76,56 +71,16 @@ class PeriodicMedicalExaminationPage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                     children: [
-                  [
-                    'Kronik Hastalıklı Çalışan',
-                    '500',
-                    Colors.blueGrey,
-                    'Tüm Kaza ve Ramak Kalalar'
-                  ],
-                  [
-                    'Yapılmamış Muayene',
-                    '399',
-                    Colors.yellowAccent.shade700,
-                    '-'
-                  ],
-                  [
-                    'Yapılmamış İşe Giriş Muayenesi',
-                    '199',
-                    Colors.blueAccent.shade700,
-                    '-'
-                  ],
-                  [
-                    'Geçerli Muayene Oranı',
-                    '0.20',
-                    Colors.orangeAccent.shade700,
-                    '-'
-                  ],
-                  [
-                    'Kronik Hastalıklı Çalışan Yüzdesi',
-                    '20',
-                    Colors.blueGrey.shade700,
-                    '-'
-                  ],
-                  [
-                    'Ortalama Çalışma Süresi(Yıl)',
-                    '9.59',
-                    Colors.yellowAccent.shade700,
-                    '-'
-                  ],
+                  ['Kronik Hastalıklı Çalışan', '500', Colors.blueGrey, 'Tüm Kaza ve Ramak Kalalar'],
+                  ['Yapılmamış Muayene', '399', Colors.yellowAccent.shade700, '-'],
+                  ['Yapılmamış İşe Giriş Muayenesi', '199', Colors.blueAccent.shade700, '-'],
+                  ['Geçerli Muayene Oranı', '0.20', Colors.orangeAccent.shade700, '-'],
+                  ['Kronik Hastalıklı Çalışan Yüzdesi', '20', Colors.blueGrey.shade700, '-'],
+                  ['Ortalama Çalışma Süresi(Yıl)', '9.59', Colors.yellowAccent.shade700, '-'],
                   ['Ortalama Yaş', '29', Colors.lightBlueAccent.shade700, '-'],
                   ['Toplam Muayene', '-', Colors.orangeAccent.shade700, '-'],
-                  [
-                    'Toplam Periyodik Muayene',
-                    '-',
-                    Colors.blueGrey.shade700,
-                    '-'
-                  ],
-                  [
-                    'Toplam İşe Giriş Muayenesi',
-                    '-',
-                    Colors.redAccent.shade700,
-                    '-'
-                  ],
+                  ['Toplam Periyodik Muayene', '-', Colors.blueGrey.shade700, '-'],
+                  ['Toplam İşe Giriş Muayenesi', '-', Colors.redAccent.shade700, '-'],
                 ]
                         .map(
                           (e) => CardWidget(
@@ -166,8 +121,7 @@ class PeriodicMedicalExaminationPage extends StatelessWidget {
                   child: SizedBox(
                     width: 160,
                     child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.amberAccent.shade700),
+                        style: ElevatedButton.styleFrom(backgroundColor: Colors.amberAccent.shade700),
                         onPressed: () {},
                         child: Padding(
                           padding: Constant.padding,
@@ -186,8 +140,7 @@ class PeriodicMedicalExaminationPage extends StatelessWidget {
                   child: SizedBox(
                     width: 230,
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueGrey.shade700),
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.blueGrey.shade700),
                       onPressed: () {},
                       child: Padding(
                         padding: Constant.padding,

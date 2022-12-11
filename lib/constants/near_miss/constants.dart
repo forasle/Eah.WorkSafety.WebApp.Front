@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Constant{
+class Constant {
   static const dividerWithIndent = Divider(
     endIndent: 50,
     indent: 50,
@@ -11,7 +11,6 @@ class Constant{
     indent: 5,
   );
 
-
   static const sizedBoxWidth = SizedBox(
     width: 10,
   );
@@ -21,7 +20,6 @@ class Constant{
   );
 
   static const padding = EdgeInsets.all(8.0);
-
 
   static const List<DropdownMenuItem<String>> menuItemsForEventType = [
     DropdownMenuItem(child: Text("İş Kazası"), value: "1"),
@@ -34,8 +32,7 @@ class Constant{
   ];
 
   static final textFieldBorder = OutlineInputBorder(
-    borderRadius:
-    BorderRadius.circular(5.0),
+    borderRadius: BorderRadius.circular(5.0),
   );
 
   static const sizedBox50 = SizedBox(

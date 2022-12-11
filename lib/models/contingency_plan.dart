@@ -26,24 +26,24 @@ class ContingencyPlan {
   DateTime creationTime;
 
   factory ContingencyPlan.fromJson(Map<String, dynamic> json) => ContingencyPlan(
-    id: json["id"],
-    name: json["name"],
-    planNumber: json["planNumber"],
-    referenceNumber: json["referenceNumber"],
-    information: json["information"],
-    creatorUserId: json["creatorUserId"],
-    date: DateTime.parse(json["date"]),
-    creationTime: DateTime.parse(json["creationTime"]),
-  );
+        id: json["id"],
+        name: json["name"],
+        planNumber: json["planNumber"],
+        referenceNumber: json["referenceNumber"],
+        information: json["information"],
+        creatorUserId: json["creatorUserId"],
+        date: DateTime.parse(json["date"]),
+        creationTime: DateTime.parse(json["creationTime"]),
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "name": name,
-    "planNumber": planNumber,
-    "referenceNumber": referenceNumber,
-    "information": information,
-    "creatorUserId": creatorUserId,
-    "date": date.toIso8601String(),
-    "creationTime": creationTime.toIso8601String(),
-  };
+        "id": id,
+        "name": name,
+        "planNumber": planNumber,
+        "referenceNumber": referenceNumber,
+        "information": information,
+        "creatorUserId": creatorUserId,
+        "date": date.toIso8601String(),
+        "creationTime": creationTime.toIso8601String(),
+      };
 }

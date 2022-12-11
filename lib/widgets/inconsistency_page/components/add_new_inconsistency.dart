@@ -19,13 +19,9 @@ class AddNewInconsistency extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Uygunsuzluklar',
-                  routeName: inconsistenciesPageRoute),
+              RoutingBarWidget(pageName: 'Uygunsuzluklar', routeName: inconsistenciesPageRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Yeni Uygunsuzluk Ekle',
-                  routeName: addNewInconsistencies),
+              RoutingBarWidget(pageName: 'Yeni Uygunsuzluk Ekle', routeName: addNewInconsistencies),
             ],
           ),
           Constant.dividerWithIndent,
@@ -46,20 +42,12 @@ class AddNewInconsistency extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            subtitle(
-                                subtitle: 'Uygunsuzluk Kısa Tanımı:',
-                                height: 50,
-                                width: 150),
+                            subtitle(subtitle: 'Uygunsuzluk Kısa Tanımı:', height: 50, width: 150),
                             subtitle(subtitle: 'Tür:', height: 50, width: 150),
-                            subtitle(
-                                subtitle: 'Tarih:', height: 50, width: 150),
+                            subtitle(subtitle: 'Tarih:', height: 50, width: 150),
                             subtitle(subtitle: 'Saat:', height: 50, width: 150),
-                            subtitle(
-                                subtitle: 'Açıklama:', height: 150, width: 150),
-                            subtitle(
-                                subtitle: 'İlişkili Departman:',
-                                height: 50,
-                                width: 150)
+                            subtitle(subtitle: 'Açıklama:', height: 150, width: 150),
+                            subtitle(subtitle: 'İlişkili Departman:', height: 50, width: 150)
                           ],
                         ),
                       ),
@@ -80,15 +68,12 @@ class AddNewInconsistency extends StatelessWidget {
                                   child: TextField(
                                     maxLines: 5,
                                     decoration: InputDecoration(
-                                      hintText:
-                                          'Uygunsuzluk kısa tanımını yapınız',
-                                      labelText: 'Uygunsuzluk Tanımı Yapınız',
-                                      labelStyle:
-                                          const TextStyle(color: Colors.white),
-                                      //filled: true,
+                                        hintText: 'Uygunsuzluk kısa tanımını yapınız',
+                                        labelText: 'Uygunsuzluk Tanımı Yapınız',
+                                        labelStyle: const TextStyle(color: Colors.white),
+                                        //filled: true,
 
-                                      border: Constant.textFormFieldBorder
-                                    ),
+                                        border: Constant.textFormFieldBorder),
                                   ),
                                 ),
                               ),
@@ -98,9 +83,7 @@ class AddNewInconsistency extends StatelessWidget {
                               child: SizedBox(
                                 height: 50,
                                 child: Center(
-                                  child: DropdownMenu(
-                                      menuItems: Constant
-                                          .menuItemsForInconsistenciesType),
+                                  child: DropdownMenu(menuItems: Constant.menuItemsForInconsistenciesType),
                                 ),
                               ),
                             ),
@@ -120,14 +103,12 @@ class AddNewInconsistency extends StatelessWidget {
                                     },
                                     maxLines: 5,
                                     decoration: InputDecoration(
-                                      hintText: 'Lütfen Tarih Giriniz',
-                                      labelText: 'Tarih Giriniz',
-                                      labelStyle:
-                                          const TextStyle(color: Colors.white),
-                                      //filled: true,
+                                        hintText: 'Lütfen Tarih Giriniz',
+                                        labelText: 'Tarih Giriniz',
+                                        labelStyle: const TextStyle(color: Colors.white),
+                                        //filled: true,
 
-                                      border: Constant.textFormFieldBorder
-                                    ),
+                                        border: Constant.textFormFieldBorder),
                                   ),
                                 ),
                               ),
@@ -150,14 +131,12 @@ class AddNewInconsistency extends StatelessWidget {
                                     },
                                     maxLines: 5,
                                     decoration: InputDecoration(
-                                      hintText: 'Lütfen Saat Giriniz',
-                                      labelText: 'Saat Giriniz',
-                                      labelStyle:
-                                          const TextStyle(color: Colors.white),
-                                      //filled: true,
+                                        hintText: 'Lütfen Saat Giriniz',
+                                        labelText: 'Saat Giriniz',
+                                        labelStyle: const TextStyle(color: Colors.white),
+                                        //filled: true,
 
-                                      border: Constant.textFormFieldBorder
-                                    ),
+                                        border: Constant.textFormFieldBorder),
                                   ),
                                 ),
                               ),
@@ -170,14 +149,12 @@ class AddNewInconsistency extends StatelessWidget {
                                   child: TextField(
                                     maxLines: 5,
                                     decoration: InputDecoration(
-                                      hintText: 'Lütfen açıklama yapınız',
-                                      labelText: 'Açıklama',
-                                      labelStyle:
-                                          const TextStyle(color: Colors.white),
-                                      //filled: true,
+                                        hintText: 'Lütfen açıklama yapınız',
+                                        labelText: 'Açıklama',
+                                        labelStyle: const TextStyle(color: Colors.white),
+                                        //filled: true,
 
-                                      border: Constant.textFormFieldBorder
-                                    ),
+                                        border: Constant.textFormFieldBorder),
                                   ),
                                 ),
                               ),
@@ -187,9 +164,7 @@ class AddNewInconsistency extends StatelessWidget {
                               child: SizedBox(
                                   height: 50,
                                   child: Center(
-                                    child: DropdownMenu(
-                                        menuItems: Constant
-                                            .menuItemsForDepartmentType),
+                                    child: DropdownMenu(menuItems: Constant.menuItemsForDepartmentType),
                                   )),
                             ),
                           ],
@@ -199,7 +174,7 @@ class AddNewInconsistency extends StatelessWidget {
                   ],
                 ),
               ),
-             Constant.sizedBox50H,
+              Constant.sizedBox50H,
               title(context, 'Kaza Araştırma'),
               Constant.dividerWithIndent,
               Constant.sizedBox50H,
@@ -214,10 +189,7 @@ class AddNewInconsistency extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            subtitle(
-                                height: 50,
-                                width: 150,
-                                subtitle: 'Kök Neden Analizi Gerekiyor Mu?   '),
+                            subtitle(height: 50, width: 150, subtitle: 'Kök Neden Analizi Gerekiyor Mu?   '),
                           ],
                         ),
                       ),
@@ -232,10 +204,7 @@ class AddNewInconsistency extends StatelessWidget {
                           children: [
                             Padding(
                               padding: Constant.padding,
-                              child: SizedBox(
-                                  height: 50,
-                                  child: Switch(
-                                      value: true, onChanged: (value) {})),
+                              child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
                             ),
                           ],
                         ),
@@ -285,7 +254,7 @@ class AddNewInconsistency extends StatelessWidget {
                         ),
                       ),
                     ),
-                   Constant.verticalDivider,
+                    Constant.verticalDivider,
                     Expanded(
                       flex: 4,
                       child: Padding(
@@ -301,13 +270,11 @@ class AddNewInconsistency extends StatelessWidget {
                                   child: TextField(
                                     maxLines: 3,
                                     decoration: InputDecoration(
-                                      hintText: 'Döküman adını giriniz',
-                                      labelText: 'Döküman Adı',
-                                      labelStyle:
-                                          const TextStyle(color: Colors.white),
-                                      //filled: true,
-                                      border: Constant.textFormFieldBorder
-                                    ),
+                                        hintText: 'Döküman adını giriniz',
+                                        labelText: 'Döküman Adı',
+                                        labelStyle: const TextStyle(color: Colors.white),
+                                        //filled: true,
+                                        border: Constant.textFormFieldBorder),
                                   ),
                                 ),
                               ),
@@ -328,15 +295,12 @@ class AddNewInconsistency extends StatelessWidget {
                                     },
                                     maxLines: 5,
                                     decoration: InputDecoration(
-                                      hintText:
-                                          'Lütfen Düzenleme Tarihi Giriniz',
-                                      labelText: 'Tarih Giriniz',
-                                      labelStyle:
-                                          const TextStyle(color: Colors.white),
-                                      //filled: true,
+                                        hintText: 'Lütfen Düzenleme Tarihi Giriniz',
+                                        labelText: 'Tarih Giriniz',
+                                        labelStyle: const TextStyle(color: Colors.white),
+                                        //filled: true,
 
-                                      border: Constant.textFormFieldBorder
-                                    ),
+                                        border: Constant.textFormFieldBorder),
                                   ),
                                 ),
                               ),
@@ -377,7 +341,7 @@ class AddNewInconsistency extends StatelessWidget {
                         ),
                       ),
                     ),
-Constant.verticalDivider,
+                    Constant.verticalDivider,
                     Expanded(
                       flex: 4,
                       child: Padding(
@@ -390,9 +354,7 @@ Constant.verticalDivider,
                               child: SizedBox(
                                 height: 50,
                                 child: Center(
-                                  child: DropdownMenu(
-                                      menuItems:
-                                          Constant.menuItemsForRiskMethodType),
+                                  child: DropdownMenu(menuItems: Constant.menuItemsForRiskMethodType),
                                 ),
                               ),
                             ),
@@ -427,10 +389,7 @@ Constant.verticalDivider,
     );
   }
 
-  Padding subtitle(
-      {required String subtitle,
-      required double height,
-      required double width}) {
+  Padding subtitle({required String subtitle, required double height, required double width}) {
     return Padding(
       padding: Constant.padding,
       child: SizedBox(

@@ -23,9 +23,7 @@ class OccupationDiseasesPage extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Meslek Hastalıkları',
-                  routeName: occupationDiseasesPageRoute),
+              RoutingBarWidget(pageName: 'Meslek Hastalıkları', routeName: occupationDiseasesPageRoute),
             ],
           ),
           Constant.dividerWithIndent,
@@ -59,9 +57,7 @@ class OccupationDiseasesPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Flexible(
-                        child: ElevatedButton(
-                            onPressed: () {}, child: const Text('Rapor Yazdır'))),
+                    Flexible(child: ElevatedButton(onPressed: () {}, child: const Text('Rapor Yazdır'))),
                     Constant.sizedBoxWidth,
                     const Flexible(
                       child: SearchBarWidget(),

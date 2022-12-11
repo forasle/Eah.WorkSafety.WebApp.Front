@@ -22,9 +22,7 @@ class RiskAssessmentPage extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'Risk Değerlendirme',
-                  routeName: riskAssessmentPage),
+              RoutingBarWidget(pageName: 'Risk Değerlendirme', routeName: riskAssessmentPage),
             ],
           ),
           Constant.dividerWithIndent,
@@ -58,9 +56,7 @@ class RiskAssessmentPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Flexible(
-                        child: ElevatedButton(
-                            onPressed: () {}, child: const Text('Rapor Yazdır'))),
+                    Flexible(child: ElevatedButton(onPressed: () {}, child: const Text('Rapor Yazdır'))),
                     Constant.sizedBox10W,
                     const Flexible(
                       child: SearchBarWidget(),
@@ -98,8 +94,7 @@ class RiskAssessmentPage extends StatelessWidget {
                         width: 275,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.of(context)
-                                  .pushNamed(addNewRiskAssessment);
+                              Navigator.of(context).pushNamed(addNewRiskAssessment);
                             },
                             child: Padding(
                               padding: Constant.padding,
@@ -118,8 +113,7 @@ class RiskAssessmentPage extends StatelessWidget {
                       child: SizedBox(
                         width: 150,
                         child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blueGrey.shade700),
+                          style: ElevatedButton.styleFrom(backgroundColor: Colors.blueGrey.shade700),
                           onPressed: () {},
                           child: Padding(
                             padding: Constant.padding,

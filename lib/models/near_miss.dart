@@ -1,10 +1,10 @@
-import 'package:aeah_work_safety/models/employee.dart';
+import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
 
 class NearMiss {
   final double number;
   final String referenceNumber;
   final String info;
-  final Employee identifier;
+  final EmployeeResponse identifier;
   final String date;
   final bool rootCauseAnalysis;
 

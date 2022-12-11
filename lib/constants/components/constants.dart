@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Constant{
+class Constant {
   static const dividerWithIndent = Divider(
     endIndent: 50,
     indent: 50,
@@ -16,9 +16,8 @@ class Constant{
 
   static const padding8 = EdgeInsets.all(8.0);
 
-  static final textFormFieldBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.circular(5.0),
-  borderSide: const BorderSide());
+  static final textFormFieldBorder =
+      OutlineInputBorder(borderRadius: BorderRadius.circular(5.0), borderSide: const BorderSide());
 
   static const sizedBox10H = SizedBox(
     height: 10,

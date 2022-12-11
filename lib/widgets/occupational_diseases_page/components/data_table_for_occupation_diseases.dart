@@ -1,14 +1,13 @@
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/models/occupation_diseases.dart';
-import 'package:aeah_work_safety/models/employee.dart';
+import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
 import 'package:flutter/material.dart';
 
 class DataTableForOccupationDiseases extends StatelessWidget {
   String title;
   List<String> columnData;
-  DataTableForOccupationDiseases(
-      {Key? key, required this.title, required this.columnData})
-      : super(key: key);
+
+  DataTableForOccupationDiseases({Key? key, required this.title, required this.columnData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +39,8 @@ class _DataSource extends DataTableSource {
         diagnosis: '123',
         diagnosisDate: '123',
         number: 123,
-        owner: Employee(
-                      chronicDiseases: 'null',
+        owner: EmployeeResponse(
+            chronicDiseases: 'null',
             id: 123,
             identificationNumber: 159,
             registrationNumber: 'Test',

@@ -26,8 +26,8 @@ class Constant {
 
   static const padding = EdgeInsets.all(8.0);
 
-  static final textFormFieldBorder = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(5.0), borderSide: const BorderSide());
+  static final textFormFieldBorder =
+      OutlineInputBorder(borderRadius: BorderRadius.circular(5.0), borderSide: const BorderSide());
 
   static const verticalDivider = VerticalDivider(
     endIndent: 75,

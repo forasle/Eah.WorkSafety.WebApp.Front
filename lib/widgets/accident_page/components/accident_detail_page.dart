@@ -19,11 +19,9 @@ class AccidentDetailPage extends StatelessWidget {
             children: [
               RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'İş Kazaları', routeName: accidentPageRoute),
+              RoutingBarWidget(pageName: 'İş Kazaları', routeName: accidentPageRoute),
               const Icon(Icons.arrow_right),
-              RoutingBarWidget(
-                  pageName: 'İş Kazası', routeName: accidentDetailPage),
+              RoutingBarWidget(pageName: 'İş Kazası', routeName: accidentDetailPage),
             ],
           ),
           Constant.dividerWithIndent,
@@ -41,19 +39,11 @@ class AccidentDetailPage extends StatelessWidget {
                         padding: Constant.padding,
                         child: Column(
                           children: [
-                            subtitle(
-                                subtitle: 'Olay Türü:', height: 50, width: 150),
-                            subtitle(
-                                subtitle: 'Tarih:', height: 50, width: 150),
+                            subtitle(subtitle: 'Olay Türü:', height: 50, width: 150),
+                            subtitle(subtitle: 'Tarih:', height: 50, width: 150),
                             subtitle(subtitle: 'Saat:', height: 50, width: 150),
-                            subtitle(
-                                subtitle: 'Olay Tanımı:',
-                                height: 150,
-                                width: 150),
-                            subtitle(
-                                subtitle: 'Yapılan İş:',
-                                height: 100,
-                                width: 150),
+                            subtitle(subtitle: 'Olay Tanımı:', height: 150, width: 150),
+                            subtitle(subtitle: 'Yapılan İş:', height: 100, width: 150),
                           ],
                         ),
                       ),
@@ -98,8 +88,7 @@ class AccidentDetailPage extends StatelessWidget {
                               child: SizedBox(
                                 height: 50,
                                 child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: const [Text('00:00')]),
                               ),
@@ -212,18 +201,9 @@ class AccidentDetailPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            subtitle(
-                                height: 50,
-                                width: 150,
-                                subtitle: 'İlk Yardım Gerektirdi Mi?   '),
-                            subtitle(
-                                height: 50,
-                                width: 150,
-                                subtitle: 'Tıbbi Müdehale Yapıldı Mı?   '),
-                            subtitle(
-                                height: 50,
-                                width: 150,
-                                subtitle: 'Alt Yüklenici Kazası Mı?   '),
+                            subtitle(height: 50, width: 150, subtitle: 'İlk Yardım Gerektirdi Mi?   '),
+                            subtitle(height: 50, width: 150, subtitle: 'Tıbbi Müdehale Yapıldı Mı?   '),
+                            subtitle(height: 50, width: 150, subtitle: 'Alt Yüklenici Kazası Mı?   '),
                           ],
                         ),
                       ),
@@ -238,24 +218,15 @@ class AccidentDetailPage extends StatelessWidget {
                           children: [
                             Padding(
                               padding: Constant.padding,
-                              child: SizedBox(
-                                  height: 50,
-                                  child: Switch(
-                                      value: true, onChanged: (value) {})),
+                              child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
                             ),
                             Padding(
                               padding: Constant.padding,
-                              child: SizedBox(
-                                  height: 50,
-                                  child: Switch(
-                                      value: true, onChanged: (value) {})),
+                              child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
                             ),
                             Padding(
                               padding: Constant.padding,
-                              child: SizedBox(
-                                  height: 50,
-                                  child: Switch(
-                                      value: false, onChanged: (value) {})),
+                              child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
                             ),
                           ],
                         ),
@@ -279,45 +250,25 @@ class AccidentDetailPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
+                            subtitle(height: 50, width: 150, subtitle: 'Kök Neden Analizi Gerekiyor Mu?   '),
+                            subtitle(height: 50, width: 150, subtitle: 'Maddi hasar var mı?   '),
+                            subtitle(height: 50, width: 150, subtitle: 'Kamera kaydı var mı?   '),
+                            subtitle(height: 50, width: 150, subtitle: 'Operasyonel Kaza / Rutin İş Esnasında?   '),
                             subtitle(
                                 height: 50,
                                 width: 150,
-                                subtitle: 'Kök Neden Analizi Gerekiyor Mu?   '),
+                                subtitle: 'İş durdu mu/aksadı mı? (Çalışan kayıp gün durumu hariç)?   '),
                             subtitle(
                                 height: 50,
                                 width: 150,
-                                subtitle: 'Maddi hasar var mı?   '),
-                            subtitle(
-                                height: 50,
-                                width: 150,
-                                subtitle: 'Kamera kaydı var mı?   '),
-                            subtitle(
-                                height: 50,
-                                width: 150,
-                                subtitle:
-                                    'Operasyonel Kaza / Rutin İş Esnasında?   '),
-                            subtitle(
-                                height: 50,
-                                width: 150,
-                                subtitle:
-                                    'İş durdu mu/aksadı mı? (Çalışan kayıp gün durumu hariç)?   '),
-                            subtitle(
-                                height: 50,
-                                width: 150,
-                                subtitle:
-                                    'Olaya katkıda bulunan faktörler risk değerlendirmesinde belirtilmiş mi?   '),
+                                subtitle: 'Olaya katkıda bulunan faktörler risk değerlendirmesinde belirtilmiş mi?   '),
                             subtitle(
                                 height: 50,
                                 width: 150,
                                 subtitle:
                                     'Risk değerlendirmede belirtilen önlemler alınmış mı? Çalışma şekillerine uyulmuş mu?   '),
-                            subtitle(
-                                height: 100,
-                                width: 150,
-                                subtitle:
-                                    'Kullanılması Gereken (Kullanılmamış) KKD:   '),
-                            subtitle(
-                                height: 100, width: 150, subtitle: 'Sebep:   '),
+                            subtitle(height: 100, width: 150, subtitle: 'Kullanılması Gereken (Kullanılmamış) KKD:   '),
+                            subtitle(height: 100, width: 150, subtitle: 'Sebep:   '),
                           ],
                         ),
                       ),
@@ -332,52 +283,31 @@ class AccidentDetailPage extends StatelessWidget {
                           children: [
                             Padding(
                               padding: Constant.padding,
-                              child: SizedBox(
-                                  height: 50,
-                                  child: Switch(
-                                      value: true, onChanged: (value) {})),
+                              child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
                             ),
                             Padding(
                               padding: Constant.padding,
-                              child: SizedBox(
-                                  height: 50,
-                                  child: Switch(
-                                      value: true, onChanged: (value) {})),
+                              child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
                             ),
                             Padding(
                               padding: Constant.padding,
-                              child: SizedBox(
-                                  height: 50,
-                                  child: Switch(
-                                      value: false, onChanged: (value) {})),
+                              child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
                             ),
                             Padding(
                               padding: Constant.padding,
-                              child: SizedBox(
-                                  height: 50,
-                                  child: Switch(
-                                      value: false, onChanged: (value) {})),
+                              child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
                             ),
                             Padding(
                               padding: Constant.padding,
-                              child: SizedBox(
-                                  height: 50,
-                                  child: Switch(
-                                      value: false, onChanged: (value) {})),
+                              child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
                             ),
                             Padding(
                               padding: Constant.padding,
-                              child: SizedBox(
-                                  height: 50,
-                                  child: Switch(
-                                      value: false, onChanged: (value) {})),
+                              child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
                             ),
                             Padding(
                               padding: Constant.padding,
-                              child: SizedBox(
-                                  height: 50,
-                                  child: Switch(
-                                      value: false, onChanged: (value) {})),
+                              child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
                             ),
                             Expanded(
                               flex: 4,
@@ -391,10 +321,8 @@ class AccidentDetailPage extends StatelessWidget {
                                       child: SizedBox(
                                         height: 100,
                                         child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: const [
                                             Text('KKD'),
                                           ],
@@ -406,10 +334,8 @@ class AccidentDetailPage extends StatelessWidget {
                                       child: SizedBox(
                                         height: 100,
                                         child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: const [
                                             Text('Sebep'),
                                           ],
@@ -469,10 +395,7 @@ class AccidentDetailPage extends StatelessWidget {
                           children: [
                             Padding(
                               padding: Constant.padding,
-                              child: SizedBox(
-                                  height: 50,
-                                  child: Switch(
-                                      value: true, onChanged: (value) {})),
+                              child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
                             ),
                           ],
                         ),
@@ -509,10 +432,7 @@ class AccidentDetailPage extends StatelessWidget {
     );
   }
 
-  Padding subtitle(
-      {required String subtitle,
-      required double height,
-      required double width}) {
+  Padding subtitle({required String subtitle, required double height, required double width}) {
     return Padding(
       padding: Constant.padding,
       child: SizedBox(

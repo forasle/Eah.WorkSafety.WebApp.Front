@@ -9,6 +9,7 @@ class NotificationCardWidget extends StatelessWidget {
   final List<String> actionNotifications;
   final List<String> documentNotifications;
   final List<String> workerNotifications;
+
   const NotificationCardWidget({
     Key? key,
     required this.color,
@@ -33,8 +34,7 @@ class NotificationCardWidget extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              decoration: BoxDecoration(
-                  color: color, borderRadius: Constant.borderRadius),
+              decoration: BoxDecoration(color: color, borderRadius: Constant.borderRadius),
               padding: Constant.paddingOfCardWidget,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 
-class Constant{
+class Constant {
   static const themeDataPrimarySwatch = Colors.blueGrey;
 
   static const String materialAppTitle = "Eah İş Güvenliği Yönetim Sistemi";

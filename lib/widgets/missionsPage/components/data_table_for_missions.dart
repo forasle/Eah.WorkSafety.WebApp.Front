@@ -1,14 +1,13 @@
 import 'package:aeah_work_safety/models/mission.dart';
-import 'package:aeah_work_safety/models/employee.dart';
+import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/mission/constants.dart';
 
 class DataTableForMissions extends StatelessWidget {
   final String title;
   final List<String> columnData;
-  const DataTableForMissions(
-      {Key? key, required this.title, required this.columnData})
-      : super(key: key);
+
+  const DataTableForMissions({Key? key, required this.title, required this.columnData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +39,7 @@ class _DataSource extends DataTableSource {
           deadline: 'bitiş tarihi',
           department: 'Arge',
           id: 123,
-          identifier: Employee(
-
+          identifier: EmployeeResponse(
               chronicDiseases: 'null',
               address: 'test',
               department: 'test',
@@ -53,8 +51,7 @@ class _DataSource extends DataTableSource {
               startDateOfEmployment: 'Test',
               surname: 'Dogan'),
           name: 'Tehlike',
-          owner: Employee(
-
+          owner: EmployeeResponse(
               chronicDiseases: 'null',
               address: 'test',
               department: 'test',

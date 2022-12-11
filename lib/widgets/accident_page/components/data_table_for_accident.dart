@@ -6,11 +6,8 @@ class DataTableForAccident extends StatelessWidget {
   final String title;
   final String detailRoute;
   final List<String> columnData;
-  const DataTableForAccident(
-      {Key? key,
-      required this.title,
-      required this.columnData,
-      required this.detailRoute})
+
+  const DataTableForAccident({Key? key, required this.title, required this.columnData, required this.detailRoute})
       : super(key: key);
 
   @override
@@ -39,15 +36,14 @@ class _DataSource extends DataTableSource {
   _DataSource({required this.context, required this.detailRoute}) {
     _rows = [
       Accident(
-        rootCauseAnalysis: true,
-        referenceNumber: "referenceNumber",
-        lostDays: 5,
-        id: 2,
-        employees: [1,2,3],
-        date: DateTime.now(),
-        creatorUserId: 1,
-        accidentInfo: "accidentInfo"
-          ),
+          rootCauseAnalysis: true,
+          referenceNumber: "referenceNumber",
+          lostDays: 5,
+          id: 2,
+          employees: [1, 2, 3],
+          date: DateTime.now(),
+          creatorUserId: 1,
+          accidentInfo: "accidentInfo"),
     ];
   }
 

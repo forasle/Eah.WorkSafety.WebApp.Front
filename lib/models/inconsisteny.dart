@@ -28,26 +28,26 @@ class Inconsistency {
   int creatorUserId;
 
   factory Inconsistency.fromJson(Map<String, dynamic> json) => Inconsistency(
-    id: json["id"],
-    referenceNumber: json["referenceNumber"],
-    information: json["information"],
-    date: DateTime.parse(json["date"]),
-    rootCauseAnalysisRequirement: json["rootCauseAnalysisRequirement"],
-    department: json["department"],
-    status: json["status"],
-    riskScore: json["riskScore"],
-    creatorUserId: json["creatorUserId"],
-  );
+        id: json["id"],
+        referenceNumber: json["referenceNumber"],
+        information: json["information"],
+        date: DateTime.parse(json["date"]),
+        rootCauseAnalysisRequirement: json["rootCauseAnalysisRequirement"],
+        department: json["department"],
+        status: json["status"],
+        riskScore: json["riskScore"],
+        creatorUserId: json["creatorUserId"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "referenceNumber": referenceNumber,
-    "information": information,
-    "date": date.toIso8601String(),
-    "rootCauseAnalysisRequirement": rootCauseAnalysisRequirement,
-    "department": department,
-    "status": status,
-    "riskScore": riskScore,
-    "creatorUserId": creatorUserId,
-  };
+        "id": id,
+        "referenceNumber": referenceNumber,
+        "information": information,
+        "date": date.toIso8601String(),
+        "rootCauseAnalysisRequirement": rootCauseAnalysisRequirement,
+        "department": department,
+        "status": status,
+        "riskScore": riskScore,
+        "creatorUserId": creatorUserId,
+      };
 }
