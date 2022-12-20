@@ -1,5 +1,5 @@
 import 'package:aeah_work_safety/models/accident.dart';
-import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
+import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
 import 'package:flutter/material.dart';
 
 import 'package:aeah_work_safety/constants/accident/constants.dart';

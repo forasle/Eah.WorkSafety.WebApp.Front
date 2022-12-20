@@ -1,7 +1,9 @@
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/models/occupation_diseases.dart';
-import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
+import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
 import 'package:flutter/material.dart';
+
+import '../../../constants/constants.dart';
 
 class DataTableForOccupationDiseases extends StatelessWidget {
   String title;
@@ -39,19 +41,7 @@ class _DataSource extends DataTableSource {
         diagnosis: '123',
         diagnosisDate: '123',
         number: 123,
-        owner: EmployeeResponse(
-            chronicDiseases: 'null',
-            id: 123,
-            identificationNumber: 159,
-            registrationNumber: 'Test',
-            name: 'Murat',
-            surname: 'Dogan',
-            position: 'Arge',
-            department: 'Arge',
-            startDateOfEmployment: 'EA',
-            address: 'Test'),
-        referenceNumber: 'position',
-      )
+        owner: employeeInstance, referenceNumber: '')
     ];
   }
 

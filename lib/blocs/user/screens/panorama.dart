@@ -46,7 +46,7 @@ class Panorama extends StatelessWidget {
                               'Çalışan',
                               Colors.blueGrey,
                               () {
-                                Navigator.of(context).pushNamed(workersMainPageRoute);
+                                Navigator.of(context).pushNamed(workersMainPageRoute,arguments:_loginResponse);
                               }
                             ],
                             [

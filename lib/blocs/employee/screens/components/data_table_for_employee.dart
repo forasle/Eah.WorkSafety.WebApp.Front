@@ -1,7 +1,9 @@
 import 'package:aeah_work_safety/constants/routes.dart';
-import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
+import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/employee/constants.dart';
+
+import '../../../../constants/constants.dart';
 
 class DataTableForEmployee extends StatelessWidget {
   const DataTableForEmployee({Key? key}) : super(key: key);
@@ -42,30 +44,8 @@ class DataTableForEmployee extends StatelessWidget {
 class _DataSource extends DataTableSource {
   _DataSource(this.context) {
     _rows = [
-      EmployeeResponse(
-          chronicDiseases: 'null',
-          id: 1,
-          identificationNumber: 1655,
-          registrationNumber: 'MM132',
-          name: 'Murat',
-          surname: 'Doğan',
-          position: 'Engineer',
-          department: 'Development',
-          startDateOfEmployment: '01.01.2022',
-          address:
-              'Adres: Varlık Mh. Kazım Karabekir Cd. 07100 /Antalya Tel: +90 242 249 44 00 E -Mail: antalyaeah@saglik.gov.tr'),
-      EmployeeResponse(
-          chronicDiseases: 'null',
-          id: 2,
-          identificationNumber: 1655,
-          registrationNumber: 'MM132',
-          name: 'Selda',
-          surname: 'Doğan',
-          position: 'ATT',
-          department: 'Development',
-          startDateOfEmployment: '01.01.2022',
-          address:
-              'Adres: Varlık Mh. Kazım Karabekir Cd. 07100 /Antalya Tel: +90 242 249 44 00 E -Mail: antalyaeah@saglik.gov.tr')
+      employeeInstance,
+      employeeInstance
     ];
   }
 
@@ -79,7 +59,7 @@ class _DataSource extends DataTableSource {
     final row = _rows[index];
     return (DataRow.byIndex(
       index: index,
-      selected: row.selected,
+      //selected: row.selected,
       onSelectChanged: (value) {
         Navigator.pushNamed(context, workersDetailPageRoute);
       },
@@ -90,7 +70,7 @@ class _DataSource extends DataTableSource {
         DataCell(Text(row.name + ' ' + row.surname)),
         DataCell(Text(row.position)),
         DataCell(Text(row.department)),
-        DataCell(Text(row.startDateOfEmployment)),
+        DataCell(Text(row.startDateOfEmployment.toString())),
         DataCell(Text(row.address)),
       ],
     ));

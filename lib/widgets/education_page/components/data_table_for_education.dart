@@ -1,6 +1,8 @@
 import 'package:aeah_work_safety/models/education.dart';
-import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
+import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
 import 'package:flutter/material.dart';
+
+import '../../../constants/constants.dart';
 
 class DataTableForEducation extends StatelessWidget {
   String title;
@@ -36,34 +38,14 @@ class _DataSource extends DataTableSource {
   _DataSource(this.context, this.detailRoute) {
     _rows = [
       Education(
-          list: EmployeeResponse(
-              chronicDiseases: 'null',
-              id: 123,
-              identificationNumber: 159,
-              registrationNumber: 'Test',
-              name: 'Murat',
-              surname: 'Dogan',
-              position: 'Arge',
-              department: 'Arge',
-              startDateOfEmployment: 'EA',
-              address: 'Test'),
+          list: employeeInstance,
           name: 'Sağlık Konuları',
           info: 'Test',
           number: 4562,
           status: true,
           time: 'time',
           date: 'education date',
-          identifier: EmployeeResponse(
-              chronicDiseases: 'null',
-              id: 123,
-              identificationNumber: 159,
-              registrationNumber: 'Test',
-              name: 'Murat',
-              surname: 'Dogan',
-              position: 'Arge',
-              department: 'Arge',
-              startDateOfEmployment: 'EA',
-              address: 'Test')),
+          identifier: employeeInstance,)
     ];
   }
 

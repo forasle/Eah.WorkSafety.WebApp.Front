@@ -1,3 +1,4 @@
+import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
 import 'package:aeah_work_safety/blocs/user/user_bloc.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/services/locator.dart';
@@ -10,7 +11,7 @@ import 'package:aeah_work_safety/widgets/contingency_plan_page/contingency_plan.
 import 'package:aeah_work_safety/widgets/day_without_accident_page/day_without_accident.dart';
 import 'package:aeah_work_safety/widgets/education_page/components/add_new_education.dart';
 import 'package:aeah_work_safety/widgets/employee_detail_page/employee_detail_page.dart';
-import 'package:aeah_work_safety/widgets/employee_page/employee.dart';
+import 'package:aeah_work_safety/blocs/employee/screens/employee.dart';
 import 'package:aeah_work_safety/widgets/components/add_new_accident.dart';
 import 'package:aeah_work_safety/widgets/education_page/education_page.dart';
 import 'package:aeah_work_safety/widgets/inconsistency_page/components/add_new_inconsistency.dart';
@@ -55,6 +56,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => UserBloc(),
+        ),
+        BlocProvider(
+          create: (context) => EmployeeBloc(),
         ),
       ],
       child: MaterialApp(

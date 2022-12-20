@@ -1,4 +1,4 @@
-import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
+import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
 
 class RiskAssessment {
   final String revisionDate;

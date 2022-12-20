@@ -1,5 +1,7 @@
-import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
+import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
 import 'package:flutter/material.dart';
+
+import '../../../constants/constants.dart';
 
 class DataTableForPeriodicMedicalExamination extends StatelessWidget {
   String title;
@@ -32,17 +34,7 @@ class DataTableForPeriodicMedicalExamination extends StatelessWidget {
 class _DataSource extends DataTableSource {
   _DataSource(this.context) {
     _rows = [
-      EmployeeResponse(
-          chronicDiseases: 'null',
-          address: 'test',
-          department: 'test',
-          identificationNumber: 123,
-          name: 'Murat',
-          id: 5,
-          position: 'Engineer',
-          registrationNumber: '25',
-          startDateOfEmployment: 'Test',
-          surname: 'Dogan'),
+      employeeInstance,
     ];
   }
 
@@ -56,7 +48,7 @@ class _DataSource extends DataTableSource {
     final row = _rows[index];
     return (DataRow.byIndex(
       index: index,
-      selected: row.selected,
+      //selected: row.selected,
       onSelectChanged: (value) {},
       cells: [
         DataCell(Text(row.id.toString())),
@@ -65,7 +57,7 @@ class _DataSource extends DataTableSource {
         DataCell(Text(row.name)),
         DataCell(Text(row.position)),
         DataCell(Text(row.department)),
-        DataCell(Text(row.startDateOfEmployment)),
+        DataCell(Text(row.startDateOfEmployment.toString())),
         DataCell(Text("row.periodicMedicalExaminationType")),
         DataCell(Text("row.necessaryPeriodicMedicalExaminationDate")),
         DataCell(Text(row.address)),

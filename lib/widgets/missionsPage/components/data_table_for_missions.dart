@@ -1,7 +1,9 @@
 import 'package:aeah_work_safety/models/mission.dart';
-import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
+import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/mission/constants.dart';
+
+import '../../../constants/constants.dart';
 
 class DataTableForMissions extends StatelessWidget {
   final String title;
@@ -39,30 +41,9 @@ class _DataSource extends DataTableSource {
           deadline: 'bitiş tarihi',
           department: 'Arge',
           id: 123,
-          identifier: EmployeeResponse(
-              chronicDiseases: 'null',
-              address: 'test',
-              department: 'test',
-              identificationNumber: 123,
-              name: 'Murat',
-              id: 5,
-              position: 'Engineer',
-              registrationNumber: '25',
-              startDateOfEmployment: 'Test',
-              surname: 'Dogan'),
+          identifier: employeeInstance,
           name: 'Tehlike',
-          owner: EmployeeResponse(
-              chronicDiseases: 'null',
-              address: 'test',
-              department: 'test',
-              identificationNumber: 123,
-              name: 'Murat',
-              id: 5,
-              position: 'Engineer',
-              registrationNumber: '25',
-              startDateOfEmployment: 'Test',
-              surname: 'Dogan'),
-          status: true),
+          owner: employeeInstance, status: true)
     ];
   }
 

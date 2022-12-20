@@ -1,4 +1,5 @@
-import 'package:aeah_work_safety/blocs/user/models/employee_response.dart';
+import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
+import 'package:aeah_work_safety/constants/constants.dart';
 import 'package:aeah_work_safety/models/risk_assessment.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/risk_assessment/constants.dart';
@@ -44,17 +45,7 @@ class _DataSource extends DataTableSource {
           name: 'Risk Değerlendirme Adı',
           referenceNumber: 'Risk Değerlendirme Referans No',
           revisionDate: 'Risk Değerlendirme Revizyon Tarihi',
-          riskAssessmentIdentifier: EmployeeResponse(
-              chronicDiseases: 'null',
-              id: 123,
-              identificationNumber: 159,
-              registrationNumber: 'Test',
-              name: 'Murat',
-              surname: 'Dogan',
-              position: 'Arge',
-              department: 'Arge',
-              startDateOfEmployment: 'EA',
-              address: 'Test')),
+          riskAssessmentIdentifier: employeeInstance,)
     ];
   }
 
