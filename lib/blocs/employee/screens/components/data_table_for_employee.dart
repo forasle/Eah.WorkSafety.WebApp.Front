@@ -1,12 +1,12 @@
+import 'package:aeah_work_safety/blocs/employee/models/employee.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/employee/constants.dart';
 
-import '../../../../constants/constants.dart';
-
 class DataTableForEmployee extends StatelessWidget {
-  const DataTableForEmployee({Key? key}) : super(key: key);
+  final EmployeeResponse employeeResponse;
+  const DataTableForEmployee({Key? key, required this.employeeResponse}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class DataTableForEmployee extends StatelessWidget {
               DataColumn(label: Text('İşe Giriş Tarihi')),
               DataColumn(label: Text('Adres')),
             ],
-            source: _DataSource(context),
+            source: _DataSource(context,employeeResponse),
           ),
         ],
       ),
@@ -42,15 +42,13 @@ class DataTableForEmployee extends StatelessWidget {
 }
 
 class _DataSource extends DataTableSource {
-  _DataSource(this.context) {
-    _rows = [
-      employeeInstance,
-      employeeInstance
-    ];
-  }
+  final EmployeeResponse employeeResponse;
 
+  _DataSource(this.context, this.employeeResponse) {
+    _rows = employeeResponse.data;
+  }
   final BuildContext context;
-  late List<EmployeeResponse> _rows;
+  late List<Employee> _rows;
 
   final int _selectedCount = 0;
 
@@ -61,16 +59,16 @@ class _DataSource extends DataTableSource {
       index: index,
       //selected: row.selected,
       onSelectChanged: (value) {
-        Navigator.pushNamed(context, workersDetailPageRoute);
+        Navigator.pushNamed(context, workersDetailPageRoute,arguments: employeeResponse.data[index]);
       },
       cells: [
-        DataCell(Text(row.id.toString())),
-        DataCell(Text(row.identificationNumber.toString())),
-        DataCell(Text(row.registrationNumber)),
-        DataCell(Text(row.name + ' ' + row.surname)),
-        DataCell(Text(row.position)),
-        DataCell(Text(row.department)),
-        DataCell(Text(row.startDateOfEmployment.toString())),
+       DataCell(Text(row.id.toString())),
+       DataCell(Text(row.identificationNumber.toString())),
+       DataCell(Text(row.registrationNumber)),
+       DataCell(Text(row.name + ' ' + row.surname)),
+       DataCell(Text(row.position)),
+       DataCell(Text(row.department)),
+       DataCell(Text(row.startDateOfEmployment.toString())),
         DataCell(Text(row.address)),
       ],
     ));
@@ -81,6 +79,7 @@ class _DataSource extends DataTableSource {
 
   @override
   bool get isRowCountApproximate => false;
+
 
   @override
   int get selectedRowCount => _selectedCount;

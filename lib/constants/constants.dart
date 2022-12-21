@@ -1,6 +1,7 @@
+import 'package:aeah_work_safety/blocs/employee/models/employee.dart';
 import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
 
-var employeeInstance = EmployeeResponse(
+var employeeInstance = Employee(
     age: 22,
     birthPlace: "123",
     educationStatus: "status",

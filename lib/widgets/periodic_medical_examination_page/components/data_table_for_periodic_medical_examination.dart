@@ -1,3 +1,4 @@
+import 'package:aeah_work_safety/blocs/employee/models/employee.dart';
 import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +40,7 @@ class _DataSource extends DataTableSource {
   }
 
   final BuildContext context;
-  late List<EmployeeResponse> _rows;
+  late List<Employee> _rows;
 
   final int _selectedCount = 0;
 

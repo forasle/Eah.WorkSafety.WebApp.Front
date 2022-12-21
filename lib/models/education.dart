@@ -1,13 +1,14 @@
+import 'package:aeah_work_safety/blocs/employee/models/employee.dart';
 import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
 
 class Education {
   final String name;
   final double number;
   final String info;
-  final EmployeeResponse identifier;
+  final Employee identifier;
   final String date;
   final String time;
-  final EmployeeResponse list;
+  final Employee list;
   final bool status;
 
   bool selected = false;

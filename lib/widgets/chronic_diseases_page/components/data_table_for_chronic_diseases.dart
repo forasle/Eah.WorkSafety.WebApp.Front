@@ -35,7 +35,7 @@ class DataTableForChronicDiseases extends StatelessWidget {
 class _DataSource extends DataTableSource {
   _DataSource(this.context) {
     _rows = [
-      employeeInstance
+      //employeeInstance
     ];
   }
 
@@ -54,15 +54,15 @@ class _DataSource extends DataTableSource {
         Navigator.pushNamed(context, workersDetailPageRoute);
       },
       cells: [
-        DataCell(Text(row.id.toString())),
-        DataCell(Text(row.identificationNumber.toString())),
-        DataCell(Text(row.identificationNumber.toString())),
-        DataCell(Text(row.name.toString())),
-        DataCell(Text(row.position.toString())),
-        DataCell(Text(row.department.toString())),
-        DataCell(Text(row.startDateOfEmployment.toString())),
-        DataCell(Text(row.chronicDisease.toString())),
-        DataCell(Text(row.address.toString())),
+        //DataCell(Text(row.id.toString())),
+        //DataCell(Text(row.identificationNumber.toString())),
+        //DataCell(Text(row.identificationNumber.toString())),
+        //DataCell(Text(row.name.toString())),
+        //DataCell(Text(row.position.toString())),
+        //DataCell(Text(row.department.toString())),
+        //DataCell(Text(row.startDateOfEmployment.toString())),
+        //DataCell(Text(row.chronicDisease.toString())),
+        //DataCell(Text(row.address.toString())),
       ],
     ));
   }

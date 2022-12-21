@@ -1,4 +1,4 @@
-import 'dart:async';
+
 import 'dart:convert';
 
 import 'package:aeah_work_safety/blocs/employee/models/employee_request.dart';
@@ -21,15 +21,15 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
       final employeeResponse = await _employeeRepository.getEmployeeData(employeeRequest: event.employeeRequest);
       final statisticResponse = await _statisticRepository.getGeneralStatistic();
       if (employeeResponse.statusCode == 200 && statisticResponse.statusCode == 200) {
-        final Iterable employeeResponseJson = jsonDecode(employeeResponse.body);
-        final List<EmployeeResponse> employeeResponseModelList =List<EmployeeResponse>.from(employeeResponseJson.map((e) => EmployeeResponse.fromJson(e)));
+        final employeeResponseJson = jsonDecode(employeeResponse.body);
+        final EmployeeResponse employeeResponseModel =EmployeeResponse.fromJson(employeeResponseJson);
 
         final statisticResponseJson = jsonDecode(statisticResponse.body);
         final DateTime lastAccidentDay = DateTime.parse(statisticResponseJson['dayOfLastAccident']);
         final int dayWithoutAccident = DateTime.now().difference(lastAccidentDay).inDays;
         statisticResponseJson['dayWithoutAccident'] = dayWithoutAccident;
         final statisticResponseModel = StatisticResponse.fromJson(statisticResponseJson);
-        emit(EmployeeData(employeeResponse: employeeResponseModelList, statisticResponse: statisticResponseModel));
+        emit(EmployeeData(employeeResponse: employeeResponseModel, statisticResponse: statisticResponseModel));
       } else {
         emit(const EmployeeDataError(message: "Kullanıcı bilgileri getirilemedi"));
       }

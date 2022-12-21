@@ -1,8 +1,3 @@
-// To parse this JSON data, do
-//
-//     final statisticResponse = statisticResponseFromJson(jsonString);
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 StatisticResponse statisticResponseFromJson(String str) => StatisticResponse.fromJson(json.decode(str));
@@ -12,6 +7,7 @@ String statisticResponseToJson(StatisticResponse data) => json.encode(data.toJso
 class StatisticResponse {
   StatisticResponse({
     required this.numberOfEmployee,
+    required this.numberOfUser,
     required this.averageAgeOfEmployee,
     required this.averageDayOfWork,
     required this.totalLostDays,
@@ -33,6 +29,7 @@ class StatisticResponse {
   });
 
   int numberOfEmployee;
+  int numberOfUser;
   double averageAgeOfEmployee;
   double averageDayOfWork;
   int totalLostDays;
@@ -54,6 +51,7 @@ class StatisticResponse {
 
   factory StatisticResponse.fromJson(Map<String, dynamic> json) => StatisticResponse(
     numberOfEmployee: json["numberOfEmployee"],
+    numberOfUser: json["numberOfUser"],
     averageAgeOfEmployee: json["averageAgeOfEmployee"].toDouble(),
     averageDayOfWork: json["averageDayOfWork"].toDouble(),
     totalLostDays: json["totalLostDays"],
@@ -76,6 +74,7 @@ class StatisticResponse {
 
   Map<String, dynamic> toJson() => {
     "numberOfEmployee": numberOfEmployee,
+    "numberOfUser": numberOfUser,
     "averageAgeOfEmployee": averageAgeOfEmployee,
     "averageDayOfWork": averageDayOfWork,
     "totalLostDays": totalLostDays,

@@ -12,7 +12,7 @@ class EmployeeInitial extends EmployeeState {
 }
 
 class EmployeeData extends EmployeeState{
-  final List<EmployeeResponse> employeeResponse;
+  final EmployeeResponse employeeResponse;
   final StatisticResponse statisticResponse;
 
   const EmployeeData({required this.statisticResponse, required this.employeeResponse});
