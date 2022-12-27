@@ -10,7 +10,7 @@ import 'package:http/http.dart';
 class EmployeeRepository {
   EmployeeService employeeService = locator<EmployeeService>();
 
-  Future<Response> getEmployeeData({required EmployeeRequest employeeRequest}) async {
-    return await employeeService.getEmployeeData(employeeRequest);
+  Future<Response> getEmployeeData({required int page,required int pageSize, required EmployeeRequest employeeRequest}) async {
+    return await employeeService.getEmployeeData(page,pageSize, employeeRequest);
   }
 }

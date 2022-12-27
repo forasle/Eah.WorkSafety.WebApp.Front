@@ -1,5 +1,6 @@
 import 'package:aeah_work_safety/blocs/employee/models/employee.dart';
 import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 var employeeInstance = Employee(
     age: 22,

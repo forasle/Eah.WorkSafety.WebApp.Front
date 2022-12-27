@@ -1,7 +1,5 @@
-import 'package:aeah_work_safety/blocs/auth/models/login_response.dart';
-import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
-import 'package:aeah_work_safety/blocs/employee/models/employee_request.dart';
 import 'package:aeah_work_safety/blocs/employee/screens/components/data_table_for_employee.dart';
+import 'package:aeah_work_safety/blocs/employee/screens/components/test.dart';
 import 'package:aeah_work_safety/blocs/user/user_bloc.dart';
 import 'package:aeah_work_safety/constants/employee/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
@@ -19,14 +17,9 @@ class Employee extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LoginResponse _loginResponse = ModalRoute.of(context)?.settings.arguments as LoginResponse;
+    //final LoginResponse _loginResponse = ModalRoute.of(context)?.settings.arguments as LoginResponse;
     ScrollController horizontalController = ScrollController();
-    context.read<EmployeeBloc>().add(GetEmployeeData(employeeRequest: EmployeeRequest(loginResponse: _loginResponse)));
-    return BlocBuilder<EmployeeBloc, EmployeeState>(
-      builder: (context, state) {
-        if (state is EmployeeInitial) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (state is EmployeeData) {
+    //context.read<EmployeeBloc>().add(GetEmployeeData(page: 1,pageSize: 10,employeeRequest: EmployeeRequest(loginResponse: _loginResponse)));
           return CustomScaffold(
             body: Column(
               mainAxisSize: MainAxisSize.max,
@@ -71,9 +64,6 @@ class Employee extends StatelessWidget {
                         children: [
                           Flexible(child: ElevatedButton(onPressed: () {}, child: const Text('Rapor Yazdır'))),
                           Constant.sizedBoxWidth,
-                          const Flexible(
-                            child: SearchBarWidget(),
-                          ),
                         ],
                       ),
                     ),
@@ -91,7 +81,7 @@ class Employee extends StatelessWidget {
                         return Row(
                           children: [
                             CustomCardWidget(
-                                cardSubIcon: Icon(null),
+                                cardSubIcon: const Icon(null),
                                 cardIcon: Icons.supervisor_account,
                                 cardText: 'Toplam Çalışan',
                                 cardDouble: state is UserData ? state.statisticResponse.numberOfEmployee : '-',
@@ -121,7 +111,9 @@ class Employee extends StatelessWidget {
                   ),
                 ),
                 Constant.dividerWithIndent,
-                DataTableForEmployee(employeeResponse : state.employeeResponse),
+                //DataTableForEmployee(employeeResponse : state.employeeResponse),
+                const EmployeeListView(),
+                // const AdvancedDataTable(),
                 //const HomeScreen(),
                 Constant.sizedBoxHeight,
                 Constant.dividerWithIndent,
@@ -174,7 +166,7 @@ class Employee extends StatelessWidget {
                           ChartData('Steve', 38),
                         ],
                       ),
-                      ColumnGraph(
+                      const ColumnGraph(
                         title: 'İşe Giriş Tarihi',
                       )
                     ],
@@ -184,10 +176,5 @@ class Employee extends StatelessWidget {
               ],
             ),
           );
-        } else {
-          return ErrorWidget("Veriler getirilemedi");
-        }
-      },
-    );
   }
 }

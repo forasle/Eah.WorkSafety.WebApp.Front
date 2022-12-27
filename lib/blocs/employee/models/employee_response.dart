@@ -29,8 +29,8 @@ class EmployeeResponse {
   String lastPage;
   int totalPages;
   int totalRecords;
-  String nextPage;
-  dynamic previousPage;
+  String? nextPage;
+  String? previousPage;
   List<Employee> data;
   bool succeeded;
   dynamic errors;

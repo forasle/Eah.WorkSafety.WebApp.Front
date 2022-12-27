@@ -5,6 +5,7 @@ import 'package:aeah_work_safety/blocs/auth/repository/auth_repository.dart';
 import 'package:aeah_work_safety/services/locator.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 part 'auth_event.dart';
 
@@ -19,6 +20,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       if (authResponse.statusCode == 201) {
         final authResponseJson = jsonDecode(authResponse.body);
         final authResponseModel = LoginResponse.fromJson(authResponseJson);
+
+        const storage = FlutterSecureStorage();
+        await storage.write(key: "token", value: authResponseModel.token);
         emit(AuthLoginSuccessState(loginResponse: authResponseModel));
       } else if (authResponse.statusCode == 400) {
         emit(const AuthLoginFailState(message: "Kullanıcı adı veya şifre yanlış"));

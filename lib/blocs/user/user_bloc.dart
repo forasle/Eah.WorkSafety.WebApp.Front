@@ -17,7 +17,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   UserBloc() : super(const UserInitial(message: 'Kullanıcı bilgileri getiriliyor')) {
     on<GetUserData>((event, emit) async {
       final userResponse = await _userRepository.getUserData(userRequest: event.userRequest);
-      final statisticResponse = await _statisticRepository.getGeneralStatistic();
+      final statisticResponse = await _statisticRepository.getGeneralStatistic(event.userRequest.loginResponse);
       if (userResponse.statusCode == 200 && statisticResponse.statusCode == 200) {
         final userResponseJson = jsonDecode(userResponse.body);
         userResponseJson['token'] = event.userRequest.loginResponse.token;

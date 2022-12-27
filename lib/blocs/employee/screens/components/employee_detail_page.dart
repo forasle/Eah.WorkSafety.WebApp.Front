@@ -55,88 +55,91 @@ class EmployeeDetail extends StatelessWidget {
                   Flexible(
                     child: Padding(
                       padding: Constant.padding,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            'Adı Soyadı:   ',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            'TC Kimlik No:   ',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            'Cinsiyeti:    ',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text('Yaş:    '),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            'Doğum Yeri:    ',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            'Uyruğu:    ',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            'Birim/Departman:    ',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            'Calışan Sicil No:    ',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            'Eğitim Durumu:    ',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            'Mezun Olduğu Bölüm:    ',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            'İşe Giriş Tarihi:   ',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            'Geçerli Görevine Başlama Tarihi:   ',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            'Görevi:    ',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text('Ünvanı:    '),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            'Birim/Departman:    ',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            'Yaptığı İş Tanımı:    ',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            'Risk Grupları:    ',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text(
+                              'Adı Soyadı:   ',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              'TC Kimlik No:   ',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              'Cinsiyeti:    ',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text('Yaş:    '),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              'Doğum Yeri:    ',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              'Uyruğu:    ',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              'Birim/Departman:    ',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              'Calışan Sicil No:    ',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              'Eğitim Durumu:    ',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              'Mezun Olduğu Bölüm:    ',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              'İşe Giriş Tarihi:   ',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              'Geçerli Görevine Başlama Tarihi:   ',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              'Görevi:    ',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text('Ünvanı:    '),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              'Birim/Departman:    ',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              'Yaptığı İş Tanımı:    ',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              'Risk Grupları:    ',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -144,99 +147,102 @@ class EmployeeDetail extends StatelessWidget {
                   Flexible(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            _employeeDetail.name,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            _employeeDetail.identificationNumber,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          const Text(
-                            'Erkek---',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            _employeeDetail.age.toString(),
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            _employeeDetail.birthPlace,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            _employeeDetail.nationality,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            _employeeDetail.department,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            _employeeDetail.registrationNumber,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            _employeeDetail.educationStatus,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          const Text(
-                            'Mühendislik Fakültesi---',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            _employeeDetail.startDateOfEmployment.toString(),
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          const Text(
-                            '10/05/2006 (16 yıl önce)---',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            _employeeDetail.position,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          Text(
-                            _employeeDetail.title,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          const Text(
-                            'Arge---',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          const Text(
-                            'Arge Mühendisi---',
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Constant.sizedBoxForEmployee,
-                          ElevatedButton(
-                            style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.redAccent)),
-                            child: Text(
-                              _employeeDetail.riskGroup,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              _employeeDetail.name,
                               overflow: TextOverflow.ellipsis,
                             ),
-                            onPressed: () {},
-                          ),
-                          Constant.sizedBoxForEmployee,
-                        ],
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              _employeeDetail.identificationNumber,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            const Text(
+                              'Erkek---',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              _employeeDetail.age.toString(),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              _employeeDetail.birthPlace,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              _employeeDetail.nationality,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              _employeeDetail.department,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              _employeeDetail.registrationNumber,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              _employeeDetail.educationStatus,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            const Text(
+                              'Mühendislik Fakültesi---',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              _employeeDetail.startDateOfEmployment.toString(),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            const Text(
+                              '10/05/2006 (16 yıl önce)---',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              _employeeDetail.position,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            Text(
+                              _employeeDetail.title,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            const Text(
+                              'Arge---',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            const Text(
+                              'Arge Mühendisi---',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Constant.sizedBoxForEmployee,
+                            ElevatedButton(
+                              style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.redAccent)),
+                              child: Text(
+                                _employeeDetail.riskGroup,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              onPressed: () {},
+                            ),
+                            Constant.sizedBoxForEmployee,
+                          ],
+                        ),
                       ),
                     ),
                   ),
