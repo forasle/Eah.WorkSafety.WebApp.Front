@@ -3,34 +3,38 @@ import 'dart:convert';
 import 'package:advanced_datatable/advanced_datatable_source.dart';
 import 'package:advanced_datatable/datatable.dart';
 import 'package:aeah_work_safety/blocs/employee/models/employee.dart';
-import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
+import 'package:aeah_work_safety/blocs/employee/repository/employee_repository.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
-import 'package:aeah_work_safety/services/base_api.dart';
+import 'package:aeah_work_safety/services/locator.dart';
+import 'package:aeah_work_safety/widgets/accident_page/components/search_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:http/http.dart' as http;
 
 class AdvancedDataTable extends StatelessWidget {
   const AdvancedDataTable({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return AdvancedPaginatedDataTable(
+    return Column(
+      children: [
+        const SearchBarWidget(),
+        AdvancedPaginatedDataTable(
 
-      showCheckboxColumn: false,
-        columns: const [
-          DataColumn(
-            label: Text('Sıra No'),
-          ),
-          DataColumn(label: Text('Tc Kimlik No')),
-          DataColumn(label: Text('Sicil No')),
-          DataColumn(label: Text('Ad Soyad')),
-          DataColumn(label: Text('Görev')),
-          DataColumn(label: Text('Departman')),
-          DataColumn(label: Text('İşe Giriş Tarihi')),
-          DataColumn(label: Text('Adres')),
-        ],
-        source: DataSource(context));
+          showCheckboxColumn: false,
+            columns: const [
+              DataColumn(
+                label: Text('Sıra No'),
+              ),
+              DataColumn(label: Text('Tc Kimlik No')),
+              DataColumn(label: Text('Sicil No')),
+              DataColumn(label: Text('Ad Soyad')),
+              DataColumn(label: Text('Görev')),
+              DataColumn(label: Text('Departman')),
+              DataColumn(label: Text('İşe Giriş Tarihi')),
+              DataColumn(label: Text('Adres')),
+            ],
+            source: DataSource(context)),
+      ],
+    );
   }
 }
 class DataSource extends AdvancedDataTableSource<Employee>{
@@ -41,20 +45,13 @@ class DataSource extends AdvancedDataTableSource<Employee>{
 
   @override
   Future<RemoteDataSourceDetails<Employee>> getNextPage(NextPageRequest pageRequest) async{
-    var baseAPI=BaseAPI();
-    const storage = FlutterSecureStorage();
-    final String? token = await storage.read(key: "token");
+    final EmployeeRepository _employeeRepository = locator<EmployeeRepository>();
+    final employeeResponse = await _employeeRepository.getEmployeeData(page: ((pageRequest.offset/10)+1).toInt(), pageSize: pageRequest.pageSize);
 
-    baseAPI.headers["Authorization"]= "Bearer $token";
-    double page = (pageRequest.offset/10)+1;
-    var requestUri = Uri.parse(baseAPI.employeePath+"?pageNumber="+(page.toInt()).toString()+"&pageSize="+pageRequest.pageSize.toString());
-    final employeeResponse = await http.get(requestUri, headers:baseAPI.headers);
-    if(employeeResponse.statusCode==200){
-      final employeeResponseJson = jsonDecode(employeeResponse.body);
-      EmployeeResponse employeeResponseModel =EmployeeResponse.fromJson(employeeResponseJson);
-      _rows = employeeResponseModel.data;
+    if(employeeResponse.succeeded){
+      _rows = employeeResponse.data;
       return RemoteDataSourceDetails(
-          employeeResponseModel.totalRecords,employeeResponseModel.data);
+          employeeResponse.totalRecords,employeeResponse.data);
     }
     else {
       throw Exception('Unable to query remote server');

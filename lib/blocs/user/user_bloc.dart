@@ -17,18 +17,12 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   UserBloc() : super(const UserInitial(message: 'Kullanıcı bilgileri getiriliyor')) {
     on<GetUserData>((event, emit) async {
       final userResponse = await _userRepository.getUserData(userRequest: event.userRequest);
-      final statisticResponse = await _statisticRepository.getGeneralStatistic(event.userRequest.loginResponse);
-      if (userResponse.statusCode == 200 && statisticResponse.statusCode == 200) {
+      final statisticResponse = await _statisticRepository.getGeneralStatistic();
+      if (userResponse.statusCode == 200) {
         final userResponseJson = jsonDecode(userResponse.body);
         userResponseJson['token'] = event.userRequest.loginResponse.token;
         final userResponseModel = UserResponse.fromJson(userResponseJson);
-
-        final statisticResponseJson = jsonDecode(statisticResponse.body);
-        final DateTime lastAccidentDay = DateTime.parse(statisticResponseJson['dayOfLastAccident']);
-        final int dayWithoutAccident = DateTime.now().difference(lastAccidentDay).inDays;
-        statisticResponseJson['dayWithoutAccident'] = dayWithoutAccident;
-        final statisticResponseModel = StatisticResponse.fromJson(statisticResponseJson);
-        emit(UserData(userResponse: userResponseModel, statisticResponse: statisticResponseModel));
+        emit(UserData(userResponse: userResponseModel, statisticResponse: statisticResponse));
       } else {
         emit(const UserDataError(message: "Kullanıcı bilgileri getirilemedi"));
       }

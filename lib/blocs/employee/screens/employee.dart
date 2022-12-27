@@ -1,5 +1,4 @@
 import 'package:aeah_work_safety/blocs/employee/screens/components/data_table_for_employee.dart';
-import 'package:aeah_work_safety/blocs/employee/screens/components/test.dart';
 import 'package:aeah_work_safety/blocs/user/user_bloc.dart';
 import 'package:aeah_work_safety/constants/employee/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
@@ -8,7 +7,6 @@ import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:aeah_work_safety/widgets/components/tappable_card_widget.dart';
 import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
 import 'package:aeah_work_safety/widgets/components/column_graph.dart';
-import 'package:aeah_work_safety/widgets/accident_page/components/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -112,8 +110,8 @@ class Employee extends StatelessWidget {
                 ),
                 Constant.dividerWithIndent,
                 //DataTableForEmployee(employeeResponse : state.employeeResponse),
-                const EmployeeListView(),
-                // const AdvancedDataTable(),
+                //const EmployeeListView(),
+                const AdvancedDataTable(),
                 //const HomeScreen(),
                 Constant.sizedBoxHeight,
                 Constant.dividerWithIndent,
