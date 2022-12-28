@@ -16,7 +16,7 @@ class AdvancedDataTable extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SearchBarWidget(),
+        //const SearchBarWidget(),
         AdvancedPaginatedDataTable(
 
           showCheckboxColumn: false,

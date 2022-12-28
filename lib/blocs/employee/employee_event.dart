@@ -8,11 +8,17 @@ abstract class EmployeeEvent extends Equatable {
 }
 
 class GetEmployeeData extends EmployeeEvent{
-  final int page;
-  final int pageSize;
 
-  const GetEmployeeData({required this.page, required this.pageSize});
+  const GetEmployeeData();
 
   @override
-  List<Object> get props => [page,pageSize];
+  List<Object> get props => [];
+}
+
+class GetEmployeeFiltered extends EmployeeEvent{
+  final String filter;
+  const GetEmployeeFiltered({required this.filter});
+
+  @override
+  List<Object> get props => [filter];
 }

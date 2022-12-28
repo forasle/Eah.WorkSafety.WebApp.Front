@@ -26,6 +26,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       } else {
         emit(const UserDataError(message: "Kullanıcı bilgileri getirilemedi"));
       }
-    });
+    }
+
+    );
   }
 }

@@ -4,6 +4,7 @@ class BaseAPI {
   static var api = base + "/api";
   var usersPath = api + "/user";
   var employeePath = api + "/employee";
+  var employeeSearchPath = api + "/employee/search/name?key=";
   var authPath = api + "/auth/SignIn";
   var statisticPath = api + "/statistics";
 

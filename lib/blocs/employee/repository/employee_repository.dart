@@ -14,4 +14,7 @@ class EmployeeRepository {
   Future<EmployeeResponse> getEmployeeData({required int page,required int pageSize}) async {
     return await employeeService.getEmployeeData(page,pageSize);
   }
+  Future<EmployeeResponse> getEmployeeFiltered({required int page,required int pageSize,required String filter}) async {
+    return await employeeService.getEmployeeFiltered(page,pageSize,filter);
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:aeah_work_safety/blocs/employee/screens/components/data_table_for_employee.dart';
+import 'package:aeah_work_safety/blocs/employee/screens/components/employee_list_view.dart';
 import 'package:aeah_work_safety/blocs/user/user_bloc.dart';
 import 'package:aeah_work_safety/constants/employee/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
@@ -110,8 +111,11 @@ class Employee extends StatelessWidget {
                 ),
                 Constant.dividerWithIndent,
                 //DataTableForEmployee(employeeResponse : state.employeeResponse),
-                //const EmployeeListView(),
-                const AdvancedDataTable(),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width-15,
+                    height:500,
+                    child: const EmployeeListView()),
+                //const AdvancedDataTable(),
                 //const HomeScreen(),
                 Constant.sizedBoxHeight,
                 Constant.dividerWithIndent,
