@@ -1,5 +1,5 @@
 import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
-import 'package:aeah_work_safety/blocs/employee/statistic_bloc.dart';
+import 'package:aeah_work_safety/blocs/statistic/statistic_bloc.dart';
 import 'package:aeah_work_safety/blocs/user/user_bloc.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/services/locator.dart';
@@ -9,7 +9,7 @@ import 'package:aeah_work_safety/widgets/components/add_new_employee.dart';
 import 'package:aeah_work_safety/widgets/contingency_plan_page/components/add_new_contingency_plan.dart';
 import 'package:aeah_work_safety/widgets/contingency_plan_page/components/contingency_plans_detail_page.dart';
 import 'package:aeah_work_safety/widgets/contingency_plan_page/contingency_plan.dart';
-import 'package:aeah_work_safety/widgets/day_without_accident_page/day_without_accident.dart';
+import 'package:aeah_work_safety/blocs/statistic/screens/day_without_accident.dart';
 import 'package:aeah_work_safety/widgets/education_page/components/add_new_education.dart';
 import 'package:aeah_work_safety/blocs/employee/screens/components/employee_detail_page.dart';
 import 'package:aeah_work_safety/blocs/employee/screens/employee.dart';

@@ -104,7 +104,7 @@ class Panorama extends StatelessWidget {
                                 Navigator.of(context).pushNamed(missionsPageRoute);
                               }
                             ],
-                            [
+                            /*[
                               Icons.cast_for_education_rounded,
                               '-',
                               'Eğitim',
@@ -112,7 +112,7 @@ class Panorama extends StatelessWidget {
                               () {
                                 Navigator.of(context).pushNamed(educationPageRoute);
                               }
-                            ],
+                            ],*/
                             [
                               Icons.badge,
                               state is UserData ? state.statisticResponse.numberOfChronicDisease : '-',
@@ -132,7 +132,7 @@ class Panorama extends StatelessWidget {
                                 Navigator.of(context).pushNamed(occupationDiseasesPageRoute);
                               }
                             ],
-                            [
+                            /*[
                               Icons.accessibility_new_sharp,
                               '-',
                               'Periyodik Muayene',
@@ -140,7 +140,7 @@ class Panorama extends StatelessWidget {
                               () {
                                 Navigator.of(context).pushNamed(periodicMedicalExaminationPageRoute);
                               }
-                            ]
+                            ]*/
                           ]
                               .map((e) => CustomCardWidget(
                                     cardIcon: e[0] as IconData,

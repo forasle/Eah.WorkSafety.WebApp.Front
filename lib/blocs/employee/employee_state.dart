@@ -20,24 +20,22 @@ class EmployeeDataLoading extends EmployeeState{
 
 class EmployeeDataLoaded extends EmployeeState{
   final EmployeeResponse employeeResponse;
-  final StatisticResponse statisticResponse;
   final bool isReachedMax;
 
-  const EmployeeDataLoaded({required this.statisticResponse, required this.employeeResponse,required this.isReachedMax});
+  const EmployeeDataLoaded({required this.employeeResponse,required this.isReachedMax});
 
   @override
-  List<Object?> get props => [employeeResponse,statisticResponse,isReachedMax];
+  List<Object?> get props => [employeeResponse,isReachedMax];
 }
 class EmployeeDataFiltered extends EmployeeState{
   final String filter;
   final EmployeeResponse employeeResponse;
-  final StatisticResponse statisticResponse;
   final bool isReachedMaxFiltered;
 
-  const EmployeeDataFiltered({required this.statisticResponse, required this.employeeResponse,required this.isReachedMaxFiltered,required this.filter});
+  const EmployeeDataFiltered({required this.employeeResponse,required this.isReachedMaxFiltered,required this.filter});
 
   @override
-  List<Object?> get props => [employeeResponse,statisticResponse,isReachedMaxFiltered];
+  List<Object?> get props => [employeeResponse, isReachedMaxFiltered];
 }
 
 class EmployeeDataError extends EmployeeState{

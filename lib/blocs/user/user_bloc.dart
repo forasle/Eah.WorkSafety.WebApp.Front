@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'package:aeah_work_safety/blocs/user/models/statistic_response.dart';
+import 'package:aeah_work_safety/blocs/statistic/models/statistic_response.dart';
 import 'package:aeah_work_safety/blocs/user/models/user_request.dart';
 import 'package:aeah_work_safety/blocs/user/models/user_response.dart';
-import 'package:aeah_work_safety/blocs/user/repository/statistic_repository.dart';
+import 'package:aeah_work_safety/blocs/statistic/repository/statistic_repository.dart';
 import 'package:aeah_work_safety/blocs/user/repository/user_repository.dart';
 import 'package:aeah_work_safety/services/locator.dart';
 import 'package:bloc/bloc.dart';

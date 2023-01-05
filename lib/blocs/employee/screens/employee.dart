@@ -1,5 +1,5 @@
 import 'package:aeah_work_safety/blocs/employee/screens/components/employee_list_view.dart';
-import 'package:aeah_work_safety/blocs/employee/statistic_bloc.dart';
+import 'package:aeah_work_safety/blocs/statistic/statistic_bloc.dart';
 import 'package:aeah_work_safety/constants/employee/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';

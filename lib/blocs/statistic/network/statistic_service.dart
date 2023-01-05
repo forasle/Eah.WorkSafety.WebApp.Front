@@ -2,7 +2,7 @@
 import 'dart:convert';
 
 import 'package:aeah_work_safety/blocs/auth/models/login_response.dart';
-import 'package:aeah_work_safety/blocs/user/models/statistic_response.dart';
+import 'package:aeah_work_safety/blocs/statistic/models/statistic_response.dart';
 import 'package:aeah_work_safety/services/base_api.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
