@@ -12,6 +12,7 @@ class Employee {
     required this.name,
     required this.surname,
     required this.age,
+    required this.gender,
     required this.birthPlace,
     required this.nationality,
     required this.educationStatus,
@@ -33,13 +34,14 @@ class Employee {
   String name;
   String surname;
   int age;
+  int gender;
   String birthPlace;
   String nationality;
   String educationStatus;
   String riskGroup;
   String title;
   String position;
-  String department;
+  int department;
   DateTime startDateOfEmployment;
   String address;
   Map<String, int> accidents;
@@ -54,6 +56,7 @@ class Employee {
     name: json["name"],
     surname: json["surname"],
     age: json["age"],
+    gender: json["gender"],
     birthPlace: json["birthPlace"],
     nationality: json["nationality"],
     educationStatus: json["educationStatus"],
@@ -76,6 +79,7 @@ class Employee {
     "name": name,
     "surname": surname,
     "age": age,
+    "gender": gender,
     "birthPlace": birthPlace,
     "nationality": nationality,
     "educationStatus": educationStatus,

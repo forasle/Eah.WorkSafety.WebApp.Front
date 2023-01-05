@@ -183,7 +183,7 @@ class EmployeeDetail extends StatelessWidget {
                             ),
                             Constant.sizedBoxForEmployee,
                             Text(
-                              _employeeDetail.department,
+                              _employeeDetail.department.toString(),
                               overflow: TextOverflow.ellipsis,
                             ),
                             Constant.sizedBoxForEmployee,

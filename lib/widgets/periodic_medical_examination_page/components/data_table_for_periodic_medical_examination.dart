@@ -57,7 +57,7 @@ class _DataSource extends DataTableSource {
         DataCell(Text(row.registrationNumber)),
         DataCell(Text(row.name)),
         DataCell(Text(row.position)),
-        DataCell(Text(row.department)),
+        DataCell(Text(row.department.toString())),
         DataCell(Text(row.startDateOfEmployment.toString())),
         DataCell(Text("row.periodicMedicalExaminationType")),
         DataCell(Text("row.necessaryPeriodicMedicalExaminationDate")),

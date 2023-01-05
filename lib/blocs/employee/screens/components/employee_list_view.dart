@@ -55,7 +55,7 @@ class EmployeeListView extends StatelessWidget {
                               title: Text(state.employeeResponse.data[index].name +
                                   " " +
                                   state.employeeResponse.data[index].surname),
-                              subtitle: Text(state.employeeResponse.data[index].department),
+                              subtitle: Text(state.employeeResponse.data[index].department.toString()),
                               trailing: const Icon(Icons.arrow_forward_ios_rounded),
                               onTap: () {
                                 Navigator.pushNamed(context, workersDetailPageRoute,
@@ -112,7 +112,7 @@ class EmployeeListView extends StatelessWidget {
                               title: Text(state.employeeResponse.data[index].name +
                                   " " +
                                   state.employeeResponse.data[index].surname),
-                              subtitle: Text(state.employeeResponse.data[index].department),
+                              subtitle: Text(state.employeeResponse.data[index].department.toString()),
                               trailing: const Icon(Icons.arrow_forward_ios_rounded),
                               onTap: () {
                                 Navigator.pushNamed(context, workersDetailPageRoute,

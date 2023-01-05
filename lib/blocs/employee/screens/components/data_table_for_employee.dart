@@ -74,7 +74,7 @@ class DataSource extends AdvancedDataTableSource<Employee>{
         DataCell(Text(row.registrationNumber)),
         DataCell(Text(row.name + ' ' + row.surname)),
         DataCell(Text(row.position)),
-        DataCell(Text(row.department)),
+        DataCell(Text(row.department.toString())),
         DataCell(Text(row.startDateOfEmployment.toString())),
         DataCell(Text(row.address)),
       ],

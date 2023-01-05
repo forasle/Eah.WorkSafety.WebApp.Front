@@ -13,7 +13,8 @@ class EmployeeService extends BaseAPI {
     final String? token = await storage.read(key: "token");
 
     headers["Authorization"]= "Bearer $token";
-    http.Response employeeResponse = await http.get(Uri.parse(super.employeePath+"?pageNumber="+page.toString()+"&pageSize="+pageSize.toString()), headers: super.headers);
+    var url = Uri.parse(super.employeePath+"?pageNumber="+page.toString()+"&pageSize="+pageSize.toString());
+    http.Response employeeResponse = await http.get(url,headers: super.headers);
     final employeeResponseJson = jsonDecode(employeeResponse.body);
     final EmployeeResponse employeeResponseModel =EmployeeResponse.fromJson(employeeResponseJson);
     return employeeResponseModel;

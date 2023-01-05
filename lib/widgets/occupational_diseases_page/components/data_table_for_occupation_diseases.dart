@@ -64,7 +64,7 @@ class _DataSource extends DataTableSource {
         DataCell(Text(row.owner.toString())),
         DataCell(Text(row.diagnosis.toString())),
         DataCell(Text(row.diagnosisDate.toString())),
-        DataCell(Text(row.owner.department)),
+        DataCell(Text(row.owner.department.toString())),
       ],
     ));
   }

@@ -16,7 +16,6 @@ class SearchBarWidget extends StatelessWidget {
           key: _formKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           child: TextFormField(
-
             onSaved: (value) {
               _filter = value!;
             },
@@ -26,9 +25,15 @@ class SearchBarWidget extends StatelessWidget {
               }
               else {
                 _formKey.currentState!.save();
-                context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: _filter));
+               // context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: _filter));
               }
+
               return null;
+            },
+            onChanged: (value) {
+              if(value.length>3){
+                context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: value));
+              }
             },
             decoration: (InputDecoration(
                 border: const OutlineInputBorder(),

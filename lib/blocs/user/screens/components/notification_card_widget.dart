@@ -5,7 +5,6 @@ class NotificationCardWidget extends StatelessWidget {
   final Color color;
   final String date;
   final double notificationCount;
-  final List<String> educationNotifications;
   final List<String> actionNotifications;
   final List<String> documentNotifications;
   final List<String> workerNotifications;
@@ -15,7 +14,6 @@ class NotificationCardWidget extends StatelessWidget {
     required this.color,
     required this.date,
     required this.notificationCount,
-    required this.educationNotifications,
     required this.actionNotifications,
     required this.documentNotifications,
     required this.workerNotifications,
@@ -49,18 +47,6 @@ class NotificationCardWidget extends StatelessWidget {
                   Text('Toplam: $notificationCount')
                 ],
               ),
-            ),
-            ExpansionTile(
-              title: const Text('Eğitim Uyarıları'),
-              children: educationNotifications
-                  .map(
-                    (e) => ListTile(
-                      onTap: () {},
-                      leading: const Icon(Icons.dangerous),
-                      subtitle: Text(e),
-                    ),
-                  )
-                  .toList(),
             ),
             ExpansionTile(
                 title: const Text('Aksiyon Uyarıları'),

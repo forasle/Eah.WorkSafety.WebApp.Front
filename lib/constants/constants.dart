@@ -4,6 +4,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 var employeeInstance = Employee(
     age: 22,
+    gender: 1,
     birthPlace: "123",
     educationStatus: "status",
     nationality: "nationality",
@@ -16,7 +17,7 @@ var employeeInstance = Employee(
     name: 'Murat',
     surname: 'Dogan',
     position: 'Arge',
-    department: 'Arge',
+    department: 1,
     startDateOfEmployment: DateTime.now(),
     address: 'Test',
     accidents: {},

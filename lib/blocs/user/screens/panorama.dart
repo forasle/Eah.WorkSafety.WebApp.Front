@@ -168,9 +168,6 @@ class Panorama extends StatelessWidget {
                         'Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar',
                       ],
                       documentNotifications: const ['Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar'],
-                      educationNotifications: const [
-                        'Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar',
-                      ],
                       workerNotifications: const ['Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar'],
                     ),
                     NotificationCardWidget(
@@ -181,9 +178,6 @@ class Panorama extends StatelessWidget {
                         'Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar',
                       ],
                       documentNotifications: const ['Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar'],
-                      educationNotifications: const [
-                        'Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar'
-                      ],
                       workerNotifications: const ['Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar'],
                     ),
                     NotificationCardWidget(
@@ -194,9 +188,6 @@ class Panorama extends StatelessWidget {
                         'Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar',
                       ],
                       documentNotifications: const ['Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar'],
-                      educationNotifications: const [
-                        'Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar'
-                      ],
                       workerNotifications: const ['Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar'],
                     ),
                     NotificationCardWidget(
@@ -207,9 +198,6 @@ class Panorama extends StatelessWidget {
                         'Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar',
                       ],
                       documentNotifications: const ['Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar'],
-                      educationNotifications: const [
-                        'Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar'
-                      ],
                       workerNotifications: const ['Sağlık Konuları eğitimi verilmemiş yada süresi geçmiş çalışanlar'],
                     )
                   ],

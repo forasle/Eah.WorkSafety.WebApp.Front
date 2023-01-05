@@ -1,4 +1,5 @@
 import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
+import 'package:aeah_work_safety/blocs/employee/statistic_bloc.dart';
 import 'package:aeah_work_safety/blocs/user/user_bloc.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/services/locator.dart';
@@ -59,6 +60,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => EmployeeBloc(),
+        ),
+        BlocProvider(
+          create: (context) => StatisticBloc(),
         ),
       ],
       child: MaterialApp(
