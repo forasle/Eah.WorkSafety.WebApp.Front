@@ -1,5 +1,5 @@
 import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
-import 'package:aeah_work_safety/widgets/accident_page/components/search_bar.dart';
+import 'package:aeah_work_safety/blocs/accident/screens/components/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/inconsistency/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';

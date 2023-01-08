@@ -8,7 +8,7 @@ import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:aeah_work_safety/widgets/components/card_widget.dart';
 
-import '../accident_page/components/search_bar.dart';
+import '../../blocs/accident/screens/components/search_bar.dart';
 
 class ChronicDiseasesPage extends StatelessWidget {
   const ChronicDiseasesPage({Key? key}) : super(key: key);

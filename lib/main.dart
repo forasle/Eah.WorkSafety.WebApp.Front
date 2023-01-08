@@ -1,3 +1,4 @@
+import 'package:aeah_work_safety/blocs/accident/accident_bloc.dart';
 import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
 import 'package:aeah_work_safety/blocs/statistic/statistic_bloc.dart';
 import 'package:aeah_work_safety/blocs/user/user_bloc.dart';
@@ -13,7 +14,7 @@ import 'package:aeah_work_safety/blocs/statistic/screens/day_without_accident.da
 import 'package:aeah_work_safety/widgets/education_page/components/add_new_education.dart';
 import 'package:aeah_work_safety/blocs/employee/screens/components/employee_detail_page.dart';
 import 'package:aeah_work_safety/blocs/employee/screens/employee.dart';
-import 'package:aeah_work_safety/widgets/components/add_new_accident.dart';
+import 'package:aeah_work_safety/blocs/accident/screens/components/add_new_accident.dart';
 import 'package:aeah_work_safety/widgets/education_page/education_page.dart';
 import 'package:aeah_work_safety/widgets/inconsistency_page/components/add_new_inconsistency.dart';
 import 'package:aeah_work_safety/widgets/inconsistency_page/components/inconsistency_detail_page.dart';
@@ -31,8 +32,8 @@ import 'package:aeah_work_safety/widgets/preventive_activities_page/preventive_a
 import 'package:aeah_work_safety/widgets/risk_assessment/components/add_new_risk_assessment.dart';
 import 'package:aeah_work_safety/widgets/risk_assessment/components/risk_assessment_detail_page.dart';
 import 'package:aeah_work_safety/widgets/risk_assessment/risk_assessment_page.dart';
-import 'package:aeah_work_safety/widgets/accident_page/components/accident_detail_page.dart';
-import 'package:aeah_work_safety/widgets/accident_page/accident.dart';
+import 'package:aeah_work_safety/blocs/accident/screens/components/accident_detail_page.dart';
+import 'package:aeah_work_safety/blocs/accident/screens/accident.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -63,6 +64,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => StatisticBloc(),
+        ),
+        BlocProvider(
+          create: (context) => AccidentBloc(),
         ),
       ],
       child: MaterialApp(

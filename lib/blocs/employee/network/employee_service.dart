@@ -1,7 +1,5 @@
 
 import 'dart:convert';
-
-import 'package:aeah_work_safety/blocs/employee/models/employee_request.dart';
 import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
 import 'package:aeah_work_safety/services/base_api.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';

@@ -3,7 +3,7 @@ import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:aeah_work_safety/widgets/missionsPage/components/data_table_for_missions.dart';
-import 'package:aeah_work_safety/widgets/accident_page/components/search_bar.dart';
+import 'package:aeah_work_safety/blocs/accident/screens/components/search_bar.dart';
 import 'package:flutter/material.dart';
 
 class Missions extends StatelessWidget {

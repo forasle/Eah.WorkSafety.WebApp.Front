@@ -1,5 +1,5 @@
 import 'package:aeah_work_safety/widgets/preventive_activities_page/components/data_table_for_preventive_activities.dart';
-import 'package:aeah_work_safety/widgets/accident_page/components/search_bar.dart';
+import 'package:aeah_work_safety/blocs/accident/screens/components/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/preventive_activities/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';

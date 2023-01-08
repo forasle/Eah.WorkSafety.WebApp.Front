@@ -10,6 +10,10 @@ class AddNewAccident extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future<DateTime?> _selectedDate;
+    Future<TimeOfDay?> _selectedTime;
+
+    final _formKey = GlobalKey<FormState>();
     //ScrollController horizontalController = ScrollController();
     return CustomScaffold(
       body: Column(
@@ -68,30 +72,26 @@ class AddNewAccident extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Padding(
-                                  padding: Constant.padding,
-                                  child: SizedBox(
-                                    height: 50,
-                                    child: Center(
-                                      child: DropdownMenu(
-                                        menuItems: Constant.menuItemsForEventType,
-                                      ),
-                                    ),
-                                  ),
-                                ),
                                 Padding(
                                   padding: Constant.padding,
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
                                       child: TextFormField(
+                                        validator: (value) {
+                                          if(value.runtimeType!= DateTime){
+                                            return "Lütfen Geçerli Tarih Giriniz";
+                                          }
+                                          return null;
+                                        },
                                         onTap: () async {
-                                          showDatePicker(
+                                          _selectedDate = showDatePicker(
                                               locale: const Locale('tr'),
                                               context: context,
                                               initialDate: DateTime.now(),
-                                              firstDate: DateTime(2021),
-                                              lastDate: DateTime(2023));
+                                              firstDate: DateTime(2023),
+                                              lastDate: DateTime(2035));
+
                                         },
                                         maxLines: 5,
                                         decoration: InputDecoration(
@@ -111,7 +111,7 @@ class AddNewAccident extends StatelessWidget {
                                     child: Center(
                                       child: TextFormField(
                                         onTap: () async {
-                                          showTimePicker(
+                                          _selectedTime = showTimePicker(
                                               hourLabelText: 'Saat',
                                               minuteLabelText: 'Dakika',
                                               cancelText: 'İPTAL',
@@ -551,6 +551,22 @@ class AddNewAccident extends StatelessWidget {
                             ),
                           ),
                         ),
+                        ElevatedButton(
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              _formKey.currentState!.save();
+                              //LoginRequest loginRequest = LoginRequest(userName: _username!, password: _password!);
+                              //context.read<AuthBloc>().add(AuthSignInEvent(loginRequest: loginRequest));
+                            }
+                          },
+                          child: const Padding(
+                            padding: Constant.padding,
+                            child: Text(
+                              'Kaydet',
+                              style: Constant.buttonTextStyle,
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -562,6 +578,7 @@ class AddNewAccident extends StatelessWidget {
       ),
     );
   }
+
 
   Padding title(BuildContext context, String title) {
     return Padding(
