@@ -34,5 +34,6 @@ class Constant {
     borderRadius: BorderRadius.circular(5.0),
   );
 
+
   static const TextStyle buttonTextStyle = TextStyle(color: Colors.black, fontSize: 25);
 }

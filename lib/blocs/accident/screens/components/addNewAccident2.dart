@@ -5,9 +5,14 @@ import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 
-class AddNewAccident extends StatelessWidget {
-  const AddNewAccident({Key? key}) : super(key: key);
+class AddNewAccident2 extends StatefulWidget {
+  const AddNewAccident2({Key? key}) : super(key: key);
 
+  @override
+  State<AddNewAccident2> createState() => _AddNewAccidentState();
+}
+
+class _AddNewAccidentState extends State<AddNewAccident2> {
   @override
   Widget build(BuildContext context) {
     Future<DateTime?> _selectedDate;
@@ -55,7 +60,6 @@ class AddNewAccident extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                subtitle(subtitle: 'Olay Türü:', height: 50, width: 150),
                                 subtitle(subtitle: 'Tarih:', height: 50, width: 150),
                                 subtitle(subtitle: 'Saat:', height: 50, width: 150),
                                 subtitle(subtitle: 'Olay Tanımı:', height: 150, width: 150),
@@ -91,7 +95,6 @@ class AddNewAccident extends StatelessWidget {
                                               initialDate: DateTime.now(),
                                               firstDate: DateTime(2023),
                                               lastDate: DateTime(2035));
-
                                         },
                                         maxLines: 5,
                                         decoration: InputDecoration(
@@ -219,7 +222,7 @@ class AddNewAccident extends StatelessWidget {
                                   child: SizedBox(
                                       height: 50,
                                       child:
-                                          Center(child: DropdownMenu(menuItems: Constant.menuItemsForDepartmentType))),
+                                      Center(child: DropdownMenu(menuItems: Constant.menuItemsForDepartmentType))),
                                 ),
                               ],
                             ),
@@ -304,12 +307,12 @@ class AddNewAccident extends StatelessWidget {
                                     height: 50,
                                     width: 150,
                                     subtitle:
-                                        'Olaya katkıda bulunan faktörler risk değerlendirmesinde belirtilmiş mi?   '),
+                                    'Olaya katkıda bulunan faktörler risk değerlendirmesinde belirtilmiş mi?   '),
                                 subtitle(
                                     height: 50,
                                     width: 150,
                                     subtitle:
-                                        'Risk değerlendirmede belirtilen önlemler alınmış mı? Çalışma şekillerine uyulmuş mu?   '),
+                                    'Risk değerlendirmede belirtilen önlemler alınmış mı? Çalışma şekillerine uyulmuş mu?   '),
                                 subtitle(
                                     height: 100, width: 150, subtitle: 'Kullanılması Gereken (Kullanılmamış) KKD:   '),
                                 subtitle(height: 100, width: 150, subtitle: 'Sebep:   '),
@@ -578,7 +581,6 @@ class AddNewAccident extends StatelessWidget {
       ),
     );
   }
-
 
   Padding title(BuildContext context, String title) {
     return Padding(

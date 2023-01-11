@@ -16,7 +16,7 @@ class UserResponse {
     required this.inconsistencies,
     required this.contingencyPlans,
     required this.preventiveActivities,
-    required this.token,
+    //required this.token,
   });
 
   String username;
@@ -28,7 +28,7 @@ class UserResponse {
   List<dynamic> inconsistencies;
   List<dynamic> contingencyPlans;
   List<int> preventiveActivities;
-  String token;
+  //String token;
 
   factory UserResponse.fromJson(Map<String, dynamic> json) => UserResponse(
         username: json["username"],
@@ -40,7 +40,7 @@ class UserResponse {
         inconsistencies: List<dynamic>.from(json["inconsistencies"].map((x) => x)),
         contingencyPlans: List<dynamic>.from(json["contingencyPlans"].map((x) => x)),
         preventiveActivities: List<int>.from(json["preventiveActivities"].map((x) => x)),
-        token: json["token"],
+       // token: json["token"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -53,6 +53,6 @@ class UserResponse {
         "inconsistencies": List<dynamic>.from(inconsistencies.map((x) => x)),
         "contingencyPlans": List<dynamic>.from(contingencyPlans.map((x) => x)),
         "preventiveActivities": List<dynamic>.from(preventiveActivities.map((x) => x)),
-        "token": token,
+        //"token": token,
       };
 }

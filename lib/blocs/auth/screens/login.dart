@@ -75,7 +75,7 @@ class Login extends StatelessWidget {
                     BlocListener<AuthBloc, AuthState>(
                       listener: (context, state) {
                         if (state is AuthLoginSuccessState) {
-                          Navigator.pushNamed(context, panoramaRoute,arguments: state.loginResponse);
+                          Navigator.pushNamed(context, panoramaRoute);
                         }
                       },
                       child: BlocBuilder<AuthBloc, AuthState>(

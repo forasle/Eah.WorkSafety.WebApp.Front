@@ -17,9 +17,8 @@ class Panorama extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LoginResponse _loginResponse = ModalRoute.of(context)?.settings.arguments as LoginResponse;
     ScrollController horizontalController = ScrollController();
-    context.read<UserBloc>().add(GetUserData(userRequest: UserRequest(loginResponse: _loginResponse)));
+    context.read<UserBloc>().add(GetUserData(userRequest: UserRequest()));
     return BlocBuilder<UserBloc, UserState>(
       builder: (context, state) {
         if (state is UserInitial) {
@@ -47,7 +46,7 @@ class Panorama extends StatelessWidget {
                               'Çalışan',
                               Colors.blueGrey,
                               () {
-                                Navigator.of(context).pushNamed(workersMainPageRoute,arguments:_loginResponse);
+                                Navigator.of(context).pushNamed(workersMainPageRoute);
                               }
                             ],
                             [

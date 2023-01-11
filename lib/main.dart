@@ -14,7 +14,6 @@ import 'package:aeah_work_safety/blocs/statistic/screens/day_without_accident.da
 import 'package:aeah_work_safety/widgets/education_page/components/add_new_education.dart';
 import 'package:aeah_work_safety/blocs/employee/screens/components/employee_detail_page.dart';
 import 'package:aeah_work_safety/blocs/employee/screens/employee.dart';
-import 'package:aeah_work_safety/blocs/accident/screens/components/add_new_accident.dart';
 import 'package:aeah_work_safety/widgets/education_page/education_page.dart';
 import 'package:aeah_work_safety/widgets/inconsistency_page/components/add_new_inconsistency.dart';
 import 'package:aeah_work_safety/widgets/inconsistency_page/components/inconsistency_detail_page.dart';
@@ -38,6 +37,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'blocs/accident/screens/components/addNewAccident.dart';
 import 'blocs/auth/auth_bloc.dart';
 import 'constants/main/constants.dart';
 

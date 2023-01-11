@@ -16,11 +16,11 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   final StatisticRepository _statisticRepository = locator<StatisticRepository>();
   UserBloc() : super(const UserInitial(message: 'Kullanıcı bilgileri getiriliyor')) {
     on<GetUserData>((event, emit) async {
-      final userResponse = await _userRepository.getUserData(userRequest: event.userRequest);
+      final userResponse = await _userRepository.getUserData();
       final statisticResponse = await _statisticRepository.getGeneralStatistic();
       if (userResponse.statusCode == 200) {
         final userResponseJson = jsonDecode(userResponse.body);
-        userResponseJson['token'] = event.userRequest.loginResponse.token;
+        //userResponseJson['token'] = event.userRequest.loginResponse.token;
         final userResponseModel = UserResponse.fromJson(userResponseJson);
         emit(UserData(userResponse: userResponseModel, statisticResponse: statisticResponse));
       } else {

@@ -56,6 +56,18 @@ class AccidentBloc extends Bloc<AccidentEvent, AccidentState> {
     },
       transformer: droppable(),
     );
+    on<CreateNewAccident>((event, emit) async {
+      try{
+        await Future.delayed(const Duration(milliseconds: 500));
+
+      }
+      catch(e){
+        emit(NewAccidentCreationError(message: "İş Kazası Eklenemedi. Hata: $e"));
+      }
+    },
+      transformer: droppable(),
+    );
+
   }
 }
 

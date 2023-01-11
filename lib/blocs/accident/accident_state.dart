@@ -49,3 +49,21 @@ class AccidentDataError extends AccidentState{
   List<Object?> get props => [message];
 
 }
+class NewAccidentCreated extends AccidentState{
+  final String message;
+
+  const NewAccidentCreated({required this.message});
+
+  @override
+  List<Object?> get props => [message];
+
+}
+class NewAccidentCreationError extends AccidentState{
+  final String message;
+
+  const NewAccidentCreationError({required this.message});
+
+  @override
+  List<Object?> get props => [message];
+
+}

@@ -223,28 +223,6 @@ class AccidentPage extends StatelessWidget {
                   ),
                 ),
                 Constant.sizedBox,
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    width: 200,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(backgroundColor: Colors.blueGrey.shade700),
-                      onPressed: () {
-                        Navigator.pushNamed(context, addNewAccident);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: const [
-                            Icon(Icons.access_alarm_rounded),
-                            Text('Yeni Ramak Kala'),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Constant.sizedBox,
               ],
             ),
           ),

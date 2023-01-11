@@ -8,7 +8,7 @@ import 'package:http/http.dart';
 class UserRepository {
   UserService userService = locator<UserService>();
 
-  Future<Response> getUserData({required UserRequest userRequest}) async {
-    return await userService.getUserData(userRequest);
+  Future<Response> getUserData() async {
+    return await userService.getUserData();
   }
 }
