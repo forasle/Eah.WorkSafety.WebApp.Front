@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 
-class AllFieldsFormBloc extends FormBloc<String, String> {
+class AddNewAccidentFormBloc extends FormBloc<String, String> {
   final text1 = TextFieldBloc();
   final text2 = TextFieldBloc();
   final text3 = TextFieldBloc();
@@ -66,7 +66,7 @@ class AllFieldsFormBloc extends FormBloc<String, String> {
 
   final dateAndTime2 = InputFieldBloc<DateTime?, Object>(initialValue: null);
 
-  AllFieldsFormBloc() : super(autoValidate: false) {
+  AddNewAccidentFormBloc() : super(autoValidate: false) {
     addFieldBlocs(fieldBlocs: [
       text1,
       multiSelect1,

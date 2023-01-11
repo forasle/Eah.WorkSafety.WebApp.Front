@@ -80,7 +80,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: Constant.materialAppTitle,
         theme: ThemeData(primarySwatch: Constant.themeDataPrimarySwatch, fontFamily: 'Roboto'),
-        initialRoute: Constant.initialRoute,
+        //initialRoute: Constant.initialRoute,
+        initialRoute: '/Panorama/nearMiss/addNewAccident',
         routes: {
           loginRoute: (context) => const Login(),
           panoramaRoute: (context) => const Panorama(),

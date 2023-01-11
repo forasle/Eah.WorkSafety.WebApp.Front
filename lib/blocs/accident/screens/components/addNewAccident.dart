@@ -1,4 +1,5 @@
 import 'package:aeah_work_safety/blocs/accident/add_new_accident_form_bloc.dart';
+import 'package:aeah_work_safety/widgets/components/dropdown_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/accident/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
@@ -11,154 +12,160 @@ class AddNewAccident extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AllFieldsFormBloc(),
-      child: Builder(builder: (context) {
-        final formBloc = BlocProvider.of<AllFieldsFormBloc>(context);
-        return CustomScaffold(
-          body: FormBlocListener<AllFieldsFormBloc, String, String>(
-            onSubmitting: (context, state) {
-              print("onSubmit");
-            },
-            onSuccess: (context, state) {
-              print("success");
-            },
-            onFailure: (context, state) {
-              print("failure");
-            },
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Scrollbar(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
-                        const Icon(Icons.arrow_right),
-                        RoutingBarWidget(pageName: 'İş Kazası', routeName: accidentPageRoute),
-                        const Icon(Icons.arrow_right),
-                        RoutingBarWidget(pageName: 'Yeni İş Kazası Ekle', routeName: addNewAccident),
-                      ],
-                    ),
+    return CustomScaffold(
+      body: BlocProvider(
+        create: (context) => AddNewAccidentFormBloc(),
+        child: Builder(builder: (context) {
+          final formBloc = context.read<AddNewAccidentFormBloc>();
+          return Column(
+            children: [
+              Scrollbar(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+                      const Icon(Icons.arrow_right),
+                      RoutingBarWidget(pageName: 'İş Kazası', routeName: accidentPageRoute),
+                      const Icon(Icons.arrow_right),
+                      RoutingBarWidget(pageName: 'Yeni İş Kazası Ekle', routeName: addNewAccident),
+                    ],
                   ),
                 ),
-                Constant.dividerWithIndent,
-                ScrollableFormBlocManager(
-                  formBloc: formBloc,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        title(context, 'Genel Bilgiler'),
-                        TextFieldBlocBuilder(
-                          textFieldBloc: formBloc.text1,
-                          decoration: InputDecoration(
-                              labelText: 'Kazazedenin Tc Kimlik Numarası',
-                              prefixIcon: const Icon(Icons.numbers),
-                              border: Constant.textFieldBorder),
+              ),
+              Constant.dividerWithIndent,
+              title(context, 'Genel Bilgiler'),
+              Constant.dividerWithIndent,
+              const SizedBox(height: 50),
+              IntrinsicHeight(
+                child: Row(
+                  children: [
+                    Flexible(
+                      flex: 1,
+                      child: Padding(
+                        padding: Constant.padding,
+                        child: Column(
+                          children: [
+                            subtitle(subtitle: 'Kimlik Numarası:', height: 60, width: 150),
+                            subtitle(subtitle: 'Kaza Tarihi:', height: 60, width: 150),
+                            subtitle(subtitle: 'Kaza Kayıt Tarihi:', height: 60, width: 150),
+                            subtitle(subtitle: 'Olay Tanımı:', height: 150, width: 150),
+                            subtitle(subtitle: 'Yapılan İş:', height: 100, width: 150),
+                          ],
                         ),
-                        TextFieldBlocBuilder(
-                          textFieldBloc: formBloc.text2,
-                          decoration: InputDecoration(
-                              labelText: 'Yaranın Türü',
-                              prefixIcon: const Icon(Icons.personal_injury),
-                              border: Constant.textFieldBorder),
-                        ),
-                        TextFieldBlocBuilder(
-                          textFieldBloc: formBloc.text3,
-                          decoration: InputDecoration(
-                              labelText: 'Yaralanmanın Vücuttaki Yeri',
-                              prefixIcon: const Icon(Icons.person),
-                              border: Constant.textFieldBorder),
-                        ),
-                        TextFieldBlocBuilder(
-                          textFieldBloc: formBloc.text4,
-                          decoration: InputDecoration(
-                              labelText: 'Yaralanmaya Neden Olan Araç/Gereç',
-                              prefixIcon: const Icon(Icons.dangerous),
-                              border: Constant.textFieldBorder),
-                        ),
-                        DateTimeFieldBlocBuilder(
-                          dateTimeFieldBloc: formBloc.dateAndTime1,
-                          canSelectTime: true,
-                          format: DateFormat('dd-MM-yyyy  hh:mm'),
-                          initialDate: DateTime.now(),
-                          firstDate: DateTime(1900),
-                          lastDate: DateTime(2100),
-                          decoration: InputDecoration(
-                              labelText: 'Bildirimin Yapıldığı Tarih Saat',
-                              prefixIcon: const Icon(Icons.date_range),
-                              helperText: 'Date and Time',
-                              border: Constant.textFieldBorder),
-                        ),
-                        DateTimeFieldBlocBuilder(
-                          dateTimeFieldBloc: formBloc.dateAndTime2,
-                          canSelectTime: true,
-                          format: DateFormat('dd-MM-yyyy  hh:mm'),
-                          initialDate: DateTime.now(),
-                          firstDate: DateTime(1900),
-                          lastDate: DateTime(2100),
-                          decoration: InputDecoration(
-                              labelText: 'Kazanın Meydana Geldiği Tarih Saat',
-                              prefixIcon: const Icon(Icons.date_range),
-                              helperText: 'Date and Time',
-                              border: Constant.textFieldBorder),
-                        ),
-                        TextFieldBlocBuilder(
-                          textFieldBloc: formBloc.text1,
-                          decoration: InputDecoration(
-                              labelText: 'Kazanın Meydana Geldiği Yer',
-                              prefixIcon: const Icon(Icons.add_road),
-                              border: Constant.textFieldBorder),
-                        ),
-                        title(context, 'Olayın Konusu'),
-                        CheckboxGroupFieldBlocBuilder<String>(
-                          multiSelectFieldBloc: formBloc.multiSelect1,
-                          decoration: InputDecoration(labelText: 'Olayın Konusu', border: Constant.textFieldBorder),
-                          groupStyle: const FlexGroupStyle(),
-                          itemBuilder: (context, item) => FieldItem(
-                            child: Text(item, overflow: TextOverflow.ellipsis),
-                          ),
-                        ),
-                        title(context, 'Emniyetsiz Davranış/Emniyetsiz Durum Seçimi'),
-                        CheckboxGroupFieldBlocBuilder<String>(
-                          multiSelectFieldBloc: formBloc.multiSelect2,
-                          decoration:
-                          InputDecoration(labelText: 'Emniyetsiz Davranış', border: Constant.textFieldBorder),
-                          groupStyle: const FlexGroupStyle(),
-                          itemBuilder: (context, item) => FieldItem(
-                            child: Text(item, overflow: TextOverflow.ellipsis),
-                          ),
-                        ),
-                        CheckboxGroupFieldBlocBuilder<String>(
-                          multiSelectFieldBloc: formBloc.multiSelect3,
-                          decoration: InputDecoration(labelText: 'Emniyetsiz Durum', border: Constant.textFieldBorder),
-                          groupStyle: const FlexGroupStyle(),
-                          itemBuilder: (context, item) => FieldItem(
-                            child: Text(item, overflow: TextOverflow.ellipsis),
-                          ),
-                        ),
-                        Center(
-                          child: ElevatedButton(
-                              onPressed: () {
-                                print("4");
-                                formBloc.submit;
-                                print("5");
-                              },
-                              child: const Text("Kaydet", style: Constant.buttonTextStyle)),
-                        )
-                      ],
+                      ),
                     ),
-                  ),
+                    Constant.verticalDivider,
+                    Expanded(
+                      flex: 3,
+                      child: Padding(
+                        padding: Constant.padding,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: Constant.padding,
+                              child: SizedBox(
+                                height: 80,
+                                child: TextFieldBlocBuilder(
+
+                                  textFieldBloc: formBloc.text2,
+                                  decoration: const InputDecoration(labelText: "Email", prefixIcon: Icon(Icons.email)),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: Constant.padding,
+                              child: SizedBox(
+                                height: 60,
+                                child: Center(
+                                  child: TextFormField(
+                                    validator: (value) {
+                                      if (value.runtimeType != DateTime) {
+                                        return "Lütfen Geçerli Tarih Giriniz";
+                                      }
+                                      return null;
+                                    },
+                                    onTap: () async {},
+                                    maxLines: 5,
+                                    decoration: InputDecoration(
+                                      hintText: 'Lütfen Tarih Giriniz',
+                                      labelText: 'Tarih Giriniz',
+                                      //filled: true,
+                                      border: Constant.textFieldBorder,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: Constant.padding,
+                              child: SizedBox(
+                                height: 60,
+                                child: Center(
+                                  child: TextFormField(
+                                    onTap: () async {},
+                                    maxLines: 5,
+                                    decoration: InputDecoration(
+                                        hintText: 'Lütfen Saat Giriniz',
+                                        labelText: 'Saat Giriniz',
+                                        labelStyle: const TextStyle(color: Colors.white),
+                                        //filled: true,
+
+                                        border: Constant.textFieldBorder),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: Constant.padding,
+                              child: SizedBox(
+                                height: 150,
+                                child: Center(
+                                  child: TextField(
+                                    maxLines: 5,
+                                    decoration: InputDecoration(
+                                        hintText: 'Lütfen olay tanımını yapınız',
+                                        labelText: 'Olay Tanımı',
+                                        labelStyle: const TextStyle(color: Colors.white),
+                                        //filled: true,
+
+                                        border: Constant.textFieldBorder),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: Constant.padding,
+                              child: SizedBox(
+                                height: 100,
+                                child: Center(
+                                  child: TextField(
+                                    maxLines: 3,
+                                    decoration: InputDecoration(
+                                        hintText: 'Lütfen yapılan iş açıklaması giriniz',
+                                        labelText: 'Yapılan İş',
+                                        labelStyle: const TextStyle(color: Colors.white),
+                                        //filled: true,
+                                        border: Constant.textFieldBorder),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-        );
-      }),
+              ),
+              Constant.sizedBox50,
+              title(context, 'Olay Yeri'),
+              Constant.dividerWithIndent,
+              Constant.sizedBox50,
+            ],
+          );
+        }),
+      ),
     );
   }
 
@@ -175,6 +182,25 @@ class AddNewAccident extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Padding subtitle({required String subtitle, required double height, required double width}) {
+    return Padding(
+      padding: Constant.padding,
+      child: SizedBox(
+        height: height,
+        width: width,
+        child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            subtitle,
+            textAlign: TextAlign.center,
+            softWrap: true,
+            overflow: TextOverflow.fade,
+          ),
+        ),
       ),
     );
   }

@@ -5,7 +5,7 @@ import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
-
+/*
 class AddNewAccidentTest extends StatelessWidget {
   const AddNewAccidentTest({Key? key}) : super(key: key);
 
@@ -179,3 +179,4 @@ class AddNewAccidentTest extends StatelessWidget {
     );
   }
 }
+*/
