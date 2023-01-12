@@ -1,0 +1,94 @@
+
+import 'dart:convert';
+
+List<NearMiss> nearMissFromJson(String str) => List<NearMiss>.from(json.decode(str)!.map((x) => NearMiss.fromJson(x)));
+
+String nearMissToJson(List<NearMiss> data) => json.encode(List<dynamic>.from(data!.map((x) => x!.toJson())));
+
+class NearMiss {
+  NearMiss({
+    required this.id,
+    required this.referenceNumber,
+    required this.nearMissInfo,
+    required this.performedJob,
+    required this.relatedDepartment,
+    required this.needFirstAid,
+    required this.medicalIntervention,
+    required this.eyewitnesses,
+    required this.eyewitnessesName,
+    required this.eyewitnessesPhoneNumber,
+    required this.witnessStatement,
+    required this.duringOperation,
+    required this.propertyDamage,
+    required this.businessStopped,
+    required this.cameraRecording,
+    required this.date,
+    required this.rootCauseAnalysis,
+    required this.creatorUserId,
+    required this.affectedEmployeeIdWithLostDaysList,
+  });
+
+  int id;
+  String referenceNumber;
+  String nearMissInfo;
+  String performedJob;
+  String relatedDepartment;
+  bool needFirstAid;
+  bool medicalIntervention;
+  bool eyewitnesses;
+  String eyewitnessesName;
+  String eyewitnessesPhoneNumber;
+  String witnessStatement;
+  bool duringOperation;
+  bool propertyDamage;
+  bool businessStopped;
+  bool cameraRecording;
+  DateTime date;
+  bool rootCauseAnalysis;
+  int creatorUserId;
+  Map<String, int?> affectedEmployeeIdWithLostDaysList;
+
+  factory NearMiss.fromJson(Map<String, dynamic> json) => NearMiss(
+    id: json["id"],
+    referenceNumber: json["referenceNumber"],
+    nearMissInfo: json["nearMissInfo"],
+    performedJob: json["performedJob"],
+    relatedDepartment: json["relatedDepartment"],
+    needFirstAid: json["needFirstAid"],
+    medicalIntervention: json["medicalIntervention"],
+    eyewitnesses: json["eyewitnesses"],
+    eyewitnessesName: json["eyewitnessesName"],
+    eyewitnessesPhoneNumber: json["eyewitnessesPhoneNumber"],
+    witnessStatement: json["witnessStatement"],
+    duringOperation: json["duringOperation"],
+    propertyDamage: json["propertyDamage"],
+    businessStopped: json["businessStopped"],
+    cameraRecording: json["cameraRecording"],
+    date: DateTime.parse(json["date"]),
+    rootCauseAnalysis: json["rootCauseAnalysis"],
+    creatorUserId: json["creatorUserId"],
+    affectedEmployeeIdWithLostDaysList: Map.from(json["affectedEmployeeIdWithLostDaysList"]!).map((k, v) => MapEntry<String, int?>(k, v)),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "referenceNumber": referenceNumber,
+    "nearMissInfo": nearMissInfo,
+    "performedJob": performedJob,
+    "relatedDepartment": relatedDepartment,
+    "needFirstAid": needFirstAid,
+    "medicalIntervention": medicalIntervention,
+    "eyewitnesses": eyewitnesses,
+    "eyewitnessesName": eyewitnessesName,
+    "eyewitnessesPhoneNumber": eyewitnessesPhoneNumber,
+    "witnessStatement": witnessStatement,
+    "duringOperation": duringOperation,
+    "propertyDamage": propertyDamage,
+    "businessStopped": businessStopped,
+    "cameraRecording": cameraRecording,
+    "date": date?.toIso8601String(),
+    "rootCauseAnalysis": rootCauseAnalysis,
+    "creatorUserId": creatorUserId,
+    "affectedEmployeeIdWithLostDaysList": Map.from(affectedEmployeeIdWithLostDaysList!).map((k, v) => MapEntry<String, dynamic>(k, v)),
+  };
+}

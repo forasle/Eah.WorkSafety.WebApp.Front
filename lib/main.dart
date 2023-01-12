@@ -1,5 +1,6 @@
 import 'package:aeah_work_safety/blocs/accident/accident_bloc.dart';
 import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
+import 'package:aeah_work_safety/blocs/near_miss/near_miss_bloc.dart';
 import 'package:aeah_work_safety/blocs/statistic/statistic_bloc.dart';
 import 'package:aeah_work_safety/blocs/user/user_bloc.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
@@ -20,8 +21,8 @@ import 'package:aeah_work_safety/widgets/inconsistency_page/components/inconsist
 import 'package:aeah_work_safety/widgets/inconsistency_page/inconsistency_page.dart';
 import 'package:aeah_work_safety/blocs/auth/screens/login.dart';
 import 'package:aeah_work_safety/widgets/missionsPage/missions.dart';
-import 'package:aeah_work_safety/widgets/near_miss_page/components/near_miss_detail_page.dart';
-import 'package:aeah_work_safety/widgets/near_miss_page/near_miss.dart';
+import 'package:aeah_work_safety/blocs/near_miss/screens/components/near_miss_detail_page.dart';
+import 'package:aeah_work_safety/blocs/near_miss/screens/near_miss.dart';
 import 'package:aeah_work_safety/widgets/occupational_diseases_page/occupational_diseases_page.dart';
 import 'package:aeah_work_safety/blocs/user/screens/panorama.dart';
 import 'package:aeah_work_safety/widgets/periodic_medical_examination_page/periodic_medical_examination_page.dart';
@@ -67,6 +68,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => AccidentBloc(),
+        ),
+        BlocProvider(
+          create: (context) => NearMissBloc(),
         ),
       ],
       child: MaterialApp(

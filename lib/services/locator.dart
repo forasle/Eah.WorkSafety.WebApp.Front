@@ -3,6 +3,8 @@ import 'package:aeah_work_safety/blocs/accident/repository/accident_repository.d
 import 'package:aeah_work_safety/blocs/auth/network/auth_service.dart';
 import 'package:aeah_work_safety/blocs/auth/repository/auth_repository.dart';
 import 'package:aeah_work_safety/blocs/employee/network/employee_service.dart';
+import 'package:aeah_work_safety/blocs/near_miss/network/near_miss_service.dart';
+import 'package:aeah_work_safety/blocs/near_miss/repository/near_miss_repository.dart';
 import 'package:aeah_work_safety/blocs/statistic/network/statistic_service.dart';
 import 'package:aeah_work_safety/blocs/user/network/user_service.dart';
 import 'package:aeah_work_safety/blocs/employee/repository/employee_repository.dart';
@@ -23,4 +25,6 @@ void setupLocator() {
   locator.registerLazySingleton(() => StatisticRepository());
   locator.registerLazySingleton(() => AccidentService());
   locator.registerLazySingleton(() => AccidentRepository());
+  locator.registerLazySingleton(() => NearMissService());
+  locator.registerLazySingleton(() => NearMissRepository());
 }
