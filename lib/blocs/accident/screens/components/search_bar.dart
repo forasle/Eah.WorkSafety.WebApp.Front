@@ -1,4 +1,5 @@
-import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
+
+import 'package:aeah_work_safety/blocs/accident/accident_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,29 +11,45 @@ class SearchBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
     String _filter = "";
-    return Form(
-      key: _formKey,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      child: TextFormField(
-        onSaved: (value) {
-          _filter = value!;
-        },
-        validator: (value) {
-          if (value!.length < 4) {
-            return 'Filtre 3 karakterden kısa olamaz';
-          }
-          else{
-            _formKey.currentState!.save();
-            context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: _filter));
-          }
-          return null;
-        },
-        decoration: (const InputDecoration(
-            border: OutlineInputBorder(),
-            icon: Icon(Icons.person),
-            hintText: 'Filtrele',
-            labelText: 'Filtrelenecek Kelimeyi Yazınız')),
-      ),
+    return BlocBuilder<AccidentBloc, AccidentState>(
+      builder: (context, state) {
+        return Form(
+          key: _formKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          child: TextFormField(
+            onSaved: (value) {
+              _filter = value!;
+            },
+            validator: (value) {
+              if (value!.length < 4) {
+                return 'Filtre 3 karakterden kısa olamaz';
+              }
+              else {
+                _formKey.currentState!.save();
+               // context.read<AccidentBloc>().add(GetAccidentFiltered(filter: _filter));
+              }
+
+              return null;
+            },
+            onChanged: (value) {
+              if(value.length>3){
+                context.read<AccidentBloc>().add(GetAccidentFiltered(filter: value));
+              }
+            },
+            decoration: (InputDecoration(
+                border: const OutlineInputBorder(),
+                icon: const Icon(Icons.person),
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    context.read<AccidentBloc>().add(const GetAccidentData());
+                  },
+                  icon: const Icon(Icons.clear),
+                ),
+                hintText: 'Filtrele',
+                labelText: 'Filtrelenecek Kelimeyi Yazınız')),
+          ),
+        );
+      },
     );
   }
 }

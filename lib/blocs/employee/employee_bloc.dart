@@ -18,7 +18,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
   String _filter ="";
   final int _pageSize = 10;
 
-  EmployeeBloc() : super(const EmployeeInitial(message: 'Çalışan bilgileri getiriliyor')) {
+  EmployeeBloc() : super(const EmployeeInitial(message: 'Bilgilergetiriliyor')) {
 
     on<GetEmployeeData>((event, emit) async {
       try{
@@ -30,7 +30,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
        emit(EmployeeDataLoaded(employeeResponse: employeeResponse, isReachedMax: employeeResponse.nextPage==null));
       }
       catch(e){
-        emit(EmployeeDataError(message: "Kullanıcı bilgileri getirilemedi. Hata: $e"));
+        emit(EmployeeDataError(message: "Bilgiler getirilemedi. Hata: $e"));
       }
     },
       transformer: droppable(),
@@ -49,10 +49,23 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
         emit(EmployeeDataFiltered(employeeResponse: employeeResponseFiltered, filter: event.filter,isReachedMaxFiltered: employeeResponseFiltered.nextPage==null));
       }
       catch(e){
-        emit(EmployeeDataError(message: "Kullanıcı bilgileri getirilemedi. Hata: $e"));
+        emit(EmployeeDataError(message: "Bilgiler getirilemedi. Hata: $e"));
       }
     },
       transformer: droppable(),
+    );
+
+    on<GetEmployeeDataById>((event, emit) async {
+      try{
+        await Future.delayed(const Duration(milliseconds: 500));
+        final employee = await _employeeRepository.getEmployeeDataById(id: event.id);
+        emit(EmployeeDataByIdLoaded(employee: employee, id: event.id));
+      }
+      catch(e){
+        emit(EmployeeDataError(message: "Bilgiler getirilemedi. Hata: $e"));
+      }
+    },
+        transformer: droppable(),
     );
   }
 }

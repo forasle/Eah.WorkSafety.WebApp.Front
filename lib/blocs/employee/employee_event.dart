@@ -22,3 +22,11 @@ class GetEmployeeFiltered extends EmployeeEvent{
   @override
   List<Object> get props => [filter];
 }
+
+class GetEmployeeDataById extends EmployeeEvent{
+  final int id;
+  const GetEmployeeDataById({required this.id});
+
+  @override
+  List<Object> get props => [id];
+}

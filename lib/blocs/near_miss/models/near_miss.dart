@@ -1,13 +1,18 @@
+// To parse this JSON data, do
+//
+//     final nearMiss = nearMissFromJson(jsonString);
 
+import 'package:meta/meta.dart';
 import 'dart:convert';
 
-List<NearMiss> nearMissFromJson(String str) => List<NearMiss>.from(json.decode(str)!.map((x) => NearMiss.fromJson(x)));
+List<NearMiss> nearMissFromJson(String str) => List<NearMiss>.from(json.decode(str).map((x) => NearMiss.fromJson(x)));
 
-String nearMissToJson(List<NearMiss> data) => json.encode(List<dynamic>.from(data!.map((x) => x!.toJson())));
+String nearMissToJson(List<NearMiss> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class NearMiss {
   NearMiss({
     required this.id,
+    required this.nearMissNumber,
     required this.referenceNumber,
     required this.nearMissInfo,
     required this.performedJob,
@@ -25,10 +30,11 @@ class NearMiss {
     required this.date,
     required this.rootCauseAnalysis,
     required this.creatorUserId,
-    required this.affectedEmployeeIdWithLostDaysList,
+    required this.affectedEmployeeWithPropertyForNearMiss,
   });
 
   int id;
+  int nearMissNumber;
   String referenceNumber;
   String nearMissInfo;
   String performedJob;
@@ -46,10 +52,11 @@ class NearMiss {
   DateTime date;
   bool rootCauseAnalysis;
   int creatorUserId;
-  Map<String, int?> affectedEmployeeIdWithLostDaysList;
+  List<AffectedEmployeeWithPropertyForNearMiss> affectedEmployeeWithPropertyForNearMiss;
 
   factory NearMiss.fromJson(Map<String, dynamic> json) => NearMiss(
     id: json["id"],
+    nearMissNumber: json["nearMissNumber"],
     referenceNumber: json["referenceNumber"],
     nearMissInfo: json["nearMissInfo"],
     performedJob: json["performedJob"],
@@ -67,11 +74,12 @@ class NearMiss {
     date: DateTime.parse(json["date"]),
     rootCauseAnalysis: json["rootCauseAnalysis"],
     creatorUserId: json["creatorUserId"],
-    affectedEmployeeIdWithLostDaysList: Map.from(json["affectedEmployeeIdWithLostDaysList"]!).map((k, v) => MapEntry<String, int?>(k, v)),
+    affectedEmployeeWithPropertyForNearMiss: List<AffectedEmployeeWithPropertyForNearMiss>.from(json["affectedEmployeeWithPropertyForNearMiss"].map((x) => AffectedEmployeeWithPropertyForNearMiss.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
     "id": id,
+    "nearMissNumber": nearMissNumber,
     "referenceNumber": referenceNumber,
     "nearMissInfo": nearMissInfo,
     "performedJob": performedJob,
@@ -86,9 +94,29 @@ class NearMiss {
     "propertyDamage": propertyDamage,
     "businessStopped": businessStopped,
     "cameraRecording": cameraRecording,
-    "date": date?.toIso8601String(),
+    "date": date.toIso8601String(),
     "rootCauseAnalysis": rootCauseAnalysis,
     "creatorUserId": creatorUserId,
-    "affectedEmployeeIdWithLostDaysList": Map.from(affectedEmployeeIdWithLostDaysList!).map((k, v) => MapEntry<String, dynamic>(k, v)),
+    "affectedEmployeeWithPropertyForNearMiss": List<dynamic>.from(affectedEmployeeWithPropertyForNearMiss.map((x) => x.toJson())),
+  };
+}
+
+class AffectedEmployeeWithPropertyForNearMiss {
+  AffectedEmployeeWithPropertyForNearMiss({
+    required this.employeeId,
+    required this.lostDays,
+  });
+
+  int employeeId;
+  int lostDays;
+
+  factory AffectedEmployeeWithPropertyForNearMiss.fromJson(Map<String, dynamic> json) => AffectedEmployeeWithPropertyForNearMiss(
+    employeeId: json["employeeId"],
+    lostDays: json["lostDays"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "employeeId": employeeId,
+    "lostDays": lostDays,
   };
 }

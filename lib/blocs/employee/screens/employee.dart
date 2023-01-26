@@ -99,7 +99,7 @@ class Employee extends StatelessWidget {
                           cardIcon: Icons.access_time_outlined,
                           cardText: 'Ortalama Çalışma Süresi',
                           cardDouble:
-                              state is StatisticLoaded ? state.statisticResponse.averageDayOfWork.ceil() / 100 : '-',
+                              state is StatisticLoaded ? state.statisticResponse.averageDayOfWork.ceil() : '-',
                           cardColor: Colors.orangeAccent.shade700,
                           customCardWidgetOnTap: null,
                           cardSubText: '-'),
@@ -112,8 +112,6 @@ class Employee extends StatelessWidget {
           Constant.dividerWithIndent,
           //DataTableForEmployee(employeeResponse : state.employeeResponse),
           SizedBox(width: MediaQuery.of(context).size.width - 15, height: 500, child: const EmployeeListView()),
-          //const AdvancedDataTable(),
-          //const HomeScreen(),
           Constant.sizedBoxHeight,
           Constant.dividerWithIndent,
           Padding(

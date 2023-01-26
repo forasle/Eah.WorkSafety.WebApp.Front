@@ -1,7 +1,6 @@
 import 'package:aeah_work_safety/blocs/near_miss/screens/components/near_miss_list_view.dart';
 import 'package:aeah_work_safety/blocs/statistic/statistic_bloc.dart';
 import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
-import 'package:aeah_work_safety/blocs/accident/screens/components/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/near_miss/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
@@ -220,8 +219,8 @@ class NearMissPage extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blueGrey.shade700),
                           onPressed: () {
-                            // Navigator.pushNamed(
-                            //     context, addNewWorkAccidentOrNearMiss);
+                            Navigator.pushNamed(
+                                 context, addNewNearMiss);
                           },
                           child: Padding(
                             padding: Constant.padding,
@@ -257,10 +256,8 @@ class NearMissPage extends StatelessWidget {
                       ),
                     ),
                     Constant.sizedBoxWidth,
-                    const Padding(
-                      padding: Constant.padding,
-                      child: SearchBarWidget(),
-                    ),
+
+
                   ],
                 ),
               ),

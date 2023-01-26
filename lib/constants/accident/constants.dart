@@ -36,4 +36,33 @@ class Constant {
 
 
   static const TextStyle buttonTextStyle = TextStyle(color: Colors.black, fontSize: 25);
+
+  static final List<String> theSubjectOfTheAccident = [
+    'Fiziksel şiddete maruz kalma',
+    'Sözlü şiddete maruz kalma',
+    'Kesici delici alet yaralanmaları',
+    'Biyolojik etkene maruz kalma',
+    'Düşme,çarpma yaralanmaları',
+    'Trafik Kazası(Maddi Hasarlı)',
+    'Trafik Kazası(Yaralanmalı)',
+    'Kimyasal madde ile temasa maruz kalma',
+    'Yangın ve yanığa maruz kalma',
+    'Ofis kazaları',
+    'Elektrik kazaları',
+  ];
+  static final List<String> precautionsToBeTaken = [
+    'Yetkisi olmadan çalışmak',
+    'Hatalı uyarı vermek/almak',
+    'Emniyette hata',
+    'Uygun olmayan hız',
+    'Ekipman koruyucusu kullanmamak',
+    'Kişisel koruyucu donanım kullanmamak',
+    'Ekipman kullanım hatası',
+    'Arızalı ekipman kullanmak',
+    'Bilgisi olmadığı alanda çalışmak',
+    'Talimatlara uymamak',
+    'Yorgunluk/Uykusuzluk/Dalgınlık',
+    'Disiplinsiz çalışma',
+    'Yetersiz makine ekipman muhafazası',
+  ];
 }

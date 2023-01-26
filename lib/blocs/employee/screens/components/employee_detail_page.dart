@@ -1,4 +1,5 @@
 import 'package:aeah_work_safety/blocs/employee/models/employee.dart';
+import 'package:aeah_work_safety/blocs/employee/models/gender.dart';
 import 'package:aeah_work_safety/constants/employee/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
@@ -103,17 +104,7 @@ class EmployeeDetail extends StatelessWidget {
                             ),
                             Constant.sizedBoxForEmployee,
                             Text(
-                              'Mezun Olduğu Bölüm:    ',
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            Constant.sizedBoxForEmployee,
-                            Text(
                               'İşe Giriş Tarihi:   ',
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            Constant.sizedBoxForEmployee,
-                            Text(
-                              'Geçerli Görevine Başlama Tarihi:   ',
                               overflow: TextOverflow.ellipsis,
                             ),
                             Constant.sizedBoxForEmployee,
@@ -123,16 +114,6 @@ class EmployeeDetail extends StatelessWidget {
                             ),
                             Constant.sizedBoxForEmployee,
                             Text('Ünvanı:    '),
-                            Constant.sizedBoxForEmployee,
-                            Text(
-                              'Birim/Departman:    ',
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            Constant.sizedBoxForEmployee,
-                            Text(
-                              'Yaptığı İş Tanımı:    ',
-                              overflow: TextOverflow.ellipsis,
-                            ),
                             Constant.sizedBoxForEmployee,
                             Text(
                               'Risk Grupları:    ',
@@ -162,8 +143,8 @@ class EmployeeDetail extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                             ),
                             Constant.sizedBoxForEmployee,
-                            const Text(
-                              'Erkek---',
+                             Text(
+                              _employeeDetail.gender==1 ? "Erkek": "Kadın",
                               overflow: TextOverflow.ellipsis,
                             ),
                             Constant.sizedBoxForEmployee,
@@ -197,18 +178,8 @@ class EmployeeDetail extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                             ),
                             Constant.sizedBoxForEmployee,
-                            const Text(
-                              'Mühendislik Fakültesi---',
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            Constant.sizedBoxForEmployee,
                             Text(
                               _employeeDetail.startDateOfEmployment.toString(),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            Constant.sizedBoxForEmployee,
-                            const Text(
-                              '10/05/2006 (16 yıl önce)---',
                               overflow: TextOverflow.ellipsis,
                             ),
                             Constant.sizedBoxForEmployee,
@@ -219,16 +190,6 @@ class EmployeeDetail extends StatelessWidget {
                             Constant.sizedBoxForEmployee,
                             Text(
                               _employeeDetail.title,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            Constant.sizedBoxForEmployee,
-                            const Text(
-                              'Arge---',
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            Constant.sizedBoxForEmployee,
-                            const Text(
-                              'Arge Mühendisi---',
                               overflow: TextOverflow.ellipsis,
                             ),
                             Constant.sizedBoxForEmployee,

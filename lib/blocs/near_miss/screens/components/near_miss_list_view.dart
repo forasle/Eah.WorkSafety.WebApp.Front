@@ -1,6 +1,5 @@
 import 'package:aeah_work_safety/blocs/near_miss/near_miss_bloc.dart';
-import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
-import 'package:aeah_work_safety/blocs/employee/screens/components/search_bar.dart';
+import 'package:aeah_work_safety/blocs/near_miss/screens/components/search_bar.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,7 +29,7 @@ class NearMissListView extends StatelessWidget {
             },
             child: Column(
               children: [
-                //const SearchBarWidget(),
+                const SearchBarWidget(),
                 Expanded(
                   child: ListView.separated(
                     separatorBuilder: (context, index) {
@@ -57,7 +56,7 @@ class NearMissListView extends StatelessWidget {
                         subtitle: Text(state.nearMissResponse.data[index].nearMissInfo),
                         trailing: const Icon(Icons.arrow_forward_ios_rounded),
                         onTap: () {
-                          Navigator.pushNamed(context, workersDetailPageRoute,
+                          Navigator.pushNamed(context, nearMissDetailPage,
                               arguments: state.nearMissResponse.data[index]);
                         },
                         onLongPress: () {
@@ -79,7 +78,7 @@ class NearMissListView extends StatelessWidget {
             onNotification: (notification) {
               if (notification.metrics.pixels == notification.metrics.maxScrollExtent) {
                 if (state.isReachedMaxFiltered) return false;
-                context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: state.filter));
+                context.read<NearMissBloc>().add(GetNearMissFiltered(filter: state.filter));
               }
               return false;
             },

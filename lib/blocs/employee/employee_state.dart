@@ -47,3 +47,21 @@ class EmployeeDataError extends EmployeeState{
   List<Object?> get props => [message];
 
 }
+
+class EmployeeDataByIdLoading extends EmployeeState{
+
+  const EmployeeDataByIdLoading();
+
+  @override
+  List<Object?> get props => [];
+}
+
+class EmployeeDataByIdLoaded extends EmployeeState{
+  final Employee employee;
+  final int id;
+
+  const EmployeeDataByIdLoaded({required this.employee,required this.id});
+
+  @override
+  List<Object?> get props => [employee,id];
+}

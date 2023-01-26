@@ -10,7 +10,6 @@ var employeeInstance = Employee(
     nationality: "nationality",
     riskGroup: "Astım",
     title: "Mühendis",
-    chronicDisease: [],
     id: 123,
     identificationNumber: '159',
     registrationNumber: 'Test',
@@ -19,8 +18,6 @@ var employeeInstance = Employee(
     position: 'Arge',
     department: 1,
     startDateOfEmployment: DateTime.now(),
-    address: 'Test',
-    accidents: {},
-    nearMisses: {},
-    occupationDisease: []);
+    address: 'Test', affectedAccident: [], affectedNearMisses: [], affectedChronicDisease: [], affectedOccupationDisease: [],
+);
 

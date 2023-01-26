@@ -6,7 +6,7 @@ import 'package:aeah_work_safety/widgets/components/card_widget.dart';
 import 'package:aeah_work_safety/widgets/components/column_graph.dart';
 import 'package:aeah_work_safety/widgets/periodic_medical_examination_page/components/data_table_for_periodic_medical_examination.dart';
 import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
-import 'package:aeah_work_safety/blocs/accident/screens/components/search_bar.dart';
+import 'package:aeah_work_safety/blocs/mission/screens/components/search_bar.dart';
 import 'package:flutter/material.dart';
 
 class PeriodicMedicalExaminationPage extends StatelessWidget {

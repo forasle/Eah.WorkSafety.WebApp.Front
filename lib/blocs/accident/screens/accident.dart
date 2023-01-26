@@ -82,7 +82,7 @@ class AccidentPage extends StatelessWidget {
                           'Kazalar',
                           state is StatisticLoaded
                               ? (state.statisticResponse.numberOfAccidents + state.statisticResponse.numberOfNearMisses)
-                                  .toString()
+                              .toString()
                               : "-",
                           Colors.blueGrey,
                           'Tüm Kaza ve Ramak Kalalar'

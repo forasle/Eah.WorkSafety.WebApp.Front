@@ -1,9 +1,13 @@
+// To parse this JSON data, do
+//
+//     final accident = accidentFromJson(jsonString);
 
+import 'package:meta/meta.dart';
 import 'dart:convert';
 
-List<Accident> accidentFromJson(String str) => List<Accident>.from(json.decode(str)!.map((x) => Accident.fromJson(x)));
+List<Accident> accidentFromJson(String str) => List<Accident>.from(json.decode(str).map((x) => Accident.fromJson(x)));
 
-String accidentToJson(List<Accident> data) => json.encode(List<dynamic>.from(data!.map((x) => x!.toJson())));
+String accidentToJson(List<Accident> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Accident {
   Accident({
@@ -25,7 +29,7 @@ class Accident {
     required this.date,
     required this.rootCauseAnalysis,
     required this.creatorUserId,
-    required this.affectedEmployeeIdWithLostDaysList,
+    required this.affectedEmployeeWithPropertyForAccident,
   });
 
   int id;
@@ -46,7 +50,7 @@ class Accident {
   DateTime date;
   bool rootCauseAnalysis;
   int creatorUserId;
-  Map<String, int?> affectedEmployeeIdWithLostDaysList;
+  List<AffectedEmployeeWithPropertyForAccident> affectedEmployeeWithPropertyForAccident;
 
   factory Accident.fromJson(Map<String, dynamic> json) => Accident(
     id: json["id"],
@@ -67,7 +71,7 @@ class Accident {
     date: DateTime.parse(json["date"]),
     rootCauseAnalysis: json["rootCauseAnalysis"],
     creatorUserId: json["creatorUserId"],
-    affectedEmployeeIdWithLostDaysList: Map.from(json["affectedEmployeeIdWithLostDaysList"]!).map((k, v) => MapEntry<String, int?>(k, v)),
+    affectedEmployeeWithPropertyForAccident: List<AffectedEmployeeWithPropertyForAccident>.from(json["affectedEmployeeWithPropertyForAccident"].map((x) => AffectedEmployeeWithPropertyForAccident.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
@@ -86,9 +90,37 @@ class Accident {
     "propertyDamage": propertyDamage,
     "businessStopped": businessStopped,
     "cameraRecording": cameraRecording,
-    "date": date?.toIso8601String(),
+    "date": date.toIso8601String(),
     "rootCauseAnalysis": rootCauseAnalysis,
     "creatorUserId": creatorUserId,
-    "affectedEmployeeIdWithLostDaysList": Map.from(affectedEmployeeIdWithLostDaysList!).map((k, v) => MapEntry<String, dynamic>(k, v)),
+    "affectedEmployeeWithPropertyForAccident": List<dynamic>.from(affectedEmployeeWithPropertyForAccident.map((x) => x.toJson())),
+  };
+}
+
+class AffectedEmployeeWithPropertyForAccident {
+  AffectedEmployeeWithPropertyForAccident({
+    required this.employeeId,
+    required this.lostDays,
+    required this.thePrecautionsToBeTakenOfEmployeeAccidentId,
+    required this.theSubjectOfTheAccidentOfEmployeeAccidentId,
+  });
+
+  int employeeId;
+  int lostDays;
+  int thePrecautionsToBeTakenOfEmployeeAccidentId;
+  int theSubjectOfTheAccidentOfEmployeeAccidentId;
+
+  factory AffectedEmployeeWithPropertyForAccident.fromJson(Map<String, dynamic> json) => AffectedEmployeeWithPropertyForAccident(
+    employeeId: json["employeeId"],
+    lostDays: json["lostDays"],
+    thePrecautionsToBeTakenOfEmployeeAccidentId: json["thePrecautionsToBeTakenOfEmployeeAccidentId"],
+    theSubjectOfTheAccidentOfEmployeeAccidentId: json["theSubjectOfTheAccidentOfEmployeeAccidentId"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "employeeId": employeeId,
+    "lostDays": lostDays,
+    "thePrecautionsToBeTakenOfEmployeeAccidentId": thePrecautionsToBeTakenOfEmployeeAccidentId,
+    "theSubjectOfTheAccidentOfEmployeeAccidentId": theSubjectOfTheAccidentOfEmployeeAccidentId,
   };
 }

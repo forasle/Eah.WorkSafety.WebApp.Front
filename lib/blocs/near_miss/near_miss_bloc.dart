@@ -24,17 +24,14 @@ class NearMissBloc extends Bloc<NearMissEvent, NearMissState> {
 
     on<GetNearMissData>((event, emit) async {
       try{
-        debugPrint("1");
         await Future.delayed(const Duration(milliseconds: 500));
         final nearMissResponse = await _nearMissRepository.getNearMissData(page : _page,pageSize: _pageSize);
-        debugPrint(nearMissResponse.firstPage);
         _page = nearMissResponse.pageNumber+1;
         _nearMiss.addAll(nearMissResponse.data);
         nearMissResponse.data = _nearMiss;
         emit(NearMissDataLoaded(nearMissResponse: nearMissResponse, isReachedMax: nearMissResponse.nextPage==null));
       }
       catch(e){
-        debugPrint("1");
         emit(NearMissDataError(message: "Ramak Kala bilgileri getirilemedi. Hata: $e"));
       }
     },
@@ -43,7 +40,6 @@ class NearMissBloc extends Bloc<NearMissEvent, NearMissState> {
 
     on<GetNearMissFiltered>((event, emit) async {
       try{
-        debugPrint("1");
         await Future.delayed(const Duration(milliseconds: 500));
         _filter!=event.filter ? _pageFiltered=1 : _pageFiltered;
         _filter!=event.filter ? _nearMissFiltered = [] : _nearMissFiltered;
@@ -55,7 +51,6 @@ class NearMissBloc extends Bloc<NearMissEvent, NearMissState> {
         emit(NearMissDataFiltered(nearMissResponse: nearMissResponseFiltered, filter: event.filter,isReachedMaxFiltered: nearMissResponseFiltered.nextPage==null));
       }
       catch(e){
-        debugPrint("2");
         emit(NearMissDataError(message: "Ramak Kala getirilemedi. Hata: $e"));
       }
     },
@@ -67,7 +62,7 @@ class NearMissBloc extends Bloc<NearMissEvent, NearMissState> {
 
       }
       catch(e){
-        emit(NewNearMissCreationError(message: "İş Kazası Eklenemedi. Hata: $e"));
+        emit(NewNearMissCreationError(message: "Ramak Kala Eklenemedi. Hata: $e"));
       }
     },
       transformer: droppable(),

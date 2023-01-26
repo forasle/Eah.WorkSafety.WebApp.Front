@@ -1,6 +1,5 @@
 import 'package:aeah_work_safety/blocs/statistic/statistic_bloc.dart';
 import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
-import 'package:aeah_work_safety/widgets/components/column_graph.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/accident/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
@@ -149,12 +148,6 @@ class DayWithoutAccidentPage extends StatelessWidget {
                           'İLKYARDIM GEREKTIREN KAZA X 200,000/YILLIK ADAM SAAT'
                         ],
                         ['Şiddet(Severity) Oranı', '-', Colors.green.shade700, 'KAYIP GÜN / KAYIP GÜNLÜ KAZA'],
-                        [
-                          'Tıbbi Müdahele Gerektiren',
-                          '-',
-                          Colors.blueAccent.shade700,
-                          'KAYIP GÜN OLMAYAN VE MÜDAHELE GEREKTIREN'
-                        ],
                         ['Toplam Olay', '-', Colors.amberAccent.shade700, 'TOPLAM RAMAK KALA + İŞ KAZASI'],
                       ]
                               .map(
@@ -184,13 +177,14 @@ class DayWithoutAccidentPage extends StatelessWidget {
                   builder: (context, state) {
                     return Row(
                       children: [
-                        if (state is StatisticLoaded) CircularGraph(
-                          title: 'Kaza/Ramak Kala',
-                          chartData: [
-                            ChartData('Kaza', state.statisticResponse.numberOfAccidents.toDouble()),
-                            ChartData('Ramak Kala', state.statisticResponse.numberOfNearMisses.toDouble()),
-                          ],
-                        ),
+                        if (state is StatisticLoaded)
+                          CircularGraph(
+                            title: 'Kaza/Ramak Kala',
+                            chartData: [
+                              ChartData('Kaza', state.statisticResponse.numberOfAccidents.toDouble()),
+                              ChartData('Ramak Kala', state.statisticResponse.numberOfNearMisses.toDouble()),
+                            ],
+                          ),
                         CircularGraph(
                           title: 'Kök Neden Gereksinimi',
                           chartData: [
@@ -201,29 +195,11 @@ class DayWithoutAccidentPage extends StatelessWidget {
                           ],
                         ),
                         CircularGraph(
-                          title: 'Zarar',
-                          chartData: [
-                            ChartData('---', 25),
-                            ChartData('---', 38),
-                            ChartData('---', 34),
-                          ],
-                        ),
-                        CircularGraph(
-                          title: 'Operasyonel Kaza/Rutin İş Kazası',
-                          chartData: [
-                            ChartData('---', 25),
-                            ChartData('---', 38),
-                          ],
-                        ),
-                        CircularGraph(
                           title: 'Departmanlar',
                           chartData: [
                             ChartData('---', 25),
                           ],
                         ),
-                        const ColumnGraph(
-                          title: 'Dönemsel Kaza Adedi',
-                        )
                       ],
                     );
                   },

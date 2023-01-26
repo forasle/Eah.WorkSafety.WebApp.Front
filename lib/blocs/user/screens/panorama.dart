@@ -1,4 +1,3 @@
-import 'package:aeah_work_safety/blocs/auth/models/login_response.dart';
 import 'package:aeah_work_safety/blocs/user/screens/components/notification_card_widget.dart';
 import 'package:aeah_work_safety/blocs/user/screens/components/punishment_notification_card_widget.dart';
 import 'package:aeah_work_safety/blocs/user/user_bloc.dart';
@@ -96,7 +95,7 @@ class Panorama extends StatelessWidget {
                             ],
                             [
                               Icons.fact_check_outlined,
-                              state is UserData ? state.userResponse.missions.length : '-',
+                              state is UserData ? state.userResponse.userAddedMissions.length : '-',
                               'Görevler',
                               Colors.blueAccent.shade700,
                               () {

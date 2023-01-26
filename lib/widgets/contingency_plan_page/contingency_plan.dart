@@ -6,7 +6,7 @@ import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:aeah_work_safety/widgets/components/card_widget.dart';
 
-import 'package:aeah_work_safety/blocs/accident/screens/components/search_bar.dart';
+import 'package:aeah_work_safety/blocs/mission/screens/components/search_bar.dart';
 
 class ContingencyPlanPage extends StatelessWidget {
   const ContingencyPlanPage({Key? key}) : super(key: key);

@@ -1,12 +1,22 @@
 import 'package:aeah_work_safety/blocs/accident/accident_bloc.dart';
+import 'package:aeah_work_safety/blocs/chronic_disease/chronic_disease_bloc.dart';
+import 'package:aeah_work_safety/blocs/chronic_disease/screens/components/chronic_disease_detail_page.dart';
 import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
+import 'package:aeah_work_safety/blocs/inconsistency/inconsistency_bloc.dart';
+import 'package:aeah_work_safety/blocs/mission/mission_bloc.dart';
+import 'package:aeah_work_safety/blocs/mission/screens/components/mission_detail_page.dart';
 import 'package:aeah_work_safety/blocs/near_miss/near_miss_bloc.dart';
+import 'package:aeah_work_safety/blocs/near_miss/screens/components/add_new_near_miss.dart';
+import 'package:aeah_work_safety/blocs/occupation_disease/occupation_disease_bloc.dart';
+import 'package:aeah_work_safety/blocs/occupation_disease/screens/components/occupation_disease_detail_page.dart';
+import 'package:aeah_work_safety/blocs/occupation_disease/screens/occupation_disease.dart';
+import 'package:aeah_work_safety/blocs/preventive_activity/preventive_activity_bloc.dart';
 import 'package:aeah_work_safety/blocs/statistic/statistic_bloc.dart';
 import 'package:aeah_work_safety/blocs/user/user_bloc.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/services/locator.dart';
-import 'package:aeah_work_safety/widgets/chronic_diseases_page/chronic_diseases_page.dart';
-import 'package:aeah_work_safety/widgets/components/add_new_near_miss.dart';
+import 'package:aeah_work_safety/blocs/chronic_disease/screens/chronic_diseases.dart';
+
 import 'package:aeah_work_safety/widgets/components/add_new_employee.dart';
 import 'package:aeah_work_safety/widgets/contingency_plan_page/components/add_new_contingency_plan.dart';
 import 'package:aeah_work_safety/widgets/contingency_plan_page/components/contingency_plans_detail_page.dart';
@@ -16,19 +26,18 @@ import 'package:aeah_work_safety/widgets/education_page/components/add_new_educa
 import 'package:aeah_work_safety/blocs/employee/screens/components/employee_detail_page.dart';
 import 'package:aeah_work_safety/blocs/employee/screens/employee.dart';
 import 'package:aeah_work_safety/widgets/education_page/education_page.dart';
-import 'package:aeah_work_safety/widgets/inconsistency_page/components/add_new_inconsistency.dart';
-import 'package:aeah_work_safety/widgets/inconsistency_page/components/inconsistency_detail_page.dart';
-import 'package:aeah_work_safety/widgets/inconsistency_page/inconsistency_page.dart';
+import 'package:aeah_work_safety/blocs/inconsistency/screens/components/add_new_inconsistency.dart';
+import 'package:aeah_work_safety/blocs/inconsistency/screens/components/inconsistency_detail_page.dart';
+import 'package:aeah_work_safety/blocs/inconsistency/screens/inconsistency.dart';
 import 'package:aeah_work_safety/blocs/auth/screens/login.dart';
-import 'package:aeah_work_safety/widgets/missionsPage/missions.dart';
+import 'package:aeah_work_safety/blocs/mission/screens/mission.dart';
 import 'package:aeah_work_safety/blocs/near_miss/screens/components/near_miss_detail_page.dart';
 import 'package:aeah_work_safety/blocs/near_miss/screens/near_miss.dart';
-import 'package:aeah_work_safety/widgets/occupational_diseases_page/occupational_diseases_page.dart';
 import 'package:aeah_work_safety/blocs/user/screens/panorama.dart';
 import 'package:aeah_work_safety/widgets/periodic_medical_examination_page/periodic_medical_examination_page.dart';
-import 'package:aeah_work_safety/widgets/preventive_activities_page/components/add_new_preventive_activity.dart';
-import 'package:aeah_work_safety/widgets/preventive_activities_page/components/preventive_activity_detail_page.dart';
-import 'package:aeah_work_safety/widgets/preventive_activities_page/preventive_activities_page.dart';
+import 'package:aeah_work_safety/blocs/preventive_activity/screens/components/add_new_preventive_activity.dart';
+import 'package:aeah_work_safety/blocs/preventive_activity/screens/components/preventive_activity_detail_page.dart';
+import 'package:aeah_work_safety/blocs/preventive_activity/screens/preventive_activities.dart';
 import 'package:aeah_work_safety/widgets/risk_assessment/components/add_new_risk_assessment.dart';
 import 'package:aeah_work_safety/widgets/risk_assessment/components/risk_assessment_detail_page.dart';
 import 'package:aeah_work_safety/widgets/risk_assessment/risk_assessment_page.dart';
@@ -38,7 +47,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'blocs/accident/screens/components/addNewAccident.dart';
+import 'blocs/accident/screens/components/add_new_accident.dart';
 import 'blocs/auth/auth_bloc.dart';
 import 'constants/main/constants.dart';
 
@@ -72,6 +81,21 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => NearMissBloc(),
         ),
+        BlocProvider(
+          create: (context) => PreventiveActivityBloc(),
+        ),
+        BlocProvider(
+          create: (context) => InconsistencyBloc(),
+        ),
+        BlocProvider(
+          create: (context) => MissionBloc(),
+        ),
+        BlocProvider(
+          create: (context) => ChronicDiseaseBloc(),
+        ),
+        BlocProvider(
+          create: (context) => OccupationDiseaseBloc(),
+        ),
       ],
       child: MaterialApp(
         localizationsDelegates: const [GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate],
@@ -80,22 +104,24 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: Constant.materialAppTitle,
         theme: ThemeData(primarySwatch: Constant.themeDataPrimarySwatch, fontFamily: 'Roboto'),
-        //initialRoute: Constant.initialRoute,
-        initialRoute: '/Panorama/nearMiss/addNewAccident',
+        initialRoute: Constant.initialRoute,
+        //initialRoute: '/Panorama/accident/addNewAccident',
         routes: {
           loginRoute: (context) => const Login(),
           panoramaRoute: (context) => const Panorama(),
-          missionsPageRoute: (context) => const Missions(),
+          missionsPageRoute: (context) => const Mission(),
           workersMainPageRoute: (context) => const Employee(),
           workersDetailPageRoute: (context) => const EmployeeDetail(),
           dayWithoutAccidentPageRoute: (context) => const DayWithoutAccidentPage(),
           accidentPageRoute: (context) => const AccidentPage(),
           nearMissPageRoute: (context) => const NearMissPage(),
-          inconsistenciesPageRoute: (context) => const InconsistenciesPage(),
+          inconsistenciesPageRoute: (context) => const Inconsistency(),
           preventiveActivitiesPageRoute: (context) => const PreventiveActivities(),
           educationPageRoute: (context) => const EducationPage(),
-          chronicDiseasesPageRoute: (context) => const ChronicDiseasesPage(),
-          occupationDiseasesPageRoute: (context) => const OccupationDiseasesPage(),
+          chronicDiseasesPageRoute: (context) => const ChronicDisease(),
+          chronicDiseaseDetailPageRoute : (context) => const ChronicDiseaseDetailPage(),
+          occupationDiseasesPageRoute: (context) => const OccupationDisease(),
+          occupationDiseaseDetailPageRoute :  (context) => const OccupationDiseaseDetailPage(),
           periodicMedicalExaminationPageRoute: (context) => const PeriodicMedicalExaminationPage(),
           addNewAccident: (context) => const AddNewAccident(),
           addNewNearMiss: (context) => const AddNewNearMiss(),
@@ -113,6 +139,7 @@ class MyApp extends StatelessWidget {
           riskAssessmentPage: (context) => const RiskAssessmentPage(),
           riskAssessmentDetailPage: (context) => const RiskAssessmentDetailPage(),
           addNewRiskAssessment: (context) => const AddNewRiskAssessment(),
+          missionDetailPageRoute : (context) => const MissionDetailPage(),
         },
       ),
     );
