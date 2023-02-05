@@ -40,4 +40,14 @@ class EmployeeService extends BaseAPI {
     final Employee employeeModel =Employee.fromJson(employeeJson);
     return employeeModel;
   }
+  Future<EmployeeResponse> getEmployeeByIdentificationNumber(String filter) async {
+    const storage = FlutterSecureStorage();
+    final String? token = await storage.read(key: "token");
+
+    headers["Authorization"]= "Bearer $token";
+    http.Response employeeResponse = await http.get(Uri.parse(super.employeeSearchPath+filter+"&pageNumber="+1.toString()+"&pageSize="+10.toString()), headers: super.headers);
+    final employeeResponseJson = jsonDecode(employeeResponse.body);
+    final EmployeeResponse employeeResponseModel =EmployeeResponse.fromJson(employeeResponseJson);
+    return employeeResponseModel;
+  }
 }

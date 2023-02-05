@@ -19,6 +19,7 @@ class CustomScaffold extends StatelessWidget {
         onPressed: () {},
       ),*/
       appBar: AppBar(
+        //automaticallyImplyLeading: false,
         title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
           Flexible(
             child: IconButton(

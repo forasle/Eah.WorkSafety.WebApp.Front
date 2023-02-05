@@ -1,4 +1,8 @@
 import 'package:aeah_work_safety/blocs/accident/accident_bloc.dart';
+import 'package:aeah_work_safety/blocs/accident/accident_by_id_bloc.dart';
+import 'package:aeah_work_safety/blocs/accident/add_new_accident_bloc.dart';
+import 'package:aeah_work_safety/blocs/accident/screens/components/update_accident.dart';
+import 'package:aeah_work_safety/blocs/accident/update_accident_bloc.dart';
 import 'package:aeah_work_safety/blocs/chronic_disease/chronic_disease_bloc.dart';
 import 'package:aeah_work_safety/blocs/chronic_disease/screens/components/chronic_disease_detail_page.dart';
 import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
@@ -96,6 +100,15 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => OccupationDiseaseBloc(),
         ),
+        BlocProvider(
+          create: (context) => AccidentByIdBloc(),
+        ),
+        BlocProvider(
+          create: (context) => AddNewAccidentBloc(),
+        ),
+        BlocProvider(
+          create: (context) => UpdateAccidentBloc(),
+        ),
       ],
       child: MaterialApp(
         localizationsDelegates: const [GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate],
@@ -124,6 +137,7 @@ class MyApp extends StatelessWidget {
           occupationDiseaseDetailPageRoute :  (context) => const OccupationDiseaseDetailPage(),
           periodicMedicalExaminationPageRoute: (context) => const PeriodicMedicalExaminationPage(),
           addNewAccident: (context) => const AddNewAccident(),
+          updateAccidentPage: (context) => const UpdateAccidentPage(),
           addNewNearMiss: (context) => const AddNewNearMiss(),
           addNewInconsistencies: (context) => const AddNewInconsistency(),
           nearMissDetailPage: (context) => const NearMissDetailPage(),
@@ -140,6 +154,7 @@ class MyApp extends StatelessWidget {
           riskAssessmentDetailPage: (context) => const RiskAssessmentDetailPage(),
           addNewRiskAssessment: (context) => const AddNewRiskAssessment(),
           missionDetailPageRoute : (context) => const MissionDetailPage(),
+
         },
       ),
     );

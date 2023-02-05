@@ -7,8 +7,13 @@ abstract class AccidentEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GetAccidentData extends AccidentEvent{
+class AccidentInitialEvent extends AccidentEvent{
+  const AccidentInitialEvent();
+  @override
+  List<Object> get props => [];
+}
 
+class GetAccidentData extends AccidentEvent{
   const GetAccidentData();
 
   @override
@@ -21,12 +26,4 @@ class GetAccidentFiltered extends AccidentEvent{
 
   @override
   List<Object> get props => [filter];
-}
-
-class CreateNewAccident extends AccidentEvent{
-  final Accident accident;
-  const CreateNewAccident({required this.accident});
-
-  @override
-  List<Object> get props => [accident];
 }

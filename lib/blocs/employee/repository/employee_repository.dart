@@ -18,4 +18,8 @@ class EmployeeRepository {
   Future<Employee> getEmployeeDataById({required int id}) async {
     return await employeeService.getEmployeeDataById(id);
   }
+
+  Future<EmployeeResponse> getEmployeeByIdentificationNumber({required String filter}) async {
+    return await employeeService.getEmployeeByIdentificationNumber(filter);
+  }
 }

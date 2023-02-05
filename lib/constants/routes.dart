@@ -20,6 +20,7 @@ String addNewNearMiss = '/Panorama/nearMiss/addNewNearMiss';
 String addNewInconsistencies = '/Panorama/inconsistencies/addNewInconsistencies';
 String nearMissDetailPage = '/Panorama/nearMiss/nearMissDetailPage';
 String accidentDetailPage = '/Panorama/accident/accidentDetailPage';
+String updateAccidentPage = '/Panorama/accident/updateAccidentPage';
 String inconsistenciesDetailPage = '/Panorama/inconsistencies/inconsistenciesDetailPage';
 String addNewPreventiveActivity = '/Panorama/preventiveActivities/addNewPreventiveActivity';
 String preventiveActivityDetailPage = '/Panorama/preventiveActivities/preventiveActivityDetailPage';

@@ -7,8 +7,8 @@ class BaseAPI {
   var employeeSearchPath = api + "/employee/search/name?key=";
   var authPath = api + "/auth/SignIn";
   var statisticPath = api + "/statistics";
-  var accidentPath = api + "/accident";
-  var accidentSearchPath = api + "/accident/search/name?key=";
+  static var accidentPath = api + "/accident";
+  static var accidentSearchPath = api + "/accident/search/name?key=";
   var nearMissPath = api + "/nearMiss";
   var nearMissSearchPath = api + "/preventiveActivity/search/name?key=";
   var preventiveActivityPath = api + "/preventiveActivity";
