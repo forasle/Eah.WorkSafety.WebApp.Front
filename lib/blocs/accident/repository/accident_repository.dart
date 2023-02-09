@@ -27,4 +27,7 @@ class AccidentRepository {
   Future<Accident> getAccidentDataById({required int id}) async {
     return await accidentService.getAccidentDataById(id);
   }
+  Future<http.Response> deleteAccident({required int id}) async {
+    return await accidentService.deleteAccident(id);
+  }
 }

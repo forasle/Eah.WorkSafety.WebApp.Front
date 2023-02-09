@@ -21,7 +21,6 @@ class UpdateAccidentPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _accidentResponse = ModalRoute.of(context)!.settings.arguments as Accident;
     final _formKey = GlobalKey<FormBuilderState>();
-    //final TextEditingController _nameController = TextEditingController();
     return CustomScaffold(
       body: FormBuilder(
         key: _formKey,
@@ -357,6 +356,7 @@ class UpdateAccidentPage extends StatelessWidget {
                         context
                             .read<UpdateAccidentBloc>()
                             .add(UpdateAccident(accident: value!, id: _accidentResponse.id));
+                        context.read<AccidentBloc>().add(const GetAccidentData(needsRefresh: true));
                         LoadingDialog.hide(context);
                         Navigator.of(context).pushReplacementNamed(accidentPageRoute);
                         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Kaza Güncellendi")));

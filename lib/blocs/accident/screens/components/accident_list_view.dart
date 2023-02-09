@@ -1,5 +1,6 @@
 import 'package:aeah_work_safety/blocs/accident/accident_bloc.dart';
 import 'package:aeah_work_safety/blocs/accident/accident_by_id_bloc.dart';
+import 'package:aeah_work_safety/blocs/accident/delete_accident_bloc.dart';
 import 'package:aeah_work_safety/blocs/accident/screens/components/search_bar.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ class AccidentListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final refreshAccidentBloc = BlocProvider.of<AccidentBloc>(context);
-    context.read<AccidentBloc>().add(const GetAccidentData());
+    context.watch<AccidentBloc>().add(const GetAccidentData(needsRefresh: false));
     return BlocBuilder<AccidentBloc, AccidentState>(
       builder: (context, state) {
         if (state is AccidentDataError) {
@@ -22,7 +23,7 @@ class AccidentListView extends StatelessWidget {
             onNotification: (notification) {
               if (notification.metrics.pixels == notification.metrics.maxScrollExtent) {
                 if (state.isReachedMax) return false;
-                context.read<AccidentBloc>().add(const GetAccidentData());
+                context.read<AccidentBloc>().add(const GetAccidentData(needsRefresh: false));
               }
               return false;
             },
@@ -32,17 +33,12 @@ class AccidentListView extends StatelessWidget {
                 Expanded(
                   child: RefreshIndicator(
                     onRefresh: () async{
-                      refreshAccidentBloc.add(const GetAccidentData());
+                      refreshAccidentBloc.add(const GetAccidentData(needsRefresh: true));
                     },
-                    child: ListView.separated(
-                      separatorBuilder: (context, index) {
-                        return const Divider(
-                          endIndent: 50,
-                          indent: 50,
-                        );
-                      },
+                    child: ListView.builder(
+
                       itemBuilder: (BuildContext context, int index) {
-                        return index >= state.accidentResponse.data.length
+                        return index >= state.accidentResponse.length
                             ? const Center(
                                 child: SizedBox(
                                   height: 24,
@@ -50,53 +46,70 @@ class AccidentListView extends StatelessWidget {
                                   child: CircularProgressIndicator(strokeWidth: 1.5),
                                 ),
                               )
-                            : ListTile(
-                                leading: CircleAvatar(
-                                  backgroundColor: const Color(0xff764abc),
-                                  child: Text(state.accidentResponse.data[index].id.toString()),
-                                ),
-                                title: Text(state.accidentResponse.data[index].referenceNumber),
-                                subtitle: Text(state.accidentResponse.data[index].accidentInfo),
-                                trailing: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    IconButton(
-                                        onPressed: () async {
-                                          context
-                                              .read<AccidentByIdBloc>()
-                                              .add(GetAccidentDataById(id: state.accidentResponse.data[index].id));
+                            : Dismissible(
 
+                              key: Key(state.accidentResponse[index].id.toString()),
+                              onDismissed: (direction) {
+                                context
+                                    .read<DeleteAccidentBloc>()
+                                    .add(DeleteAccident(id: state.accidentResponse[index].id));
+                                //state.accidentResponse.data.removeAt(index);
+                                //context.read()<AccidentBloc>(const GetAccidentData(needsRefresh: true));
+                              },
+                              child: ListTile(
+                                  leading: CircleAvatar(
+                                    backgroundColor: const Color(0xff764abc),
+                                    child: Text(state.accidentResponse[index].id.toString()),
+                                  ),
+                                  title: Text(state.accidentResponse[index].referenceNumber),
+                                  subtitle: Text(state.accidentResponse[index].accidentInfo),
+                                  trailing: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      IconButton(
+                                          onPressed: () async {
+                                            context
+                                                .read<AccidentByIdBloc>()
+                                                .add(GetAccidentDataById(id: state.accidentResponse[index].id));
+                                              Navigator.pushNamed(
+                                                context,
+                                                updateAccidentPage,arguments:state.accidentResponse[index]
+                                              );
+
+
+                                          },
+                                          icon: const Icon(Icons.change_circle)),
+                                          /*
+                                      IconButton(onPressed: () {
+                                        context
+                                            .read<DeleteAccidentBloc>()
+                                            .add(DeleteAccident(id: state.accidentResponse[index].id));
+                                        //state.accidentResponse.removeAt(index);
+                                        //context.read()<AccidentBloc>(const GetAccidentData(needsRefresh: true));
+                                      }, icon: const Icon(Icons.delete)),*/
+                                      IconButton(
+                                          onPressed: () {
+
+                                            context
+                                                .read<AccidentByIdBloc>()
+                                                .add(GetAccidentDataById(id: state.accidentResponse[index].id));
                                             Navigator.pushNamed(
                                               context,
-                                              updateAccidentPage,arguments:state.accidentResponse.data[index]
+                                              accidentDetailPage,arguments:state.accidentResponse[index]
                                             );
-
-
-                                        },
-                                        icon: const Icon(Icons.change_circle)),
-                                    IconButton(onPressed: () {}, icon: const Icon(Icons.delete)),
-                                    IconButton(
-                                        onPressed: () {
-
-                                          context
-                                              .read<AccidentByIdBloc>()
-                                              .add(GetAccidentDataById(id: state.accidentResponse.data[index].id));
-                                          Navigator.pushNamed(
-                                            context,
-                                            accidentDetailPage,arguments:state.accidentResponse.data[index]
-                                          );
-                                        },
-                                        icon: const Icon(Icons.arrow_forward)),
-                                  ],
+                                          },
+                                          icon: const Icon(Icons.arrow_forward)),
+                                    ],
+                                  ),
+                                  onLongPress: () {
+                                    print("on long press");
+                                  },
                                 ),
-                                onLongPress: () {
-                                  print("on long press");
-                                },
-                              );
+                            );
                       },
                       itemCount: state.isReachedMax
-                          ? state.accidentResponse.data.length
-                          : state.accidentResponse.data.length + 1,
+                          ? state.accidentResponse.length
+                          : state.accidentResponse.length + 1,
                     ),
                   ),
                 ),
@@ -157,7 +170,8 @@ class AccidentListView extends StatelessWidget {
 
                                 },
                                 icon: const Icon(Icons.change_circle)),
-                            IconButton(onPressed: () {}, icon: const Icon(Icons.delete)),
+                            /*
+                            IconButton(onPressed: () {}, icon: const Icon(Icons.delete)),*/
                             IconButton(
                                 onPressed: () {
 

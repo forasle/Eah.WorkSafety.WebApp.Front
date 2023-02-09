@@ -95,9 +95,10 @@ class AddNewEmployee extends StatelessWidget {
                           ),
                           Constant.sizedBox10H,
                           const Center(
-                              child: DropdownMenu(
-                            menuItems: Constant.menuItemsForGender,
-                          )),
+                             // child: DropdownMenu(
+                            //menuItems: Constant.menuItemsForGender,
+                         // )
+                          ),
                           Constant.sizedBox10H,
                           Center(
                             child: TextFormField(

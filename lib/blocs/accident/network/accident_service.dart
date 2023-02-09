@@ -59,4 +59,12 @@ class AccidentService extends BaseAPI {
     final Accident accidentModel =Accident.fromJson(accidentJson);
     return accidentModel;
   }
+
+  Future<http.Response> deleteAccident(int id) async {
+    const storage = FlutterSecureStorage();
+    final String? token = await storage.read(key: "token");
+    headers["Authorization"]= "Bearer $token";
+    http.Response deleteAccidentResponse = await http.delete(Uri.parse(BaseAPI.accidentPath+"/"+id.toString()),headers: super.headers);
+    return deleteAccidentResponse;
+  }
 }

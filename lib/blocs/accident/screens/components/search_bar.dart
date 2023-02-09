@@ -1,38 +1,34 @@
-
 import 'package:aeah_work_safety/blocs/accident/accident_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 
 class SearchBarWidget extends StatelessWidget {
   const SearchBarWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final searchBarController = TextEditingController();
     final _formKey = GlobalKey<FormState>();
-    String _filter = "";
     return BlocBuilder<AccidentBloc, AccidentState>(
       builder: (context, state) {
         return Form(
           key: _formKey,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
+          //autovalidateMode: AutovalidateMode.onUserInteraction,
           child: TextFormField(
-            onSaved: (value) {
-              _filter = value!;
-            },
+            controller: searchBarController,
             validator: (value) {
               if (value!.length < 4) {
                 return 'Filtre 3 karakterden kısa olamaz';
-              }
-              else {
+              } else {
                 _formKey.currentState!.save();
-               // context.read<AccidentBloc>().add(GetAccidentFiltered(filter: _filter));
+                // context.read<AccidentBloc>().add(GetAccidentFiltered(filter: _filter));
               }
-
               return null;
             },
+            autofocus: true,
+
             onChanged: (value) {
-              if(value.length>3){
+              if (value.length > 3) {
                 context.read<AccidentBloc>().add(GetAccidentFiltered(filter: value));
               }
             },
@@ -41,7 +37,7 @@ class SearchBarWidget extends StatelessWidget {
                 icon: const Icon(Icons.person),
                 suffixIcon: IconButton(
                   onPressed: () {
-                    context.read<AccidentBloc>().add(const GetAccidentData());
+                    context.read<AccidentBloc>().add(const GetAccidentData(needsRefresh: true));
                   },
                   icon: const Icon(Icons.clear),
                 ),

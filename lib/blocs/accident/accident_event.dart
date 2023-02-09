@@ -14,7 +14,8 @@ class AccidentInitialEvent extends AccidentEvent{
 }
 
 class GetAccidentData extends AccidentEvent{
-  const GetAccidentData();
+  final bool needsRefresh;
+  const GetAccidentData({required this.needsRefresh});
 
   @override
   List<Object> get props => [];

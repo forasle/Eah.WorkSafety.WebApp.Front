@@ -17,7 +17,7 @@ class Panorama extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScrollController horizontalController = ScrollController();
-    context.read<UserBloc>().add(GetUserData(userRequest: UserRequest()));
+    context.watch<UserBloc>().add(GetUserData(userRequest: UserRequest()));
     return BlocBuilder<UserBloc, UserState>(
       builder: (context, state) {
         if (state is UserInitial) {

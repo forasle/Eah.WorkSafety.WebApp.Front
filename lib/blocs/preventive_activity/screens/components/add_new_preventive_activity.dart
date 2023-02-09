@@ -67,7 +67,8 @@ class AddNewPreventiveActivity extends StatelessWidget {
                                   padding: Constant.padding,
                                   child: SizedBox(
                                       height: 50,
-                                      child: DropdownMenu(menuItems: Constant.menuItemsForPreventiveActivities)),
+                                      //child: DropdownMenu(menuItems: Constant.menuItemsForPreventiveActivities),
+                                  ),
                                 ),
                                 Padding(
                                   padding: Constant.padding,
@@ -208,7 +209,8 @@ class AddNewPreventiveActivity extends StatelessWidget {
                                   child: SizedBox(
                                       height: 50,
                                       child:
-                                          Center(child: DropdownMenu(menuItems: Constant.menuItemsForDepartmentType))),
+                                          Center(//child: DropdownMenu(menuItems: Constant.menuItemsForDepartmentType)
+                                            ),),
                                 ),
                               ],
                             ),

@@ -21,7 +21,7 @@ class AccidentDataLoading extends AccidentState{
 }
 
 class AccidentDataLoaded extends AccidentState{
-  final AccidentResponse accidentResponse;
+  final List<Accident> accidentResponse;
   final bool isReachedMax;
 
   const AccidentDataLoaded({required this.accidentResponse,required this.isReachedMax});

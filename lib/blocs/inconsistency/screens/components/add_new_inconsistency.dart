@@ -83,7 +83,7 @@ class AddNewInconsistency extends StatelessWidget {
                               child: SizedBox(
                                 height: 50,
                                 child: Center(
-                                  child: DropdownMenu(menuItems: Constant.menuItemsForInconsistenciesType),
+                                  //child: DropdownMenu(menuItems: Constant.menuItemsForInconsistenciesType),
                                 ),
                               ),
                             ),
@@ -164,7 +164,7 @@ class AddNewInconsistency extends StatelessWidget {
                               child: SizedBox(
                                   height: 50,
                                   child: Center(
-                                    child: DropdownMenu(menuItems: Constant.menuItemsForDepartmentType),
+                                    //child: DropdownMenu(menuItems: Constant.menuItemsForDepartmentType),
                                   )),
                             ),
                           ],
@@ -354,7 +354,7 @@ class AddNewInconsistency extends StatelessWidget {
                               child: SizedBox(
                                 height: 50,
                                 child: Center(
-                                  child: DropdownMenu(menuItems: Constant.menuItemsForRiskMethodType),
+                                  //child: DropdownMenu(menuItems: Constant.menuItemsForRiskMethodType),
                                 ),
                               ),
                             ),

@@ -1,6 +1,7 @@
 import 'package:aeah_work_safety/blocs/accident/accident_bloc.dart';
 import 'package:aeah_work_safety/blocs/accident/accident_by_id_bloc.dart';
 import 'package:aeah_work_safety/blocs/accident/add_new_accident_bloc.dart';
+import 'package:aeah_work_safety/blocs/accident/delete_accident_bloc.dart';
 import 'package:aeah_work_safety/blocs/accident/screens/components/update_accident.dart';
 import 'package:aeah_work_safety/blocs/accident/update_accident_bloc.dart';
 import 'package:aeah_work_safety/blocs/chronic_disease/chronic_disease_bloc.dart';
@@ -108,6 +109,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => UpdateAccidentBloc(),
+        ),
+        BlocProvider(
+          create: (context) => DeleteAccidentBloc(),
         ),
       ],
       child: MaterialApp(

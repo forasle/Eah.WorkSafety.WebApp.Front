@@ -14,7 +14,7 @@ part 'accident_state.dart';
 
 class AccidentBloc extends Bloc<AccidentEvent, AccidentState> {
   final AccidentRepository _accidentRepository = locator<AccidentRepository>();
-  final List<Accident> _accident= [];
+  List<Accident> _accident= [];
   List<Accident> _accidentFiltered= [];
   //int _page = 1;
   int _pageFiltered = 1;
@@ -26,12 +26,21 @@ class AccidentBloc extends Bloc<AccidentEvent, AccidentState> {
   AccidentBloc() : super(const AccidentInitial(message: 'Kaza bilgileri getiriliyor')) {
     on<GetAccidentData>((event, emit) async {
       try{
+        if(event.needsRefresh==true){
+          _accident = [];
+          page = BaseAPI.accidentPath+"?pageNumber="+1.toString()+"&pageSize="+10.toString();
+        }
         await Future.delayed(const Duration(milliseconds: 500));
+        print(page);
         final accidentResponse = await _accidentRepository.getAccidentData(page : page);
         if(accidentResponse.nextPage != null){
           page = accidentResponse.nextPage!;
         }
-        /*
+        else{
+          emit(AccidentDataLoaded(accidentResponse: _accident, isReachedMax: accidentResponse.nextPage==null));
+        }
+        //_accident.addAll(accidentResponse.data);
+
         for(int i =0; i<accidentResponse.data.length;i++){
           if(_accident.contains(accidentResponse.data[i])){
 
@@ -41,8 +50,7 @@ class AccidentBloc extends Bloc<AccidentEvent, AccidentState> {
           }
         }
 
-        accidentResponse.data = _accident;*/
-        emit(AccidentDataLoaded(accidentResponse: accidentResponse, isReachedMax: accidentResponse.nextPage==null));
+        emit(AccidentDataLoaded(accidentResponse: _accident, isReachedMax: accidentResponse.nextPage==null));
       }
       catch(e){
         emit(AccidentDataError(message: "Kaza bilgileri getirilemedi. Hata: $e"));

@@ -187,7 +187,7 @@ class _AddNewRiskAssessmentState extends State<AddNewRiskAssessment> {
                                   child: SizedBox(
                                     height: 50,
                                     child: Center(
-                                      child: DropdownMenu(menuItems: Constant.menuItemsForTemplate),
+                                      //child: DropdownMenu(menuItems: Constant.menuItemsForTemplate),
                                     ),
                                   ),
                                 ),

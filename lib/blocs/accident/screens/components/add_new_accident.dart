@@ -15,7 +15,6 @@ class AddNewAccident extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormBuilderState>();
-    final TextEditingController _nameController = TextEditingController();
     return CustomScaffold(
       body: FormBuilder(
         key: _formKey,
