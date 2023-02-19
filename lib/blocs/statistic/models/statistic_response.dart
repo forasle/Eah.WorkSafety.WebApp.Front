@@ -25,13 +25,34 @@ class StatisticResponse {
     required this.numberOfContingencyPlans,
     required this.numberOfPreventiveActivities,
     required this.numberOfMissions,
+    required this.numberOfEmployeeBelow16,
+    required this.numberOfEmployeeBetween1618,
+    required this.numberOfEmployeeBetween1925,
+    required this.numberOfEmployeeBetween2645,
+    required this.numberOfEmployeeBetween4660,
+    required this.numberOfEmployeeAbove60,
+    required this.numberOfEmployeeByDepartment,
+    required this.numberOfMaleEmployee,
+    required this.numberOfFemaleEmployee,
+    required this.numberOfUnspecifiedEmployee,
+    required this.numberOfRootCauseAnalysisRequirementForAccident,
+    required this.numberOfRootCauseAnalysisRequirementForNearMiss,
+    required this.numberOfEmployeeWhoHadAnAccident,
+    required this.numberOfAccidentWhichNeedsFirstAid,
+    required this.numberOfAccidentWhichHasGotLostDay,
+    required this.numberOfLostDays,
+    required this.numberOfEmployeeWhoHadANearMiss,
+    required this.numberOfNearMissWhichNeedsFirstAid,
+    required this.numberOfNearMissWhichHasGotLostDay,
+    required this.totalNeedFirstAidNearMiss,
+    required this.totalNeedFirstAidButNoLostDaysNearMiss,
     required this.dayWithoutAccident
   });
 
   int numberOfEmployee;
   int numberOfUser;
-  double averageAgeOfEmployee;
-  double averageDayOfWork;
+  int averageAgeOfEmployee;
+  int averageDayOfWork;
   int totalLostDays;
   int totalEmployeeAccident;
   int totalLostDaysAccident;
@@ -47,13 +68,34 @@ class StatisticResponse {
   int numberOfContingencyPlans;
   int numberOfPreventiveActivities;
   int numberOfMissions;
+  int numberOfEmployeeBelow16;
+  int numberOfEmployeeBetween1618;
+  int numberOfEmployeeBetween1925;
+  int numberOfEmployeeBetween2645;
+  int numberOfEmployeeBetween4660;
+  int numberOfEmployeeAbove60;
+  int numberOfEmployeeByDepartment;
+  int numberOfMaleEmployee;
+  int numberOfFemaleEmployee;
+  int numberOfUnspecifiedEmployee;
+  int numberOfRootCauseAnalysisRequirementForAccident;
+  int numberOfRootCauseAnalysisRequirementForNearMiss;
+  int numberOfEmployeeWhoHadAnAccident;
+  int numberOfAccidentWhichNeedsFirstAid;
+  int numberOfAccidentWhichHasGotLostDay;
+  int numberOfLostDays;
+  int numberOfEmployeeWhoHadANearMiss;
+  int numberOfNearMissWhichNeedsFirstAid;
+  int numberOfNearMissWhichHasGotLostDay;
+  int totalNeedFirstAidNearMiss;
+  int totalNeedFirstAidButNoLostDaysNearMiss;
   int dayWithoutAccident;
 
   factory StatisticResponse.fromJson(Map<String, dynamic> json) => StatisticResponse(
     numberOfEmployee: json["numberOfEmployee"],
     numberOfUser: json["numberOfUser"],
-    averageAgeOfEmployee: json["averageAgeOfEmployee"].toDouble(),
-    averageDayOfWork: json["averageDayOfWork"].toDouble(),
+    averageAgeOfEmployee: json["averageAgeOfEmployee"],
+    averageDayOfWork: json["averageDayOfWork"],
     totalLostDays: json["totalLostDays"],
     totalEmployeeAccident: json["totalEmployeeAccident"],
     totalLostDaysAccident: json["totalLostDaysAccident"],
@@ -69,6 +111,27 @@ class StatisticResponse {
     numberOfContingencyPlans: json["numberOfContingencyPlans"],
     numberOfPreventiveActivities: json["numberOfPreventiveActivities"],
     numberOfMissions: json["numberOfMissions"],
+    numberOfEmployeeBelow16: json["numberOfEmployeeBelow16"],
+    numberOfEmployeeBetween1618: json["numberOfEmployeeBetween16_18"],
+    numberOfEmployeeBetween1925: json["numberOfEmployeeBetween19_25"],
+    numberOfEmployeeBetween2645: json["numberOfEmployeeBetween26_45"],
+    numberOfEmployeeBetween4660: json["numberOfEmployeeBetween46_60"],
+    numberOfEmployeeAbove60: json["numberOfEmployeeAbove60"],
+    numberOfEmployeeByDepartment: json["numberOfEmployeeByDepartment"],
+    numberOfMaleEmployee: json["numberOfMaleEmployee"],
+    numberOfFemaleEmployee: json["numberOfFemaleEmployee"],
+    numberOfUnspecifiedEmployee: json["numberOfUnspecifiedEmployee"],
+    numberOfRootCauseAnalysisRequirementForAccident: json["numberOfRootCauseAnalysisRequirementForAccident"],
+    numberOfRootCauseAnalysisRequirementForNearMiss: json["numberOfRootCauseAnalysisRequirementForNearMiss"],
+    numberOfEmployeeWhoHadAnAccident: json["numberOfEmployeeWhoHadAnAccident"],
+    numberOfAccidentWhichNeedsFirstAid: json["numberOfAccidentWhichNeedsFirstAid"],
+    numberOfAccidentWhichHasGotLostDay: json["numberOfAccidentWhichHasGotLostDay"],
+    numberOfLostDays: json["numberOfLostDays"],
+    numberOfEmployeeWhoHadANearMiss: json["numberOfEmployeeWhoHadANearMiss"],
+    numberOfNearMissWhichNeedsFirstAid: json["numberOfNearMissWhichNeedsFirstAid"],
+    numberOfNearMissWhichHasGotLostDay: json["numberOfNearMissWhichHasGotLostDay"],
+    totalNeedFirstAidNearMiss: json["totalNeedFirstAidNearMiss"],
+    totalNeedFirstAidButNoLostDaysNearMiss: json["totalNeedFirstAidButNoLostDaysNearMiss"],
     dayWithoutAccident: json["dayWithoutAccident"],
   );
 
@@ -92,6 +155,27 @@ class StatisticResponse {
     "numberOfContingencyPlans": numberOfContingencyPlans,
     "numberOfPreventiveActivities": numberOfPreventiveActivities,
     "numberOfMissions": numberOfMissions,
+    "numberOfEmployeeBelow16": numberOfEmployeeBelow16,
+    "numberOfEmployeeBetween16_18": numberOfEmployeeBetween1618,
+    "numberOfEmployeeBetween19_25": numberOfEmployeeBetween1925,
+    "numberOfEmployeeBetween26_45": numberOfEmployeeBetween2645,
+    "numberOfEmployeeBetween46_60": numberOfEmployeeBetween4660,
+    "numberOfEmployeeAbove60": numberOfEmployeeAbove60,
+    "numberOfEmployeeByDepartment": numberOfEmployeeByDepartment,
+    "numberOfMaleEmployee": numberOfMaleEmployee,
+    "numberOfFemaleEmployee": numberOfFemaleEmployee,
+    "numberOfUnspecifiedEmployee": numberOfUnspecifiedEmployee,
+    "numberOfRootCauseAnalysisRequirementForAccident": numberOfRootCauseAnalysisRequirementForAccident,
+    "numberOfRootCauseAnalysisRequirementForNearMiss": numberOfRootCauseAnalysisRequirementForNearMiss,
+    "numberOfEmployeeWhoHadAnAccident": numberOfEmployeeWhoHadAnAccident,
+    "numberOfAccidentWhichNeedsFirstAid": numberOfAccidentWhichNeedsFirstAid,
+    "numberOfAccidentWhichHasGotLostDay": numberOfAccidentWhichHasGotLostDay,
+    "numberOfLostDays": numberOfLostDays,
+    "numberOfEmployeeWhoHadANearMiss": numberOfEmployeeWhoHadANearMiss,
+    "numberOfNearMissWhichNeedsFirstAid": numberOfNearMissWhichNeedsFirstAid,
+    "numberOfNearMissWhichHasGotLostDay": numberOfNearMissWhichHasGotLostDay,
+    "totalNeedFirstAidNearMiss": totalNeedFirstAidNearMiss,
+    "totalNeedFirstAidButNoLostDaysNearMiss": totalNeedFirstAidButNoLostDaysNearMiss,
     "dayWithoutAccident": dayWithoutAccident,
   };
 }

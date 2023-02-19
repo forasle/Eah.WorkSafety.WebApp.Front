@@ -15,8 +15,8 @@ class AccidentRepository {
   Future<AccidentResponse> getAccidentData({required String page}) async {
     return await accidentService.getAccidentData(page);
   }
-  Future<AccidentResponse> getAccidentFiltered({required int page,required int pageSize,required String filter}) async {
-    return await accidentService.getAccidentFiltered(page,pageSize,filter);
+  Future<AccidentResponse> getAccidentFiltered({required String page}) async {
+    return await accidentService.getAccidentFiltered(page);
   }
   Future<http.Response> createAccident({required CreateAccidentModel newAccident}) async {
     return await accidentService.createAccident(newAccident);

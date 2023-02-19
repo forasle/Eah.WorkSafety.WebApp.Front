@@ -8,7 +8,8 @@ abstract class AddNewAccidentEvent extends Equatable {
 
 class CreateNewAccident extends AddNewAccidentEvent{
   final Map<String, dynamic> accident;
-  const CreateNewAccident({required this.accident});
+  final String identificationNumber;
+  const CreateNewAccident({required this.identificationNumber,required this.accident});
 
   @override
   List<Object> get props => [accident];

@@ -1,8 +1,3 @@
-// To parse this JSON data, do
-//
-//     final createNearMissModel = createNearMissModelFromJson(jsonString);
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 CreateNearMissModel createNearMissModelFromJson(String str) => CreateNearMissModel.fromJson(json.decode(str));
@@ -74,7 +69,7 @@ class CreateNearMissModel {
     date: DateTime.parse(json["date"]),
     rootCauseAnalysis: json["rootCauseAnalysis"],
     creatorUserId: json["creatorUserId"],
-    createAffectedEmployeeWithPropertyForNearMiss: List<CreateAffectedEmployeeWithPropertyForNearMiss>.from(json["createAffectedEmployeeWithPropertyForNearMiss"].map((x) => CreateAffectedEmployeeWithPropertyForNearMiss.fromJson(x))),
+    createAffectedEmployeeWithPropertyForNearMiss: List<CreateAffectedEmployeeWithPropertyForNearMiss>.from(json["createAffectedEmployeeWithProperty"].map((x) => CreateAffectedEmployeeWithPropertyForNearMiss.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
@@ -105,18 +100,114 @@ class CreateAffectedEmployeeWithPropertyForNearMiss {
   CreateAffectedEmployeeWithPropertyForNearMiss({
     required this.employeeId,
     required this.lostDays,
+    required this.theSubjectExposureToPhysicalViolence,
+    required this.theSubjectExposureToVerbalViolence,
+    required this.theSubjectSharpObjectInjuries,
+    required this.theSubjectExposureToBiologicalAgents,
+    required this.theSubjectFallingImpactInjuries,
+    required this.theSubjectMaterialDamagedTrafficAccident,
+    required this.theSubjectInjuredTrafficAccident,
+    required this.theSubjectExposureToChemicals,
+    required this.theSubjectExposureToFireAndBurn,
+    required this.theSubjectOfficeAccidents,
+    required this.theSubjectElectricalAccidents,
+    required this.thePrecautionsWorkingWithoutAuthorization,
+    required this.thePrecautionsGiveOrReceiveFalseWarnings,
+    required this.thePrecautionsErrorInSafety,
+    required this.thePrecautionsImproperSpeed,
+    required this.thePrecautionsNotUsingEquipmentProtectors,
+    required this.thePrecautionsNotUsingPersonalProtectiveEquipment,
+    required this.thePrecautionsEquipmentUsageError,
+    required this.thePrecautionsUsingFaultyEquipment,
+    required this.thePrecautionsWorkingInAnUnfamiliarField,
+    required this.thePrecautionsDisobeyingInstructions,
+    required this.thePrecautionsTirednessOrInsomniaOrDrowsiness,
+    required this.thePrecautionsWorkingWithoutDiscipline,
+    required this.thePrecautionsInsufficientMachineEquipmentEnclosure,
   });
 
   int employeeId;
   int lostDays;
+  bool theSubjectExposureToPhysicalViolence;
+  bool theSubjectExposureToVerbalViolence;
+  bool theSubjectSharpObjectInjuries;
+  bool theSubjectExposureToBiologicalAgents;
+  bool theSubjectFallingImpactInjuries;
+  bool theSubjectMaterialDamagedTrafficAccident;
+  bool theSubjectInjuredTrafficAccident;
+  bool theSubjectExposureToChemicals;
+  bool theSubjectExposureToFireAndBurn;
+  bool theSubjectOfficeAccidents;
+  bool theSubjectElectricalAccidents;
+  bool thePrecautionsWorkingWithoutAuthorization;
+  bool thePrecautionsGiveOrReceiveFalseWarnings;
+  bool thePrecautionsErrorInSafety;
+  bool thePrecautionsImproperSpeed;
+  bool thePrecautionsNotUsingEquipmentProtectors;
+  bool thePrecautionsNotUsingPersonalProtectiveEquipment;
+  bool thePrecautionsEquipmentUsageError;
+  bool thePrecautionsUsingFaultyEquipment;
+  bool thePrecautionsWorkingInAnUnfamiliarField;
+  bool thePrecautionsDisobeyingInstructions;
+  bool thePrecautionsTirednessOrInsomniaOrDrowsiness;
+  bool thePrecautionsWorkingWithoutDiscipline;
+  bool thePrecautionsInsufficientMachineEquipmentEnclosure;
 
   factory CreateAffectedEmployeeWithPropertyForNearMiss.fromJson(Map<String, dynamic> json) => CreateAffectedEmployeeWithPropertyForNearMiss(
     employeeId: json["employeeId"],
     lostDays: json["lostDays"],
+    theSubjectExposureToPhysicalViolence: json["theSubjectExposureToPhysicalViolence"],
+    theSubjectExposureToVerbalViolence: json["theSubjectExposureToVerbalViolence"],
+    theSubjectSharpObjectInjuries: json["theSubjectSharpObjectInjuries"],
+    theSubjectExposureToBiologicalAgents: json["theSubjectExposureToBiologicalAgents"],
+    theSubjectFallingImpactInjuries: json["theSubjectFallingImpactInjuries"],
+    theSubjectMaterialDamagedTrafficAccident: json["theSubjectMaterialDamagedTrafficAccidents"],
+    theSubjectInjuredTrafficAccident: json["theSubjectInjuredTrafficAccidents"],
+    theSubjectExposureToChemicals: json["theSubjectExposureToChemicals"],
+    theSubjectExposureToFireAndBurn: json["theSubjectExposureToFireAndBurn"],
+    theSubjectOfficeAccidents: json["theSubjectOfficeAccidents"],
+    theSubjectElectricalAccidents: json["theSubjectElectricalAccidents"],
+    thePrecautionsWorkingWithoutAuthorization: json["thePrecautionsWorkingWithoutAuthorization"],
+    thePrecautionsGiveOrReceiveFalseWarnings: json["thePrecautionsGiveOrReceiveFalseWarnings"],
+    thePrecautionsErrorInSafety: json["thePrecautionsErrorInSafety"],
+    thePrecautionsImproperSpeed: json["thePrecautionsImproperSpeed"],
+    thePrecautionsNotUsingEquipmentProtectors: json["thePrecautionsNotUsingEquipmentProtectors"],
+    thePrecautionsNotUsingPersonalProtectiveEquipment: json["thePrecautionsNotUsingPersonalProtectiveEquipment"],
+    thePrecautionsEquipmentUsageError: json["thePrecautionsEquipmentUsageError"],
+    thePrecautionsUsingFaultyEquipment: json["thePrecautionsUsingFaultyEquipment"],
+    thePrecautionsWorkingInAnUnfamiliarField: json["thePrecautionsWorkingInAnUnfamiliarField"],
+    thePrecautionsDisobeyingInstructions: json["thePrecautionsDisobeyingInstructions"],
+    thePrecautionsTirednessOrInsomniaOrDrowsiness: json["thePrecautionsTirednessOrInsomniaOrDrowsiness"],
+    thePrecautionsWorkingWithoutDiscipline: json["thePrecautionsWorkingWithoutDiscipline"],
+    thePrecautionsInsufficientMachineEquipmentEnclosure: json["thePrecautionsInsufficientMachineEquipmentEnclosure"],
   );
 
   Map<String, dynamic> toJson() => {
     "employeeId": employeeId,
     "lostDays": lostDays,
+    "theSubjectExposureToPhysicalViolence": theSubjectExposureToPhysicalViolence,
+    "theSubjectExposureToVerbalViolence": theSubjectExposureToVerbalViolence,
+    "theSubjectSharpObjectInjuries": theSubjectSharpObjectInjuries,
+    "theSubjectExposureToBiologicalAgents": theSubjectExposureToBiologicalAgents,
+    "theSubjectFallingImpactInjuries": theSubjectFallingImpactInjuries,
+    "theSubjectMaterialDamagedTrafficAccident": theSubjectMaterialDamagedTrafficAccident,
+    "theSubjectInjuredTrafficAccident": theSubjectInjuredTrafficAccident,
+    "theSubjectExposureToChemicals": theSubjectExposureToChemicals,
+    "theSubjectExposureToFireAndBurn": theSubjectExposureToFireAndBurn,
+    "theSubjectOfficeAccidents": theSubjectOfficeAccidents,
+    "theSubjectElectricalAccidents": theSubjectElectricalAccidents,
+    "thePrecautionsWorkingWithoutAuthorization": thePrecautionsWorkingWithoutAuthorization,
+    "thePrecautionsGiveOrReceiveFalseWarnings": thePrecautionsGiveOrReceiveFalseWarnings,
+    "thePrecautionsErrorInSafety": thePrecautionsErrorInSafety,
+    "thePrecautionsImproperSpeed": thePrecautionsImproperSpeed,
+    "thePrecautionsNotUsingEquipmentProtectors": thePrecautionsNotUsingEquipmentProtectors,
+    "thePrecautionsNotUsingPersonalProtectiveEquipment": thePrecautionsNotUsingPersonalProtectiveEquipment,
+    "thePrecautionsEquipmentUsageError": thePrecautionsEquipmentUsageError,
+    "thePrecautionsUsingFaultyEquipment": thePrecautionsUsingFaultyEquipment,
+    "thePrecautionsWorkingInAnUnfamiliarField": thePrecautionsWorkingInAnUnfamiliarField,
+    "thePrecautionsDisobeyingInstructions": thePrecautionsDisobeyingInstructions,
+    "thePrecautionsTirednessOrInsomniaOrDrowsiness": thePrecautionsTirednessOrInsomniaOrDrowsiness,
+    "thePrecautionsWorkingWithoutDiscipline": thePrecautionsWorkingWithoutDiscipline,
+    "thePrecautionsInsufficientMachineEquipmentEnclosure": thePrecautionsInsufficientMachineEquipmentEnclosure,
   };
 }

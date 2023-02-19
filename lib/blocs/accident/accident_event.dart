@@ -18,13 +18,14 @@ class GetAccidentData extends AccidentEvent{
   const GetAccidentData({required this.needsRefresh});
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [needsRefresh];
 }
 
 class GetAccidentFiltered extends AccidentEvent{
+  final bool needsRefresh;
   final String filter;
-  const GetAccidentFiltered({required this.filter});
+  const GetAccidentFiltered({required this.filter,required this.needsRefresh});
 
   @override
-  List<Object> get props => [filter];
+  List<Object> get props => [filter,needsRefresh];
 }

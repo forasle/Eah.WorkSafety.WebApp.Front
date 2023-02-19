@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:aeah_work_safety/blocs/accident/models/accident.dart';
-import 'package:aeah_work_safety/blocs/accident/models/accident_response.dart';
 import 'package:aeah_work_safety/blocs/accident/repository/accident_repository.dart';
 import 'package:aeah_work_safety/services/base_api.dart';
 import 'package:aeah_work_safety/services/locator.dart';
@@ -17,21 +16,23 @@ class AccidentBloc extends Bloc<AccidentEvent, AccidentState> {
   List<Accident> _accident= [];
   List<Accident> _accidentFiltered= [];
   //int _page = 1;
-  int _pageFiltered = 1;
-  String _filter ="";
-  final int _pageSize = 10;
-  var page = BaseAPI.accidentPath+"?pageNumber="+1.toString()+"&pageSize="+10.toString();
-  var pageFiltered = BaseAPI.accidentSearchPath+"?pageNumber="+1.toString()+"&pageSize="+10.toString();
+  //int _pageFiltered = 1;
+  //String _filter ="";
+  static const String _pageSize = "10";
+  var page = BaseAPI.accidentPath+"?pageNumber="+1.toString()+"&pageSize="+_pageSize;
+  var pageFiltered = BaseAPI.accidentSearchPath+"?pageNumber="+1.toString()+"&pageSize="+_pageSize;
 
   AccidentBloc() : super(const AccidentInitial(message: 'Kaza bilgileri getiriliyor')) {
     on<GetAccidentData>((event, emit) async {
       try{
         if(event.needsRefresh==true){
           _accident = [];
-          page = BaseAPI.accidentPath+"?pageNumber="+1.toString()+"&pageSize="+10.toString();
+          page = BaseAPI.accidentPath+"?pageNumber="+1.toString()+"&pageSize="+_pageSize;
         }
+        //while(_accident.length>10){
+        //  _accident.removeAt(0);
+        //}
         await Future.delayed(const Duration(milliseconds: 500));
-        print(page);
         final accidentResponse = await _accidentRepository.getAccidentData(page : page);
         if(accidentResponse.nextPage != null){
           page = accidentResponse.nextPage!;
@@ -61,15 +62,29 @@ class AccidentBloc extends Bloc<AccidentEvent, AccidentState> {
 
     on<GetAccidentFiltered>((event, emit) async {
       try{
+          if(event.needsRefresh==true){
+            _accidentFiltered = [];
+            pageFiltered = BaseAPI.accidentSearchPath+event.filter+"&pageNumber="+1.toString()+"&pageSize="+_pageSize;
+          }
+
         await Future.delayed(const Duration(milliseconds: 500));
-        _filter!=event.filter ? _pageFiltered=1 : _pageFiltered;
-        _filter!=event.filter ? _accidentFiltered = [] : _accidentFiltered;
-        final accidentResponseFiltered = await _accidentRepository.getAccidentFiltered(page: _pageFiltered,pageSize: _pageSize,filter: event.filter);
-        _pageFiltered = accidentResponseFiltered.pageNumber+1;
-        _accidentFiltered.addAll(accidentResponseFiltered.data);
-        accidentResponseFiltered.data = _accidentFiltered;
-        _filter=event.filter;
-        emit(AccidentDataFiltered(accidentResponse: accidentResponseFiltered, filter: event.filter,isReachedMaxFiltered: accidentResponseFiltered.nextPage==null));
+          final accidentResponseFiltered = await _accidentRepository.getAccidentFiltered(page : pageFiltered);
+          if(accidentResponseFiltered .nextPage != null){
+            page = accidentResponseFiltered .nextPage!;
+          }
+          else{
+            emit(AccidentDataFiltered(accidentResponse: _accidentFiltered,filter: event.filter, isReachedMaxFiltered: accidentResponseFiltered.nextPage==null));
+          }
+
+          for(int i =0; i<accidentResponseFiltered.data.length;i++){
+            if(_accidentFiltered.contains(accidentResponseFiltered.data[i])){
+
+            }
+            else{
+              _accidentFiltered.add(accidentResponseFiltered.data[i]);
+            }
+          }
+          emit(AccidentDataLoaded(accidentResponse: _accidentFiltered, isReachedMax: accidentResponseFiltered.nextPage==null));
       }
       catch(e){
         emit(AccidentDataError(message: "Kaza bilgileri getirilemedi. Hata: $e"));

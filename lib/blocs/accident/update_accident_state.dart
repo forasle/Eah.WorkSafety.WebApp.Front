@@ -7,6 +7,8 @@ abstract class UpdateAccidentState extends Equatable {
 class UpdateAccidentInitial extends UpdateAccidentState {
   @override
   List<Object> get props => [];
+
+  const UpdateAccidentInitial();
 }
 
 class UpdateAccidentCompleted extends UpdateAccidentState{

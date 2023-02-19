@@ -33,7 +33,7 @@ class AccidentDetailPage extends StatelessWidget {
                     const Icon(Icons.arrow_right),
                     RoutingBarWidget(pageName: 'İş Kazası', routeName: accidentPageRoute),
                     const Icon(Icons.arrow_right),
-                    RoutingBarWidget(pageName: 'Yeni İş Kazası Ekle', routeName: addNewAccident),
+                    RoutingBarWidget(pageName: 'İş Kazası Detayları', routeName: accidentDetailPage),
                   ],
                 ),
               ),
@@ -186,8 +186,8 @@ class AccidentDetailPage extends StatelessWidget {
                         children: [
                           subtitle(subtitle: 'Departman:', height: 90, width: 150),
                           subtitle(subtitle: 'Olay Yeri:', height: 80, width: 150),
-                          subtitle(subtitle: 'Olayın Konusu:', height: 110, width: 150),
-                          subtitle(subtitle: 'Alınması Gereken Önlem:', height: 110, width: 150),
+                          subtitle(subtitle: 'Olayın Konusu:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
+                          subtitle(subtitle: 'Alınması Gereken Önlem:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
                         ],
                       ),
                     ),
@@ -237,7 +237,7 @@ class AccidentDetailPage extends StatelessWidget {
                           Padding(
                             padding: Constant.padding,
                             child: SizedBox(
-                              height: 110,
+                              height: Constant.heightOfAccidentAndNearMissCheckBox,
                               child: FormBuilderCheckboxGroup<String>(
                                 disabled: Constant.theSubjectOfTheAccident,
                                 initialValue: Constant.theSubjectOfTheAccidentToStringList(
@@ -251,7 +251,7 @@ class AccidentDetailPage extends StatelessWidget {
                                 name: 'theSubjectOfTheAccidentStringList',
                                 // initialValue: const ['Dart'],
                                 options: Constant.theSubjectOfTheAccident2,
-                                orientation: OptionsOrientation.horizontal,
+                                orientation: OptionsOrientation.vertical,
                                 separator: const VerticalDivider(
                                   width: 10,
                                   thickness: 5,
@@ -263,7 +263,7 @@ class AccidentDetailPage extends StatelessWidget {
                           Padding(
                             padding: Constant.padding,
                             child: SizedBox(
-                              height: 110,
+                              height: Constant.heightOfAccidentAndNearMissCheckBox,
                               child: FormBuilderCheckboxGroup<String>(
                                 disabled: Constant.precautionsToBeTaken,
                                 initialValue: Constant.thePrecautionsToBeTakenToStringList(
@@ -277,7 +277,7 @@ class AccidentDetailPage extends StatelessWidget {
                                 name: 'precautionsToBeTakenStringList',
                                 // initialValue: const ['Dart'],
                                 options: Constant.precautionsToBeTaken2,
-                                orientation: OptionsOrientation.horizontal,
+                                orientation: OptionsOrientation.vertical,
                                 separator: const VerticalDivider(
                                   width: 10,
                                   thickness: 5,
@@ -299,70 +299,4 @@ class AccidentDetailPage extends StatelessWidget {
       ),
     );
   }
-}
-
-class LoadingDialog extends StatelessWidget {
-  static void show(BuildContext context, {Key? key}) => showDialog<void>(
-        context: context,
-        useRootNavigator: false,
-        barrierDismissible: false,
-        builder: (_) => LoadingDialog(key: key),
-      ).then((_) => FocusScope.of(context).requestFocus(FocusNode()));
-
-  static void hide(BuildContext context) => Navigator.pop(context);
-
-  const LoadingDialog({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => false,
-      child: Center(
-        child: Card(
-          child: Container(
-            width: 80,
-            height: 80,
-            padding: const EdgeInsets.all(12.0),
-            child: const CircularProgressIndicator(),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-Padding title(BuildContext context, String title) {
-  return Padding(
-    padding: Constant.padding,
-    child: Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Flexible(
-          child: Text(
-            title,
-            style: Theme.of(context).textTheme.headline4,
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
-Padding subtitle({required String subtitle, required double height, required double width}) {
-  return Padding(
-    padding: Constant.padding,
-    child: SizedBox(
-      height: height,
-      width: width,
-      child: Align(
-        alignment: Alignment.center,
-        child: Text(
-          subtitle,
-          textAlign: TextAlign.center,
-          softWrap: true,
-          overflow: TextOverflow.fade,
-        ),
-      ),
-    ),
-  );
 }

@@ -7,26 +7,25 @@ abstract class NearMissEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GetNearMissData extends NearMissEvent{
+class NearMissInitialEvent extends NearMissEvent{
+  const NearMissInitialEvent();
+  @override
+  List<Object> get props => [];
+}
 
-  const GetNearMissData();
+class GetNearMissData extends NearMissEvent{
+  final bool needsRefresh;
+  const GetNearMissData({required this.needsRefresh});
 
   @override
   List<Object> get props => [];
 }
 
 class GetNearMissFiltered extends NearMissEvent{
+  final bool needsRefresh;
   final String filter;
-  const GetNearMissFiltered({required this.filter});
+  const GetNearMissFiltered({required this.filter,required this.needsRefresh});
 
   @override
   List<Object> get props => [filter];
-}
-
-class CreateNewNearMiss extends NearMissEvent{
-  final NearMiss nearMiss;
-  const CreateNewNearMiss({required this.nearMiss});
-
-  @override
-  List<Object> get props => [nearMiss];
 }

@@ -18,7 +18,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
   String _filter ="";
   final int _pageSize = 10;
 
-  EmployeeBloc() : super(const EmployeeInitial(message: 'Bilgilergetiriliyor')) {
+  EmployeeBloc() : super(const EmployeeInitial(message: 'Bilgiler getiriliyor')) {
 
     on<GetEmployeeData>((event, emit) async {
       try{

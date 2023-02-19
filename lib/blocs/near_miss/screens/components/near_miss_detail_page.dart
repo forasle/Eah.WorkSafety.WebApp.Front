@@ -1,449 +1,368 @@
+
+import 'package:aeah_work_safety/blocs/near_miss/models/near_miss.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
-import 'package:aeah_work_safety/constants/accident/constants.dart';
+import 'package:aeah_work_safety/constants/near_miss/constants.dart';
+import 'package:flutter_form_bloc/flutter_form_bloc.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class NearMissDetailPage extends StatelessWidget {
   const NearMissDetailPage({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    final _nearMissResponse = ModalRoute.of(context)!.settings.arguments as NearMiss;
+    //context.read<NearMissBloc>().add(const NearMissInitialEvent());
+    final _formKey = GlobalKey<FormBuilderState>();
+    return CustomScaffold(
+      body: FormBuilder(
+        key: _formKey,
+        onChanged: () {
+          _formKey.currentState!.save();
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Scrollbar(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+                    const Icon(Icons.arrow_right),
+                    RoutingBarWidget(pageName: 'İş Kazası', routeName: nearMissPageRoute),
+                    const Icon(Icons.arrow_right),
+                    RoutingBarWidget(pageName: 'Yeni İş Kazası Ekle', routeName: addNewNearMiss),
+                  ],
+                ),
+              ),
+            ),
+            Constant.dividerWithIndent,
+            title(context, 'Genel Bilgiler'),
+            Constant.dividerWithIndent,
+            Constant.sizedBox50,
+            IntrinsicHeight(
+              child: Row(
+                children: [
+                  Flexible(
+                    flex: 1,
+                    child: Padding(
+                      padding: Constant.padding,
+                      child: Column(
+                        children: [
+                          subtitle(subtitle: 'Adı Soyadı:', height: 80, width: 150),
+                          subtitle(subtitle: 'Kaza Tarihi:', height: 80, width: 150),
+                          subtitle(subtitle: 'Kayıp Gün Sayısı:', height: 80, width: 150),
+                          subtitle(subtitle: 'Olay Tanımı:', height: 150, width: 150),
+                          subtitle(subtitle: 'Yapılan İş:', height: 150, width: 150),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Constant.verticalDivider,
+                  Expanded(
+                    flex: 3,
+                    child: Padding(
+                      padding: Constant.padding,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                                height: 80,
+                                child: FormBuilderTextField(
+                                  readOnly: true,
+                                  name: "identificationNumber",
+                                  initialValue:
+                                      _nearMissResponse.affectedEmployeeWithPropertyForNearMiss[0].name.toString() +
+                                          " " +
+                                          _nearMissResponse.affectedEmployeeWithPropertyForNearMiss[0].surname,
+                                  decoration: InputDecoration(
+                                    labelText: 'Adı Soyadı',
+                                    //filled: true,
+                                    border: Constant.textFieldBorder,
+                                  ),
+                                )),
+                          ),
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 80,
+                              child: Center(
+                                child: FormBuilderTextField(
+                                  readOnly: true,
+                                  initialValue: DateFormat('dd-MM-yyyy    HH:mm').format(_nearMissResponse.date),
+                                  name: 'nearMissDate',
+                                  decoration: InputDecoration(
+                                    labelText: 'Kaza Tarihi',
+                                    //filled: true,
+                                    border: Constant.textFieldBorder,
+                                  ),
+                                  // locale: const Locale.fromSubtags(languageCode: 'fr'),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 80,
+                              child: FormBuilderTextField(
+                                readOnly: true,
+                                name: "lostDay",
+                                initialValue:
+                                    _nearMissResponse.affectedEmployeeWithPropertyForNearMiss[0].lostDays.toString(),
+                                //controller: lostDayController,
+                                decoration: InputDecoration(
+                                  hintText: 'Lütfen Kayıp Gün Giriniz',
+                                  labelText: 'Kayıp Gün',
+                                  //filled: true,
+                                  border: Constant.textFieldBorder,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 150,
+                              child: Center(
+                                child: FormBuilderTextField(
+                                  readOnly: true,
+                                  initialValue: _nearMissResponse.nearMissInfo,
+                                  name: "nearMissInfo",
+                                  maxLines: 5,
+                                  decoration: InputDecoration(
+                                    hintText: 'Lütfen Olay Tanımını Yapınız',
+                                    labelText: 'Olay Tanımı',
+                                    //filled: true,
+                                    border: Constant.textFieldBorder,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 150,
+                              child: Center(
+                                child: FormBuilderTextField(
+                                  readOnly: true,
+                                  initialValue: _nearMissResponse.performedJob,
+                                  name: "performedJob",
+                                  //controller: performedJobController,
+                                  maxLines: 5,
+                                  decoration: InputDecoration(
+                                    hintText: 'Lütfen Yapılan İşi Giriniz',
+                                    labelText: 'Yapılan İş',
+                                    //filled: true,
+                                    border: Constant.textFieldBorder,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Constant.sizedBox50,
+            title(context, 'Olay Yeri'),
+            Constant.dividerWithIndent,
+            Constant.sizedBox50,
+            IntrinsicHeight(
+              child: Row(
+                children: [
+                  Flexible(
+                    flex: 1,
+                    child: Padding(
+                      padding: Constant.padding,
+                      child: Column(
+                        children: [
+                          subtitle(subtitle: 'Departman:', height: 90, width: 150),
+                          subtitle(subtitle: 'Olay Yeri:', height: 80, width: 150),
+                          subtitle(subtitle: 'Olayın Konusu:', height: 110, width: 150),
+                          subtitle(subtitle: 'Alınması Gereken Önlem:', height: 110, width: 150),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Constant.verticalDivider,
+                  Expanded(
+                    flex: 3,
+                    child: Padding(
+                      padding: Constant.padding,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 90,
+                              child: FormBuilderTextField(
+                                readOnly: true,
+                                initialValue: _nearMissResponse.relatedDepartment,
+                                name: 'relatedDepartment',
+                                decoration: InputDecoration(
+                                  hintText: 'Departman Seçiniz',
+                                  labelText: 'Departman',
+                                  //filled: true,
+                                  border: Constant.textFieldBorder,
+                                ),
+                                //valueTransformer: (val) => val?.toString(),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 80,
+                              child: FormBuilderTextField(
+                                readOnly: true,
+                                initialValue: _nearMissResponse.referenceNumber,
+                                name: "sceneOfNearMiss",
+                                decoration: InputDecoration(
+                                  hintText: 'Lütfen Olay Yerini Giriniz',
+                                  labelText: 'Olay Yeri',
+                                  //filled: true,
+                                  border: Constant.textFieldBorder,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 110,
+                              child: FormBuilderCheckboxGroup<String>(
+                                disabled: Constant.theSubjectOfTheNearMiss,
+                                initialValue: Constant.theSubjectOfTheNearMissToStringList(
+                                    _nearMissResponse.affectedEmployeeWithPropertyForNearMiss[0]),
+                                decoration: InputDecoration(
+                                  hintText: 'Olayın Konusunu Seçiniz',
+                                  labelText: 'Olayın Konusu',
+                                  //filled: true,
+                                  border: Constant.textFieldBorder,
+                                ),
+                                name: 'theSubjectOfTheNearMissStringList',
+                                // initialValue: const ['Dart'],
+                                options: Constant.theSubjectOfTheNearMiss2,
+                                orientation: OptionsOrientation.horizontal,
+                                separator: const VerticalDivider(
+                                  width: 10,
+                                  thickness: 5,
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 110,
+                              child: FormBuilderCheckboxGroup<String>(
+                                disabled: Constant.precautionsToBeTaken,
+                                initialValue: Constant.thePrecautionsToBeTakenToStringList(
+                                    _nearMissResponse.affectedEmployeeWithPropertyForNearMiss[0]),
+                                decoration: InputDecoration(
+                                  hintText: 'Alınması Gereken Önlem',
+                                  labelText: 'Alınması Gereken Önlem',
+                                  //filled: true,
+                                  border: Constant.textFieldBorder,
+                                ),
+                                name: 'precautionsToBeTakenStringList',
+                                // initialValue: const ['Dart'],
+                                options: Constant.precautionsToBeTaken2,
+                                orientation: OptionsOrientation.horizontal,
+                                separator: const VerticalDivider(
+                                  width: 10,
+                                  thickness: 5,
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Constant.sizedBox50,
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class LoadingDialog extends StatelessWidget {
+  static void show(BuildContext context, {Key? key}) => showDialog<void>(
+        context: context,
+        useRootNavigator: false,
+        barrierDismissible: false,
+        builder: (_) => LoadingDialog(key: key),
+      ).then((_) => FocusScope.of(context).requestFocus(FocusNode()));
+
+  static void hide(BuildContext context) => Navigator.pop(context);
+
+  const LoadingDialog({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    //ScrollController horizontalController = ScrollController();
-    return CustomScaffold(
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
-              const Icon(Icons.arrow_right),
-              RoutingBarWidget(pageName: 'Ramak Kalalar', routeName: nearMissPageRoute),
-              const Icon(Icons.arrow_right),
-              RoutingBarWidget(pageName: 'Ramak Kala', routeName: nearMissDetailPage),
-            ],
-          ),
-          Constant.dividerWithIndent,
-          Column(
-            children: [
-              title(context, 'Genel Bilgiler'),
-              Constant.dividerWithIndent,
-              const SizedBox(height: 50),
-              IntrinsicHeight(
-                child: Row(
-                  children: [
-                    Flexible(
-                      flex: 1,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          children: [
-                            subtitle(subtitle: 'Olay Türü:', height: 50, width: 150),
-                            subtitle(subtitle: 'Tarih:', height: 50, width: 150),
-                            subtitle(subtitle: 'Saat:', height: 50, width: 150),
-                            subtitle(subtitle: 'Olay Tanımı:', height: 150, width: 150),
-                            subtitle(subtitle: 'Yapılan İş:', height: 100, width: 150),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Constant.verticalDivider,
-                    Expanded(
-                      flex: 4,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          //mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
-                                    Text('İş Kazası'),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
-                                    Text('01.01.2023'),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: const [Text('00:00')]),
-                              ),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 150,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
-                                    Text('Olay Tanımı'),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 100,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
-                                    Text('Yapılan İş'),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Constant.sizedBox50,
-              title(context, 'Olay Yeri'),
-              Constant.dividerWithIndent,
-              Constant.sizedBox50,
-              IntrinsicHeight(
-                child: Row(
-                  children: [
-                    Flexible(
-                      flex: 1,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: const [
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                width: 150,
-                                child: Center(
-                                  child: Text(
-                                    'İlişkili Departman:   ',
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Constant.verticalDivider,
-                    Expanded(
-                      flex: 4,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
-                                    Text('Acil'),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Constant.sizedBox50,
-              title(context, 'Analiz'),
-              Constant.dividerWithIndent,
-              Constant.sizedBox50,
-              IntrinsicHeight(
-                child: Row(
-                  children: [
-                    Flexible(
-                      flex: 1,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            subtitle(height: 50, width: 150, subtitle: 'İlk Yardım Gerektirdi Mi?   '),
-                            subtitle(height: 50, width: 150, subtitle: 'Tıbbi Müdehale Yapıldı Mı?   '),
-                            subtitle(height: 50, width: 150, subtitle: 'Alt Yüklenici Kazası Mı?   '),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Constant.verticalDivider,
-                    Expanded(
-                      flex: 4,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Constant.sizedBox50,
-              title(context, 'Kaza Araştırma'),
-              Constant.dividerWithIndent,
-              Constant.sizedBox50,
-              IntrinsicHeight(
-                child: Row(
-                  children: [
-                    Flexible(
-                      flex: 1,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            subtitle(height: 50, width: 150, subtitle: 'Kök Neden Analizi Gerekiyor Mu?   '),
-                            subtitle(height: 50, width: 150, subtitle: 'Maddi hasar var mı?   '),
-                            subtitle(height: 50, width: 150, subtitle: 'Kamera kaydı var mı?   '),
-                            subtitle(height: 50, width: 150, subtitle: 'Operasyonel Kaza / Rutin İş Esnasında?   '),
-                            subtitle(
-                                height: 50,
-                                width: 150,
-                                subtitle: 'İş durdu mu/aksadı mı? (Çalışan kayıp gün durumu hariç)?   '),
-                            subtitle(
-                                height: 50,
-                                width: 150,
-                                subtitle: 'Olaya katkıda bulunan faktörler risk değerlendirmesinde belirtilmiş mi?   '),
-                            subtitle(
-                                height: 50,
-                                width: 150,
-                                subtitle:
-                                    'Risk değerlendirmede belirtilen önlemler alınmış mı? Çalışma şekillerine uyulmuş mu?   '),
-                            subtitle(height: 100, width: 150, subtitle: 'Kullanılması Gereken (Kullanılmamış) KKD:   '),
-                            subtitle(height: 100, width: 150, subtitle: 'Sebep:   '),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Constant.verticalDivider,
-                    Expanded(
-                      flex: 4,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(height: 50, child: Switch(value: false, onChanged: (value) {})),
-                            ),
-                            Expanded(
-                              flex: 4,
-                              child: Padding(
-                                padding: Constant.padding,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: Constant.padding,
-                                      child: SizedBox(
-                                        height: 100,
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.center,
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: const [
-                                            Text('KKD'),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: Constant.padding,
-                                      child: SizedBox(
-                                        height: 100,
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.center,
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: const [
-                                            Text('Sebep'),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Constant.sizedBox50,
-              title(context, 'Tanık/Tanık İfadesi'),
-              Constant.dividerWithIndent,
-              Constant.sizedBox50,
-              IntrinsicHeight(
-                child: Row(
-                  children: [
-                    Flexible(
-                      flex: 1,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: const [
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                width: 150,
-                                child: Center(
-                                  child: Text(
-                                    'Görgü tanığı var mı?   ',
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Constant.verticalDivider,
-                    Expanded(
-                      flex: 4,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Constant.sizedBox50,
-              title(context, 'Dökümanlar'),
-              Constant.dividerWithIndent,
-              Constant.sizedBox50,
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Padding title(BuildContext context, String title) {
-    return Padding(
-      padding: Constant.padding,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Flexible(
-            child: Text(
-              title,
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Padding subtitle({required String subtitle, required double height, required double width}) {
-    return Padding(
-      padding: Constant.padding,
-      child: SizedBox(
-        height: height,
-        width: width,
-        child: Center(
-          child: Text(
-            subtitle,
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Center(
+        child: Card(
+          child: Container(
+            width: 80,
+            height: 80,
+            padding: const EdgeInsets.all(12.0),
+            child: const CircularProgressIndicator(),
           ),
         ),
       ),
     );
   }
+}
+
+Padding title(BuildContext context, String title) {
+  return Padding(
+    padding: Constant.padding,
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Flexible(
+          child: Text(
+            title,
+            style: Theme.of(context).textTheme.headline4,
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+Padding subtitle({required String subtitle, required double height, required double width}) {
+  return Padding(
+    padding: Constant.padding,
+    child: SizedBox(
+      height: height,
+      width: width,
+      child: Align(
+        alignment: Alignment.center,
+        child: Text(
+          subtitle,
+          textAlign: TextAlign.center,
+          softWrap: true,
+          overflow: TextOverflow.fade,
+        ),
+      ),
+    ),
+  );
 }

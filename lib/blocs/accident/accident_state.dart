@@ -31,7 +31,7 @@ class AccidentDataLoaded extends AccidentState{
 }
 class AccidentDataFiltered extends AccidentState{
   final String filter;
-  final AccidentResponse accidentResponse;
+  final List<Accident> accidentResponse;
   final bool isReachedMaxFiltered;
 
   const AccidentDataFiltered({required this.accidentResponse,required this.isReachedMaxFiltered,required this.filter});

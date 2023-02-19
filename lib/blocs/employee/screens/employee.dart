@@ -40,14 +40,14 @@ class Employee extends StatelessWidget {
                     Flexible(
                       child: Text(
                         'Çalışanlar',
-                        style: Theme.of(context).textTheme.headline4,
+                        style: Theme.of(context).textTheme.headlineMedium,
                       ),
                     ),
                     Constant.sizedBoxWidth,
                     Flexible(
                       child: Text(
                         '(Yetki seviyenize göre görüntüleyebildiğiniz liste & raporlar)',
-                        style: Theme.of(context).textTheme.overline,
+                        style: Theme.of(context).textTheme.labelSmall,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -118,7 +118,7 @@ class Employee extends StatelessWidget {
             padding: Constant.padding,
             child: Text(
               'Rapor',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),
           Constant.dividerWithIndent,

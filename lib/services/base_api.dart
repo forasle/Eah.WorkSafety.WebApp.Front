@@ -9,8 +9,8 @@ class BaseAPI {
   var statisticPath = api + "/statistics";
   static var accidentPath = api + "/accident";
   static var accidentSearchPath = api + "/accident/search/name?key=";
-  var nearMissPath = api + "/nearMiss";
-  var nearMissSearchPath = api + "/preventiveActivity/search/name?key=";
+  static var nearMissPath = api + "/nearMiss";
+  static var nearMissSearchPath = api + "/nearMiss/search/name?key=";
   var preventiveActivityPath = api + "/preventiveActivity";
   var preventiveActivitySearchPath = api + "/nearMiss/search/name?key=";
   var inconsistencyPath = api + "/inconsistency";

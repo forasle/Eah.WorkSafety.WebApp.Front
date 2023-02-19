@@ -1,20 +1,15 @@
-// To parse this JSON data, do
-//
-//     final updateAccidentModel = updateAccidentModelFromJson(jsonString);
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
-UpdateAccidentModel updateAccidentModelFromJson(String str) => UpdateAccidentModel.fromJson(json.decode(str));
+UpdateNearMissModel updateNearMissModelFromJson(String str) => UpdateNearMissModel.fromJson(json.decode(str));
 
-String updateAccidentModelToJson(UpdateAccidentModel data) => json.encode(data.toJson());
+String updateNearMissModelToJson(UpdateNearMissModel data) => json.encode(data.toJson());
 
-class UpdateAccidentModel {
-  UpdateAccidentModel({
+class UpdateNearMissModel {
+  UpdateNearMissModel({
     required this.id,
-    required this.accidentNumber,
+    required this.nearMissNumber,
     required this.referenceNumber,
-    required this.accidentInfo,
+    required this.nearMissInfo,
     required this.performedJob,
     required this.relatedDepartment,
     required this.needFirstAid,
@@ -30,13 +25,13 @@ class UpdateAccidentModel {
     required this.date,
     required this.rootCauseAnalysis,
     required this.creatorUserId,
-    required this.updateAffectedEmployeeWithProperty,
+    required this.updateAffectedEmployeeWithPropertyForNearMiss,
   });
 
   int id;
-  int accidentNumber;
+  int nearMissNumber;
   String referenceNumber;
-  String accidentInfo;
+  String nearMissInfo;
   String performedJob;
   String relatedDepartment;
   bool needFirstAid;
@@ -52,13 +47,13 @@ class UpdateAccidentModel {
   DateTime date;
   bool rootCauseAnalysis;
   int creatorUserId;
-  List<UpdateAffectedEmployeeWithProperty> updateAffectedEmployeeWithProperty;
+  List<UpdateAffectedEmployeeWithPropertyForNearMiss> updateAffectedEmployeeWithPropertyForNearMiss;
 
-  factory UpdateAccidentModel.fromJson(Map<String, dynamic> json) => UpdateAccidentModel(
+  factory UpdateNearMissModel.fromJson(Map<String, dynamic> json) => UpdateNearMissModel(
     id: json["id"],
-    accidentNumber: json["accidentNumber"],
+    nearMissNumber: json["nearMissNumber"],
     referenceNumber: json["referenceNumber"],
-    accidentInfo: json["accidentInfo"],
+    nearMissInfo: json["nearMissInfo"],
     performedJob: json["performedJob"],
     relatedDepartment: json["relatedDepartment"],
     needFirstAid: json["needFirstAid"],
@@ -74,14 +69,14 @@ class UpdateAccidentModel {
     date: DateTime.parse(json["date"]),
     rootCauseAnalysis: json["rootCauseAnalysis"],
     creatorUserId: json["creatorUserId"],
-    updateAffectedEmployeeWithProperty: List<UpdateAffectedEmployeeWithProperty>.from(json["updateAffectedEmployeeWithProperty"].map((x) => UpdateAffectedEmployeeWithProperty.fromJson(x))),
+    updateAffectedEmployeeWithPropertyForNearMiss: List<UpdateAffectedEmployeeWithPropertyForNearMiss>.from(json["updateAffectedEmployeeWithPropertyForNearMiss"].map((x) => UpdateAffectedEmployeeWithPropertyForNearMiss.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
     "id": id,
-    "accidentNumber": accidentNumber,
+    "nearMissNumber": nearMissNumber,
     "referenceNumber": referenceNumber,
-    "accidentInfo": accidentInfo,
+    "nearMissInfo": nearMissInfo,
     "performedJob": performedJob,
     "relatedDepartment": relatedDepartment,
     "needFirstAid": needFirstAid,
@@ -97,12 +92,12 @@ class UpdateAccidentModel {
     "date": date.toIso8601String(),
     "rootCauseAnalysis": rootCauseAnalysis,
     "creatorUserId": creatorUserId,
-    "updateAffectedEmployeeWithProperty": List<dynamic>.from(updateAffectedEmployeeWithProperty.map((x) => x.toJson())),
+    "updateAffectedEmployeeWithPropertyForNearMiss": List<dynamic>.from(updateAffectedEmployeeWithPropertyForNearMiss.map((x) => x.toJson())),
   };
 }
 
-class UpdateAffectedEmployeeWithProperty {
-  UpdateAffectedEmployeeWithProperty({
+class UpdateAffectedEmployeeWithPropertyForNearMiss {
+  UpdateAffectedEmployeeWithPropertyForNearMiss({
     required this.employeeId,
     required this.lostDays,
     required this.theSubjectExposureToPhysicalViolence,
@@ -158,7 +153,7 @@ class UpdateAffectedEmployeeWithProperty {
   bool thePrecautionsWorkingWithoutDiscipline;
   bool thePrecautionsInsufficientMachineEquipmentEnclosure;
 
-  factory UpdateAffectedEmployeeWithProperty.fromJson(Map<String, dynamic> json) => UpdateAffectedEmployeeWithProperty(
+  factory UpdateAffectedEmployeeWithPropertyForNearMiss.fromJson(Map<String, dynamic> json) => UpdateAffectedEmployeeWithPropertyForNearMiss(
     employeeId: json["employeeId"],
     lostDays: json["lostDays"],
     theSubjectExposureToPhysicalViolence: json["theSubjectExposureToPhysicalViolence"],

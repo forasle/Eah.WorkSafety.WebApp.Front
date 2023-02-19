@@ -29,7 +29,10 @@ class SearchBarWidget extends StatelessWidget {
 
             onChanged: (value) {
               if (value.length > 3) {
-                context.read<AccidentBloc>().add(GetAccidentFiltered(filter: value));
+                context.read<AccidentBloc>().add(GetAccidentFiltered(filter: value,needsRefresh: true));
+              }
+              else{
+                context.read<AccidentBloc>().add(const GetAccidentData(needsRefresh: true));
               }
             },
             decoration: (InputDecoration(

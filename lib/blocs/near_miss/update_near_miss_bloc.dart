@@ -1,25 +1,23 @@
-import 'dart:async';
 
-import 'package:aeah_work_safety/blocs/accident/models/create_accident_model.dart';
-import 'package:aeah_work_safety/blocs/accident/models/update_accident_model.dart';
-import 'package:aeah_work_safety/blocs/accident/repository/accident_repository.dart';
+import 'package:aeah_work_safety/blocs/near_miss/models/update_near_miss_model.dart';
+import 'package:aeah_work_safety/blocs/near_miss/repository/near_miss_repository.dart';
 import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
 import 'package:aeah_work_safety/blocs/employee/repository/employee_repository.dart';
-import 'package:aeah_work_safety/constants/accident/constants.dart';
+import 'package:aeah_work_safety/constants/near_miss/constants.dart';
 import 'package:aeah_work_safety/services/jwt_decoder.dart';
 import 'package:aeah_work_safety/services/locator.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-part 'update_accident_event.dart';
-part 'update_accident_state.dart';
+part 'update_near_miss_event.dart';
+part 'update_near_miss_state.dart';
 
-class UpdateAccidentBloc extends Bloc<UpdateAccidentEvent, UpdateAccidentState> {
-  final AccidentRepository _accidentRepository = locator<AccidentRepository>();
+class UpdateNearMissBloc extends Bloc<UpdateNearMissEvent, UpdateNearMissState> {
+  final NearMissRepository _nearMissRepository = locator<NearMissRepository>();
   final EmployeeRepository _employeeRepository = locator<EmployeeRepository>();
-  UpdateAccidentBloc() : super(UpdateAccidentInitial()) {
-    on<UpdateAccident>((event, emit) async {
+  UpdateNearMissBloc() : super(const UpdateNearMissInitial()) {
+    on<UpdateNearMiss>((event, emit) async {
       const storage = FlutterSecureStorage();
       final String? token = await storage.read(key: "token");
       var user = parseJwt(token!);
@@ -28,18 +26,18 @@ class UpdateAccidentBloc extends Bloc<UpdateAccidentEvent, UpdateAccidentState> 
       try{
         EmployeeResponse employeeFilteredById =
         await _employeeRepository.getEmployeeByIdentificationNumber(filter: identificationNumber);
-        List<bool> sceneOfAccidentBoolList =
-        stringListToBoolList(event.accident["theSubjectOfTheAccidentStringList"], Constant.theSubjectOfTheAccident);
+        List<bool> sceneOfNearMissBoolList =
+        stringListToBoolList(event.nearMiss["theSubjectOfTheNearMissStringList"], Constant.theSubjectOfTheNearMiss);
         List<bool> precautionsToBeTakenBoolList =
-        stringListToBoolList(event.accident["precautionsToBeTakenStringList"], Constant.precautionsToBeTaken);
+        stringListToBoolList(event.nearMiss["precautionsToBeTakenStringList"], Constant.precautionsToBeTaken);
 
-        final UpdateAccidentModel _accident;
-        _accident = UpdateAccidentModel(
-          date: event.accident["accidentDate"],
-          accidentInfo: event.accident["accidentInfo"],
-          performedJob: event.accident["performedJob"],
-          relatedDepartment: event.accident["relatedDepartment"],
-          referenceNumber: event.accident["sceneOfAccident"],
+        final UpdateNearMissModel _nearMiss;
+        _nearMiss = UpdateNearMissModel(
+          date: event.nearMiss["nearMissDate"],
+          nearMissInfo: event.nearMiss["nearMissInfo"],
+          performedJob: event.nearMiss["performedJob"],
+          relatedDepartment: event.nearMiss["relatedDepartment"],
+          referenceNumber: event.nearMiss["sceneOfNearMiss"],
           id: event.id,
           businessStopped: false,
           cameraRecording: false,
@@ -53,11 +51,11 @@ class UpdateAccidentBloc extends Bloc<UpdateAccidentEvent, UpdateAccidentState> 
           propertyDamage: false,
           rootCauseAnalysis: false,
           witnessStatement: "Test",
-          accidentNumber: 0,
-          updateAffectedEmployeeWithProperty: [
-            UpdateAffectedEmployeeWithProperty(
+          nearMissNumber: 0,
+          updateAffectedEmployeeWithPropertyForNearMiss: [
+            UpdateAffectedEmployeeWithPropertyForNearMiss(
                 employeeId: employeeFilteredById.data[0].id,
-                lostDays: int.parse(event.accident["lostDay"]),
+                lostDays: int.parse(event.nearMiss["lostDay"]),
               thePrecautionsWorkingWithoutAuthorization: precautionsToBeTakenBoolList[0],
               thePrecautionsGiveOrReceiveFalseWarnings: precautionsToBeTakenBoolList[1],
               thePrecautionsErrorInSafety: precautionsToBeTakenBoolList[2],
@@ -71,26 +69,26 @@ class UpdateAccidentBloc extends Bloc<UpdateAccidentEvent, UpdateAccidentState> 
               thePrecautionsTirednessOrInsomniaOrDrowsiness: precautionsToBeTakenBoolList[10],
               thePrecautionsWorkingWithoutDiscipline: precautionsToBeTakenBoolList[11],
               thePrecautionsInsufficientMachineEquipmentEnclosure: precautionsToBeTakenBoolList[12],
-              theSubjectExposureToPhysicalViolence: sceneOfAccidentBoolList[0],
-              theSubjectExposureToVerbalViolence: sceneOfAccidentBoolList[1],
-              theSubjectSharpObjectInjuries: sceneOfAccidentBoolList[2],
-              theSubjectExposureToBiologicalAgents: sceneOfAccidentBoolList[3],
-              theSubjectFallingImpactInjuries: sceneOfAccidentBoolList[4],
-              theSubjectMaterialDamagedTrafficAccident: sceneOfAccidentBoolList[5],
-              theSubjectInjuredTrafficAccident: sceneOfAccidentBoolList[6],
-              theSubjectExposureToChemicals: sceneOfAccidentBoolList[7],
-              theSubjectExposureToFireAndBurn: sceneOfAccidentBoolList[8],
-              theSubjectOfficeAccidents: sceneOfAccidentBoolList[9],
-              theSubjectElectricalAccidents: sceneOfAccidentBoolList[10],
+              theSubjectExposureToPhysicalViolence: sceneOfNearMissBoolList[0],
+              theSubjectExposureToVerbalViolence: sceneOfNearMissBoolList[1],
+              theSubjectSharpObjectInjuries: sceneOfNearMissBoolList[2],
+              theSubjectExposureToBiologicalAgents: sceneOfNearMissBoolList[3],
+              theSubjectFallingImpactInjuries: sceneOfNearMissBoolList[4],
+              theSubjectMaterialDamagedTrafficAccident: sceneOfNearMissBoolList[5],
+              theSubjectInjuredTrafficAccident: sceneOfNearMissBoolList[6],
+              theSubjectExposureToChemicals: sceneOfNearMissBoolList[7],
+              theSubjectExposureToFireAndBurn: sceneOfNearMissBoolList[8],
+              theSubjectOfficeAccidents: sceneOfNearMissBoolList[9],
+              theSubjectElectricalAccidents: sceneOfNearMissBoolList[10],
                 )
           ],
         );
-        await _accidentRepository.updateAccident(updatedAccident: _accident);
-        emit(const UpdateAccidentCompleted(message: "Kaza Güncellendi"));
-        emit(const UpdateAccidentInitial());
+        await _nearMissRepository.updateNearMiss(updatedNearMiss: _nearMiss);
+        emit(const UpdateNearMissCompleted(message: "Kaza Güncellendi"));
+        emit(const UpdateNearMissInitial());
       }
       catch(e) {
-        emit(UpdateAccidentError(message: "Kaza güncellenemedi. Hata:  $e"));
+        emit(UpdateNearMissError(message: "Kaza güncellenemedi. Hata:  $e"));
       }
 
     }

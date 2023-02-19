@@ -10,8 +10,13 @@ import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
 import 'package:aeah_work_safety/blocs/inconsistency/inconsistency_bloc.dart';
 import 'package:aeah_work_safety/blocs/mission/mission_bloc.dart';
 import 'package:aeah_work_safety/blocs/mission/screens/components/mission_detail_page.dart';
+import 'package:aeah_work_safety/blocs/near_miss/add_new_near_miss_bloc.dart';
+import 'package:aeah_work_safety/blocs/near_miss/delete_near_miss_bloc.dart';
 import 'package:aeah_work_safety/blocs/near_miss/near_miss_bloc.dart';
+import 'package:aeah_work_safety/blocs/near_miss/near_miss_by_id_bloc.dart';
 import 'package:aeah_work_safety/blocs/near_miss/screens/components/add_new_near_miss.dart';
+import 'package:aeah_work_safety/blocs/near_miss/screens/components/update_near_miss.dart';
+import 'package:aeah_work_safety/blocs/near_miss/update_near_miss_bloc.dart';
 import 'package:aeah_work_safety/blocs/occupation_disease/occupation_disease_bloc.dart';
 import 'package:aeah_work_safety/blocs/occupation_disease/screens/components/occupation_disease_detail_page.dart';
 import 'package:aeah_work_safety/blocs/occupation_disease/screens/occupation_disease.dart';
@@ -113,6 +118,18 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => DeleteAccidentBloc(),
         ),
+        BlocProvider(
+          create: (context) => NearMissByIdBloc(),
+        ),
+        BlocProvider(
+          create: (context) => AddNewNearMissBloc(),
+        ),
+        BlocProvider(
+          create: (context) => UpdateNearMissBloc(),
+        ),
+        BlocProvider(
+          create: (context) => DeleteNearMissBloc(),
+        ),
       ],
       child: MaterialApp(
         localizationsDelegates: const [GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate],
@@ -145,6 +162,7 @@ class MyApp extends StatelessWidget {
           addNewNearMiss: (context) => const AddNewNearMiss(),
           addNewInconsistencies: (context) => const AddNewInconsistency(),
           nearMissDetailPage: (context) => const NearMissDetailPage(),
+          updateNearMissPage: (context) => const UpdateNearMissPage(),
           accidentDetailPage: (context) => const AccidentDetailPage(),
           inconsistenciesDetailPage: (context) => const InconsistenciesDetailPage(),
           addNewPreventiveActivity: (context) => const AddNewPreventiveActivity(),

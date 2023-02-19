@@ -1,8 +1,4 @@
-import 'package:aeah_work_safety/blocs/accident/accident_bloc.dart';
-import 'package:aeah_work_safety/blocs/accident/accident_by_id_bloc.dart';
-import 'package:aeah_work_safety/blocs/accident/add_new_accident_bloc.dart';
 import 'package:aeah_work_safety/blocs/accident/models/accident.dart';
-import 'package:aeah_work_safety/blocs/accident/models/accident_response.dart';
 import 'package:aeah_work_safety/blocs/accident/update_accident_bloc.dart';
 import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
@@ -14,12 +10,20 @@ import 'package:flutter/services.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:textfield_search/textfield_search.dart';
 
 class UpdateAccidentPage extends StatelessWidget {
   const UpdateAccidentPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final _accidentResponse = ModalRoute.of(context)!.settings.arguments as Accident;
+    TextEditingController myController = TextEditingController();
+    myController.text = _accidentResponse.affectedEmployeeWithPropertyForAccident[0].identificationNumber;
+    myController.addListener(() {
+      if (myController.text.length > 5) {
+        context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: myController.text));
+      }
+    });
     final _formKey = GlobalKey<FormBuilderState>();
     return CustomScaffold(
       body: FormBuilder(
@@ -39,7 +43,7 @@ class UpdateAccidentPage extends StatelessWidget {
                     const Icon(Icons.arrow_right),
                     RoutingBarWidget(pageName: 'İş Kazası', routeName: accidentPageRoute),
                     const Icon(Icons.arrow_right),
-                    RoutingBarWidget(pageName: 'Yeni İş Kazası Ekle', routeName: addNewAccident),
+                    RoutingBarWidget(pageName: 'İş Kazası Güncelle', routeName: updateAccidentPage),
                   ],
                 ),
               ),
@@ -77,20 +81,30 @@ class UpdateAccidentPage extends StatelessWidget {
                             padding: Constant.padding,
                             child: SizedBox(
                               height: 80,
-                              child: FormBuilderTextField(
-                                initialValue:
-                                    _accidentResponse.affectedEmployeeWithPropertyForAccident[0].identificationNumber,
-                                name: "identificationNumber",
-                                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
-                                onSubmitted: (value) {
-                                  context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: value!));
+                              child: BlocBuilder<EmployeeBloc, EmployeeState>(
+                                builder: (context, state) {
+                                  return TextFieldSearch(
+                                    label: 'Kimlik Numarası',
+                                    controller: myController,
+                                    future: () async {
+                                      List _list = <dynamic>[];
+                                      if (state is EmployeeDataFiltered) {
+                                        if (state.employeeResponse.data.isNotEmpty) {
+                                          for (var employee in state.employeeResponse.data) {
+                                            _list.add(employee.identificationNumber);
+                                          }
+                                        }
+                                      }
+                                      return _list;
+                                    },
+                                    decoration: InputDecoration(
+                                      hintText: 'Lütfen Kimlik Numarasını  Giriniz',
+                                      labelText: 'Kimlik Numarası',
+                                      //filled: true,
+                                      border: Constant.textFieldBorder,
+                                    ),
+                                  );
                                 },
-                                decoration: InputDecoration(
-                                  hintText: 'Lütfen Kimlik Numarası Giriniz',
-                                  labelText: 'Kimlik Numarası',
-                                  //filled: true,
-                                  border: Constant.textFieldBorder,
-                                ),
                               ),
                             ),
                           ),
@@ -118,7 +132,6 @@ class UpdateAccidentPage extends StatelessWidget {
                                   border: Constant.textFieldBorder,
                                 ),
                                 initialTime: const TimeOfDay(hour: 8, minute: 0),
-                                // locale: const Locale.fromSubtags(languageCode: 'fr'),
                               ),
                             ),
                           ),
@@ -221,8 +234,8 @@ class UpdateAccidentPage extends StatelessWidget {
                         children: [
                           subtitle(subtitle: 'Departman:', height: 90, width: 150),
                           subtitle(subtitle: 'Olay Yeri:', height: 80, width: 150),
-                          subtitle(subtitle: 'Olayın Konusu:', height: 110, width: 150),
-                          subtitle(subtitle: 'Alınması Gereken Önlem:', height: 110, width: 150),
+                          subtitle(subtitle: 'Olayın Konusu:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
+                          subtitle(subtitle: 'Alınması Gereken Önlem:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
                         ],
                       ),
                     ),
@@ -284,7 +297,7 @@ class UpdateAccidentPage extends StatelessWidget {
                           Padding(
                             padding: Constant.padding,
                             child: SizedBox(
-                              height: 110,
+                              height: Constant.heightOfAccidentAndNearMissCheckBox,
                               child: FormBuilderCheckboxGroup<String>(
                                 initialValue: Constant.theSubjectOfTheAccidentToStringList(
                                     _accidentResponse.affectedEmployeeWithPropertyForAccident[0]),
@@ -297,7 +310,7 @@ class UpdateAccidentPage extends StatelessWidget {
                                 name: 'theSubjectOfTheAccidentStringList',
                                 // initialValue: const ['Dart'],
                                 options: Constant.theSubjectOfTheAccident2,
-                                orientation: OptionsOrientation.horizontal,
+                                orientation: OptionsOrientation.vertical,
                                 separator: const VerticalDivider(
                                   width: 10,
                                   thickness: 5,
@@ -312,7 +325,7 @@ class UpdateAccidentPage extends StatelessWidget {
                           Padding(
                             padding: Constant.padding,
                             child: SizedBox(
-                              height: 110,
+                              height: Constant.heightOfAccidentAndNearMissCheckBox,
                               child: FormBuilderCheckboxGroup<String>(
                                 initialValue: Constant.thePrecautionsToBeTakenToStringList(
                                     _accidentResponse.affectedEmployeeWithPropertyForAccident[0]),
@@ -325,7 +338,7 @@ class UpdateAccidentPage extends StatelessWidget {
                                 name: 'precautionsToBeTakenStringList',
                                 // initialValue: const ['Dart'],
                                 options: Constant.precautionsToBeTaken2,
-                                orientation: OptionsOrientation.horizontal,
+                                orientation: OptionsOrientation.vertical,
                                 separator: const VerticalDivider(
                                   width: 10,
                                   thickness: 5,
@@ -348,26 +361,35 @@ class UpdateAccidentPage extends StatelessWidget {
             Row(
               children: <Widget>[
                 Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState?.saveAndValidate() ?? false) {
-                        Map<String, dynamic>? value = _formKey.currentState?.value;
-
-                        context
-                            .read<UpdateAccidentBloc>()
-                            .add(UpdateAccident(accident: value!, id: _accidentResponse.id));
-                        context.read<AccidentBloc>().add(const GetAccidentData(needsRefresh: true));
+                  child: BlocListener<UpdateAccidentBloc, UpdateAccidentState>(
+                    listener: (context, state) {
+                      if(state is UpdateAccidentCompleted){
                         LoadingDialog.hide(context);
                         Navigator.of(context).pushReplacementNamed(accidentPageRoute);
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Kaza Güncellendi")));
-                      } else {
-                        ScaffoldMessenger.of(context)
-                            .showSnackBar(const SnackBar(content: Text("Tüm bilgileri eksiksiz doldurun")));
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Kaza güncellendi")));
+                      }
+                      if(state is UpdateAccidentError){
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Kaza güncellenmedi. Lütfen bilgileri kontrol ediniz.")));
                       }
                     },
-                    child: const Text(
-                      'Kaydet',
-                      style: TextStyle(color: Colors.white),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState?.saveAndValidate() ?? false) {
+                          Map<String, dynamic>? value = _formKey.currentState?.value;
+                          context
+                              .read<UpdateAccidentBloc>()
+                              .add(UpdateAccident(accident: value!, id: _accidentResponse.id,identificationNumber: myController.text));
+                          //context.read<AccidentBloc>().add(const GetAccidentData(needsRefresh: true));
+                          //context.read<UpdateAccidentBloc>().add(const UpdateAccidentInitialEvent());
+                        } else {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(content: Text("Tüm bilgileri eksiksiz doldurun")));
+                        }
+                      },
+                      child: const Text(
+                        'Kaydet',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ),
@@ -392,70 +414,4 @@ class UpdateAccidentPage extends StatelessWidget {
       ),
     );
   }
-}
-
-class LoadingDialog extends StatelessWidget {
-  static void show(BuildContext context, {Key? key}) => showDialog<void>(
-        context: context,
-        useRootNavigator: false,
-        barrierDismissible: false,
-        builder: (_) => LoadingDialog(key: key),
-      ).then((_) => FocusScope.of(context).requestFocus(FocusNode()));
-
-  static void hide(BuildContext context) => Navigator.pop(context);
-
-  const LoadingDialog({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => false,
-      child: Center(
-        child: Card(
-          child: Container(
-            width: 80,
-            height: 80,
-            padding: const EdgeInsets.all(12.0),
-            child: const CircularProgressIndicator(),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-Padding title(BuildContext context, String title) {
-  return Padding(
-    padding: Constant.padding,
-    child: Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Flexible(
-          child: Text(
-            title,
-            style: Theme.of(context).textTheme.headline4,
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
-Padding subtitle({required String subtitle, required double height, required double width}) {
-  return Padding(
-    padding: Constant.padding,
-    child: SizedBox(
-      height: height,
-      width: width,
-      child: Align(
-        alignment: Alignment.center,
-        child: Text(
-          subtitle,
-          textAlign: TextAlign.center,
-          softWrap: true,
-          overflow: TextOverflow.fade,
-        ),
-      ),
-    ),
-  );
 }

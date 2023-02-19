@@ -21,7 +21,7 @@ class NearMissDataLoading extends NearMissState{
 }
 
 class NearMissDataLoaded extends NearMissState{
-  final NearMissResponse nearMissResponse;
+  final List<NearMiss> nearMissResponse;
   final bool isReachedMax;
 
   const NearMissDataLoaded({required this.nearMissResponse,required this.isReachedMax});
@@ -31,7 +31,7 @@ class NearMissDataLoaded extends NearMissState{
 }
 class NearMissDataFiltered extends NearMissState{
   final String filter;
-  final NearMissResponse nearMissResponse;
+  final List<NearMiss> nearMissResponse;
   final bool isReachedMaxFiltered;
 
   const NearMissDataFiltered({required this.nearMissResponse,required this.isReachedMaxFiltered,required this.filter});
@@ -49,21 +49,5 @@ class NearMissDataError extends NearMissState{
   List<Object?> get props => [message];
 
 }
-class NewNearMissCreated extends NearMissState{
-  final String message;
 
-  const NewNearMissCreated({required this.message});
 
-  @override
-  List<Object?> get props => [message];
-
-}
-class NewNearMissCreationError extends NearMissState{
-  final String message;
-
-  const NewNearMissCreationError({required this.message});
-
-  @override
-  List<Object?> get props => [message];
-
-}

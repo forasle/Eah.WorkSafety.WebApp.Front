@@ -28,7 +28,6 @@ class AccidentByIdBloc extends Bloc<AccidentByIdEvent, AccidentByIdState> {
     on<AccidentByIdInitialEvent>((event, emit) async {
       try{
         //await Future.delayed(const Duration(milliseconds: 500));
-        print("initial");
         emit(AccidentByIdInitial());
       }
       catch(e){

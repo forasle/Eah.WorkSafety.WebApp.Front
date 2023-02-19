@@ -45,14 +45,14 @@ class AccidentPage extends StatelessWidget {
                     Flexible(
                       child: Text(
                         'İş Kazaları',
-                        style: Theme.of(context).textTheme.headline4,
+                        style: Theme.of(context).textTheme.headlineMedium,
                       ),
                     ),
                     Constant.sizedBox,
                     Flexible(
                       child: Text(
                         '(Yetki seviyenize göre görüntüleyebildiğiniz liste & raporlar)',
-                        style: Theme.of(context).textTheme.overline,
+                        style: Theme.of(context).textTheme.labelSmall,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -82,88 +82,119 @@ class AccidentPage extends StatelessWidget {
                           'Kazalar',
                           state is StatisticLoaded
                               ? (state.statisticResponse.numberOfAccidents + state.statisticResponse.numberOfNearMisses)
-                              .toString()
+                              .toStringAsFixed(2)
                               : "-",
                           Colors.blueGrey,
                           'Tüm Kaza ve Ramak Kalalar'
                         ],
                         [
                           'Toplam kayıp gün',
-                          state is StatisticLoaded ? state.statisticResponse.totalLostDays.toString() : '-',
+                          state is StatisticLoaded ? state.statisticResponse.totalLostDays.toStringAsFixed(2): '-',
                           Colors.yellowAccent.shade700,
                           '-'
                         ],
-                        ['Kaza Geçiren Çalışan', '-', Colors.blueAccent.shade700, '-'],
-                        ['Kaza Sıklık Oranı', '-', Colors.orangeAccent.shade700, 'TOPLAM KAZA X 1M / YILLIK ADAM SAAT'],
+                        [
+                          'Kaza Geçiren Çalışan',
+                          state is StatisticLoaded ? state.statisticResponse.numberOfEmployeeWhoHadAnAccident.toStringAsFixed(2) : '-',
+                          Colors.blueAccent.shade700,
+                          '-'
+                        ],
+                        [
+                          'Kaza Sıklık Oranı',
+                          state is StatisticLoaded
+                              ? ((state.statisticResponse.totalEmployeeAccident *
+                                      1000000 /
+                                      (state.statisticResponse.numberOfEmployee * 8))).toStringAsFixed(2)
+
+                              : '-',
+                          Colors.orangeAccent.shade700,
+                          'TOPLAM KAZA X 1M / YILLIK ADAM SAAT'
+                        ],
                         [
                           'Kaza Ağırlık Oranı',
-                          '-',
+                          state is StatisticLoaded
+                              ? (state.statisticResponse.totalLostDays *
+                                      1000000 /
+                                      (state.statisticResponse.numberOfEmployee * 8)).toStringAsFixed(2)
+
+                              : '-',
                           Colors.blueGrey.shade700,
                           'TOPLAM KAYIP GÜN X 1M / YILLIK ADAM SAAT'
                         ],
                         [
                           'Kayıp Günlü Kaza Sıklık Oranı',
-                          '-',
+                          state is StatisticLoaded
+                              ? (state.statisticResponse.numberOfAccidentWhichHasGotLostDay *
+                                      1000000 /
+                                      (state.statisticResponse.numberOfEmployee * 8)).toStringAsFixed(2)
+
+                              : '-',
                           Colors.yellowAccent.shade700,
                           'KAYIP GÜNLÜ KAZA X 1M / YILLIK ADAM SAAT'
                         ],
                         [
                           'İlkyardım Gerekirtiren Kaza Sıklık Oranı',
-                          '-',
+                          state is StatisticLoaded
+                              ? ((state.statisticResponse.totalNeedFirstAidAccident *
+                                      1000000 /
+                                      (state.statisticResponse.numberOfEmployee * 8))).toStringAsFixed(2)
+
+                              : '-',
                           Colors.lightBlueAccent.shade700,
-                          'İLKYARDIM GEREKTIREN KAZA X 1M/YILLIK ADAM SAAT'
-                        ],
-                        ['Kaza Sıklık Oranı', '-', Colors.orangeAccent.shade700, 'TOPLAM KAZA X 1M / YILLIK ADAM SAAT'],
-                        [
-                          'Kaza Ağırlık Oranı',
-                          '-',
-                          Colors.blueGrey.shade700,
-                          'TOPLAM KAYIP GÜN X 1M / YILLIK ADAM SAAT'
-                        ],
-                        [
-                          'Kayıp Günlü Kaza Sıklık Oranı',
-                          '-',
-                          Colors.redAccent.shade700,
-                          'KAYIP GÜNLÜ KAZA X 1M / YILLIK ADAM SAAT'
-                        ],
-                        [
-                          'İlkyardım Gerekirtiren Kaza Sıklık Oranı',
-                          '-',
-                          Colors.blueAccent.shade700,
                           'İLKYARDIM GEREKTIREN KAZA X 1M/YILLIK ADAM SAAT'
                         ],
                         [
                           'Kaza Sıklık Oranı',
-                          '-',
+                          state is StatisticLoaded
+                              ? (state.statisticResponse.numberOfAccidentWhichHasGotLostDay *
+                                      200000 /
+                                      (state.statisticResponse.numberOfEmployee * 8))
+                              .toStringAsFixed(2)
+                              : '-',
                           Colors.orangeAccent.shade700,
                           'KAYIP GÜNLÜ KAZA X 200,000 / YILLIK ADAM SAAT'
                         ],
                         [
                           'Kaza Ağırlık Oranı',
-                          '-',
+                          state is StatisticLoaded
+                              ? (state.statisticResponse.totalLostDays *
+                                      200000 /
+                                      (state.statisticResponse.numberOfEmployee * 8))
+                              .toStringAsFixed(2)
+                              : '-',
                           Colors.green.shade700,
                           'TOPLAM KAYIP GÜN X 200,000 / YILLIK ADAM SAAT'
                         ],
                         [
-                          'Kayıp Günlü Kaza Sıklık Oranı',
-                          '-',
-                          Colors.blueAccent.shade700,
-                          'KAYIP GÜNLÜ KAZA X 200,000 / YILLIK ADAM SAAT'
-                        ],
-                        [
                           'İlkyardım Gerekirtiren Kaza Sıklık Oranı',
-                          '-',
+                          state is StatisticLoaded
+                              ? (state.statisticResponse.totalNeedFirstAidAccident *
+                                      200000 /
+                                      (state.statisticResponse.numberOfEmployee * 8))
+                              .toStringAsFixed(2)
+                              : '-',
                           Colors.blueGrey.shade700,
                           'İLKYARDIM GEREKTIREN KAZA X 200,000/YILLIK ADAM SAAT'
                         ],
-                        ['Şiddet(Severity) Oranı', '-', Colors.green.shade700, 'KAYIP GÜN / KAYIP GÜNLÜ KAZA'],
                         [
                           'Tıbbi Müdahele Gerektiren',
-                          '-',
+                          state is StatisticLoaded
+                              ? (state.statisticResponse.numberOfAccidents -
+                                      state.statisticResponse.numberOfAccidentWhichNeedsFirstAid)
+                              .toStringAsFixed(2)
+                              : '-',
                           Colors.blueAccent.shade700,
-                          'KAYIP GÜN OLMAYAN VE MÜDAHELE GEREKTIREN'
+                          'KAYIP GÜN OLMAYAN VE MÜDAHALE GEREKTIREN KAZA'
                         ],
-                        ['Toplam Olay', '-', Colors.amberAccent.shade700, 'TOPLAM RAMAK KALA + İŞ KAZASI'],
+                        [
+                          'Toplam Olay',
+                          state is StatisticLoaded
+                              ? (state.statisticResponse.numberOfAccidents + state.statisticResponse.numberOfNearMisses)
+                              .toStringAsFixed(2)
+                              : "-",
+                          Colors.amberAccent.shade700,
+                          'TOPLAM RAMAK KALA + İŞ KAZASI'
+                        ],
                       ]
                               .map(
                                 (e) => CardWidget(
@@ -244,13 +275,14 @@ class AccidentPage extends StatelessWidget {
               builder: (context, state) {
                 return Row(
                   children: [
-                    if(state is StatisticLoaded) CircularGraph(
-                      title: 'Kaza/Ramak Kala',
-                      chartData: [
-                        ChartData('İş Kazası', state.statisticResponse.numberOfAccidents.toDouble()),
-                        ChartData('Ramak Kala', state.statisticResponse.numberOfNearMisses.toDouble())
-                      ],
-                    ),
+                    if (state is StatisticLoaded)
+                      CircularGraph(
+                        title: 'Kaza/Ramak Kala',
+                        chartData: [
+                          ChartData('İş Kazası', state.statisticResponse.numberOfAccidents.toDouble()),
+                          ChartData('Ramak Kala', state.statisticResponse.numberOfNearMisses.toDouble())
+                        ],
+                      ),
                     CircularGraph(
                       title: 'Kök Neden Gereksinimi',
                       chartData: [

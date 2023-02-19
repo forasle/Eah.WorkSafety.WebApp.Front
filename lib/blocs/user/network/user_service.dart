@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'package:aeah_work_safety/blocs/auth/models/login_request.dart';
-import 'package:aeah_work_safety/blocs/user/models/user_request.dart';
 import 'package:aeah_work_safety/blocs/user/models/user_response.dart';
 import 'package:aeah_work_safety/services/base_api.dart';
 import 'package:aeah_work_safety/services/jwt_decoder.dart';

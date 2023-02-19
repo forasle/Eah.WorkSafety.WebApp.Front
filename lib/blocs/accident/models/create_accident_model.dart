@@ -105,7 +105,7 @@ class CreateAffectedEmployeeWithProperty {
   CreateAffectedEmployeeWithProperty({
     required this.employeeId,
     required this.lostDays,
-    required this.theSubjectExposureToPhsicalViolence,
+    required this.theSubjectExposureToPhysicalViolence,
     required this.theSubjectExposureToVerbalViolence,
     required this.theSubjectSharpObjectInjuries,
     required this.theSubjectExposureToBiologicalAgents,
@@ -133,7 +133,7 @@ class CreateAffectedEmployeeWithProperty {
 
   int employeeId;
   int lostDays;
-  bool theSubjectExposureToPhsicalViolence;
+  bool theSubjectExposureToPhysicalViolence;
   bool theSubjectExposureToVerbalViolence;
   bool theSubjectSharpObjectInjuries;
   bool theSubjectExposureToBiologicalAgents;
@@ -161,7 +161,7 @@ class CreateAffectedEmployeeWithProperty {
   factory CreateAffectedEmployeeWithProperty.fromJson(Map<String, dynamic> json) => CreateAffectedEmployeeWithProperty(
     employeeId: json["employeeId"],
     lostDays: json["lostDays"],
-    theSubjectExposureToPhsicalViolence: json["theSubjectExposureToPhsicalViolence"],
+    theSubjectExposureToPhysicalViolence: json["theSubjectExposureToPhysicalViolence"],
     theSubjectExposureToVerbalViolence: json["theSubjectExposureToVerbalViolence"],
     theSubjectSharpObjectInjuries: json["theSubjectSharpObjectInjuries"],
     theSubjectExposureToBiologicalAgents: json["theSubjectExposureToBiologicalAgents"],
@@ -190,7 +190,7 @@ class CreateAffectedEmployeeWithProperty {
   Map<String, dynamic> toJson() => {
     "employeeId": employeeId,
     "lostDays": lostDays,
-    "theSubjectExposureToPhsicalViolence": theSubjectExposureToPhsicalViolence,
+    "theSubjectExposureToPhysicalViolence": theSubjectExposureToPhysicalViolence,
     "theSubjectExposureToVerbalViolence": theSubjectExposureToVerbalViolence,
     "theSubjectSharpObjectInjuries": theSubjectSharpObjectInjuries,
     "theSubjectExposureToBiologicalAgents": theSubjectExposureToBiologicalAgents,

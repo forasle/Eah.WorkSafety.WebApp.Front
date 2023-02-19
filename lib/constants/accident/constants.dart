@@ -8,6 +8,8 @@ class Constant {
     indent: 50,
   );
 
+  static const double heightOfAccidentAndNearMissCheckBox = 550;
+
   static const verticalDivider = VerticalDivider(
     endIndent: 5,
     indent: 5,
@@ -39,6 +41,8 @@ class Constant {
   );
 
   static const TextStyle buttonTextStyle = TextStyle(color: Colors.black, fontSize: 25);
+
+  static const TextStyle allertDialogTextStyle = TextStyle(color: Colors.black, fontSize: 15);
 
   static final List<String> theSubjectOfTheAccident = [
     'Fiziksel şiddete maruz kalma',
@@ -179,4 +183,69 @@ class Constant {
     return result;
   }
 
+}
+class LoadingDialog extends StatelessWidget {
+  static void show(BuildContext context, {Key? key}) => showDialog<void>(
+    context: context,
+    useRootNavigator: false,
+    barrierDismissible: false,
+    builder: (_) => LoadingDialog(key: key),
+  ).then((_) => FocusScope.of(context).requestFocus(FocusNode()));
+
+  static void hide(BuildContext context) => Navigator.pop(context);
+
+  const LoadingDialog({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Center(
+        child: Card(
+          child: Container(
+            width: 80,
+            height: 80,
+            padding: const EdgeInsets.all(12.0),
+            child: const CircularProgressIndicator(),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+Padding title(BuildContext context, String title) {
+  return Padding(
+    padding: Constant.padding,
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Flexible(
+          child: Text(
+            title,
+            style: Theme.of(context).textTheme.headline4,
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+Padding subtitle({required String subtitle, required double height, required double width}) {
+  return Padding(
+    padding: Constant.padding,
+    child: SizedBox(
+      height: height,
+      width: width,
+      child: Align(
+        alignment: Alignment.center,
+        child: Text(
+          subtitle,
+          textAlign: TextAlign.center,
+          softWrap: true,
+          overflow: TextOverflow.fade,
+        ),
+      ),
+    ),
+  );
 }

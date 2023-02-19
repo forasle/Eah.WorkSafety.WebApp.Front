@@ -166,7 +166,7 @@ class AffectedEmployeeWithPropertyForAccident {
     name: json["name"],
     surname: json["surname"],
     identificationNumber: json["identificationNumber"],
-    theSubjectExposureToPhsicalViolence: json["theSubjectExposureToPhsicalViolence"],
+    theSubjectExposureToPhsicalViolence: json["theSubjectExposureToPhysicalViolence"],
     theSubjectExposureToVerbalViolence: json["theSubjectExposureToVerbalViolence"],
     theSubjectSharpObjectInjuries: json["theSubjectSharpObjectInjuries"],
     theSubjectExposureToBiologicalAgents: json["theSubjectExposureToBiologicalAgents"],
