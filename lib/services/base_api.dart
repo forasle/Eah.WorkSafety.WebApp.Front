@@ -3,8 +3,8 @@ class BaseAPI {
   static String base = "http://192.168.1.30";
   static var api = base + "/api";
   var usersPath = api + "/user";
-  var employeePath = api + "/employee";
-  var employeeSearchPath = api + "/employee/search/name?key=";
+  static var employeePath = api + "/employee";
+  static var employeeSearchPath = api + "/employee/search/name?key=";
   var authPath = api + "/auth/SignIn";
   var statisticPath = api + "/statistics";
   static var accidentPath = api + "/accident";
@@ -13,8 +13,8 @@ class BaseAPI {
   static var nearMissSearchPath = api + "/nearMiss/search/name?key=";
   var preventiveActivityPath = api + "/preventiveActivity";
   var preventiveActivitySearchPath = api + "/nearMiss/search/name?key=";
-  var inconsistencyPath = api + "/inconsistency";
-  var inconsistencySearchPath = api + "/inconsistency/search/name?key=";
+  static var inconsistencyPath = api + "/inconsistency";
+  static var inconsistencySearchPath = api + "/inconsistency/search/name?key=";
   var missionPath = api + "/mission";
   var missionSearchPath = api + "/mission/search/name?key=";
   var chronicDiseasePath = api + "/chronicDisease";

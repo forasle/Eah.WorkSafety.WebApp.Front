@@ -1,5 +1,4 @@
 import 'package:aeah_work_safety/blocs/employee/models/employee.dart';
-import 'package:aeah_work_safety/blocs/employee/models/gender.dart';
 import 'package:aeah_work_safety/constants/employee/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
@@ -19,9 +18,9 @@ class EmployeeDetail extends StatelessWidget {
           children: [
             RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
             const Icon(Icons.arrow_right),
-            RoutingBarWidget(pageName: 'Çalışanlar', routeName: workersMainPageRoute),
+            RoutingBarWidget(pageName: 'Çalışanlar', routeName: employeeMainPageRoute),
             const Icon(Icons.arrow_right),
-            RoutingBarWidget(pageName: 'Murat Doğan', routeName: workersDetailPageRoute),
+            RoutingBarWidget(pageName: 'Çalışan Detayları', routeName: employeeDetailPageRoute),
           ],
         ),
         Constant.dividerWithIndent,

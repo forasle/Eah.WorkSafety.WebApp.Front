@@ -73,7 +73,9 @@ class NearMissBloc extends Bloc<NearMissEvent, NearMissState> {
           page = nearMissResponseFiltered .nextPage!;
         }
         else{
-          emit(NearMissDataFiltered(nearMissResponse: _nearMissFiltered,filter: event.filter, isReachedMaxFiltered: nearMissResponseFiltered.nextPage==null));
+          emit(NearMissDataLoaded(nearMissResponse: _nearMissFiltered,isReachedMax: nearMissResponseFiltered.nextPage==null));
+
+          //emit(NearMissDataFiltered(nearMissResponse: _nearMissFiltered,filter: event.filter, isReachedMaxFiltered: nearMissResponseFiltered.nextPage==null));
         }
 
         for(int i =0; i<nearMissResponseFiltered.data.length;i++){

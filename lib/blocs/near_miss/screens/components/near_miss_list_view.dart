@@ -23,6 +23,7 @@ class NearMissListView extends StatelessWidget {
               if (state is NearMissDataError) {
                 return Center(child: Text('Fetched Error: ${state.message}'));
               }
+
               if (state is NearMissDataLoaded) {
                 return NotificationListener<ScrollNotification>(
                   onNotification: (notification) {
@@ -102,6 +103,7 @@ class NearMissListView extends StatelessWidget {
                                                                 const SnackBar(content: Text("Kaza Silindi")));
                                                             context.read<DeleteNearMissBloc>().add(DeleteNearMiss(
                                                                 id: state.nearMissResponse[index].id));
+                                                            context.read<NearMissBloc>().add(const GetNearMissData(needsRefresh: true));
                                                           }),
                                                       Constant.sizedBox,
                                                       ElevatedButton(
@@ -142,7 +144,7 @@ class NearMissListView extends StatelessWidget {
                   ),
                 );
               }
-              if (state is NearMissDataFiltered) {
+              /*if (state is NearMissDataFiltered) {
                 return NotificationListener<ScrollNotification>(
                   onNotification: (notification) {
                     if (notification.metrics.pixels == notification.metrics.maxScrollExtent) {
@@ -216,7 +218,7 @@ class NearMissListView extends StatelessWidget {
                     ],
                   ),
                 );
-              }
+              }*/
               return const Center(child: CircularProgressIndicator());
             },
           ),

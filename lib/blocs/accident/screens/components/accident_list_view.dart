@@ -89,7 +89,7 @@ class AccidentListView extends StatelessWidget {
                                                     builder: (context) => AlertDialog(
                                                       title: Text(
                                                           "${state.accidentResponse[index].affectedEmployeeWithPropertyForAccident[0].name + " " + state.accidentResponse[index].affectedEmployeeWithPropertyForAccident[0].surname} kişisine ait iş kazasını silmek istediğinize emin misiniz?",
-                                                          style: Constant.allertDialogTextStyle),
+                                                          style: Constant.alertDialogTextStyle),
                                                       actions: [
                                                         Row(
                                                           mainAxisAlignment: MainAxisAlignment.end,
@@ -102,6 +102,7 @@ class AccidentListView extends StatelessWidget {
                                                                       const SnackBar(content: Text("Kaza Silindi")));
                                                                   context.read<DeleteAccidentBloc>().add(DeleteAccident(
                                                                       id: state.accidentResponse[index].id));
+                                                                  context.read<AccidentBloc>().add(const GetAccidentData(needsRefresh: true));
                                                                 }),
                                                             Constant.sizedBox,
                                                             ElevatedButton(
@@ -142,6 +143,7 @@ class AccidentListView extends StatelessWidget {
                   ),
                 );
               }
+              /*
               if (state is AccidentDataFiltered) {
                 return NotificationListener<ScrollNotification>(
                   onNotification: (notification) {
@@ -216,7 +218,7 @@ class AccidentListView extends StatelessWidget {
                     ],
                   ),
                 );
-              }
+              }*/
               return const Center(child: CircularProgressIndicator());
             },
           ),

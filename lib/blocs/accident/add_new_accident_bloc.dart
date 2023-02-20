@@ -15,7 +15,7 @@ class AddNewAccidentBloc extends Bloc<AddNewAccidentEvent, AddNewAccidentState> 
   final AccidentRepository _accidentRepository = locator<AccidentRepository>();
   final EmployeeRepository _employeeRepository = locator<EmployeeRepository>();
 
-  AddNewAccidentBloc() : super(AddNewAccidentInitial()) {
+  AddNewAccidentBloc() : super(const AddNewAccidentInitial()) {
     on<CreateNewAccident>((event, emit) async {
       const storage = FlutterSecureStorage();
       final String? token = await storage.read(key: "token");

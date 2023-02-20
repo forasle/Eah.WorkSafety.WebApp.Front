@@ -7,26 +7,26 @@ abstract class EmployeeEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GetEmployeeData extends EmployeeEvent{
-
-  const GetEmployeeData();
-
+class EmployeeInitialEvent extends EmployeeEvent{
+  const EmployeeInitialEvent();
   @override
   List<Object> get props => [];
 }
 
+class GetEmployeeData extends EmployeeEvent{
+  final bool needsRefresh;
+  const GetEmployeeData({required this.needsRefresh});
+
+  @override
+  List<Object> get props => [needsRefresh];
+}
+
 class GetEmployeeFiltered extends EmployeeEvent{
+  final bool needsRefresh;
   final String filter;
-  const GetEmployeeFiltered({required this.filter});
+  const GetEmployeeFiltered({required this.filter,required this.needsRefresh});
 
   @override
-  List<Object> get props => [filter];
+  List<Object> get props => [filter,needsRefresh];
 }
 
-class GetEmployeeDataById extends EmployeeEvent{
-  final int id;
-  const GetEmployeeDataById({required this.id});
-
-  @override
-  List<Object> get props => [id];
-}

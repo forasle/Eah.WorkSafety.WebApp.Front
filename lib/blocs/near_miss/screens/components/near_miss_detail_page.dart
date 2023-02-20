@@ -31,9 +31,9 @@ class NearMissDetailPage extends StatelessWidget {
                   children: [
                     RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
                     const Icon(Icons.arrow_right),
-                    RoutingBarWidget(pageName: 'İş Kazası', routeName: nearMissPageRoute),
+                    RoutingBarWidget(pageName: 'Ramak Kala Olaylar', routeName: nearMissPageRoute),
                     const Icon(Icons.arrow_right),
-                    RoutingBarWidget(pageName: 'Yeni İş Kazası Ekle', routeName: addNewNearMiss),
+                    RoutingBarWidget(pageName: 'Ramak Kala Detayları', routeName: nearMissDetailPage),
                   ],
                 ),
               ),
@@ -186,8 +186,8 @@ class NearMissDetailPage extends StatelessWidget {
                         children: [
                           subtitle(subtitle: 'Departman:', height: 90, width: 150),
                           subtitle(subtitle: 'Olay Yeri:', height: 80, width: 150),
-                          subtitle(subtitle: 'Olayın Konusu:', height: 110, width: 150),
-                          subtitle(subtitle: 'Alınması Gereken Önlem:', height: 110, width: 150),
+                          subtitle(subtitle: 'Olayın Konusu:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
+                          subtitle(subtitle: 'Alınması Gereken Önlem:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
                         ],
                       ),
                     ),
@@ -237,7 +237,7 @@ class NearMissDetailPage extends StatelessWidget {
                           Padding(
                             padding: Constant.padding,
                             child: SizedBox(
-                              height: 110,
+                              height: Constant.heightOfAccidentAndNearMissCheckBox,
                               child: FormBuilderCheckboxGroup<String>(
                                 disabled: Constant.theSubjectOfTheNearMiss,
                                 initialValue: Constant.theSubjectOfTheNearMissToStringList(
@@ -251,7 +251,7 @@ class NearMissDetailPage extends StatelessWidget {
                                 name: 'theSubjectOfTheNearMissStringList',
                                 // initialValue: const ['Dart'],
                                 options: Constant.theSubjectOfTheNearMiss2,
-                                orientation: OptionsOrientation.horizontal,
+                                orientation: OptionsOrientation.vertical,
                                 separator: const VerticalDivider(
                                   width: 10,
                                   thickness: 5,
@@ -263,7 +263,7 @@ class NearMissDetailPage extends StatelessWidget {
                           Padding(
                             padding: Constant.padding,
                             child: SizedBox(
-                              height: 110,
+                              height: Constant.heightOfAccidentAndNearMissCheckBox,
                               child: FormBuilderCheckboxGroup<String>(
                                 disabled: Constant.precautionsToBeTaken,
                                 initialValue: Constant.thePrecautionsToBeTakenToStringList(
@@ -277,7 +277,7 @@ class NearMissDetailPage extends StatelessWidget {
                                 name: 'precautionsToBeTakenStringList',
                                 // initialValue: const ['Dart'],
                                 options: Constant.precautionsToBeTaken2,
-                                orientation: OptionsOrientation.horizontal,
+                                orientation: OptionsOrientation.vertical,
                                 separator: const VerticalDivider(
                                   width: 10,
                                   thickness: 5,
@@ -340,7 +340,7 @@ Padding title(BuildContext context, String title) {
         Flexible(
           child: Text(
             title,
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
       ],

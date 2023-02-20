@@ -57,7 +57,7 @@ class _DataSource extends DataTableSource {
       index: index,
       selected: row.selected,
       onSelectChanged: (value) {
-        Navigator.pushNamed(context, workersDetailPageRoute);
+        Navigator.pushNamed(context, employeeDetailPageRoute);
       },
       cells: [
         DataCell(Text(row.referenceNumber.toString())),

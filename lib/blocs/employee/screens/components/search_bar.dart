@@ -32,7 +32,7 @@ class SearchBarWidget extends StatelessWidget {
             },
             onChanged: (value) {
               if(value.length>3){
-                context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: value));
+                context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: value,needsRefresh: true));
               }
             },
             decoration: (InputDecoration(
@@ -40,7 +40,7 @@ class SearchBarWidget extends StatelessWidget {
                 icon: const Icon(Icons.person),
                 suffixIcon: IconButton(
                   onPressed: () {
-                    context.read<EmployeeBloc>().add(const GetEmployeeData());
+                    context.read<EmployeeBloc>().add(const GetEmployeeData(needsRefresh: true));
                   },
                   icon: const Icon(Icons.clear),
                 ),

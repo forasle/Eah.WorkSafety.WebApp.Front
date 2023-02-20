@@ -21,7 +21,7 @@ class UpdateNearMissPage extends StatelessWidget {
     myController.text = _nearMissResponse.affectedEmployeeWithPropertyForNearMiss[0].identificationNumber;
     myController.addListener(() {
       if (myController.text.length > 5) {
-        context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: myController.text));
+        context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: myController.text,needsRefresh: true));
       }
     });
     final _formKey = GlobalKey<FormBuilderState>();
@@ -41,9 +41,9 @@ class UpdateNearMissPage extends StatelessWidget {
                   children: [
                     RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
                     const Icon(Icons.arrow_right),
-                    RoutingBarWidget(pageName: 'İş Kazası', routeName: nearMissPageRoute),
+                    RoutingBarWidget(pageName: 'Ramak Kala Olaylar', routeName: nearMissPageRoute),
                     const Icon(Icons.arrow_right),
-                    RoutingBarWidget(pageName: 'Yeni İş Kazası Ekle', routeName: addNewNearMiss),
+                    RoutingBarWidget(pageName: 'Ramak Kala Güncelle', routeName: updateNearMissPage),
                   ],
                 ),
               ),
@@ -89,8 +89,8 @@ class UpdateNearMissPage extends StatelessWidget {
                                     future: () async {
                                       List _list = <dynamic>[];
                                       if (state is EmployeeDataFiltered) {
-                                        if (state.employeeResponse.data.isNotEmpty) {
-                                          for (var employee in state.employeeResponse.data) {
+                                        if (state.employeeResponse.isNotEmpty) {
+                                          for (var employee in state.employeeResponse) {
                                             _list.add(employee.identificationNumber);
                                           }
                                         }
@@ -235,8 +235,8 @@ class UpdateNearMissPage extends StatelessWidget {
                         children: [
                           subtitle(subtitle: 'Departman:', height: 90, width: 150),
                           subtitle(subtitle: 'Olay Yeri:', height: 80, width: 150),
-                          subtitle(subtitle: 'Olayın Konusu:', height: 110, width: 150),
-                          subtitle(subtitle: 'Alınması Gereken Önlem:', height: 110, width: 150),
+                          subtitle(subtitle: 'Olayın Konusu:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
+                          subtitle(subtitle: 'Alınması Gereken Önlem:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
                         ],
                       ),
                     ),
@@ -298,7 +298,7 @@ class UpdateNearMissPage extends StatelessWidget {
                           Padding(
                             padding: Constant.padding,
                             child: SizedBox(
-                              height: 110,
+                              height: Constant.heightOfAccidentAndNearMissCheckBox,
                               child: FormBuilderCheckboxGroup<String>(
                                 initialValue: Constant.theSubjectOfTheNearMissToStringList(
                                     _nearMissResponse.affectedEmployeeWithPropertyForNearMiss[0]),
@@ -311,7 +311,7 @@ class UpdateNearMissPage extends StatelessWidget {
                                 name: 'theSubjectOfTheNearMissStringList',
                                 // initialValue: const ['Dart'],
                                 options: Constant.theSubjectOfTheNearMiss2,
-                                orientation: OptionsOrientation.horizontal,
+                                orientation: OptionsOrientation.vertical,
                                 separator: const VerticalDivider(
                                   width: 10,
                                   thickness: 5,
@@ -326,7 +326,7 @@ class UpdateNearMissPage extends StatelessWidget {
                           Padding(
                             padding: Constant.padding,
                             child: SizedBox(
-                              height: 110,
+                              height: Constant.heightOfAccidentAndNearMissCheckBox,
                               child: FormBuilderCheckboxGroup<String>(
                                 initialValue: Constant.thePrecautionsToBeTakenToStringList(
                                     _nearMissResponse.affectedEmployeeWithPropertyForNearMiss[0]),
@@ -339,7 +339,7 @@ class UpdateNearMissPage extends StatelessWidget {
                                 name: 'precautionsToBeTakenStringList',
                                 // initialValue: const ['Dart'],
                                 options: Constant.precautionsToBeTaken2,
-                                orientation: OptionsOrientation.horizontal,
+                                orientation: OptionsOrientation.vertical,
                                 separator: const VerticalDivider(
                                   width: 10,
                                   thickness: 5,

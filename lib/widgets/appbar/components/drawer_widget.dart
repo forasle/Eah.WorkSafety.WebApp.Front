@@ -37,7 +37,7 @@ class DrawerWidget extends StatelessWidget {
                 leading: const Icon(Icons.supervisor_account),
                 title: const Text('Çalışanlar'),
                 onTap: () {
-                  Navigator.of(context).pushNamed(workersMainPageRoute);
+                  Navigator.of(context).pushNamed(employeeMainPageRoute);
                 },
               ),
               ListTile(

@@ -21,7 +21,7 @@ class UpdateAccidentPage extends StatelessWidget {
     myController.text = _accidentResponse.affectedEmployeeWithPropertyForAccident[0].identificationNumber;
     myController.addListener(() {
       if (myController.text.length > 5) {
-        context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: myController.text));
+        context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: myController.text,needsRefresh: true));
       }
     });
     final _formKey = GlobalKey<FormBuilderState>();
@@ -89,8 +89,8 @@ class UpdateAccidentPage extends StatelessWidget {
                                     future: () async {
                                       List _list = <dynamic>[];
                                       if (state is EmployeeDataFiltered) {
-                                        if (state.employeeResponse.data.isNotEmpty) {
-                                          for (var employee in state.employeeResponse.data) {
+                                        if (state.employeeResponse.isNotEmpty) {
+                                          for (var employee in state.employeeResponse) {
                                             _list.add(employee.identificationNumber);
                                           }
                                         }

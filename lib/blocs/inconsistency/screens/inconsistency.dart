@@ -1,7 +1,6 @@
 import 'package:aeah_work_safety/blocs/inconsistency/screens/components/inconsistency_list_view.dart';
 import 'package:aeah_work_safety/blocs/statistic/statistic_bloc.dart';
 import 'package:aeah_work_safety/widgets/components/circular_graph.dart';
-import 'package:aeah_work_safety/blocs/mission/screens/components/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/inconsistency/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
@@ -9,8 +8,6 @@ import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:aeah_work_safety/widgets/components/card_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'components/data_table_for_inconsistency.dart';
 
 class Inconsistency extends StatelessWidget {
   const Inconsistency({Key? key}) : super(key: key);
@@ -43,14 +40,14 @@ class Inconsistency extends StatelessWidget {
                     Flexible(
                       child: Text(
                         'Uygunsuzluklar',
-                        style: Theme.of(context).textTheme.headline4,
+                        style: Theme.of(context).textTheme.headlineMedium,
                       ),
                     ),
                     Constant.sizedBoxWidth,
                     Flexible(
                       child: Text(
                         '(Yetki seviyenize göre görüntüleyebildiğiniz liste & raporlar)',
-                        style: Theme.of(context).textTheme.overline,
+                        style: Theme.of(context).textTheme.labelSmall,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),

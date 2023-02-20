@@ -79,7 +79,7 @@ class PreventiveActivityListView extends StatelessWidget {
             onNotification: (notification) {
               if (notification.metrics.pixels == notification.metrics.maxScrollExtent) {
                 if (state.isReachedMaxFiltered) return false;
-                context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: state.filter));
+                context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: state.filter,needsRefresh: true));
               }
               return false;
             },
@@ -112,7 +112,7 @@ class PreventiveActivityListView extends StatelessWidget {
                         subtitle: Text(state.preventiveActivityResponse.data[index].information!),
                         trailing: const Icon(Icons.arrow_forward_ios_rounded),
                         onTap: () {
-                          Navigator.pushNamed(context, workersDetailPageRoute,
+                          Navigator.pushNamed(context, employeeDetailPageRoute,
                               arguments: state.preventiveActivityResponse.data[index]);
                         },
                         onLongPress: () {

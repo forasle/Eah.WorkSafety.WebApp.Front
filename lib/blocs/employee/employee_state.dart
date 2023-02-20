@@ -19,7 +19,7 @@ class EmployeeDataLoading extends EmployeeState{
 }
 
 class EmployeeDataLoaded extends EmployeeState{
-  final EmployeeResponse employeeResponse;
+  final List<Employee> employeeResponse;
   final bool isReachedMax;
 
   const EmployeeDataLoaded({required this.employeeResponse,required this.isReachedMax});
@@ -29,7 +29,7 @@ class EmployeeDataLoaded extends EmployeeState{
 }
 class EmployeeDataFiltered extends EmployeeState{
   final String filter;
-  final EmployeeResponse employeeResponse;
+  final List<Employee>  employeeResponse;
   final bool isReachedMaxFiltered;
 
   const EmployeeDataFiltered({required this.employeeResponse,required this.isReachedMaxFiltered,required this.filter});
@@ -46,22 +46,4 @@ class EmployeeDataError extends EmployeeState{
   @override
   List<Object?> get props => [message];
 
-}
-
-class EmployeeDataByIdLoading extends EmployeeState{
-
-  const EmployeeDataByIdLoading();
-
-  @override
-  List<Object?> get props => [];
-}
-
-class EmployeeDataByIdLoaded extends EmployeeState{
-  final Employee employee;
-  final int id;
-
-  const EmployeeDataByIdLoaded({required this.employee,required this.id});
-
-  @override
-  List<Object?> get props => [employee,id];
 }

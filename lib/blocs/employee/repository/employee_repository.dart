@@ -8,11 +8,11 @@ import 'package:aeah_work_safety/services/locator.dart';
 class EmployeeRepository {
   EmployeeService employeeService = locator<EmployeeService>();
 
-  Future<EmployeeResponse> getEmployeeData({required int page,required int pageSize}) async {
-    return await employeeService.getEmployeeData(page,pageSize);
+  Future<EmployeeResponse> getEmployeeData({required String page}) async {
+    return await employeeService.getEmployeeData(page);
   }
-  Future<EmployeeResponse> getEmployeeFiltered({required int page,required int pageSize,required String filter}) async {
-    return await employeeService.getEmployeeFiltered(page,pageSize,filter);
+  Future<EmployeeResponse> getEmployeeFiltered({required String page,required String filter}) async {
+    return await employeeService.getEmployeeFiltered(page,filter);
   }
 
   Future<Employee> getEmployeeDataById({required int id}) async {

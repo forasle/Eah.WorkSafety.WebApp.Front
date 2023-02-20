@@ -32,7 +32,7 @@ class SearchBarWidget extends StatelessWidget {
             },
             onChanged: (value) {
               if(value.length>3){
-                context.read<InconsistencyBloc>().add(GetInconsistencyFiltered(filter: value));
+                context.read<InconsistencyBloc>().add(GetInconsistencyFiltered(filter: value, needsRefresh: true));
               }
             },
             decoration: (InputDecoration(
@@ -40,7 +40,7 @@ class SearchBarWidget extends StatelessWidget {
                 icon: const Icon(Icons.person),
                 suffixIcon: IconButton(
                   onPressed: () {
-                    context.read<InconsistencyBloc>().add(const GetInconsistencyData());
+                    context.read<InconsistencyBloc>().add(const GetInconsistencyData(needsRefresh: true));
                   },
                   icon: const Icon(Icons.clear),
                 ),

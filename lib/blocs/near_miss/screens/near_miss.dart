@@ -81,7 +81,7 @@ class NearMissPage extends StatelessWidget {
                         [
                           'Ramak Kalalar',
                           state is StatisticLoaded
-                              ? (state.statisticResponse.numberOfNearMisses + state.statisticResponse.numberOfNearMisses)
+                              ? (state.statisticResponse.numberOfAccidents + state.statisticResponse.numberOfNearMisses)
                               .toStringAsFixed(2)
                               : "-",
                           Colors.blueGrey,

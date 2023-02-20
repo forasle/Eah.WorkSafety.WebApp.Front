@@ -49,9 +49,9 @@ class AccidentBloc extends Bloc<AccidentEvent, AccidentState> {
           else{
             _accident.add(accidentResponse.data[i]);
           }
+          emit(AccidentDataLoaded(accidentResponse: _accident, isReachedMax: accidentResponse.nextPage==null));
         }
-
-        emit(AccidentDataLoaded(accidentResponse: _accident, isReachedMax: accidentResponse.nextPage==null));
+        //emit(AccidentDataLoaded(accidentResponse: _accident, isReachedMax: accidentResponse.nextPage==null));
       }
       catch(e){
         emit(AccidentDataError(message: "Kaza bilgileri getirilemedi. Hata: $e"));
@@ -73,7 +73,8 @@ class AccidentBloc extends Bloc<AccidentEvent, AccidentState> {
             page = accidentResponseFiltered .nextPage!;
           }
           else{
-            emit(AccidentDataFiltered(accidentResponse: _accidentFiltered,filter: event.filter, isReachedMaxFiltered: accidentResponseFiltered.nextPage==null));
+            emit(AccidentDataLoaded(accidentResponse: _accidentFiltered, isReachedMax: accidentResponseFiltered.nextPage==null));
+            //emit(AccidentDataFiltered(accidentResponse: _accidentFiltered,filter: event.filter, isReachedMaxFiltered: accidentResponseFiltered.nextPage==null));
           }
 
           for(int i =0; i<accidentResponseFiltered.data.length;i++){

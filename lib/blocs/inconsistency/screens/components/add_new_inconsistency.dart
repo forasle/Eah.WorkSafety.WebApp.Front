@@ -1,402 +1,334 @@
+import 'package:aeah_work_safety/blocs/inconsistency/add_new_inconsistency_bloc.dart';
+import 'package:aeah_work_safety/blocs/inconsistency/inconsistency_bloc.dart';
 import 'package:aeah_work_safety/widgets/components/dropdown_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/inconsistency/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_form_bloc/flutter_form_bloc.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 
 class AddNewInconsistency extends StatelessWidget {
   const AddNewInconsistency({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    //ScrollController horizontalController = ScrollController();
+    final _formKey = GlobalKey<FormBuilderState>();
+    TextEditingController myController = TextEditingController();
     return CustomScaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Row(
-            children: [
-              RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
-              const Icon(Icons.arrow_right),
-              RoutingBarWidget(pageName: 'Uygunsuzluklar', routeName: inconsistenciesPageRoute),
-              const Icon(Icons.arrow_right),
-              RoutingBarWidget(pageName: 'Yeni Uygunsuzluk Ekle', routeName: addNewInconsistencies),
-            ],
-          ),
-          Constant.dividerWithIndent,
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              title(context, 'Genel Bilgiler'),
-              Constant.dividerWithIndent,
-              const SizedBox(height: 50),
-              IntrinsicHeight(
+      body: FormBuilder(
+        key: _formKey,
+        onChanged: () {
+          _formKey.currentState!.save();
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Scrollbar(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    Flexible(
-                      flex: 1,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            subtitle(subtitle: 'Uygunsuzluk Kısa Tanımı:', height: 50, width: 150),
-                            subtitle(subtitle: 'Tür:', height: 50, width: 150),
-                            subtitle(subtitle: 'Tarih:', height: 50, width: 150),
-                            subtitle(subtitle: 'Saat:', height: 50, width: 150),
-                            subtitle(subtitle: 'Açıklama:', height: 150, width: 150),
-                            subtitle(subtitle: 'İlişkili Departman:', height: 50, width: 150)
-                          ],
-                        ),
-                      ),
-                    ),
-                    Constant.verticalDivider,
-                    Expanded(
-                      flex: 4,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                child: Center(
-                                  child: TextField(
-                                    maxLines: 5,
-                                    decoration: InputDecoration(
-                                        hintText: 'Uygunsuzluk kısa tanımını yapınız',
-                                        labelText: 'Uygunsuzluk Tanımı Yapınız',
-                                        labelStyle: const TextStyle(color: Colors.white),
-                                        //filled: true,
-
-                                        border: Constant.textFormFieldBorder),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                child: Center(
-                                  //child: DropdownMenu(menuItems: Constant.menuItemsForInconsistenciesType),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                child: Center(
-                                  child: TextFormField(
-                                    onTap: () async {
-                                      showDatePicker(
-                                          locale: const Locale('tr'),
-                                          context: context,
-                                          initialDate: DateTime.now(),
-                                          firstDate: DateTime(2021),
-                                          lastDate: DateTime(2023));
-                                    },
-                                    maxLines: 5,
-                                    decoration: InputDecoration(
-                                        hintText: 'Lütfen Tarih Giriniz',
-                                        labelText: 'Tarih Giriniz',
-                                        labelStyle: const TextStyle(color: Colors.white),
-                                        //filled: true,
-
-                                        border: Constant.textFormFieldBorder),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                child: Center(
-                                  child: TextFormField(
-                                    onTap: () async {
-                                      showTimePicker(
-                                          hourLabelText: 'Saat',
-                                          minuteLabelText: 'Dakika',
-                                          cancelText: 'İPTAL',
-                                          confirmText: 'Tamam',
-                                          helpText: 'Saat Seçin',
-                                          context: context,
-                                          initialTime: TimeOfDay.now());
-                                    },
-                                    maxLines: 5,
-                                    decoration: InputDecoration(
-                                        hintText: 'Lütfen Saat Giriniz',
-                                        labelText: 'Saat Giriniz',
-                                        labelStyle: const TextStyle(color: Colors.white),
-                                        //filled: true,
-
-                                        border: Constant.textFormFieldBorder),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 150,
-                                child: Center(
-                                  child: TextField(
-                                    maxLines: 5,
-                                    decoration: InputDecoration(
-                                        hintText: 'Lütfen açıklama yapınız',
-                                        labelText: 'Açıklama',
-                                        labelStyle: const TextStyle(color: Colors.white),
-                                        //filled: true,
-
-                                        border: Constant.textFormFieldBorder),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                  height: 50,
-                                  child: Center(
-                                    //child: DropdownMenu(menuItems: Constant.menuItemsForDepartmentType),
-                                  )),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
+                    const Icon(Icons.arrow_right),
+                    RoutingBarWidget(pageName: 'Uygunsuzluklar', routeName: inconsistenciesDetailPage),
+                    const Icon(Icons.arrow_right),
+                    RoutingBarWidget(pageName: 'Yeni Uygunsuzluk Ekle', routeName: addNewInconsistencies),
                   ],
                 ),
               ),
-              Constant.sizedBox50H,
-              title(context, 'Kaza Araştırma'),
-              Constant.dividerWithIndent,
-              Constant.sizedBox50H,
-              IntrinsicHeight(
-                child: Row(
-                  children: [
-                    Flexible(
-                      flex: 1,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            subtitle(height: 50, width: 150, subtitle: 'Kök Neden Analizi Gerekiyor Mu?   '),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Constant.verticalDivider,
-                    Expanded(
-                      flex: 4,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(height: 50, child: Switch(value: true, onChanged: (value) {})),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Constant.sizedBox50H,
-              title(context, 'Yeni Döküman Ekle'),
-              Constant.dividerWithIndent,
-              Constant.sizedBox50H,
-              IntrinsicHeight(
-                child: Row(
-                  children: [
-                    Flexible(
-                      flex: 1,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: const [
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                width: 150,
-                                child: Text(
-                                  'Ad   ',
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                width: 150,
-                                child: Text(
-                                  'Düzenleme Tarihi   ',
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Constant.verticalDivider,
-                    Expanded(
-                      flex: 4,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                child: Center(
-                                  child: TextField(
-                                    maxLines: 3,
-                                    decoration: InputDecoration(
-                                        hintText: 'Döküman adını giriniz',
-                                        labelText: 'Döküman Adı',
-                                        labelStyle: const TextStyle(color: Colors.white),
-                                        //filled: true,
-                                        border: Constant.textFormFieldBorder),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                child: Center(
-                                  child: TextFormField(
-                                    onTap: () async {
-                                      showDatePicker(
-                                          locale: const Locale('tr'),
-                                          context: context,
-                                          initialDate: DateTime.now(),
-                                          firstDate: DateTime(2021),
-                                          lastDate: DateTime(2023));
-                                    },
-                                    maxLines: 5,
-                                    decoration: InputDecoration(
-                                        hintText: 'Lütfen Düzenleme Tarihi Giriniz',
-                                        labelText: 'Tarih Giriniz',
-                                        labelStyle: const TextStyle(color: Colors.white),
-                                        //filled: true,
-
-                                        border: Constant.textFormFieldBorder),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Constant.sizedBox50H,
-              title(context, 'Önceliklendirme'),
-              Constant.dividerWithIndent,
-              Constant.sizedBox50H,
-              IntrinsicHeight(
-                child: Row(
-                  children: [
-                    Flexible(
-                      flex: 1,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: const [
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                width: 150,
-                                child: Text(
-                                  'Risk Değerlendirme Metodu Seçiniz:',
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Constant.verticalDivider,
-                    Expanded(
-                      flex: 4,
-                      child: Padding(
-                        padding: Constant.padding,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Padding(
-                              padding: Constant.padding,
-                              child: SizedBox(
-                                height: 50,
-                                child: Center(
-                                  //child: DropdownMenu(menuItems: Constant.menuItemsForRiskMethodType),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Padding title(BuildContext context, String title) {
-    return Padding(
-      padding: Constant.padding,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Flexible(
-            child: Text(
-              title,
-              style: Theme.of(context).textTheme.headline4,
             ),
-          ),
-        ],
-      ),
-    );
-  }
+            Constant.dividerWithIndent,
+            title(context, 'Genel Bilgiler'),
+            Constant.dividerWithIndent,
+            Constant.sizedBox50,
+            IntrinsicHeight(
+              child: Row(
+                children: [
+                  Flexible(
+                    flex: 1,
+                    child: Padding(
+                      padding: Constant.padding,
+                      child: Column(
+                        children: [
+                          subtitle(subtitle: 'Uygunsuzluk Tarihi:', height: 80, width: 150),
+                          subtitle(subtitle: 'Risk Skoru:', height: 80, width: 150),
+                          subtitle(subtitle: 'Uygunsuzluk Tanımı:', height: 150, width: 150),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Constant.verticalDivider,
+                  Expanded(
+                    flex: 3,
+                    child: Padding(
+                      padding: Constant.padding,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 80,
+                              child: Center(
+                                child: FormBuilderDateTimePicker(
+                                  validator: (value) {
+                                    if (value == null) {
+                                      return "Lütfen Tarih Giriniz";
+                                    }
+                                    return null;
+                                  },
+                                  name: 'date',
+                                  format: DateFormat('dd-MM-yyyy    HH:mm'),
+                                  initialEntryMode: DatePickerEntryMode.calendar,
+                                  //initialValue: DateTime.now(),
+                                  inputType: InputType.both,
+                                  decoration: InputDecoration(
+                                    hintText: 'Lütfen Uygunsuzluk Tarihi Giriniz',
+                                    labelText: 'Uygunsuzluk Tarihi',
+                                    //filled: true,
+                                    border: Constant.textFieldBorder,
+                                  ),
+                                  initialTime: const TimeOfDay(hour: 8, minute: 0),
+                                  // locale: const Locale.fromSubtags(languageCode: 'fr'),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 80,
+                              child: FormBuilderTextField(
+                                validator: (value) {
+                                  if (value == null) {
+                                    return "Lütfen Risk Skoru Giriniz";
+                                  }
+                                  return null;
+                                },
+                                name: "riskScore",
+                                //controller: lostDayController,
+                                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                                decoration: InputDecoration(
+                                  hintText: 'Lütfen Risk Skoru Giriniz',
+                                  labelText: 'Risk Skoru',
+                                  //filled: true,
+                                  border: Constant.textFieldBorder,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 150,
+                              child: Center(
+                                child: FormBuilderTextField(
+                                  validator: (value) {
+                                    if (value == null) {
+                                      return "Lütfen Uygunsuzluk Tanımı Giriniz";
+                                    }
+                                    return null;
+                                  },
+                                  name: "information",
+                                  //controller: eventDescriptionController,
+                                  maxLines: 5,
+                                  decoration: InputDecoration(
+                                    hintText: 'Lütfen Uygunsuzluk Tanımını Yapınız',
+                                    labelText: 'Uygunsuzluk Tanımı',
+                                    //filled: true,
+                                    border: Constant.textFieldBorder,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Constant.sizedBox50,
+            title(context, 'Olay Yeri'),
+            Constant.dividerWithIndent,
+            Constant.sizedBox50,
+            IntrinsicHeight(
+              child: Row(
+                children: [
+                  Flexible(
+                    flex: 1,
+                    child: Padding(
+                      padding: Constant.padding,
+                      child: Column(
+                        children: [
+                          subtitle(subtitle: 'Departman:', height: 90, width: 150),
+                          subtitle(subtitle: 'Olay Yeri:', height: 80, width: 150),
+                          subtitle(subtitle: 'Kök Neden Analizi Gereksinimi:', height: 80, width: 150),
+                          subtitle(subtitle: 'Uygunsuzluk Durumu:', height: 80, width: 150),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Constant.verticalDivider,
+                  Expanded(
+                    flex: 3,
+                    child: Padding(
+                      padding: Constant.padding,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 90,
+                              child: FormBuilderDropdown<String>(
+                                name: 'department',
+                                validator: FormBuilderValidators.compose(
+                                    [FormBuilderValidators.required(errorText: "Lütfen Departman Seçiniz")]),
+                                items: Constant.menuItemsForDepartmentType,
+                                decoration: InputDecoration(
+                                  hintText: 'Departman Seçiniz',
+                                  labelText: 'Departman',
+                                  //filled: true,
+                                  border: Constant.textFieldBorder,
+                                ),
+                                onChanged: (val) {},
+                                //valueTransformer: (val) => val?.toString(),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 80,
+                              child: FormBuilderTextField(
+                                validator: (value) {
+                                  if (value == null) {
+                                    return "Lütfen Uygunsuzluk Yerini Giriniz";
+                                  }
+                                  return null;
+                                },
+                                name: "referenceNumber",
+                                decoration: InputDecoration(
+                                  hintText: 'Lütfen Uygunsuzluk Yerini Giriniz',
+                                  labelText: 'Uygunsuzluk Yeri',
+                                  //filled: true,
+                                  border: Constant.textFieldBorder,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 80,
+                              child: FormBuilderCheckboxGroup<String>(
+                                decoration: InputDecoration(
+                                  hintText: 'Kök Neden Analizi Seçiniz',
+                                  labelText: 'Kök Neden Analizi',
+                                  //filled: true,
+                                  border: Constant.textFieldBorder,
+                                ),
+                                name: 'rootCauseAnalysisRequirement',
+                                // initialValue: const ['Dart'],
+                                options: const [FormBuilderFieldOption(value: 'Kök Neden Analizi Gereksinimi')],
+                                orientation: OptionsOrientation.vertical,
+                                separator: const VerticalDivider(
+                                  width: 10,
+                                  thickness: 5,
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 80,
+                              child: FormBuilderCheckboxGroup<String>(
+                                decoration: InputDecoration(
+                                  hintText: 'Uygunsuzluk Durumu Seçiniz',
+                                  labelText: 'Uygunsuzluk Durumu',
+                                  //filled: true,
+                                  border: Constant.textFieldBorder,
+                                ),
+                                name: 'status',
+                                // initialValue: const ['Dart'],
+                                options: const [FormBuilderFieldOption(value: 'Uygunsuzluk Durumu')],
+                                orientation: OptionsOrientation.vertical,
+                                separator: const VerticalDivider(
+                                  width: 10,
+                                  thickness: 5,
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Constant.sizedBox50,
+            Row(
+              children:[
+                Expanded(
+                  child: BlocListener<AddNewInconsistencyBloc, AddNewInconsistencyState>(
+                    listener: (context, state) {
+                      if (state is NewInconsistencyCreated) {
+                        context.read<InconsistencyBloc>().add(const GetInconsistencyData(needsRefresh: true));
+                        //Navigator.of(context).pushReplacementNamed(inconsistencyPageRoute);
+                        LoadingDialog.hide(context);
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Uygunsuzluk eklendi")));
+                      }
+                      if (state is NewInconsistencyCreationError) {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                            content: Text("Uygunsuzluk eklenemedi. Lütfen bilgileri kontrol ediniz.")));
+                      }
+                    },
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState?.saveAndValidate() ?? false) {
+                          Map<String, dynamic>? value = _formKey.currentState?.value;
+                          context
+                              .read<AddNewInconsistencyBloc>()
+                              .add(CreateNewInconsistency(inconsistency: value!, identificationNumber: myController.text));
+                          //LoadingDialog.hide(context);
 
-  Padding subtitle({required String subtitle, required double height, required double width}) {
-    return Padding(
-      padding: Constant.padding,
-      child: SizedBox(
-        height: height,
-        width: width,
-        child: Text(
-          subtitle,
+                          //ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Kaza Eklendi")));
+                        } else {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(content: Text("Tüm bilgileri eksiksiz doldurun")));
+                        }
+                      },
+                      child: const Text(
+                        'Kaydet',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 20),
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: () {
+                      _formKey.currentState?.reset();
+                    },
+                    // color: Theme.of(context).colorScheme.secondary,
+                    child: Text(
+                      'İptal',
+                      style: TextStyle(color: Theme.of(context).colorScheme.secondary),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Constant.sizedBox50
+          ],
         ),
       ),
     );

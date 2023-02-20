@@ -17,7 +17,7 @@ class AddNewEmployee extends StatelessWidget {
           children: [
             RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
             const Icon(Icons.arrow_right),
-            RoutingBarWidget(pageName: 'Yeni Çalışan Ekle', routeName: workersMainPageRoute),
+            RoutingBarWidget(pageName: 'Yeni Çalışan Ekle', routeName: employeeMainPageRoute),
             const Icon(Icons.arrow_right),
           ],
         ),

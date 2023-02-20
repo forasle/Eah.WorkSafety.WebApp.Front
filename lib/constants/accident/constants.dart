@@ -42,7 +42,7 @@ class Constant {
 
   static const TextStyle buttonTextStyle = TextStyle(color: Colors.black, fontSize: 25);
 
-  static const TextStyle allertDialogTextStyle = TextStyle(color: Colors.black, fontSize: 15);
+  static const TextStyle alertDialogTextStyle = TextStyle(color: Colors.black, fontSize: 15);
 
   static final List<String> theSubjectOfTheAccident = [
     'Fiziksel şiddete maruz kalma',

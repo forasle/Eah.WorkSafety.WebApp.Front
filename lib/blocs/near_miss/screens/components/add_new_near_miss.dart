@@ -20,7 +20,7 @@ class AddNewNearMiss extends StatelessWidget {
     TextEditingController myController = TextEditingController();
     myController.addListener(() {
       if (myController.text.length > 5) {
-        context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: myController.text));
+        context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: myController.text,needsRefresh: true));
       }
     });
     return CustomScaffold(
@@ -39,9 +39,9 @@ class AddNewNearMiss extends StatelessWidget {
                   children: [
                     RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
                     const Icon(Icons.arrow_right),
-                    RoutingBarWidget(pageName: 'İş Kazası', routeName: nearMissPageRoute),
+                    RoutingBarWidget(pageName: 'Ramak Kala Olaylar', routeName: nearMissPageRoute),
                     const Icon(Icons.arrow_right),
-                    RoutingBarWidget(pageName: 'Yeni İş Kazası Ekle', routeName: addNewNearMiss),
+                    RoutingBarWidget(pageName: 'Yeni Ramak Kala Ekle', routeName: addNewNearMiss),
                   ],
                 ),
               ),
@@ -87,8 +87,8 @@ class AddNewNearMiss extends StatelessWidget {
                                     future: () async {
                                       List _list = <dynamic>[];
                                       if (state is EmployeeDataFiltered) {
-                                        if (state.employeeResponse.data.isNotEmpty) {
-                                          for (var employee in state.employeeResponse.data) {
+                                        if (state.employeeResponse.isNotEmpty) {
+                                          for (var employee in state.employeeResponse) {
                                             _list.add(employee.identificationNumber);
                                             //print(state.employeeResponse.data)
                                           }
@@ -239,8 +239,8 @@ class AddNewNearMiss extends StatelessWidget {
                         children: [
                           subtitle(subtitle: 'Departman:', height: 90, width: 150),
                           subtitle(subtitle: 'Olay Yeri:', height: 80, width: 150),
-                          subtitle(subtitle: 'Olayın Konusu:', height: 110, width: 150),
-                          subtitle(subtitle: 'Alınması Gereken Önlem:', height: 110, width: 150),
+                          subtitle(subtitle: 'Olayın Konusu:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
+                          subtitle(subtitle: 'Alınması Gereken Önlem:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
                         ],
                       ),
                     ),
@@ -296,7 +296,7 @@ class AddNewNearMiss extends StatelessWidget {
                           Padding(
                             padding: Constant.padding,
                             child: SizedBox(
-                              height: 110,
+                              height: Constant.heightOfAccidentAndNearMissCheckBox,
                               child: FormBuilderCheckboxGroup<String>(
                                 decoration: InputDecoration(
                                   hintText: 'Olayın Konusunu Seçiniz',
@@ -307,7 +307,7 @@ class AddNewNearMiss extends StatelessWidget {
                                 name: 'theSubjectOfTheNearMissStringList',
                                 // initialValue: const ['Dart'],
                                 options: Constant.theSubjectOfTheNearMiss2,
-                                orientation: OptionsOrientation.horizontal,
+                                orientation: OptionsOrientation.vertical,
                                 separator: const VerticalDivider(
                                   width: 10,
                                   thickness: 5,
@@ -322,7 +322,7 @@ class AddNewNearMiss extends StatelessWidget {
                           Padding(
                             padding: Constant.padding,
                             child: SizedBox(
-                              height: 110,
+                              height: Constant.heightOfAccidentAndNearMissCheckBox,
                               child: FormBuilderCheckboxGroup<String>(
                                 decoration: InputDecoration(
                                   hintText: 'Alınması Gereken Önlem',
@@ -333,7 +333,7 @@ class AddNewNearMiss extends StatelessWidget {
                                 name: 'precautionsToBeTakenStringList',
                                 // initialValue: const ['Dart'],
                                 options: Constant.precautionsToBeTaken2,
-                                orientation: OptionsOrientation.horizontal,
+                                orientation: OptionsOrientation.vertical,
                                 separator: const VerticalDivider(
                                   width: 10,
                                   thickness: 5,
@@ -413,99 +413,3 @@ class AddNewNearMiss extends StatelessWidget {
     );
   }
 }
-
-class LoadingDialog extends StatelessWidget {
-  static void show(BuildContext context, {Key? key}) => showDialog<void>(
-        context: context,
-        useRootNavigator: false,
-        barrierDismissible: false,
-        builder: (_) => LoadingDialog(key: key),
-      ).then((_) => FocusScope.of(context).requestFocus(FocusNode()));
-
-  static void hide(BuildContext context) => Navigator.pop(context);
-
-  const LoadingDialog({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => false,
-      child: Center(
-        child: Card(
-          child: Container(
-            width: 80,
-            height: 80,
-            padding: const EdgeInsets.all(12.0),
-            child: const CircularProgressIndicator(),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-Padding title(BuildContext context, String title) {
-  return Padding(
-    padding: Constant.padding,
-    child: Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Flexible(
-          child: Text(
-            title,
-            style: Theme.of(context).textTheme.headlineMedium,
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
-Padding subtitle({required String subtitle, required double height, required double width}) {
-  return Padding(
-    padding: Constant.padding,
-    child: SizedBox(
-      height: height,
-      width: width,
-      child: Align(
-        alignment: Alignment.center,
-        child: Text(
-          subtitle,
-          textAlign: TextAlign.center,
-          softWrap: true,
-          overflow: TextOverflow.fade,
-        ),
-      ),
-    ),
-  );
-}
-
-/*
-FormBuilderTextField(
-                                name: "identificationNumber",
-                                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
-                                onChanged: (value) {
-                                  if(value!=null){
-                                    if(value.length==10){
-                                      context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: value!));
-                                    }
-                                  }
-                                },
-                                validator: (value) {
-                                  if (value == null) {
-                                    return "Lütfen TC Kimlik Numarasını Kontrol Ediniz.";
-                                  }
-                                  if (value.length != 11) {
-                                    return "Lütfen TC Kimlik Numarasını Kontrol Ediniz.";
-                                  }
-                                  return null;
-                                },
-                                decoration: InputDecoration(
-                                  hintText: 'Lütfen Kimlik Numarası Giriniz',
-                                  labelText: 'Kimlik Numarası',
-                                  //filled: true,
-                                  border: Constant.textFieldBorder,
-                                ),
-                              ),
- */
-
