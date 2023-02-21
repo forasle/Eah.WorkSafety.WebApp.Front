@@ -93,6 +93,7 @@ class Panorama extends StatelessWidget {
                                 Navigator.of(context).pushNamed(preventiveActivitiesPageRoute);
                               }
                             ],
+                            /*
                             [
                               Icons.fact_check_outlined,
                               state is UserData ? state.userResponse.userAddedMissions.length : '-',
@@ -102,7 +103,7 @@ class Panorama extends StatelessWidget {
                                 Navigator.of(context).pushNamed(missionsPageRoute);
                               }
                             ],
-                            /*[
+                            [
                               Icons.cast_for_education_rounded,
                               '-',
                               'Eğitim',
@@ -122,8 +123,7 @@ class Panorama extends StatelessWidget {
                             ],
                             [
                               Icons.personal_injury_outlined,
-                              state is UserData ? state.statisticResponse
-                                  .numberOfOccupationDisease: '-',
+                              state is UserData ? state.statisticResponse.numberOfOccupationDisease : '-',
                               'Meslek Hastalığı',
                               Colors.redAccent.shade700,
                               () {

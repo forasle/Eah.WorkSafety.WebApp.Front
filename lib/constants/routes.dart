@@ -27,6 +27,7 @@ String updateNearMissPage = '/Panorama/accident/updateNearMissPage';
 String inconsistenciesDetailPage = '/Panorama/inconsistencies/inconsistenciesDetailPage';
 String addNewPreventiveActivity = '/Panorama/preventiveActivities/addNewPreventiveActivity';
 String preventiveActivityDetailPage = '/Panorama/preventiveActivities/preventiveActivityDetailPage';
+String updatePreventiveActivityPage = '/Panorama/inconsistencies/updatePreventiveActivity';
 String addNewEducation = '/Panorama/education/addNewEducation';
 String contingencyPlanPage = '/Panorama/contingencyPlanPage';
 String addNewContingencyPlan = '/Panorama/contingencyPlans/addNewContingencyPlan';

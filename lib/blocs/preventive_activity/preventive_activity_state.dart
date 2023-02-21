@@ -1,7 +1,6 @@
 part of 'preventive_activity_bloc.dart';
 
 
-
 abstract class PreventiveActivityState extends Equatable {
   const PreventiveActivityState();
 }
@@ -23,7 +22,7 @@ class PreventiveActivityDataLoading extends PreventiveActivityState{
 }
 
 class PreventiveActivityDataLoaded extends PreventiveActivityState{
-  final PreventiveActivityResponse preventiveActivityResponse;
+  final List<PreventiveActivity> preventiveActivityResponse;
   final bool isReachedMax;
 
   const PreventiveActivityDataLoaded({required this.preventiveActivityResponse,required this.isReachedMax});
@@ -33,7 +32,7 @@ class PreventiveActivityDataLoaded extends PreventiveActivityState{
 }
 class PreventiveActivityDataFiltered extends PreventiveActivityState{
   final String filter;
-  final PreventiveActivityResponse preventiveActivityResponse;
+  final List<PreventiveActivity> preventiveActivityResponse;
   final bool isReachedMaxFiltered;
 
   const PreventiveActivityDataFiltered({required this.preventiveActivityResponse,required this.isReachedMaxFiltered,required this.filter});
@@ -51,21 +50,5 @@ class PreventiveActivityDataError extends PreventiveActivityState{
   List<Object?> get props => [message];
 
 }
-class NewPreventiveActivityCreated extends PreventiveActivityState{
-  final String message;
 
-  const NewPreventiveActivityCreated({required this.message});
 
-  @override
-  List<Object?> get props => [message];
-
-}
-class NewPreventiveActivityCreationError extends PreventiveActivityState{
-  final String message;
-
-  const NewPreventiveActivityCreationError({required this.message});
-
-  @override
-  List<Object?> get props => [message];
-
-}

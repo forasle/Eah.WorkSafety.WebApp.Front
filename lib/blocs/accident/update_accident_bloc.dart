@@ -1,6 +1,4 @@
-import 'dart:async';
 
-import 'package:aeah_work_safety/blocs/accident/models/create_accident_model.dart';
 import 'package:aeah_work_safety/blocs/accident/models/update_accident_model.dart';
 import 'package:aeah_work_safety/blocs/accident/repository/accident_repository.dart';
 import 'package:aeah_work_safety/blocs/employee/models/employee_response.dart';
@@ -18,7 +16,7 @@ part 'update_accident_state.dart';
 class UpdateAccidentBloc extends Bloc<UpdateAccidentEvent, UpdateAccidentState> {
   final AccidentRepository _accidentRepository = locator<AccidentRepository>();
   final EmployeeRepository _employeeRepository = locator<EmployeeRepository>();
-  UpdateAccidentBloc() : super(UpdateAccidentInitial()) {
+  UpdateAccidentBloc() : super(const UpdateAccidentInitial()) {
     on<UpdateAccident>((event, emit) async {
       const storage = FlutterSecureStorage();
       final String? token = await storage.read(key: "token");
@@ -32,7 +30,8 @@ class UpdateAccidentBloc extends Bloc<UpdateAccidentEvent, UpdateAccidentState> 
         stringListToBoolList(event.accident["theSubjectOfTheAccidentStringList"], Constant.theSubjectOfTheAccident);
         List<bool> precautionsToBeTakenBoolList =
         stringListToBoolList(event.accident["precautionsToBeTakenStringList"], Constant.precautionsToBeTaken);
-
+        List<bool> rootCauseAnalysisRequirementList =
+        stringListToBoolList(event.accident["rootCauseAnalysisRequirement"], Constant.rootCauseAnalysisRequirement);
         final UpdateAccidentModel _accident;
         _accident = UpdateAccidentModel(
           date: event.accident["accidentDate"],
@@ -51,7 +50,7 @@ class UpdateAccidentBloc extends Bloc<UpdateAccidentEvent, UpdateAccidentState> 
           medicalIntervention: false,
           needFirstAid: false,
           propertyDamage: false,
-          rootCauseAnalysis: false,
+          rootCauseAnalysis: rootCauseAnalysisRequirementList[0],
           witnessStatement: "Test",
           accidentNumber: 0,
           updateAffectedEmployeeWithProperty: [

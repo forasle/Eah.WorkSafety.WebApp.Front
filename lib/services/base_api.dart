@@ -1,6 +1,6 @@
 class BaseAPI {
-  //static String base = "http://10.7.23.15";
-  static String base = "http://192.168.1.30";
+  static String base = "http://10.7.23.15";
+  //static String base = "http://192.168.1.30";
   static var api = base + "/api";
   var usersPath = api + "/user";
   static var employeePath = api + "/employee";
@@ -11,8 +11,8 @@ class BaseAPI {
   static var accidentSearchPath = api + "/accident/search/name?key=";
   static var nearMissPath = api + "/nearMiss";
   static var nearMissSearchPath = api + "/nearMiss/search/name?key=";
-  var preventiveActivityPath = api + "/preventiveActivity";
-  var preventiveActivitySearchPath = api + "/nearMiss/search/name?key=";
+  static var preventiveActivityPath = api + "/preventiveActivity";
+  static var preventiveActivitySearchPath = api + "/nearMiss/search/name?key=";
   static var inconsistencyPath = api + "/inconsistency";
   static var inconsistencySearchPath = api + "/inconsistency/search/name?key=";
   var missionPath = api + "/mission";

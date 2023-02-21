@@ -188,6 +188,7 @@ class AccidentDetailPage extends StatelessWidget {
                           subtitle(subtitle: 'Olay Yeri:', height: 80, width: 150),
                           subtitle(subtitle: 'Olayın Konusu:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
                           subtitle(subtitle: 'Alınması Gereken Önlem:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
+                          subtitle(subtitle: 'Kök Neden Analizi Gereksinimi:', height: 80, width: 150),
                         ],
                       ),
                     ),
@@ -277,6 +278,30 @@ class AccidentDetailPage extends StatelessWidget {
                                 name: 'precautionsToBeTakenStringList',
                                 // initialValue: const ['Dart'],
                                 options: Constant.precautionsToBeTaken2,
+                                orientation: OptionsOrientation.vertical,
+                                separator: const VerticalDivider(
+                                  width: 10,
+                                  thickness: 5,
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 80,
+                              child: FormBuilderCheckboxGroup<String>(
+                                decoration: InputDecoration(
+                                  hintText: 'Kök Neden Analizi Seçiniz',
+                                  labelText: 'Kök Neden Analizi',
+                                  //filled: true,
+                                  border: Constant.textFieldBorder,
+                                ),
+                                disabled: const ['Kök Neden Analizi Gereksinimi'],
+                                name: 'rootCauseAnalysisRequirement',
+                                initialValue: _accidentResponse.rootCauseAnalysis==true ? ['Kök Neden Analizi Gereksinimi']:[""],
+                                options: const [FormBuilderFieldOption(value: 'Kök Neden Analizi Gereksinimi')],
                                 orientation: OptionsOrientation.vertical,
                                 separator: const VerticalDivider(
                                   width: 10,

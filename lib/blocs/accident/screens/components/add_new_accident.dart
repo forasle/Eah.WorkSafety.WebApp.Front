@@ -242,6 +242,7 @@ class AddNewAccident extends StatelessWidget {
                           subtitle(subtitle: 'Olay Yeri:', height: 80, width: 150),
                           subtitle(subtitle: 'Olayın Konusu:', height: 500, width: 150),
                           subtitle(subtitle: 'Alınması Gereken Önlem:', height: 500, width: 150),
+                          subtitle(subtitle: 'Kök Neden Analizi Gereksinimi:', height: 80, width: 150),
                         ],
                       ),
                     ),
@@ -343,6 +344,29 @@ class AddNewAccident extends StatelessWidget {
                                 validator: FormBuilderValidators.compose([
                                   FormBuilderValidators.minLength(1, errorText: "Lütfen En Az Bir Adet Seçiniz"),
                                 ]),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 80,
+                              child: FormBuilderCheckboxGroup<String>(
+                                decoration: InputDecoration(
+                                  hintText: 'Kök Neden Analizi Seçiniz',
+                                  labelText: 'Kök Neden Analizi',
+                                  //filled: true,
+                                  border: Constant.textFieldBorder,
+                                ),
+                                name: 'rootCauseAnalysisRequirement',
+                                // initialValue: const ['Dart'],
+                                options: const [FormBuilderFieldOption(value: 'Kök Neden Analizi Gereksinimi')],
+                                orientation: OptionsOrientation.vertical,
+                                separator: const VerticalDivider(
+                                  width: 10,
+                                  thickness: 5,
+                                  color: Colors.red,
+                                ),
                               ),
                             ),
                           ),

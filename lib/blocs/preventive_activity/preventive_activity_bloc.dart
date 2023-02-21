@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:aeah_work_safety/blocs/preventive_activity/models/preventive_activity.dart';
-import 'package:aeah_work_safety/blocs/preventive_activity/models/preventive_activity_response.dart';
 import 'package:aeah_work_safety/blocs/preventive_activity/repository/preventive_activity_repository.dart';
+import 'package:aeah_work_safety/services/base_api.dart';
 import 'package:aeah_work_safety/services/locator.dart';
 import 'package:bloc/bloc.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
@@ -14,26 +14,48 @@ part 'preventive_activity_state.dart';
 
 class PreventiveActivityBloc extends Bloc<PreventiveActivityEvent, PreventiveActivityState> {
   final PreventiveActivityRepository _preventiveActivityRepository = locator<PreventiveActivityRepository>();
-  final List<PreventiveActivity> _preventiveActivity= [];
+  List<PreventiveActivity> _preventiveActivity= [];
   List<PreventiveActivity> _preventiveActivityFiltered= [];
-  int _page = 1;
-  int _pageFiltered = 1;
-  String _filter ="";
-  final int _pageSize = 10;
+  //int _page = 1;
+  //int _pageFiltered = 1;
+  //String _filter ="";
+  static const String _pageSize = "10";
+  var page = BaseAPI.preventiveActivityPath+"?pageNumber="+1.toString()+"&pageSize="+_pageSize;
+  var pageFiltered = BaseAPI.preventiveActivitySearchPath+"?pageNumber="+1.toString()+"&pageSize="+_pageSize;
 
-  PreventiveActivityBloc() : super(const PreventiveActivityInitial(message: 'Bilgiler getiriliyor')) {
-
+  PreventiveActivityBloc() : super(const PreventiveActivityInitial(message: 'Kaza bilgileri getiriliyor')) {
     on<GetPreventiveActivityData>((event, emit) async {
       try{
+        if(event.needsRefresh==true){
+          _preventiveActivity = [];
+          page = BaseAPI.preventiveActivityPath+"?pageNumber="+1.toString()+"&pageSize="+_pageSize;
+        }
+        //while(_preventiveActivity.length>10){
+        //  _preventiveActivity.removeAt(0);
+        //}
         await Future.delayed(const Duration(milliseconds: 500));
-        final preventiveActivityResponse = await _preventiveActivityRepository.getPreventiveActivityData(page : _page,pageSize: _pageSize);
-        _page = preventiveActivityResponse.pageNumber+1;
-        _preventiveActivity.addAll(preventiveActivityResponse.data);
-        preventiveActivityResponse.data = _preventiveActivity;
-        emit(PreventiveActivityDataLoaded(preventiveActivityResponse: preventiveActivityResponse, isReachedMax: preventiveActivityResponse.nextPage==null));
+        final preventiveActivityResponse = await _preventiveActivityRepository.getPreventiveActivityData(page : page);
+        if(preventiveActivityResponse.nextPage != null){
+          page = preventiveActivityResponse.nextPage!;
+        }
+        else{
+          emit(PreventiveActivityDataLoaded(preventiveActivityResponse: _preventiveActivity, isReachedMax: preventiveActivityResponse.nextPage==null));
+        }
+        //_preventiveActivity.addAll(preventiveActivityResponse.data);
+
+        for(int i =0; i<preventiveActivityResponse.data.length;i++){
+          if(_preventiveActivity.contains(preventiveActivityResponse.data[i])){
+
+          }
+          else{
+            _preventiveActivity.add(preventiveActivityResponse.data[i]);
+          }
+          emit(PreventiveActivityDataLoaded(preventiveActivityResponse: _preventiveActivity, isReachedMax: preventiveActivityResponse.nextPage==null));
+        }
+        //emit(PreventiveActivityDataLoaded(preventiveActivityResponse: _preventiveActivity, isReachedMax: preventiveActivityResponse.nextPage==null));
       }
       catch(e){
-        emit(PreventiveActivityDataError(message: "Bilgiler getirilemedi. Hata: $e"));
+        emit(PreventiveActivityDataError(message: "Kaza bilgileri getirilemedi. Hata: $e"));
       }
     },
       transformer: droppable(),
@@ -41,30 +63,41 @@ class PreventiveActivityBloc extends Bloc<PreventiveActivityEvent, PreventiveAct
 
     on<GetPreventiveActivityFiltered>((event, emit) async {
       try{
+        if(event.needsRefresh==true){
+          _preventiveActivityFiltered = [];
+          pageFiltered = BaseAPI.preventiveActivitySearchPath+event.filter+"&pageNumber="+1.toString()+"&pageSize="+_pageSize;
+        }
+
         await Future.delayed(const Duration(milliseconds: 500));
-        _filter!=event.filter ? _pageFiltered=1 : _pageFiltered;
-        _filter!=event.filter ? _preventiveActivityFiltered = [] : _preventiveActivityFiltered;
-        final preventiveActivityResponseFiltered = await _preventiveActivityRepository.getPreventiveActivityFiltered(page: _pageFiltered,pageSize: _pageSize,filter: event.filter);
-        _pageFiltered = preventiveActivityResponseFiltered.pageNumber+1;
-        _preventiveActivityFiltered.addAll(preventiveActivityResponseFiltered.data);
-        preventiveActivityResponseFiltered.data = _preventiveActivityFiltered;
-        _filter=event.filter;
-        emit(PreventiveActivityDataFiltered(preventiveActivityResponse: preventiveActivityResponseFiltered, filter: event.filter,isReachedMaxFiltered: preventiveActivityResponseFiltered.nextPage==null));
+        final preventiveActivityResponseFiltered = await _preventiveActivityRepository.getPreventiveActivityFiltered(page : pageFiltered);
+        if(preventiveActivityResponseFiltered .nextPage != null){
+          page = preventiveActivityResponseFiltered .nextPage!;
+        }
+        else{
+          emit(PreventiveActivityDataLoaded(preventiveActivityResponse: _preventiveActivityFiltered, isReachedMax: preventiveActivityResponseFiltered.nextPage==null));
+          //emit(PreventiveActivityDataFiltered(preventiveActivityResponse: _preventiveActivityFiltered,filter: event.filter, isReachedMaxFiltered: preventiveActivityResponseFiltered.nextPage==null));
+        }
+
+        for(int i =0; i<preventiveActivityResponseFiltered.data.length;i++){
+          if(_preventiveActivityFiltered.contains(preventiveActivityResponseFiltered.data[i])){
+
+          }
+          else{
+            _preventiveActivityFiltered.add(preventiveActivityResponseFiltered.data[i]);
+          }
+        }
+        emit(PreventiveActivityDataLoaded(preventiveActivityResponse: _preventiveActivityFiltered, isReachedMax: preventiveActivityResponseFiltered.nextPage==null));
       }
       catch(e){
-        emit(PreventiveActivityDataError(message: "Bilgiler getirilemedi. Hata: $e"));
+        emit(PreventiveActivityDataError(message: "Kaza bilgileri getirilemedi. Hata: $e"));
       }
     },
       transformer: droppable(),
     );
-    on<CreateNewPreventiveActivity>((event, emit) async {
-      try{
-        await Future.delayed(const Duration(milliseconds: 500));
 
-      }
-      catch(e){
-        emit(NewPreventiveActivityCreationError(message: "Bilgiler Eklenemedi. Hata: $e"));
-      }
+    on<PreventiveActivityInitialEvent>((event, emit) async {
+      await Future.delayed(const Duration(milliseconds: 500));
+      emit(const PreventiveActivityInitial(message: "Kaza Bilgileri Getiriliyor"));
     },
       transformer: droppable(),
     );

@@ -101,6 +101,9 @@ class Constant {
     'Disiplinsiz çalışma',
     'Yetersiz makine ekipman muhafazası',
   ];
+  static final List<String> rootCauseAnalysisRequirement = [
+    'Kök Neden Analizi Gereksinimi',
+  ];
 
   static List<String> theSubjectOfTheAccidentToStringList(AffectedEmployeeWithPropertyForAccident boolList){
     List<String> result=[];
@@ -182,7 +185,6 @@ class Constant {
     }
     return result;
   }
-
 }
 class LoadingDialog extends StatelessWidget {
   static void show(BuildContext context, {Key? key}) => showDialog<void>(

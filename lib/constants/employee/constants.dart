@@ -6,6 +6,9 @@ class Constant {
   static const sizedBoxForEmployee = SizedBox(
     height: 20,
   );
+  static const sizedBoxForEmployee35 = SizedBox(
+    height: 35,
+  );
 
   static const padding = EdgeInsets.all(8.0);
 

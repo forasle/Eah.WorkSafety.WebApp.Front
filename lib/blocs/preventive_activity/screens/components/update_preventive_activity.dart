@@ -1,18 +1,19 @@
+import 'package:aeah_work_safety/blocs/preventive_activity/preventive_activity_bloc.dart';
 import 'package:aeah_work_safety/blocs/preventive_activity/models/preventive_activity.dart';
-import 'package:flutter/material.dart';
-import 'package:aeah_work_safety/constants/preventive_activities/constants.dart';
+import 'package:aeah_work_safety/blocs/preventive_activity/update_preventive_activity_bloc.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:aeah_work_safety/constants/preventive_activities/constants.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
-class PreventiveActivityDetailPage extends StatelessWidget {
-  const PreventiveActivityDetailPage({Key? key}) : super(key: key);
+class UpdatePreventiveActivityPage extends StatelessWidget {
+  const UpdatePreventiveActivityPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final _preventiveActivityResponse = ModalRoute.of(context)!.settings.arguments as PreventiveActivity;
-    //context.read<PreventiveActivityBloc>().add(const PreventiveActivityInitialEvent());
     final _formKey = GlobalKey<FormBuilderState>();
     return CustomScaffold(
       body: FormBuilder(
@@ -30,9 +31,9 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                   children: [
                     RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
                     const Icon(Icons.arrow_right),
-                    RoutingBarWidget(pageName: "DÖF'ler", routeName: inconsistenciesPageRoute),
+                    RoutingBarWidget(pageName: "DÖF'ler", routeName: inconsistenciesDetailPage),
                     const Icon(Icons.arrow_right),
-                    RoutingBarWidget(pageName: 'DÖF Detayları', routeName: preventiveActivityDetailPage),
+                    RoutingBarWidget(pageName: 'DÖF Güncelle', routeName: addNewInconsistencies),
                   ],
                 ),
               ),
@@ -72,7 +73,6 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                               height: 80,
                               child: Center(
                                 child: FormBuilderDateTimePicker(
-                                  enabled: false,
                                   initialValue: _preventiveActivityResponse.date,
                                   validator: (value) {
                                     if (value == null) {
@@ -103,7 +103,6 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                               height: 80,
                               child: Center(
                                 child: FormBuilderDateTimePicker(
-                                  enabled: false,
                                   initialValue: _preventiveActivityResponse.deadline,
                                   validator: (value) {
                                     if (value == null) {
@@ -133,7 +132,6 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                             child: SizedBox(
                               height: 80,
                               child: FormBuilderTextField(
-                                enabled: false,
                                 initialValue: _preventiveActivityResponse.referenceNumber.toString(),
                                 validator: (value) {
                                   if (value == null) {
@@ -159,7 +157,6 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                               height: 150,
                               child: Center(
                                 child: FormBuilderTextField(
-                                  enabled: false,
                                   initialValue: _preventiveActivityResponse.information,
                                   validator: (value) {
                                     if (value == null) {
@@ -186,7 +183,6 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                               height: 80,
                               child: Center(
                                 child: FormBuilderTextField(
-                                  enabled: false,
                                   initialValue: _preventiveActivityResponse.method,
                                   validator: (value) {
                                     if (value == null) {
@@ -215,7 +211,7 @@ class PreventiveActivityDetailPage extends StatelessWidget {
               ),
             ),
             Constant.sizedBox50,
-            title(context, 'DÖF Durumu'),
+            title(context, 'Olay Yeri'),
             Constant.dividerWithIndent,
             Constant.sizedBox50,
             IntrinsicHeight(
@@ -245,15 +241,14 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                             child: SizedBox(
                               height: 80,
                               child: FormBuilderCheckboxGroup<String>(
-                                disabled: Constant.rootCauseAnalysisRequirement,
-                                initialValue: _preventiveActivityResponse.rootCauseAnalysis==true ? ['Kök Neden Analizi'] : [""],
+                                initialValue: _preventiveActivityResponse.rootCauseAnalysis==true ? ['Kök Neden Analizi Gereksinimi'] : [""],
                                 decoration: InputDecoration(
                                   hintText: 'Kök Neden Analizi Seçiniz',
                                   labelText: 'Kök Neden Analizi',
                                   //filled: true,
                                   border: Constant.textFieldBorder,
                                 ),
-                                name: 'rootCauseAnalysis',
+                                name: 'rootCauseAnalysisRequirement',
                                 // initialValue: const ['Dart'],
                                 options: const [FormBuilderFieldOption(value: 'Kök Neden Analizi Gereksinimi')],
                                 orientation: OptionsOrientation.vertical,
@@ -270,17 +265,16 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                             child: SizedBox(
                               height: 80,
                               child: FormBuilderCheckboxGroup<String>(
-                                disabled: const ['DÖF Durumu'],
-                                initialValue: _preventiveActivityResponse.status==true ? ['DÖF Durumu'] : [""],
+                                initialValue: _preventiveActivityResponse.status==true ? ['Uygunsuzluk Durumu'] : [""],
                                 decoration: InputDecoration(
-                                  hintText: 'DÖF Durumu Seçiniz',
-                                  labelText: 'DÖF Durumu',
+                                  hintText: 'Uygunsuzluk Durumu Seçiniz',
+                                  labelText: 'Uygunsuzluk Durumu',
                                   //filled: true,
                                   border: Constant.textFieldBorder,
                                 ),
                                 name: 'status',
                                 // initialValue: const ['Dart'],
-                                options: const [FormBuilderFieldOption(value: 'DÖF Durumu')],
+                                options: const [FormBuilderFieldOption(value: 'Uygunsuzluk Durumu')],
                                 orientation: OptionsOrientation.vertical,
                                 separator: const VerticalDivider(
                                   width: 10,
@@ -298,10 +292,63 @@ class PreventiveActivityDetailPage extends StatelessWidget {
               ),
             ),
             Constant.sizedBox50,
+            Row(
+              children:[
+                Expanded(
+                  child: BlocListener<UpdatePreventiveActivityBloc, UpdatePreventiveActivityState>(
+                    listener: (context, state) {
+                      if (state is UpdatePreventiveActivityCompleted) {
+                        context.read<PreventiveActivityBloc>().add(const GetPreventiveActivityData(needsRefresh: true));
+                        //Navigator.of(context).pushReplacementNamed(preventiveActivityPageRoute);
+                        LoadingDialog.hide(context);
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Uygunsuzluk eklendi")));
+                      }
+                      if (state is UpdatePreventiveActivityError) {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                            content: Text("Uygunsuzluk eklenemedi. Lütfen bilgileri kontrol ediniz.")));
+                      }
+                    },
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState?.saveAndValidate() ?? false) {
+                          Map<String, dynamic>? value = _formKey.currentState?.value;
+                          context
+                              .read<UpdatePreventiveActivityBloc>()
+                              .add(UpdatePreventiveActivity(id: _preventiveActivityResponse.id,preventiveActivity: value!));
+                          //LoadingDialog.hide(context);
+
+                          //ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Kaza Eklendi")));
+                        } else {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(content: Text("Tüm bilgileri eksiksiz doldurun")));
+                        }
+                      },
+                      child: const Text(
+                        'Kaydet',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 20),
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: () {
+                      _formKey.currentState?.reset();
+                    },
+                    // color: Theme.of(context).colorScheme.secondary,
+                    child: Text(
+                      'İptal',
+                      style: TextStyle(color: Theme.of(context).colorScheme.secondary),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Constant.sizedBox50
           ],
         ),
       ),
     );
   }
 }
-

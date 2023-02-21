@@ -9,6 +9,7 @@ import 'package:aeah_work_safety/blocs/chronic_disease/screens/components/chroni
 import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
 import 'package:aeah_work_safety/blocs/employee/employee_by_id_bloc.dart';
 import 'package:aeah_work_safety/blocs/inconsistency/add_new_inconsistency_bloc.dart';
+import 'package:aeah_work_safety/blocs/inconsistency/delete_inconsistency_bloc.dart';
 import 'package:aeah_work_safety/blocs/inconsistency/inconsistency_bloc.dart';
 import 'package:aeah_work_safety/blocs/inconsistency/screens/components/update_inconsistency.dart';
 import 'package:aeah_work_safety/blocs/inconsistency/update_inconsistency_bloc.dart';
@@ -24,7 +25,12 @@ import 'package:aeah_work_safety/blocs/near_miss/update_near_miss_bloc.dart';
 import 'package:aeah_work_safety/blocs/occupation_disease/occupation_disease_bloc.dart';
 import 'package:aeah_work_safety/blocs/occupation_disease/screens/components/occupation_disease_detail_page.dart';
 import 'package:aeah_work_safety/blocs/occupation_disease/screens/occupation_disease.dart';
+import 'package:aeah_work_safety/blocs/preventive_activity/add_new_preventive_activity_bloc.dart';
+import 'package:aeah_work_safety/blocs/preventive_activity/delete_preventive_activity_bloc.dart';
 import 'package:aeah_work_safety/blocs/preventive_activity/preventive_activity_bloc.dart';
+import 'package:aeah_work_safety/blocs/preventive_activity/preventive_activity_by_id_bloc.dart';
+import 'package:aeah_work_safety/blocs/preventive_activity/screens/components/update_preventive_activity.dart';
+import 'package:aeah_work_safety/blocs/preventive_activity/update_preventive_activity_bloc.dart';
 import 'package:aeah_work_safety/blocs/statistic/statistic_bloc.dart';
 import 'package:aeah_work_safety/blocs/user/user_bloc.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
@@ -100,7 +106,22 @@ class MyApp extends StatelessWidget {
           create: (context) => PreventiveActivityBloc(),
         ),
         BlocProvider(
+          create: (context) => PreventiveActivityByIdBloc(),
+        ),
+        BlocProvider(
+          create: (context) => AddNewPreventiveActivityBloc(),
+        ),
+        BlocProvider(
+          create: (context) => DeletePreventiveActivityBloc(),
+        ),
+        BlocProvider(
+          create: (context) => UpdatePreventiveActivityBloc(),
+        ),
+        BlocProvider(
           create: (context) => InconsistencyBloc(),
+        ),
+        BlocProvider(
+          create: (context) => DeleteInconsistencyBloc(),
         ),
         BlocProvider(
           create: (context) => InconsistencyByIdBloc(),
@@ -168,6 +189,7 @@ class MyApp extends StatelessWidget {
           nearMissPageRoute: (context) => const NearMissPage(),
           inconsistenciesPageRoute: (context) => const Inconsistency(),
           preventiveActivitiesPageRoute: (context) => const PreventiveActivities(),
+          updatePreventiveActivityPage: (context) => const UpdatePreventiveActivityPage(),
           educationPageRoute: (context) => const EducationPage(),
           chronicDiseasesPageRoute: (context) => const ChronicDisease(),
           chronicDiseaseDetailPageRoute : (context) => const ChronicDiseaseDetailPage(),
@@ -183,7 +205,7 @@ class MyApp extends StatelessWidget {
           accidentDetailPage: (context) => const AccidentDetailPage(),
           inconsistencyDetailPage: (context) => const InconsistencyDetailPage(),
           updateInconsistencyPage: (context) => const UpdateInconsistencyPage(),
-          addNewPreventiveActivity: (context) => const AddNewPreventiveActivity(),
+          addNewPreventiveActivity: (context) => const AddNewPreventiveActivityPage(),
           preventiveActivityDetailPage: (context) => const PreventiveActivityDetailPage(),
           addNewEducation: (context) => const AddNewEducation(),
           contingencyPlanPage: (context) => const ContingencyPlanPage(),

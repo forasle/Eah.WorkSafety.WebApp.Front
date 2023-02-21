@@ -1,11 +1,16 @@
+// To parse this JSON data, do
+//
+//     final updatePreventiveActivityModel = updatePreventiveActivityModelFromJson(jsonString);
+
+import 'package:meta/meta.dart';
 import 'dart:convert';
 
-List<PreventiveActivity> preventiveActivityFromJson(String str) => List<PreventiveActivity>.from(json.decode(str).map((x) => PreventiveActivity.fromJson(x)));
+UpdatePreventiveActivityModel updatePreventiveActivityModelFromJson(String str) => UpdatePreventiveActivityModel.fromJson(json.decode(str));
 
-String preventiveActivityToJson(List<PreventiveActivity> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String updatePreventiveActivityModelToJson(UpdatePreventiveActivityModel data) => json.encode(data.toJson());
 
-class PreventiveActivity {
-  PreventiveActivity({
+class UpdatePreventiveActivityModel {
+  UpdatePreventiveActivityModel({
     required this.id,
     required this.name,
     required this.information,
@@ -31,7 +36,7 @@ class PreventiveActivity {
   DateTime creationTime;
   String method;
 
-  factory PreventiveActivity.fromJson(Map<String, dynamic> json) => PreventiveActivity(
+  factory UpdatePreventiveActivityModel.fromJson(Map<String, dynamic> json) => UpdatePreventiveActivityModel(
     id: json["id"],
     name: json["name"],
     information: json["information"],

@@ -7,26 +7,25 @@ abstract class PreventiveActivityEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GetPreventiveActivityData extends PreventiveActivityEvent{
-
-  const GetPreventiveActivityData();
-
+class PreventiveActivityInitialEvent extends PreventiveActivityEvent{
+  const PreventiveActivityInitialEvent();
   @override
   List<Object> get props => [];
 }
 
-class GetPreventiveActivityFiltered extends PreventiveActivityEvent{
-  final String filter;
-  const GetPreventiveActivityFiltered({required this.filter});
+class GetPreventiveActivityData extends PreventiveActivityEvent{
+  final bool needsRefresh;
+  const GetPreventiveActivityData({required this.needsRefresh});
 
   @override
-  List<Object> get props => [filter];
+  List<Object> get props => [needsRefresh];
 }
 
-class CreateNewPreventiveActivity extends PreventiveActivityEvent{
-  final PreventiveActivity preventiveActivity;
-  const CreateNewPreventiveActivity({required this.preventiveActivity});
+class GetPreventiveActivityFiltered extends PreventiveActivityEvent{
+  final bool needsRefresh;
+  final String filter;
+  const GetPreventiveActivityFiltered({required this.filter,required this.needsRefresh});
 
   @override
-  List<Object> get props => [preventiveActivity];
+  List<Object> get props => [filter,needsRefresh];
 }
