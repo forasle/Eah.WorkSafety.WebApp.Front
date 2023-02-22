@@ -20,7 +20,7 @@ class AddNewAccident extends StatelessWidget {
     TextEditingController myController = TextEditingController();
     myController.addListener(() {
       if (myController.text.length > 3) {
-        context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: myController.text,needsRefresh: true));
+        context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: myController.text, needsRefresh: true));
       }
     });
     return CustomScaffold(
@@ -90,8 +90,9 @@ class AddNewAccident extends StatelessWidget {
                                       if (state is EmployeeDataFiltered) {
                                         if (state.employeeResponse.isNotEmpty) {
                                           for (var employee in state.employeeResponse) {
-                                            _list.add(employee.identificationNumber);
-                                            //print(state.employeeResponse.data)
+                                            _list.add(employee.identificationNumber.toString());
+                                            //_list.add('Test' + ' Item 1');
+                                            //print(_list);
                                           }
                                         }
 
@@ -105,6 +106,7 @@ class AddNewAccident extends StatelessWidget {
 
                                       return _list;
                                     },
+
                                     decoration: InputDecoration(
                                       hintText: 'Lütfen Kimlik Numarasını  Giriniz',
                                       labelText: 'Kimlik Numarası',
@@ -351,22 +353,15 @@ class AddNewAccident extends StatelessWidget {
                             padding: Constant.padding,
                             child: SizedBox(
                               height: 80,
-                              child: FormBuilderCheckboxGroup<String>(
+                              child: FormBuilderCheckbox(
                                 decoration: InputDecoration(
                                   hintText: 'Kök Neden Analizi Seçiniz',
                                   labelText: 'Kök Neden Analizi',
-                                  //filled: true,
                                   border: Constant.textFieldBorder,
                                 ),
                                 name: 'rootCauseAnalysisRequirement',
-                                // initialValue: const ['Dart'],
-                                options: const [FormBuilderFieldOption(value: 'Kök Neden Analizi Gereksinimi')],
-                                orientation: OptionsOrientation.vertical,
-                                separator: const VerticalDivider(
-                                  width: 10,
-                                  thickness: 5,
-                                  color: Colors.red,
-                                ),
+                                initialValue: false,
+                                title: const Text("Kök Neden Gereksinimi"),
                               ),
                             ),
                           ),
@@ -379,7 +374,7 @@ class AddNewAccident extends StatelessWidget {
             ),
             Constant.sizedBox50,
             Row(
-              children:[
+              children: [
                 Expanded(
                   child: BlocListener<AddNewAccidentBloc, AddNewAccidentState>(
                     listener: (context, state) {
@@ -390,8 +385,8 @@ class AddNewAccident extends StatelessWidget {
                         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Kaza eklendi")));
                       }
                       if (state is NewAccidentCreationError) {
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text("Kaza eklenemedi. Lütfen kimlik numarasını kontrol ediniz.")));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("Kaza eklenemedi. Lütfen kimlik numarasını kontrol ediniz.")));
                       }
                     },
                     child: ElevatedButton(

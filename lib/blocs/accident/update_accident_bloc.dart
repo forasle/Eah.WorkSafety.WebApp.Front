@@ -30,8 +30,7 @@ class UpdateAccidentBloc extends Bloc<UpdateAccidentEvent, UpdateAccidentState> 
         stringListToBoolList(event.accident["theSubjectOfTheAccidentStringList"], Constant.theSubjectOfTheAccident);
         List<bool> precautionsToBeTakenBoolList =
         stringListToBoolList(event.accident["precautionsToBeTakenStringList"], Constant.precautionsToBeTaken);
-        List<bool> rootCauseAnalysisRequirementList =
-        stringListToBoolList(event.accident["rootCauseAnalysisRequirement"], Constant.rootCauseAnalysisRequirement);
+
         final UpdateAccidentModel _accident;
         _accident = UpdateAccidentModel(
           date: event.accident["accidentDate"],
@@ -50,7 +49,7 @@ class UpdateAccidentBloc extends Bloc<UpdateAccidentEvent, UpdateAccidentState> 
           medicalIntervention: false,
           needFirstAid: false,
           propertyDamage: false,
-          rootCauseAnalysis: rootCauseAnalysisRequirementList[0],
+          rootCauseAnalysis: event.accident["rootCauseAnalysisRequirement"],
           witnessStatement: "Test",
           accidentNumber: 0,
           updateAffectedEmployeeWithProperty: [

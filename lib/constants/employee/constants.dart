@@ -6,6 +6,9 @@ class Constant {
   static const sizedBoxForEmployee = SizedBox(
     height: 20,
   );
+  static const sizedBoxForEmployee30 = SizedBox(
+    height: 28,
+  );
   static const sizedBoxForEmployee35 = SizedBox(
     height: 35,
   );

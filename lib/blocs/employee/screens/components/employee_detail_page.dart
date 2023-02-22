@@ -113,7 +113,7 @@ class EmployeeDetail extends StatelessWidget {
                             ),
                             Constant.sizedBoxForEmployee,
                             Text('Ünvanı:    '),
-                            Constant.sizedBoxForEmployee35,
+                            Constant.sizedBoxForEmployee30,
 
                             Text(
                               'Risk Grupları:    ',

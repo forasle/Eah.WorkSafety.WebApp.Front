@@ -355,22 +355,15 @@ class UpdateAccidentPage extends StatelessWidget {
                             padding: Constant.padding,
                             child: SizedBox(
                               height: 80,
-                              child: FormBuilderCheckboxGroup<String>(
+                              child: FormBuilderCheckbox(
                                 decoration: InputDecoration(
                                   hintText: 'Kök Neden Analizi Seçiniz',
                                   labelText: 'Kök Neden Analizi',
-                                  //filled: true,
                                   border: Constant.textFieldBorder,
                                 ),
                                 name: 'rootCauseAnalysisRequirement',
-                                initialValue: _accidentResponse.rootCauseAnalysis==true ? ['Kök Neden Analizi Gereksinimi']:[""],
-                                options: const [FormBuilderFieldOption(value: 'Kök Neden Analizi Gereksinimi')],
-                                orientation: OptionsOrientation.vertical,
-                                separator: const VerticalDivider(
-                                  width: 10,
-                                  thickness: 5,
-                                  color: Colors.red,
-                                ),
+                                initialValue: _accidentResponse.rootCauseAnalysis,
+                                title: const Text("Kök Neden Gereksinimi"),
                               ),
                             ),
                           ),
