@@ -92,7 +92,7 @@ class InconsistencyDetailPage extends StatelessWidget {
                                 readOnly: true,
                                 name: "riskScore",
                                 initialValue:
-                                    _inconsistencyResponse.date.toString(),
+                                    _inconsistencyResponse.riskScore.toString(),
                                 //controller: lostDayController,
                                 decoration: InputDecoration(
                                   hintText: 'Lütfen Risk Skoru Giriniz',
@@ -197,24 +197,16 @@ class InconsistencyDetailPage extends StatelessWidget {
                             padding: Constant.padding,
                             child: SizedBox(
                               height: 80,
-                              child: FormBuilderCheckboxGroup<String>(
-                               disabled: Constant.rootCauseAnalysisRequirement,
-                                initialValue: _inconsistencyResponse.rootCauseAnalysisRequirement==true ? ['Kök Neden Analizi Gereksinimi'] : [""],
+                              child: FormBuilderCheckbox(
+                                enabled: false,
                                 decoration: InputDecoration(
                                   hintText: 'Kök Neden Analizi Seçiniz',
                                   labelText: 'Kök Neden Analizi',
-                                  //filled: true,
                                   border: Constant.textFieldBorder,
                                 ),
                                 name: 'rootCauseAnalysisRequirement',
-                                // initialValue: const ['Dart'],
-                                options: const [FormBuilderFieldOption(value: 'Kök Neden Analizi Gereksinimi')],
-                                orientation: OptionsOrientation.vertical,
-                                separator: const VerticalDivider(
-                                  width: 10,
-                                  thickness: 5,
-                                  color: Colors.red,
-                                ),
+                                initialValue: _inconsistencyResponse.rootCauseAnalysisRequirement,
+                                title: const Text("Kök Neden Gereksinimi"),
                               ),
                             ),
                           ),
@@ -222,24 +214,16 @@ class InconsistencyDetailPage extends StatelessWidget {
                             padding: Constant.padding,
                             child: SizedBox(
                               height: 80,
-                              child: FormBuilderCheckboxGroup<String>(
-                                disabled: Constant.status,
-                                initialValue: _inconsistencyResponse.status==true ? ['Uygunsuzluk Durumu'] : [""],
+                              child: FormBuilderCheckbox(
+                                enabled: false,
                                 decoration: InputDecoration(
-                                  hintText: 'Uygunsuzluk Durumu Seçiniz',
+                                  hintText: 'Uygunsuzluk Durumunu Seçiniz',
                                   labelText: 'Uygunsuzluk Durumu',
-                                  //filled: true,
                                   border: Constant.textFieldBorder,
                                 ),
                                 name: 'status',
-                                // initialValue: const ['Dart'],
-                                options: const [FormBuilderFieldOption(value: 'Uygunsuzluk Durumu')],
-                                orientation: OptionsOrientation.vertical,
-                                separator: const VerticalDivider(
-                                  width: 10,
-                                  thickness: 5,
-                                  color: Colors.red,
-                                ),
+                                initialValue: _inconsistencyResponse.status,
+                                title: const Text("Uygunsuzluk Durumu"),
                               ),
                             ),
                           ),

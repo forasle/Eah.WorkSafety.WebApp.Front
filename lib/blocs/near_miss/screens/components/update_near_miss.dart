@@ -237,6 +237,7 @@ class UpdateNearMissPage extends StatelessWidget {
                           subtitle(subtitle: 'Olay Yeri:', height: 80, width: 150),
                           subtitle(subtitle: 'Olayın Konusu:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
                           subtitle(subtitle: 'Alınması Gereken Önlem:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
+                          subtitle(subtitle: 'Kök Neden Analizi Gereksinimi:', height: 80, width: 150),
                         ],
                       ),
                     ),
@@ -348,6 +349,22 @@ class UpdateNearMissPage extends StatelessWidget {
                                 validator: FormBuilderValidators.compose([
                                   FormBuilderValidators.minLength(1, errorText: "Lütfen En Az Bir Adet Seçiniz"),
                                 ]),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: Constant.padding,
+                            child: SizedBox(
+                              height: 80,
+                              child: FormBuilderCheckbox(
+                                decoration: InputDecoration(
+                                  hintText: 'Kök Neden Analizi Seçiniz',
+                                  labelText: 'Kök Neden Analizi',
+                                  border: Constant.textFieldBorder,
+                                ),
+                                name: 'rootCauseAnalysisRequirement',
+                                initialValue: _nearMissResponse.rootCauseAnalysis,
+                                title: const Text("Kök Neden Gereksinimi"),
                               ),
                             ),
                           ),

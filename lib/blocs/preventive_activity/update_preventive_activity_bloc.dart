@@ -18,9 +18,6 @@ class UpdatePreventiveActivityBloc extends Bloc<UpdatePreventiveActivityEvent, U
       const storage = FlutterSecureStorage();
       final String? token = await storage.read(key: "token");
       var user = parseJwt(token!);
-      List<bool> rootCauseAnalysis =
-      stringListToBoolList(event.preventiveActivity["rootCauseAnalysisRequirement"], Constant.rootCauseAnalysisRequirement);
-      List<bool> status = stringListToBoolList(event.preventiveActivity["status"], Constant.status);
 
       try{
         final UpdatePreventiveActivityModel _preventiveActivity;
@@ -30,18 +27,18 @@ class UpdatePreventiveActivityBloc extends Bloc<UpdatePreventiveActivityEvent, U
             deadline: event.preventiveActivity["deadline"],
             method: "Test",
             name: "Test",
-            rootCauseAnalysis: rootCauseAnalysis[0],
+            rootCauseAnalysis: event.preventiveActivity["rootCauseAnalysisRequirement"],
             referenceNumber: "Test",
             id: event.id,
             creatorUserId: int.parse(user["id"]),
             information: event.preventiveActivity["information"],
-            status: status[0]);
+            status: event.preventiveActivity["status"]);
         await _preventiveActivityRepository.updatePreventiveActivity(updatedPreventiveActivity: _preventiveActivity);
-        emit(const UpdatePreventiveActivityCompleted(message: "Kaza Güncellendi"));
+        emit(const UpdatePreventiveActivityCompleted(message: "DÖF Güncellendi"));
         emit(const UpdatePreventiveActivityInitial());
       }
       catch(e) {
-        emit(UpdatePreventiveActivityError(message: "Kaza güncellenemedi. Hata:  $e"));
+        emit(UpdatePreventiveActivityError(message: "DÖF güncellenemedi. Hata:  $e"));
       }
 
     }

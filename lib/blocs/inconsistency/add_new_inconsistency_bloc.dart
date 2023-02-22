@@ -17,9 +17,6 @@ class AddNewInconsistencyBloc extends Bloc<AddNewInconsistencyEvent, AddNewIncon
       const storage = FlutterSecureStorage();
       final String? token = await storage.read(key: "token");
       var user = parseJwt(token!);
-      List<bool> rootCauseAnalysis =
-      stringListToBoolList(event.inconsistency["rootCauseAnalysisRequirement"], Constant.rootCauseAnalysisRequirement);
-      List<bool> status = stringListToBoolList(event.inconsistency["status"], Constant.status);
 
       try {
         final CreateInconsistencyModel _inconsistency;
@@ -31,15 +28,15 @@ class AddNewInconsistencyBloc extends Bloc<AddNewInconsistencyEvent, AddNewIncon
           department: event.inconsistency["department"],
           information: event.inconsistency["information"],
           riskScore: int.parse(event.inconsistency["riskScore"]),
-          rootCauseAnalysisRequirement: rootCauseAnalysis[0],
-          status: status[0]
+          rootCauseAnalysisRequirement: event.inconsistency["rootCauseAnalysisRequirement"],
+          status: event.inconsistency["status"]
 
         );
         await _inconsistencyRepository.createInconsistency(newInconsistency: _inconsistency);
-        emit(const NewInconsistencyCreated(message: "Kaza Eklendi"));
+        emit(const NewInconsistencyCreated(message: "Uygunsuzluk Eklendi"));
         emit(const AddNewInconsistencyInitial());
       } catch (e) {
-        emit(NewInconsistencyCreationError(message: "Kaza eklenemedi. Hata:  $e"));
+        emit(NewInconsistencyCreationError(message: "Uygunsuzluk eklenemedi. Hata:  $e"));
       }
     });
   }

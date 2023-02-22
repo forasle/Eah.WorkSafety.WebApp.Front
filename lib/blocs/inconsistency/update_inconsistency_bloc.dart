@@ -1,4 +1,3 @@
-
 import 'package:aeah_work_safety/blocs/inconsistency/models/update_inconsistency_model.dart';
 import 'package:aeah_work_safety/blocs/inconsistency/repository/inconsistency_repository.dart';
 import 'package:aeah_work_safety/services/jwt_decoder.dart';
@@ -18,11 +17,8 @@ class UpdateInconsistencyBloc extends Bloc<UpdateInconsistencyEvent, UpdateIncon
       const storage = FlutterSecureStorage();
       final String? token = await storage.read(key: "token");
       var user = parseJwt(token!);
-      List<bool> rootCauseAnalysis =
-      stringListToBoolList(event.inconsistency["rootCauseAnalysisRequirement"], Constant.rootCauseAnalysisRequirement);
-      List<bool> status = stringListToBoolList(event.inconsistency["status"], Constant.status);
 
-      try{
+      try {
         final UpdateInconsistencyModel _inconsistency;
         _inconsistency = UpdateInconsistencyModel(
             date: event.inconsistency["date"],
@@ -32,23 +28,18 @@ class UpdateInconsistencyBloc extends Bloc<UpdateInconsistencyEvent, UpdateIncon
             department: event.inconsistency["department"],
             information: event.inconsistency["information"],
             riskScore: int.parse(event.inconsistency["riskScore"]),
-            rootCauseAnalysisRequirement:  rootCauseAnalysis[0],
-            status:  status[0]
-        );
+            rootCauseAnalysisRequirement: event.inconsistency["rootCauseAnalysisRequirement"],
+            status: event.inconsistency["status"]);
         await _inconsistencyRepository.updateInconsistency(updatedInconsistency: _inconsistency);
-        emit(const UpdateInconsistencyCompleted(message: "Kaza Güncellendi"));
+        emit(const UpdateInconsistencyCompleted(message: "Uygunsuzluk Güncellendi"));
         emit(const UpdateInconsistencyInitial());
+      } catch (e) {
+        emit(UpdateInconsistencyError(message: "Uygunsuzluk güncellenemedi. Hata:  $e"));
       }
-      catch(e) {
-        emit(UpdateInconsistencyError(message: "Kaza güncellenemedi. Hata:  $e"));
-      }
-
-    }
-    );
+    });
   }
   List<bool> stringListToBoolList(List<String> firstStringList, List<String> secondStringList) {
     List<bool> boolList = secondStringList.map((e) => firstStringList.toSet().contains(e)).toList();
     return boolList;
-
   }
 }

@@ -1,6 +1,4 @@
-import 'package:aeah_work_safety/blocs/preventive_activity/preventive_activity_bloc.dart';
-import 'package:aeah_work_safety/blocs/preventive_activity/screens/components/data_table_for_preventive_activities.dart';
-import 'package:aeah_work_safety/blocs/mission/screens/components/search_bar.dart';
+
 import 'package:aeah_work_safety/blocs/preventive_activity/screens/components/preventive_activity_list_view.dart';
 import 'package:aeah_work_safety/blocs/statistic/statistic_bloc.dart';
 import 'package:flutter/material.dart';

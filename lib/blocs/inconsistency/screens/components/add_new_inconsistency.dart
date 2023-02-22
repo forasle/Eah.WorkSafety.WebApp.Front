@@ -224,22 +224,15 @@ class AddNewInconsistency extends StatelessWidget {
                             padding: Constant.padding,
                             child: SizedBox(
                               height: 80,
-                              child: FormBuilderCheckboxGroup<String>(
+                              child: FormBuilderCheckbox(
                                 decoration: InputDecoration(
                                   hintText: 'Kök Neden Analizi Seçiniz',
                                   labelText: 'Kök Neden Analizi',
-                                  //filled: true,
                                   border: Constant.textFieldBorder,
                                 ),
                                 name: 'rootCauseAnalysisRequirement',
-                                // initialValue: const ['Dart'],
-                                options: const [FormBuilderFieldOption(value: 'Kök Neden Analizi Gereksinimi')],
-                                orientation: OptionsOrientation.vertical,
-                                separator: const VerticalDivider(
-                                  width: 10,
-                                  thickness: 5,
-                                  color: Colors.red,
-                                ),
+                                initialValue: false,
+                                title: const Text("Kök Neden Gereksinimi"),
                               ),
                             ),
                           ),
@@ -247,22 +240,15 @@ class AddNewInconsistency extends StatelessWidget {
                             padding: Constant.padding,
                             child: SizedBox(
                               height: 80,
-                              child: FormBuilderCheckboxGroup<String>(
+                              child: FormBuilderCheckbox(
                                 decoration: InputDecoration(
-                                  hintText: 'Uygunsuzluk Durumu Seçiniz',
+                                  hintText: 'Uygunsuzluk Durumunu Seçiniz',
                                   labelText: 'Uygunsuzluk Durumu',
-                                  //filled: true,
                                   border: Constant.textFieldBorder,
                                 ),
                                 name: 'status',
-                                // initialValue: const ['Dart'],
-                                options: const [FormBuilderFieldOption(value: 'Uygunsuzluk Durumu')],
-                                orientation: OptionsOrientation.vertical,
-                                separator: const VerticalDivider(
-                                  width: 10,
-                                  thickness: 5,
-                                  color: Colors.red,
-                                ),
+                                initialValue: false,
+                                title: const Text("Uygunsuzluk Durumu"),
                               ),
                             ),
                           ),

@@ -229,23 +229,15 @@ class UpdateInconsistencyPage extends StatelessWidget {
                             padding: Constant.padding,
                             child: SizedBox(
                               height: 80,
-                              child: FormBuilderCheckboxGroup<String>(
-                                initialValue: _inconsistencyResponse.rootCauseAnalysisRequirement==true ? ['Kök Neden Analizi Gereksinimi'] : [""],
+                              child: FormBuilderCheckbox(
                                 decoration: InputDecoration(
                                   hintText: 'Kök Neden Analizi Seçiniz',
                                   labelText: 'Kök Neden Analizi',
-                                  //filled: true,
                                   border: Constant.textFieldBorder,
                                 ),
                                 name: 'rootCauseAnalysisRequirement',
-                                // initialValue: const ['Dart'],
-                                options: const [FormBuilderFieldOption(value: 'Kök Neden Analizi Gereksinimi')],
-                                orientation: OptionsOrientation.vertical,
-                                separator: const VerticalDivider(
-                                  width: 10,
-                                  thickness: 5,
-                                  color: Colors.red,
-                                ),
+                                initialValue: _inconsistencyResponse.rootCauseAnalysisRequirement,
+                                title: const Text("Kök Neden Gereksinimi"),
                               ),
                             ),
                           ),
@@ -253,23 +245,15 @@ class UpdateInconsistencyPage extends StatelessWidget {
                             padding: Constant.padding,
                             child: SizedBox(
                               height: 80,
-                              child: FormBuilderCheckboxGroup<String>(
-                                initialValue: _inconsistencyResponse.status==true ? ['Uygunsuzluk Durumu'] : [""],
+                              child: FormBuilderCheckbox(
                                 decoration: InputDecoration(
-                                  hintText: 'Uygunsuzluk Durumu Seçiniz',
+                                  hintText: 'Uygunsuzluk Durumunu Seçiniz',
                                   labelText: 'Uygunsuzluk Durumu',
-                                  //filled: true,
                                   border: Constant.textFieldBorder,
                                 ),
                                 name: 'status',
-                                // initialValue: const ['Dart'],
-                                options: const [FormBuilderFieldOption(value: 'Uygunsuzluk Durumu')],
-                                orientation: OptionsOrientation.vertical,
-                                separator: const VerticalDivider(
-                                  width: 10,
-                                  thickness: 5,
-                                  color: Colors.red,
-                                ),
+                                initialValue: _inconsistencyResponse.status,
+                                title: const Text("Uygunsuzluk Durumu"),
                               ),
                             ),
                           ),
@@ -290,11 +274,11 @@ class UpdateInconsistencyPage extends StatelessWidget {
                         context.read<InconsistencyBloc>().add(const GetInconsistencyData(needsRefresh: true));
                         //Navigator.of(context).pushReplacementNamed(inconsistencyPageRoute);
                         LoadingDialog.hide(context);
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Uygunsuzluk eklendi")));
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Uygunsuzluk güncellendi")));
                       }
                       if (state is UpdateInconsistencyError) {
                         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text("Uygunsuzluk eklenemedi. Lütfen bilgileri kontrol ediniz.")));
+                            content: Text("Uygunsuzluk güncellenemedi. Lütfen bilgileri kontrol ediniz.")));
                       }
                     },
                     child: ElevatedButton(

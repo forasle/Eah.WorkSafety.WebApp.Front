@@ -48,7 +48,7 @@ class AddNewNearMissBloc extends Bloc<AddNewNearMissEvent, AddNewNearMissState> 
           medicalIntervention: false,
           needFirstAid: false,
           propertyDamage: false,
-          rootCauseAnalysis: false,
+          rootCauseAnalysis: event.nearMiss["rootCauseAnalysisRequirement"],
           witnessStatement: "Test",
           nearMissNumber: 0,
           createAffectedEmployeeWithPropertyForNearMiss: [

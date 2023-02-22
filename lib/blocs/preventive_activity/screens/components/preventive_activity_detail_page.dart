@@ -244,24 +244,16 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                             padding: Constant.padding,
                             child: SizedBox(
                               height: 80,
-                              child: FormBuilderCheckboxGroup<String>(
-                                disabled: Constant.rootCauseAnalysisRequirement,
-                                initialValue: _preventiveActivityResponse.rootCauseAnalysis==true ? ['Kök Neden Analizi'] : [""],
+                              child: FormBuilderCheckbox(
+                                enabled: false,
                                 decoration: InputDecoration(
                                   hintText: 'Kök Neden Analizi Seçiniz',
                                   labelText: 'Kök Neden Analizi',
-                                  //filled: true,
                                   border: Constant.textFieldBorder,
                                 ),
-                                name: 'rootCauseAnalysis',
-                                // initialValue: const ['Dart'],
-                                options: const [FormBuilderFieldOption(value: 'Kök Neden Analizi Gereksinimi')],
-                                orientation: OptionsOrientation.vertical,
-                                separator: const VerticalDivider(
-                                  width: 10,
-                                  thickness: 5,
-                                  color: Colors.red,
-                                ),
+                                name: 'rootCauseAnalysisRequirement',
+                                initialValue: _preventiveActivityResponse.rootCauseAnalysis,
+                                title: const Text("Kök Neden Gereksinimi"),
                               ),
                             ),
                           ),
@@ -269,24 +261,16 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                             padding: Constant.padding,
                             child: SizedBox(
                               height: 80,
-                              child: FormBuilderCheckboxGroup<String>(
-                                disabled: const ['DÖF Durumu'],
-                                initialValue: _preventiveActivityResponse.status==true ? ['DÖF Durumu'] : [""],
+                              child: FormBuilderCheckbox(
+                                enabled: false,
                                 decoration: InputDecoration(
-                                  hintText: 'DÖF Durumu Seçiniz',
+                                  hintText: 'DÖF Durumunu Seçiniz',
                                   labelText: 'DÖF Durumu',
-                                  //filled: true,
                                   border: Constant.textFieldBorder,
                                 ),
                                 name: 'status',
-                                // initialValue: const ['Dart'],
-                                options: const [FormBuilderFieldOption(value: 'DÖF Durumu')],
-                                orientation: OptionsOrientation.vertical,
-                                separator: const VerticalDivider(
-                                  width: 10,
-                                  thickness: 5,
-                                  color: Colors.red,
-                                ),
+                                initialValue: _preventiveActivityResponse.status,
+                                title: const Text("DÖF Durumu"),
                               ),
                             ),
                           ),

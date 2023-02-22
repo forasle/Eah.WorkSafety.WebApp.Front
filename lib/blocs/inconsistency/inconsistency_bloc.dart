@@ -22,7 +22,7 @@ class InconsistencyBloc extends Bloc<InconsistencyEvent, InconsistencyState> {
   var page = BaseAPI.inconsistencyPath+"?pageNumber="+1.toString()+"&pageSize="+_pageSize;
   var pageFiltered = BaseAPI.inconsistencySearchPath+"?pageNumber="+1.toString()+"&pageSize="+_pageSize;
 
-  InconsistencyBloc() : super(const InconsistencyInitial(message: 'Kaza bilgileri getiriliyor')) {
+  InconsistencyBloc() : super(const InconsistencyInitial(message: 'Uygunsuzluk bilgileri getiriliyor')) {
     on<GetInconsistencyData>((event, emit) async {
       try{
         if(event.needsRefresh==true){
@@ -54,7 +54,7 @@ class InconsistencyBloc extends Bloc<InconsistencyEvent, InconsistencyState> {
         //emit(InconsistencyDataLoaded(inconsistencyResponse: _inconsistency, isReachedMax: inconsistencyResponse.nextPage==null));
       }
       catch(e){
-        emit(InconsistencyDataError(message: "Kaza bilgileri getirilemedi. Hata: $e"));
+        emit(InconsistencyDataError(message: "Uygunsuzluk bilgileri getirilemedi. Hata: $e"));
       }
     },
       transformer: droppable(),
@@ -88,7 +88,7 @@ class InconsistencyBloc extends Bloc<InconsistencyEvent, InconsistencyState> {
           emit(InconsistencyDataLoaded(inconsistencyResponse: _inconsistencyFiltered, isReachedMax: inconsistencyResponseFiltered.nextPage==null));
       }
       catch(e){
-        emit(InconsistencyDataError(message: "Kaza bilgileri getirilemedi. Hata: $e"));
+        emit(InconsistencyDataError(message: "Uygunsuzluk bilgileri getirilemedi. Hata: $e"));
       }
     },
       transformer: droppable(),
@@ -96,7 +96,7 @@ class InconsistencyBloc extends Bloc<InconsistencyEvent, InconsistencyState> {
 
     on<InconsistencyInitialEvent>((event, emit) async {
       await Future.delayed(const Duration(milliseconds: 500));
-      emit(const InconsistencyInitial(message: "Kaza Bilgileri Getiriliyor"));
+      emit(const InconsistencyInitial(message: "Uygunsuzluk Bilgileri Getiriliyor"));
     },
       transformer: droppable(),
     );

@@ -240,23 +240,15 @@ class UpdatePreventiveActivityPage extends StatelessWidget {
                             padding: Constant.padding,
                             child: SizedBox(
                               height: 80,
-                              child: FormBuilderCheckboxGroup<String>(
-                                initialValue: _preventiveActivityResponse.rootCauseAnalysis==true ? ['Kök Neden Analizi Gereksinimi'] : [""],
+                              child: FormBuilderCheckbox(
                                 decoration: InputDecoration(
                                   hintText: 'Kök Neden Analizi Seçiniz',
                                   labelText: 'Kök Neden Analizi',
-                                  //filled: true,
                                   border: Constant.textFieldBorder,
                                 ),
                                 name: 'rootCauseAnalysisRequirement',
-                                // initialValue: const ['Dart'],
-                                options: const [FormBuilderFieldOption(value: 'Kök Neden Analizi Gereksinimi')],
-                                orientation: OptionsOrientation.vertical,
-                                separator: const VerticalDivider(
-                                  width: 10,
-                                  thickness: 5,
-                                  color: Colors.red,
-                                ),
+                                initialValue: _preventiveActivityResponse.rootCauseAnalysis,
+                                title: const Text("Kök Neden Gereksinimi"),
                               ),
                             ),
                           ),
@@ -264,23 +256,15 @@ class UpdatePreventiveActivityPage extends StatelessWidget {
                             padding: Constant.padding,
                             child: SizedBox(
                               height: 80,
-                              child: FormBuilderCheckboxGroup<String>(
-                                initialValue: _preventiveActivityResponse.status==true ? ['Uygunsuzluk Durumu'] : [""],
+                              child: FormBuilderCheckbox(
                                 decoration: InputDecoration(
-                                  hintText: 'Uygunsuzluk Durumu Seçiniz',
-                                  labelText: 'Uygunsuzluk Durumu',
-                                  //filled: true,
+                                  hintText: 'DÖF Durumunu Seçiniz',
+                                  labelText: 'DÖF Durumu',
                                   border: Constant.textFieldBorder,
                                 ),
                                 name: 'status',
-                                // initialValue: const ['Dart'],
-                                options: const [FormBuilderFieldOption(value: 'Uygunsuzluk Durumu')],
-                                orientation: OptionsOrientation.vertical,
-                                separator: const VerticalDivider(
-                                  width: 10,
-                                  thickness: 5,
-                                  color: Colors.red,
-                                ),
+                                initialValue: _preventiveActivityResponse.status,
+                                title: const Text("DÖF Durumu"),
                               ),
                             ),
                           ),
@@ -301,11 +285,11 @@ class UpdatePreventiveActivityPage extends StatelessWidget {
                         context.read<PreventiveActivityBloc>().add(const GetPreventiveActivityData(needsRefresh: true));
                         //Navigator.of(context).pushReplacementNamed(preventiveActivityPageRoute);
                         LoadingDialog.hide(context);
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Uygunsuzluk eklendi")));
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Uygunsuzluk güncellendi.")));
                       }
                       if (state is UpdatePreventiveActivityError) {
                         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text("Uygunsuzluk eklenemedi. Lütfen bilgileri kontrol ediniz.")));
+                            content: Text("Uygunsuzluk güncellenemedi. Lütfen bilgileri kontrol ediniz.")));
                       }
                     },
                     child: ElevatedButton(

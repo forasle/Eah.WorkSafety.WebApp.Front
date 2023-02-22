@@ -23,7 +23,7 @@ class PreventiveActivityBloc extends Bloc<PreventiveActivityEvent, PreventiveAct
   var page = BaseAPI.preventiveActivityPath+"?pageNumber="+1.toString()+"&pageSize="+_pageSize;
   var pageFiltered = BaseAPI.preventiveActivitySearchPath+"?pageNumber="+1.toString()+"&pageSize="+_pageSize;
 
-  PreventiveActivityBloc() : super(const PreventiveActivityInitial(message: 'Kaza bilgileri getiriliyor')) {
+  PreventiveActivityBloc() : super(const PreventiveActivityInitial(message: 'DÖF bilgileri getiriliyor')) {
     on<GetPreventiveActivityData>((event, emit) async {
       try{
         if(event.needsRefresh==true){
@@ -55,7 +55,7 @@ class PreventiveActivityBloc extends Bloc<PreventiveActivityEvent, PreventiveAct
         //emit(PreventiveActivityDataLoaded(preventiveActivityResponse: _preventiveActivity, isReachedMax: preventiveActivityResponse.nextPage==null));
       }
       catch(e){
-        emit(PreventiveActivityDataError(message: "Kaza bilgileri getirilemedi. Hata: $e"));
+        emit(PreventiveActivityDataError(message: "DÖF bilgileri getirilemedi. Hata: $e"));
       }
     },
       transformer: droppable(),
@@ -89,7 +89,7 @@ class PreventiveActivityBloc extends Bloc<PreventiveActivityEvent, PreventiveAct
         emit(PreventiveActivityDataLoaded(preventiveActivityResponse: _preventiveActivityFiltered, isReachedMax: preventiveActivityResponseFiltered.nextPage==null));
       }
       catch(e){
-        emit(PreventiveActivityDataError(message: "Kaza bilgileri getirilemedi. Hata: $e"));
+        emit(PreventiveActivityDataError(message: "DÖF bilgileri getirilemedi. Hata: $e"));
       }
     },
       transformer: droppable(),
@@ -97,7 +97,7 @@ class PreventiveActivityBloc extends Bloc<PreventiveActivityEvent, PreventiveAct
 
     on<PreventiveActivityInitialEvent>((event, emit) async {
       await Future.delayed(const Duration(milliseconds: 500));
-      emit(const PreventiveActivityInitial(message: "Kaza Bilgileri Getiriliyor"));
+      emit(const PreventiveActivityInitial(message: "DÖF Bilgileri Getiriliyor"));
     },
       transformer: droppable(),
     );

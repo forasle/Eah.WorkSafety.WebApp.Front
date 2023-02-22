@@ -17,9 +17,7 @@ class AddNewPreventiveActivityBloc extends Bloc<AddNewPreventiveActivityEvent, A
       const storage = FlutterSecureStorage();
       final String? token = await storage.read(key: "token");
       var user = parseJwt(token!);
-      List<bool> rootCauseAnalysis = stringListToBoolList(
-          event.preventiveActivity["rootCauseAnalysisRequirement"], Constant.rootCauseAnalysisRequirement);
-      List<bool> status = stringListToBoolList(event.preventiveActivity["status"], Constant.status);
+
 
       try {
         final CreatePreventiveActivityModel _preventiveActivity;
@@ -29,17 +27,18 @@ class AddNewPreventiveActivityBloc extends Bloc<AddNewPreventiveActivityEvent, A
             deadline: event.preventiveActivity["deadline"],
             method: "Test",
             name: "Test",
-            rootCauseAnalysis: rootCauseAnalysis[0],
+            rootCauseAnalysis: event.preventiveActivity["rootCauseAnalysisRequirement"],
             referenceNumber: "Test",
             id: 0,
             creatorUserId: int.parse(user["id"]),
             information: event.preventiveActivity["information"],
-            status: status[0]);
+            status: event.preventiveActivity["status"],
+        );
         await _preventiveActivityRepository.createPreventiveActivity(newPreventiveActivity: _preventiveActivity);
-        emit(const NewPreventiveActivityCreated(message: "Kaza Eklendi"));
+        emit(const NewPreventiveActivityCreated(message: "DÖF Eklendi"));
         emit(const AddNewPreventiveActivityInitial());
       } catch (e) {
-        emit(NewPreventiveActivityCreationError(message: "Kaza eklenemedi. Hata:  $e"));
+        emit(NewPreventiveActivityCreationError(message: "DÖF eklenemedi. Hata:  $e"));
       }
     });
   }

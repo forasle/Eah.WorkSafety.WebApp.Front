@@ -14,9 +14,9 @@ class DeleteInconsistencyBloc extends Bloc<DeleteInconsistencyEvent, DeleteIncon
       final InconsistencyRepository _inconsistencyRepository = locator<InconsistencyRepository>();
       try {
         await _inconsistencyRepository.deleteInconsistency(id: event.id);
-        emit(const DeleteInconsistencyCompleted(message: "Kaza Silindi"));
+        emit(const DeleteInconsistencyCompleted(message: "Uygunsuzluk Silindi"));
       } catch (e) {
-        emit(DeleteInconsistencyError(message: "Kaza silinimedi. Hata:  $e"));
+        emit(DeleteInconsistencyError(message: "Uygunsuzluk silinimedi. Hata:  $e"));
       }
     });
   }
