@@ -133,14 +133,16 @@ class Employee extends StatelessWidget {
                       title: 'Yaş Dağılımı',
                       chartData: [
                         //ChartData('-16', state is StatisticLoaded ? state.statisticResponse.numberOfUser : 0),
-                        ChartData('16-18', state.statisticResponse.totalLostDays.toDouble()),
-                        ChartData('19-25', state.statisticResponse.totalLostDays.toDouble()),
-                        ChartData('26-45', state.statisticResponse.totalLostDays.toDouble()),
-                        ChartData('46-60', state.statisticResponse.totalLostDays.toDouble()),
-                        ChartData('60+', state.statisticResponse.totalLostDays.toDouble()),
+                        ChartData('16-', state.statisticResponse.numberOfEmployeeBelow16.toDouble()),
+                        ChartData('16-18', state.statisticResponse.numberOfEmployeeBetween1618.toDouble()),
+                        ChartData('19-25', state.statisticResponse.numberOfEmployeeBetween1925.toDouble()),
+                        ChartData('26-45', state.statisticResponse.numberOfEmployeeBetween2645.toDouble()),
+                        ChartData('46-60', state.statisticResponse.numberOfEmployeeBetween4660.toDouble()),
+                        ChartData('60+', state.statisticResponse.numberOfEmployeeAbove60.toDouble()),
 
                       ],
                     ),
+                    /*
                     if(state is StatisticLoaded) CircularGraph(
                       title: 'Departmanlar',
                       chartData: [
@@ -157,7 +159,7 @@ class Employee extends StatelessWidget {
                         ChartData('Kadın', state.statisticResponse.totalLostDays.toDouble()),
                         ChartData('Belirtilmemiş', state.statisticResponse.totalLostDays.toDouble()),
                       ],
-                    ),
+                    ),*/
                   ],
                 );
               },

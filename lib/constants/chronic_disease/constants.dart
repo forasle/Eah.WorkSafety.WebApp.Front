@@ -25,4 +25,6 @@ class Constant {
   static const sizedBox50 = SizedBox(
     height: 50,
   );
+
+  static const TextStyle alertDialogTextStyle = TextStyle(color: Colors.black, fontSize: 15);
 }

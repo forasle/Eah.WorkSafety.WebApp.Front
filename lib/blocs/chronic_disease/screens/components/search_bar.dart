@@ -33,7 +33,7 @@ class SearchBarWidget extends StatelessWidget {
             },
             onChanged: (value) {
               if(value.length>3){
-                context.read<ChronicDiseaseBloc>().add(GetChronicDiseaseFiltered(filter: value));
+                context.read<ChronicDiseaseBloc>().add(GetChronicDiseaseFiltered(filter: value, needsRefresh: true));
               }
             },
             decoration: (InputDecoration(
@@ -41,7 +41,7 @@ class SearchBarWidget extends StatelessWidget {
                 icon: const Icon(Icons.person),
                 suffixIcon: IconButton(
                   onPressed: () {
-                    context.read<ChronicDiseaseBloc>().add(const GetChronicDiseaseData());
+                    context.read<ChronicDiseaseBloc>().add(const GetChronicDiseaseData(needsRefresh: true));
                   },
                   icon: const Icon(Icons.clear),
                 ),

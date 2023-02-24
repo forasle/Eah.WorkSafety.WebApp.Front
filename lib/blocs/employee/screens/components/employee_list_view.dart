@@ -48,6 +48,13 @@ class EmployeeListView extends StatelessWidget {
                                       ),
                                     )
                                   : ListTile(
+                                onTap: () {
+                                  context
+                                      .read<EmployeeByIdBloc>()
+                                      .add(GetEmployeeDataById(id: state.employeeResponse[index].id));
+                                  Navigator.pushNamed(context, employeeDetailPageRoute,
+                                      arguments: state.employeeResponse[index]);
+                                },
                                       leading: CircleAvatar(
                                         backgroundColor: const Color(0xff764abc),
                                         child: Text(state.employeeResponse[index].id.toString()),

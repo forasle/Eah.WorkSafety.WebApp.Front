@@ -17,8 +17,8 @@ class BaseAPI {
   static var inconsistencySearchPath = api + "/inconsistency/search/name?key=";
   var missionPath = api + "/mission";
   var missionSearchPath = api + "/mission/search/name?key=";
-  var chronicDiseasePath = api + "/chronicDisease";
-  var chronicDiseaseSearchPath = api + "/chronicDisease/search/name?key=";
+  static var chronicDiseasePath = api + "/chronicDisease";
+  static var chronicDiseaseSearchPath = api + "/chronicDisease/search/name?key=";
   var occupationDiseasePath = api + "/occupationDisease";
   var occupationDiseaseSearchPath = api + "/occupation/search/name?key=";
 // more routes

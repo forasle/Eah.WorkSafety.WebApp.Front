@@ -21,7 +21,7 @@ class ChronicDiseaseDataLoading extends ChronicDiseaseState{
 }
 
 class ChronicDiseaseDataLoaded extends ChronicDiseaseState{
-  final ChronicDiseaseResponse chronicDiseaseResponse;
+  final List<ChronicDisease> chronicDiseaseResponse;
   final bool isReachedMax;
 
   const ChronicDiseaseDataLoaded({required this.chronicDiseaseResponse,required this.isReachedMax});
@@ -31,7 +31,7 @@ class ChronicDiseaseDataLoaded extends ChronicDiseaseState{
 }
 class ChronicDiseaseDataFiltered extends ChronicDiseaseState{
   final String filter;
-  final ChronicDiseaseResponse chronicDiseaseResponse;
+  final List<ChronicDisease> chronicDiseaseResponse;
   final bool isReachedMaxFiltered;
 
   const ChronicDiseaseDataFiltered({required this.chronicDiseaseResponse,required this.isReachedMaxFiltered,required this.filter});
@@ -49,21 +49,5 @@ class ChronicDiseaseDataError extends ChronicDiseaseState{
   List<Object?> get props => [message];
 
 }
-class NewChronicDiseaseCreated extends ChronicDiseaseState{
-  final String message;
 
-  const NewChronicDiseaseCreated({required this.message});
 
-  @override
-  List<Object?> get props => [message];
-
-}
-class NewChronicDiseaseCreationError extends ChronicDiseaseState{
-  final String message;
-
-  const NewChronicDiseaseCreationError({required this.message});
-
-  @override
-  List<Object?> get props => [message];
-
-}

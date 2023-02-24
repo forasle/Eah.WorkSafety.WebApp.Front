@@ -1,6 +1,5 @@
 part of 'chronic_disease_bloc.dart';
 
-
 abstract class ChronicDiseaseEvent extends Equatable {
   const ChronicDiseaseEvent();
 
@@ -8,26 +7,25 @@ abstract class ChronicDiseaseEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GetChronicDiseaseData extends ChronicDiseaseEvent{
-
-  const GetChronicDiseaseData();
-
+class ChronicDiseaseInitialEvent extends ChronicDiseaseEvent{
+  const ChronicDiseaseInitialEvent();
   @override
   List<Object> get props => [];
 }
 
-class GetChronicDiseaseFiltered extends ChronicDiseaseEvent{
-  final String filter;
-  const GetChronicDiseaseFiltered({required this.filter});
+class GetChronicDiseaseData extends ChronicDiseaseEvent{
+  final bool needsRefresh;
+  const GetChronicDiseaseData({required this.needsRefresh});
 
   @override
-  List<Object> get props => [filter];
+  List<Object> get props => [needsRefresh];
 }
 
-class CreateNewChronicDisease extends ChronicDiseaseEvent{
-  final ChronicDisease chronicDisease;
-  const CreateNewChronicDisease({required this.chronicDisease});
+class GetChronicDiseaseFiltered extends ChronicDiseaseEvent{
+  final bool needsRefresh;
+  final String filter;
+  const GetChronicDiseaseFiltered({required this.filter,required this.needsRefresh});
 
   @override
-  List<Object> get props => [chronicDisease];
+  List<Object> get props => [filter,needsRefresh];
 }

@@ -7,10 +7,10 @@ import 'package:aeah_work_safety/services/locator.dart';
 class ChronicDiseaseRepository {
   ChronicDiseaseService chronicDiseaseService = locator<ChronicDiseaseService>();
 
-  Future<ChronicDiseaseResponse> getChronicDiseaseData({required int page,required int pageSize}) async {
-    return await chronicDiseaseService.getChronicDiseaseData(page,pageSize);
+  Future<ChronicDiseaseResponse> getChronicDiseaseData({required String page}) async {
+    return await chronicDiseaseService.getChronicDiseaseData(page);
   }
-  Future<ChronicDiseaseResponse> getChronicDiseaseFiltered({required int page,required int pageSize,required String filter}) async {
-    return await chronicDiseaseService.getChronicDiseaseFiltered(page,pageSize,filter);
+  Future<ChronicDiseaseResponse> getChronicDiseaseFiltered({required String page}) async {
+    return await chronicDiseaseService.getChronicDiseaseFiltered(page);
   }
 }

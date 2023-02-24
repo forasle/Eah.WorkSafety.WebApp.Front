@@ -111,7 +111,7 @@ class Panorama extends StatelessWidget {
                               () {
                                 Navigator.of(context).pushNamed(educationPageRoute);
                               }
-                            ],*/
+                            ],
                             [
                               Icons.badge,
                               state is UserData ? state.statisticResponse.numberOfChronicDisease : '-',
@@ -130,7 +130,7 @@ class Panorama extends StatelessWidget {
                                 Navigator.of(context).pushNamed(occupationDiseasesPageRoute);
                               }
                             ],
-                            /*[
+                            [
                               Icons.accessibility_new_sharp,
                               '-',
                               'Periyodik Muayene',

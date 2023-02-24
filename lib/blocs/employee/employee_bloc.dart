@@ -14,14 +14,11 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
   final EmployeeRepository _employeeRepository = locator<EmployeeRepository>();
   List<Employee> _employee= [];
   List<Employee> _employeeFiltered= [];
-  //int _page = 1;
-  //int _pageFiltered = 1;
-  //String _filter ="";
   static const String _pageSize = "10";
   var page = BaseAPI.employeePath+"?pageNumber="+1.toString()+"&pageSize="+_pageSize;
   var pageFiltered = BaseAPI.employeeSearchPath+"?pageNumber="+1.toString()+"&pageSize="+_pageSize;
 
-  EmployeeBloc() : super(const EmployeeInitial(message: 'Kaza bilgileri getiriliyor')) {
+  EmployeeBloc() : super(const EmployeeInitial(message: 'Çalışan bilgileri getiriliyor')) {
     on<GetEmployeeData>((event, emit) async {
       try{
         if(event.needsRefresh==true){
@@ -53,7 +50,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
         //emit(EmployeeDataLoaded(employeeResponse: _employee, isReachedMax: employeeResponse.nextPage==null));
       }
       catch(e){
-        emit(EmployeeDataError(message: "Kaza bilgileri getirilemedi. Hata: $e"));
+        emit(EmployeeDataError(message: "Çalışan bilgileri getirilemedi. Hata: $e"));
       }
     },
       transformer: droppable(),
@@ -72,7 +69,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
           page = employeeResponseFiltered .nextPage!;
         }
         else{
-          emit(EmployeeDataFiltered(employeeResponse: _employeeFiltered, isReachedMaxFiltered: employeeResponseFiltered.nextPage==null, filter: event.filter));
+          emit(EmployeeDataLoaded(employeeResponse: _employeeFiltered, isReachedMax: employeeResponseFiltered.nextPage==null));
           //emit(EmployeeDataFiltered(employeeResponse: _employeeFiltered,filter: event.filter, isReachedMaxFiltered: employeeResponseFiltered.nextPage==null));
         }
 
@@ -84,10 +81,10 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
             _employeeFiltered.add(employeeResponseFiltered.data[i]);
           }
         }
-        emit(EmployeeDataFiltered(employeeResponse: _employeeFiltered, isReachedMaxFiltered: employeeResponseFiltered.nextPage==null, filter: event.filter));
+        emit(EmployeeDataLoaded(employeeResponse: _employeeFiltered, isReachedMax: employeeResponseFiltered.nextPage==null));
       }
       catch(e){
-        emit(EmployeeDataError(message: "Kaza bilgileri getirilemedi. Hata: $e"));
+        emit(EmployeeDataError(message: "Çalışan bilgileri getirilemedi. Hata: $e"));
       }
     },
       transformer: droppable(),
@@ -95,7 +92,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
 
     on<EmployeeInitialEvent>((event, emit) async {
       await Future.delayed(const Duration(milliseconds: 500));
-      emit(const EmployeeInitial(message: "Kaza Bilgileri Getiriliyor"));
+      emit(const EmployeeInitial(message: "Çalışan Bilgileri Getiriliyor"));
     },
       transformer: droppable(),
     );

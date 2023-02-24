@@ -283,29 +283,14 @@ class AccidentPage extends StatelessWidget {
                           ChartData('Ramak Kala', state.statisticResponse.numberOfNearMisses.toDouble())
                         ],
                       ),
-                    CircularGraph(
-                      title: 'Kök Neden Gereksinimi',
-                      chartData: [
-                        ChartData('David', 25),
-                        ChartData('Steve', 38),
-                        ChartData('Jack', 34),
-                        ChartData('Others', 52),
-                      ],
-                    ),
-                    CircularGraph(
-                      title: 'Zarar',
-                      chartData: [
-                        ChartData('David', 25),
-                        ChartData('Steve', 38),
-                        ChartData('Jack', 34),
-                      ],
-                    ),
-                    CircularGraph(
-                      title: 'Departmanlar',
-                      chartData: [
-                        ChartData('David', 25),
-                      ],
-                    ),
+                    if (state is StatisticLoaded)
+                      CircularGraph(
+                        title: 'Kök Neden Gereksinimi',
+                        chartData: [
+                          ChartData('Gerekiyor', state.statisticResponse.numberOfRootCauseAnalysisRequirementForAccident.toDouble()),
+                          ChartData('Gerekmiyor', (state.statisticResponse.numberOfAccidents-state.statisticResponse.numberOfRootCauseAnalysisRequirementForAccident).toDouble()),
+                        ],
+                      ),
                   ],
                 );
               },

@@ -10,8 +10,6 @@ import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
 import 'package:aeah_work_safety/widgets/components/card_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../mission/screens/components/search_bar.dart';
-
 class ChronicDisease extends StatelessWidget {
   const ChronicDisease({Key? key}) : super(key: key);
 
@@ -43,14 +41,14 @@ class ChronicDisease extends StatelessWidget {
                     Flexible(
                       child: Text(
                         'Kronik Hastalık',
-                        style: Theme.of(context).textTheme.headline4,
+                        style: Theme.of(context).textTheme.headlineMedium,
                       ),
                     ),
                     Constant.sizedBoxWidth,
                     Flexible(
                       child: Text(
                         '(Yetki seviyenize göre görüntüleyebildiğiniz liste & raporlar)',
-                        style: Theme.of(context).textTheme.overline,
+                        style: Theme.of(context).textTheme.labelSmall,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -78,24 +76,25 @@ class ChronicDisease extends StatelessWidget {
                           children: [
                         [
                           'Kronik Hast. Çalışan',
-                          state is StatisticLoaded
-                              ? (state.statisticResponse.numberOfAccidents + state.statisticResponse.numberOfChronicDisease)
-                                  .toString()
-                              : "-",
+                          state is StatisticLoaded ? (state.statisticResponse.numberOfChronicDisease).toStringAsFixed(2) : "-",
                           Colors.blueGrey,
                           '-'
                         ],
                         [
                           'Kronik Hast. Çalışan Yüzdesi',
-                          '-',
+                          state is StatisticLoaded
+                          ? ((state.statisticResponse.numberOfChronicDisease/state.statisticResponse.numberOfEmployee)*100)
+                              .toStringAsFixed(2):"-",
                           Colors.blueGrey.shade700,
                           'KRONIK HASTALIKLI ÇALIŞAN / TOPLAM ÇALIŞAN * 100'
                         ],
-                        ['Ort. Çalışma Süresi (Yıl)', '-', Colors.blueAccent.shade700, '-'],
-                        ['Ortalama Yaş',                           state is StatisticLoaded
-                      ? (state.statisticResponse.numberOfAccidents + state.statisticResponse.averageAgeOfEmployee)
-                          .toString()
-                          : "-", Colors.greenAccent.shade700, '-'],
+                        ['Ort. Çalışma Süresi (Yıl)', state is StatisticLoaded ? (state.statisticResponse.averageDayOfWork/365).toStringAsFixed(2) : "-", Colors.blueAccent.shade700, '-'],
+                        [
+                          'Ortalama Yaş',
+                          state is StatisticLoaded ? (state.statisticResponse.averageAgeOfEmployee).toStringAsFixed(2) : "-",
+                          Colors.greenAccent.shade700,
+                          '-'
+                        ],
                       ]
                               .map(
                                 (e) => CardWidget(
@@ -110,14 +109,15 @@ class ChronicDisease extends StatelessWidget {
                 ),
               ),
               Constant.dividerWithIndent,
-              SizedBox(width: MediaQuery.of(context).size.width - 15, height: 500, child: const ChronicDiseaseListView()),
+              SizedBox(
+                  width: MediaQuery.of(context).size.width - 15, height: 500, child: const ChronicDiseaseListView()),
               Constant.sizedBoxHeight,
               //dividerWithIndents(),
               Padding(
                 padding: Constant.padding,
                 child: Text(
                   'Rapor',
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
               ),
 

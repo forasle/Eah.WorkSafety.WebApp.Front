@@ -181,14 +181,8 @@ class DayWithoutAccidentPage extends StatelessWidget {
                         CircularGraph(
                           title: 'Kök Neden Gereksinimi',
                           chartData: [
-                            ChartData('Kök Neden Analizi Gereken Kazalar', state.statisticResponse.numberOfRootCauseAnalysisRequirementForAccident.toDouble()),
-                            ChartData('Kök Neden Analizi Gerekmeyen Kazalar', (state.statisticResponse.numberOfAccidents-state.statisticResponse.numberOfRootCauseAnalysisRequirementForAccident).toDouble()),
-                          ],
-                        ),
-                        CircularGraph(
-                          title: 'Departmanlar',
-                          chartData: [
-                            ChartData('---', 25),
+                            ChartData('Gerekiyor', state.statisticResponse.numberOfRootCauseAnalysisRequirementForAccident.toDouble()),
+                            ChartData('Gerekmiyor', (state.statisticResponse.numberOfAccidents-state.statisticResponse.numberOfRootCauseAnalysisRequirementForAccident).toDouble()),
                           ],
                         ),
                       ],
