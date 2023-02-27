@@ -32,7 +32,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }
       }
       catch(e){
-        emit(const AuthLoginFailState(message: "Giriş yapılamadı. Bilgileri tekrar kontrol ediniz"));
+        emit(AuthLoginFailState(message: "Giriş yapılamadı. Bilgileri tekrar kontrol ediniz. Hata: $e"));
       }
 
 

@@ -87,7 +87,7 @@ class AddNewAccident extends StatelessWidget {
                                     controller: myController,
                                     future: () async {
                                       List _list = <dynamic>[];
-                                      if (state is EmployeeDataFiltered) {
+                                      if (state is EmployeeDataLoaded) {
                                         if (state.employeeResponse.isNotEmpty) {
                                           for (var employee in state.employeeResponse) {
                                             _list.add(employee.identificationNumber.toString());
