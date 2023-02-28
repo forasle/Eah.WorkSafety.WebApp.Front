@@ -60,6 +60,13 @@ class AccidentListView extends StatelessWidget {
                                         //context.read()<AccidentBloc>(const GetAccidentData(needsRefresh: true));
                                       },
                                       child: ListTile(
+                                        onTap: () {
+                                          context
+                                              .read<AccidentByIdBloc>()
+                                              .add(GetAccidentDataById(id: state.accidentResponse[index].id));
+                                          Navigator.pushNamed(context, accidentDetailPage,
+                                              arguments: state.accidentResponse[index]);
+                                        },
                                         leading: CircleAvatar(
                                           backgroundColor: const Color(0xff764abc),
                                           child: Text(state.accidentResponse[index].id.toString()),

@@ -61,6 +61,13 @@ class NearMissListView extends StatelessWidget {
                                   context.read()<NearMissBloc>(const GetNearMissData(needsRefresh: true));
                                 },
                                 child: ListTile(
+                                  onTap: () {
+                                    context
+                                        .read<NearMissByIdBloc>()
+                                        .add(GetNearMissDataById(id: state.nearMissResponse[index].id));
+                                    Navigator.pushNamed(context, nearMissDetailPage,
+                                        arguments: state.nearMissResponse[index]);
+                                  },
                                   leading: CircleAvatar(
                                     backgroundColor: const Color(0xff764abc),
                                     child: Text(state.nearMissResponse[index].id.toString()),

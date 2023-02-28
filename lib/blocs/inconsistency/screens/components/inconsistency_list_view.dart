@@ -61,6 +61,13 @@ class InconsistencyListView extends StatelessWidget {
                                   //context.read()<InconsistencyBloc>(const GetInconsistencyData(needsRefresh: true));
                                 },
                                 child: ListTile(
+                                  onTap: () {
+                                    context
+                                        .read<InconsistencyByIdBloc>()
+                                        .add(GetInconsistencyDataById(id: state.inconsistencyResponse[index].id));
+                                    Navigator.pushNamed(context, inconsistencyDetailPage,
+                                        arguments: state.inconsistencyResponse[index]);
+                                  },
                                   leading: CircleAvatar(
                                     backgroundColor: const Color(0xff764abc),
                                     child: Text(state.inconsistencyResponse[index].id.toString()),

@@ -60,6 +60,13 @@ class PreventiveActivityListView extends StatelessWidget {
                                   //context.read()<PreventiveActivityBloc>(const GetPreventiveActivityData(needsRefresh: true));
                                 },
                                 child: ListTile(
+                                  onTap: () {
+                                    context
+                                        .read<PreventiveActivityByIdBloc>()
+                                        .add(GetPreventiveActivityDataById(id: state.preventiveActivityResponse[index].id));
+                                    Navigator.pushNamed(context, preventiveActivityDetailPage,
+                                        arguments: state.preventiveActivityResponse[index]);
+                                  },
                                   leading: CircleAvatar(
                                     backgroundColor: const Color(0xff764abc),
                                     child: Text(state.preventiveActivityResponse[index].id.toString()),
