@@ -107,7 +107,7 @@ class Constant {
 
   static List<String> theSubjectOfTheAccidentToStringList(AffectedEmployeeWithPropertyForAccident boolList){
     List<String> result=[];
-    if (boolList.theSubjectExposureToPhsicalViolence == true){
+    if (boolList.theSubjectExposureToPhysicalViolence == true){
       result.add(Constant.theSubjectOfTheAccident[0]);
     }
     if (boolList.theSubjectExposureToVerbalViolence == true){

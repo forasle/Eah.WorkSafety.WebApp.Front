@@ -113,7 +113,7 @@ class UpdateAccidentPage extends StatelessWidget {
                             child: SizedBox(
                               height: 80,
                               child: FormBuilderDateTimePicker(
-                                initialValue: _accidentResponse.date,
+                                initialValue: _accidentResponse.accidentDate,
                                 validator: (value) {
                                   if (value == null) {
                                     return "Lütfen Tarih Giriniz";
@@ -278,7 +278,7 @@ class UpdateAccidentPage extends StatelessWidget {
                             child: SizedBox(
                               height: 80,
                               child: FormBuilderTextField(
-                                initialValue: _accidentResponse.referenceNumber,
+                                initialValue: _accidentResponse.sceneOfAccident,
                                 validator: (value) {
                                   if (value == null) {
                                     return "Lütfen Olay Yerini Giriniz";

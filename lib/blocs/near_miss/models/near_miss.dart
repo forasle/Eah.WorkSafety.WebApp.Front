@@ -8,7 +8,7 @@ String nearMissToJson(List<NearMiss> data) => json.encode(List<dynamic>.from(dat
 class NearMiss {
   NearMiss({
     required this.id,
-    required this.referenceNumber,
+    required this.sceneOfNearMiss,
     required this.nearMissInfo,
     required this.performedJob,
     required this.relatedDepartment,
@@ -29,7 +29,7 @@ class NearMiss {
   });
 
   int id;
-  String referenceNumber;
+  String sceneOfNearMiss;
   String nearMissInfo;
   String performedJob;
   String relatedDepartment;
@@ -43,14 +43,14 @@ class NearMiss {
   bool propertyDamage;
   bool businessStopped;
   bool cameraRecording;
-  DateTime date;
+  dynamic date;
   bool rootCauseAnalysis;
   int creatorUserId;
   List<AffectedEmployeeWithPropertyForNearMiss> affectedEmployeeWithPropertyForNearMiss;
 
   factory NearMiss.fromJson(Map<String, dynamic> json) => NearMiss(
     id: json["id"],
-    referenceNumber: json["referenceNumber"],
+    sceneOfNearMiss: json["sceneOfNearMiss"],
     nearMissInfo: json["nearMissInfo"],
     performedJob: json["performedJob"],
     relatedDepartment: json["relatedDepartment"],
@@ -64,7 +64,7 @@ class NearMiss {
     propertyDamage: json["propertyDamage"],
     businessStopped: json["businessStopped"],
     cameraRecording: json["cameraRecording"],
-    date: DateTime.parse(json["date"]),
+    date: json["date"],
     rootCauseAnalysis: json["rootCauseAnalysis"],
     creatorUserId: json["creatorUserId"],
     affectedEmployeeWithPropertyForNearMiss: List<AffectedEmployeeWithPropertyForNearMiss>.from(json["affectedEmployeeWithPropertyForNearMiss"].map((x) => AffectedEmployeeWithPropertyForNearMiss.fromJson(x))),
@@ -72,7 +72,7 @@ class NearMiss {
 
   Map<String, dynamic> toJson() => {
     "id": id,
-    "referenceNumber": referenceNumber,
+    "sceneOfNearMiss": sceneOfNearMiss,
     "nearMissInfo": nearMissInfo,
     "performedJob": performedJob,
     "relatedDepartment": relatedDepartment,
@@ -86,7 +86,7 @@ class NearMiss {
     "propertyDamage": propertyDamage,
     "businessStopped": businessStopped,
     "cameraRecording": cameraRecording,
-    "date": date.toIso8601String(),
+    "date": date,
     "rootCauseAnalysis": rootCauseAnalysis,
     "creatorUserId": creatorUserId,
     "affectedEmployeeWithPropertyForNearMiss": List<dynamic>.from(affectedEmployeeWithPropertyForNearMiss.map((x) => x.toJson())),

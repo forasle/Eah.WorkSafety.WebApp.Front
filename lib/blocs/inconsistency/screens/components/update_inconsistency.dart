@@ -73,7 +73,7 @@ class UpdateInconsistencyPage extends StatelessWidget {
                               height: 80,
                               child: Center(
                                 child: FormBuilderDateTimePicker(
-                                  initialValue: _inconsistencyResponse.date,
+                                  initialValue: _inconsistencyResponse.inconsistencyDate,
                                   validator: (value) {
                                     if (value == null) {
                                       return "Lütfen Tarih Giriniz";
@@ -208,7 +208,7 @@ class UpdateInconsistencyPage extends StatelessWidget {
                             child: SizedBox(
                               height: 80,
                               child: FormBuilderTextField(
-                                initialValue: _inconsistencyResponse.referenceNumber,
+                                initialValue: _inconsistencyResponse.sceneOfInconsistency,
                                 validator: (value) {
                                   if (value == null) {
                                     return "Lütfen Uygunsuzluk Yerini Giriniz";

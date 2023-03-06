@@ -40,14 +40,14 @@ class PreventiveActivities extends StatelessWidget {
                     Flexible(
                       child: Text(
                         'Düzenleyici Önleyici Faaliyetler',
-                        style: Theme.of(context).textTheme.headline4,
+                        style: Theme.of(context).textTheme.headlineMedium,
                       ),
                     ),
                     Constant.sizedBox10W,
                     Flexible(
                       child: Text(
                         '(Yetki seviyenize göre görüntüleyebildiğiniz liste & raporlar)',
-                        style: Theme.of(context).textTheme.overline,
+                        style: Theme.of(context).textTheme.labelSmall,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),

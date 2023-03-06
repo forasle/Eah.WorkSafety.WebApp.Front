@@ -22,7 +22,7 @@ class AddNewPreventiveActivityBloc extends Bloc<AddNewPreventiveActivityEvent, A
       try {
         final CreatePreventiveActivityModel _preventiveActivity;
         _preventiveActivity = CreatePreventiveActivityModel(
-            date: event.preventiveActivity["date"],
+            date: event.preventiveActivity["preventiveActivityDate"],
             creationTime: DateTime.now(),
             deadline: event.preventiveActivity["deadline"],
             method: "Test",

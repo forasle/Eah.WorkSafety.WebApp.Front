@@ -3,7 +3,7 @@ import 'dart:convert';
 
 List<Mission> missionFromJson(String str) => List<Mission>.from(json.decode(str)!.map((x) => Mission.fromJson(x)));
 
-String missionToJson(List<Mission> data) => json.encode(List<dynamic>.from(data!.map((x) => x!.toJson())));
+String missionToJson(List<Mission> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Mission {
   Mission({
@@ -43,8 +43,8 @@ class Mission {
     "department": department,
     "assignerUserId": assignerUserId,
     "assignedUserIdList": assignedUserIdList == null ? [] : List<dynamic>.from(assignedUserIdList!.map((x) => x)),
-    "date": date?.toIso8601String(),
-    "deadline": deadline?.toIso8601String(),
+    "date": date.toIso8601String(),
+    "deadline": deadline.toIso8601String(),
     "status": status,
   };
 }

@@ -279,7 +279,7 @@ class UpdateNearMissPage extends StatelessWidget {
                             child: SizedBox(
                               height: 80,
                               child: FormBuilderTextField(
-                                initialValue: _nearMissResponse.referenceNumber,
+                                initialValue: _nearMissResponse.sceneOfNearMiss,
                                 validator: (value) {
                                   if (value == null) {
                                     return "Lütfen Olay Yerini Giriniz";

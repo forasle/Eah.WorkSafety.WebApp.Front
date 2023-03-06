@@ -225,7 +225,7 @@ class NearMissDetailPage extends StatelessWidget {
                               height: 80,
                               child: FormBuilderTextField(
                                 readOnly: true,
-                                initialValue: _nearMissResponse.referenceNumber,
+                                initialValue: _nearMissResponse.sceneOfNearMiss,
                                 name: "sceneOfNearMiss",
                                 decoration: InputDecoration(
                                   hintText: 'Lütfen Olay Yerini Giriniz',

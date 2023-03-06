@@ -12,7 +12,7 @@ String accidentToJson(List<Accident> data) => json.encode(List<dynamic>.from(dat
 class Accident {
   Accident({
     required this.id,
-    required this.referenceNumber,
+    required this.sceneOfAccident,
     required this.accidentInfo,
     required this.performedJob,
     required this.relatedDepartment,
@@ -26,14 +26,15 @@ class Accident {
     required this.propertyDamage,
     required this.businessStopped,
     required this.cameraRecording,
-    required this.date,
+    required this.accidentDate,
+    required this.creationDate,
     required this.rootCauseAnalysis,
     required this.creatorUserId,
     required this.affectedEmployeeWithPropertyForAccident,
   });
 
   int id;
-  String referenceNumber;
+  String sceneOfAccident;
   String accidentInfo;
   String performedJob;
   String relatedDepartment;
@@ -47,14 +48,15 @@ class Accident {
   bool propertyDamage;
   bool businessStopped;
   bool cameraRecording;
-  DateTime date;
+  DateTime accidentDate;
+  DateTime creationDate;
   bool rootCauseAnalysis;
   int creatorUserId;
   List<AffectedEmployeeWithPropertyForAccident> affectedEmployeeWithPropertyForAccident;
 
   factory Accident.fromJson(Map<String, dynamic> json) => Accident(
     id: json["id"],
-    referenceNumber: json["referenceNumber"],
+    sceneOfAccident: json["sceneOfAccident"],
     accidentInfo: json["accidentInfo"],
     performedJob: json["performedJob"],
     relatedDepartment: json["relatedDepartment"],
@@ -68,7 +70,8 @@ class Accident {
     propertyDamage: json["propertyDamage"],
     businessStopped: json["businessStopped"],
     cameraRecording: json["cameraRecording"],
-    date: DateTime.parse(json["date"]),
+    accidentDate: DateTime.parse(json["accidentDate"]),
+    creationDate: DateTime.parse(json["creationDate"]),
     rootCauseAnalysis: json["rootCauseAnalysis"],
     creatorUserId: json["creatorUserId"],
     affectedEmployeeWithPropertyForAccident: List<AffectedEmployeeWithPropertyForAccident>.from(json["affectedEmployeeWithPropertyForAccident"].map((x) => AffectedEmployeeWithPropertyForAccident.fromJson(x))),
@@ -76,7 +79,7 @@ class Accident {
 
   Map<String, dynamic> toJson() => {
     "id": id,
-    "referenceNumber": referenceNumber,
+    "sceneOfAccident": sceneOfAccident,
     "accidentInfo": accidentInfo,
     "performedJob": performedJob,
     "relatedDepartment": relatedDepartment,
@@ -90,7 +93,8 @@ class Accident {
     "propertyDamage": propertyDamage,
     "businessStopped": businessStopped,
     "cameraRecording": cameraRecording,
-    "date": date.toIso8601String(),
+    "accidentDate": accidentDate.toIso8601String(),
+    "creationDate": creationDate.toIso8601String(),
     "rootCauseAnalysis": rootCauseAnalysis,
     "creatorUserId": creatorUserId,
     "affectedEmployeeWithPropertyForAccident": List<dynamic>.from(affectedEmployeeWithPropertyForAccident.map((x) => x.toJson())),
@@ -104,7 +108,7 @@ class AffectedEmployeeWithPropertyForAccident {
     required this.name,
     required this.surname,
     required this.identificationNumber,
-    required this.theSubjectExposureToPhsicalViolence,
+    required this.theSubjectExposureToPhysicalViolence,
     required this.theSubjectExposureToVerbalViolence,
     required this.theSubjectSharpObjectInjuries,
     required this.theSubjectExposureToBiologicalAgents,
@@ -135,7 +139,7 @@ class AffectedEmployeeWithPropertyForAccident {
   String name;
   String surname;
   String identificationNumber;
-  bool theSubjectExposureToPhsicalViolence;
+  bool theSubjectExposureToPhysicalViolence;
   bool theSubjectExposureToVerbalViolence;
   bool theSubjectSharpObjectInjuries;
   bool theSubjectExposureToBiologicalAgents;
@@ -166,7 +170,7 @@ class AffectedEmployeeWithPropertyForAccident {
     name: json["name"],
     surname: json["surname"],
     identificationNumber: json["identificationNumber"],
-    theSubjectExposureToPhsicalViolence: json["theSubjectExposureToPhysicalViolence"],
+    theSubjectExposureToPhysicalViolence: json["theSubjectExposureToPhysicalViolence"],
     theSubjectExposureToVerbalViolence: json["theSubjectExposureToVerbalViolence"],
     theSubjectSharpObjectInjuries: json["theSubjectSharpObjectInjuries"],
     theSubjectExposureToBiologicalAgents: json["theSubjectExposureToBiologicalAgents"],
@@ -198,7 +202,7 @@ class AffectedEmployeeWithPropertyForAccident {
     "name": name,
     "surname": surname,
     "identificationNumber": identificationNumber,
-    "theSubjectExposureToPhsicalViolence": theSubjectExposureToPhsicalViolence,
+    "theSubjectExposureToPhysicalViolence": theSubjectExposureToPhysicalViolence,
     "theSubjectExposureToVerbalViolence": theSubjectExposureToVerbalViolence,
     "theSubjectSharpObjectInjuries": theSubjectSharpObjectInjuries,
     "theSubjectExposureToBiologicalAgents": theSubjectExposureToBiologicalAgents,

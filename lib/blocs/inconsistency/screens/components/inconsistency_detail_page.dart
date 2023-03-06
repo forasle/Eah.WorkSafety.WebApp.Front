@@ -72,7 +72,7 @@ class InconsistencyDetailPage extends StatelessWidget {
                               child: Center(
                                 child: FormBuilderTextField(
                                   readOnly: true,
-                                  initialValue: DateFormat('dd-MM-yyyy    HH:mm').format(_inconsistencyResponse.date!),
+                                  initialValue: DateFormat('dd-MM-yyyy    HH:mm').format(_inconsistencyResponse.creationDate!),
                                   name: 'date',
                                   decoration: InputDecoration(
                                     labelText: 'Uygunsuzluk Tarihi',
@@ -182,7 +182,7 @@ class InconsistencyDetailPage extends StatelessWidget {
                               height: 80,
                               child: FormBuilderTextField(
                                 readOnly: true,
-                                initialValue: _inconsistencyResponse.referenceNumber,
+                                initialValue: _inconsistencyResponse.sceneOfInconsistency,
                                 name: "referenceNumber",
                                 decoration: InputDecoration(
                                   hintText: 'Lütfen Uygunsuzluk Yerini Giriniz',

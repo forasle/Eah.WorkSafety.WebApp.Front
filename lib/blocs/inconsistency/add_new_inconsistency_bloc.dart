@@ -21,8 +21,8 @@ class AddNewInconsistencyBloc extends Bloc<AddNewInconsistencyEvent, AddNewIncon
       try {
         final CreateInconsistencyModel _inconsistency;
         _inconsistency = CreateInconsistencyModel(
-          date: event.inconsistency["date"],
-          referenceNumber: event.inconsistency["referenceNumber"],
+          date: event.inconsistency["creationDate"],
+          referenceNumber: event.inconsistency["sceneOfInconsistency"],
           id: 0,
           creatorUserId: int.parse(user["id"]),
           department: event.inconsistency["department"],

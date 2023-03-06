@@ -92,7 +92,7 @@ class AccidentDetailPage extends StatelessWidget {
                               child: Center(
                                 child: FormBuilderTextField(
                                   readOnly: true,
-                                  initialValue: DateFormat('dd-MM-yyyy    HH:mm').format(_accidentResponse.date),
+                                  initialValue: DateFormat('dd-MM-yyyy    HH:mm').format(_accidentResponse.accidentDate),
                                   name: 'accidentDate',
                                   decoration: InputDecoration(
                                     labelText: 'Kaza Tarihi',
@@ -224,7 +224,7 @@ class AccidentDetailPage extends StatelessWidget {
                               height: 80,
                               child: FormBuilderTextField(
                                 readOnly: true,
-                                initialValue: _accidentResponse.referenceNumber,
+                                initialValue: _accidentResponse.sceneOfAccident,
                                 name: "sceneOfAccident",
                                 decoration: InputDecoration(
                                   hintText: 'Lütfen Olay Yerini Giriniz',

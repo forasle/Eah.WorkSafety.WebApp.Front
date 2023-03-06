@@ -73,7 +73,7 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                               child: Center(
                                 child: FormBuilderDateTimePicker(
                                   enabled: false,
-                                  initialValue: _preventiveActivityResponse.date,
+                                  initialValue: _preventiveActivityResponse.preventiveActivityDate,
                                   validator: (value) {
                                     if (value == null) {
                                       return "Lütfen DÖF Tarihi Giriniz";
@@ -134,7 +134,7 @@ class PreventiveActivityDetailPage extends StatelessWidget {
                               height: 80,
                               child: FormBuilderTextField(
                                 enabled: false,
-                                initialValue: _preventiveActivityResponse.referenceNumber.toString(),
+                                initialValue: _preventiveActivityResponse.sceneOfPreventiveActivity.toString(),
                                 validator: (value) {
                                   if (value == null) {
                                     return "Lütfen DÖF Adı Giriniz";
