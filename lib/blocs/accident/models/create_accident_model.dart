@@ -13,7 +13,7 @@ class CreateAccidentModel {
   CreateAccidentModel({
     required this.id,
     required this.accidentNumber,
-    required this.referenceNumber,
+    required this.sceneOfAccident,
     required this.accidentInfo,
     required this.performedJob,
     required this.relatedDepartment,
@@ -27,7 +27,8 @@ class CreateAccidentModel {
     required this.propertyDamage,
     required this.businessStopped,
     required this.cameraRecording,
-    required this.date,
+    required this.creationDate,
+    required this.accidentDate,
     required this.rootCauseAnalysis,
     required this.creatorUserId,
     required this.createAffectedEmployeeWithProperty,
@@ -35,7 +36,7 @@ class CreateAccidentModel {
 
   int id;
   int accidentNumber;
-  String referenceNumber;
+  String sceneOfAccident;
   String accidentInfo;
   String performedJob;
   String relatedDepartment;
@@ -49,7 +50,8 @@ class CreateAccidentModel {
   bool propertyDamage;
   bool businessStopped;
   bool cameraRecording;
-  DateTime date;
+  DateTime creationDate;
+  DateTime accidentDate;
   bool rootCauseAnalysis;
   int creatorUserId;
   List<CreateAffectedEmployeeWithProperty> createAffectedEmployeeWithProperty;
@@ -57,7 +59,7 @@ class CreateAccidentModel {
   factory CreateAccidentModel.fromJson(Map<String, dynamic> json) => CreateAccidentModel(
     id: json["id"],
     accidentNumber: json["accidentNumber"],
-    referenceNumber: json["referenceNumber"],
+    sceneOfAccident: json["sceneOfAccident"],
     accidentInfo: json["accidentInfo"],
     performedJob: json["performedJob"],
     relatedDepartment: json["relatedDepartment"],
@@ -71,7 +73,8 @@ class CreateAccidentModel {
     propertyDamage: json["propertyDamage"],
     businessStopped: json["businessStopped"],
     cameraRecording: json["cameraRecording"],
-    date: DateTime.parse(json["date"]),
+    creationDate: DateTime.parse(json["creationDate"]),
+    accidentDate: DateTime.parse(json["accidentDate"]),
     rootCauseAnalysis: json["rootCauseAnalysis"],
     creatorUserId: json["creatorUserId"],
     createAffectedEmployeeWithProperty: List<CreateAffectedEmployeeWithProperty>.from(json["createAffectedEmployeeWithProperty"].map((x) => CreateAffectedEmployeeWithProperty.fromJson(x))),
@@ -80,7 +83,7 @@ class CreateAccidentModel {
   Map<String, dynamic> toJson() => {
     "id": id,
     "accidentNumber": accidentNumber,
-    "referenceNumber": referenceNumber,
+    "sceneOfAccident": sceneOfAccident,
     "accidentInfo": accidentInfo,
     "performedJob": performedJob,
     "relatedDepartment": relatedDepartment,
@@ -94,7 +97,8 @@ class CreateAccidentModel {
     "propertyDamage": propertyDamage,
     "businessStopped": businessStopped,
     "cameraRecording": cameraRecording,
-    "date": date.toIso8601String(),
+    "creationDate": creationDate.toIso8601String(),
+    "accidentDate": accidentDate.toIso8601String(),
     "rootCauseAnalysis": rootCauseAnalysis,
     "creatorUserId": creatorUserId,
     "createAffectedEmployeeWithProperty": List<dynamic>.from(createAffectedEmployeeWithProperty.map((x) => x.toJson())),

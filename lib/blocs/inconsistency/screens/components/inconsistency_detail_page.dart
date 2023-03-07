@@ -72,7 +72,7 @@ class InconsistencyDetailPage extends StatelessWidget {
                               child: Center(
                                 child: FormBuilderTextField(
                                   readOnly: true,
-                                  initialValue: DateFormat('dd-MM-yyyy    HH:mm').format(_inconsistencyResponse.creationDate!),
+                                  initialValue: DateFormat('dd-MM-yyyy    HH:mm').format(_inconsistencyResponse.creationDate),
                                   name: 'date',
                                   decoration: InputDecoration(
                                     labelText: 'Uygunsuzluk Tarihi',

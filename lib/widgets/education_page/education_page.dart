@@ -1,4 +1,3 @@
-import 'package:aeah_work_safety/widgets/education_page/components/data_table_for_education.dart';
 import 'package:aeah_work_safety/blocs/mission/screens/components/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:aeah_work_safety/constants/education/constants.dart';
@@ -158,17 +157,6 @@ class EducationPage extends StatelessWidget {
                 ),
               ),
               Constant.dividerWithIndent,
-              DataTableForEducation(
-                title: 'Eğitim',
-                columnData: const [
-                  'Ad',
-                  'Tarih',
-                  'Eğitimci',
-                  'Süre',
-                  'Durum',
-                ],
-                detailRoute: addNewEducation,
-              ),
               Constant.sizedBoxHeight,
               Constant.dividerWithIndent,
             ],

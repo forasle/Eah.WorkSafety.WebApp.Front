@@ -1,6 +1,8 @@
 import 'package:aeah_work_safety/blocs/accident/accident_bloc.dart';
 import 'package:aeah_work_safety/blocs/accident/add_new_accident_bloc.dart';
+import 'package:aeah_work_safety/constants/textfield_search_modified.dart';
 import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
+import 'package:aeah_work_safety/constants/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
@@ -81,8 +83,10 @@ class AddNewAccident extends StatelessWidget {
                               height: 80,
                               child: BlocBuilder<EmployeeBloc, EmployeeState>(
                                 builder: (context, state) {
-                                  return TextFieldSearch(
-                                    //getSelectedValue: (var value)=>print(value.toString()+"Test"),
+                                  return TextFieldSearchModified(
+                                    getSelectedValue: (var value) {
+                                      //myController.text = value;
+                                    },
                                     label: 'Kimlik Numarası',
                                     controller: myController,
                                     future: () async {
@@ -90,9 +94,13 @@ class AddNewAccident extends StatelessWidget {
                                       if (state is EmployeeDataLoaded) {
                                         if (state.employeeResponse.isNotEmpty) {
                                           for (var employee in state.employeeResponse) {
-                                            _list.add(employee.identificationNumber.toString());
+                                            //_list.add(employee.identificationNumber.toString());
                                             //_list.add('Test' + ' Item 1');
                                             //print(_list);
+                                            _list.add(EmployeeItem.fromJson({
+                                              'label': employee.identificationNumber.toString(),
+                                              'value': employee.name.toString()
+                                            }));
                                           }
                                         }
 
@@ -106,7 +114,6 @@ class AddNewAccident extends StatelessWidget {
 
                                       return _list;
                                     },
-
                                     decoration: InputDecoration(
                                       hintText: 'Lütfen Kimlik Numarasını  Giriniz',
                                       labelText: 'Kimlik Numarası',
@@ -393,12 +400,37 @@ class AddNewAccident extends StatelessWidget {
                       onPressed: () {
                         if (_formKey.currentState?.saveAndValidate() ?? false) {
                           Map<String, dynamic>? value = _formKey.currentState?.value;
-                          context
-                              .read<AddNewAccidentBloc>()
-                              .add(CreateNewAccident(accident: value!, identificationNumber: myController.text));
-                          //LoadingDialog.hide(context);
-
-                          //ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Kaza Eklendi")));
+                          if (DateTime.now().difference(value?["accidentDate"] as DateTime).inDays > 3) {
+                            showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                title: const Text(
+                                    "İş kazası üzerinden 3 günden fazla gün geçmiş. Yinede kazayı eklemek istiyor musunuz?",
+                                    style: Constant.alertDialogTextStyle),
+                                actions: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      ElevatedButton(
+                                          child: const Text('Evet'),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                            context.read<AddNewAccidentBloc>().add(CreateNewAccident(
+                                                accident: value!, identificationNumber: myController.text));
+                                          }),
+                                      Constant.sizedBox,
+                                      ElevatedButton(
+                                          child: const Text('İptal'), onPressed: () => Navigator.pop(context)),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            );
+                          }
+                          else{
+                            context.read<AddNewAccidentBloc>().add(CreateNewAccident(
+                                accident: value!, identificationNumber: myController.text));
+                          }
                         } else {
                           ScaffoldMessenger.of(context)
                               .showSnackBar(const SnackBar(content: Text("Tüm bilgileri eksiksiz doldurun")));

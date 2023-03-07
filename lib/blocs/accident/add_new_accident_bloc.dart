@@ -32,11 +32,12 @@ class AddNewAccidentBloc extends Bloc<AddNewAccidentEvent, AddNewAccidentState> 
 
         final CreateAccidentModel _accident;
         _accident = CreateAccidentModel(
-          date: event.accident["accidentDate"],
+          accidentDate: event.accident["accidentDate"],
+          creationDate: DateTime.now(),
           accidentInfo: event.accident["accidentInfo"],
           performedJob: event.accident["performedJob"],
           relatedDepartment: event.accident["relatedDepartment"],
-          referenceNumber: event.accident["sceneOfAccident"],
+          sceneOfAccident: event.accident["sceneOfAccident"],
           id: 0,
           businessStopped: false,
           cameraRecording: false,

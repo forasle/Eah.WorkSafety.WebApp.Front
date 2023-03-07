@@ -8,7 +8,7 @@ class CreateNearMissModel {
   CreateNearMissModel({
     required this.id,
     required this.nearMissNumber,
-    required this.referenceNumber,
+    required this.sceneOfNearMiss,
     required this.nearMissInfo,
     required this.performedJob,
     required this.relatedDepartment,
@@ -22,7 +22,7 @@ class CreateNearMissModel {
     required this.propertyDamage,
     required this.businessStopped,
     required this.cameraRecording,
-    required this.date,
+    required this.nearMissDate,
     required this.rootCauseAnalysis,
     required this.creatorUserId,
     required this.createAffectedEmployeeWithPropertyForNearMiss,
@@ -30,7 +30,7 @@ class CreateNearMissModel {
 
   int id;
   int nearMissNumber;
-  String referenceNumber;
+  String sceneOfNearMiss;
   String nearMissInfo;
   String performedJob;
   String relatedDepartment;
@@ -44,7 +44,7 @@ class CreateNearMissModel {
   bool propertyDamage;
   bool businessStopped;
   bool cameraRecording;
-  DateTime date;
+  DateTime nearMissDate;
   bool rootCauseAnalysis;
   int creatorUserId;
   List<CreateAffectedEmployeeWithPropertyForNearMiss> createAffectedEmployeeWithPropertyForNearMiss;
@@ -52,7 +52,7 @@ class CreateNearMissModel {
   factory CreateNearMissModel.fromJson(Map<String, dynamic> json) => CreateNearMissModel(
     id: json["id"],
     nearMissNumber: json["nearMissNumber"],
-    referenceNumber: json["referenceNumber"],
+    sceneOfNearMiss: json["sceneOfNearMiss"],
     nearMissInfo: json["nearMissInfo"],
     performedJob: json["performedJob"],
     relatedDepartment: json["relatedDepartment"],
@@ -66,7 +66,7 @@ class CreateNearMissModel {
     propertyDamage: json["propertyDamage"],
     businessStopped: json["businessStopped"],
     cameraRecording: json["cameraRecording"],
-    date: DateTime.parse(json["date"]),
+    nearMissDate: DateTime.parse(json["nearMissDate"]),
     rootCauseAnalysis: json["rootCauseAnalysis"],
     creatorUserId: json["creatorUserId"],
     createAffectedEmployeeWithPropertyForNearMiss: List<CreateAffectedEmployeeWithPropertyForNearMiss>.from(json["createAffectedEmployeeWithProperty"].map((x) => CreateAffectedEmployeeWithPropertyForNearMiss.fromJson(x))),
@@ -75,7 +75,7 @@ class CreateNearMissModel {
   Map<String, dynamic> toJson() => {
     "id": id,
     "nearMissNumber": nearMissNumber,
-    "referenceNumber": referenceNumber,
+    "sceneOfNearMiss": sceneOfNearMiss,
     "nearMissInfo": nearMissInfo,
     "performedJob": performedJob,
     "relatedDepartment": relatedDepartment,
@@ -89,7 +89,7 @@ class CreateNearMissModel {
     "propertyDamage": propertyDamage,
     "businessStopped": businessStopped,
     "cameraRecording": cameraRecording,
-    "date": date.toIso8601String(),
+    "nearMissDate": nearMissDate.toIso8601String(),
     "rootCauseAnalysis": rootCauseAnalysis,
     "creatorUserId": creatorUserId,
     "createAffectedEmployeeWithPropertyForNearMiss": List<dynamic>.from(createAffectedEmployeeWithPropertyForNearMiss.map((x) => x.toJson())),

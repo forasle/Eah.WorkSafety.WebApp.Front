@@ -22,7 +22,7 @@ class NearMiss {
     required this.propertyDamage,
     required this.businessStopped,
     required this.cameraRecording,
-    required this.date,
+    required this.nearMissDate,
     required this.rootCauseAnalysis,
     required this.creatorUserId,
     required this.affectedEmployeeWithPropertyForNearMiss,
@@ -43,7 +43,7 @@ class NearMiss {
   bool propertyDamage;
   bool businessStopped;
   bool cameraRecording;
-  dynamic date;
+  DateTime nearMissDate;
   bool rootCauseAnalysis;
   int creatorUserId;
   List<AffectedEmployeeWithPropertyForNearMiss> affectedEmployeeWithPropertyForNearMiss;
@@ -64,7 +64,7 @@ class NearMiss {
     propertyDamage: json["propertyDamage"],
     businessStopped: json["businessStopped"],
     cameraRecording: json["cameraRecording"],
-    date: json["date"],
+    nearMissDate: DateTime.parse(json["nearMissDate"]),
     rootCauseAnalysis: json["rootCauseAnalysis"],
     creatorUserId: json["creatorUserId"],
     affectedEmployeeWithPropertyForNearMiss: List<AffectedEmployeeWithPropertyForNearMiss>.from(json["affectedEmployeeWithPropertyForNearMiss"].map((x) => AffectedEmployeeWithPropertyForNearMiss.fromJson(x))),
@@ -86,7 +86,7 @@ class NearMiss {
     "propertyDamage": propertyDamage,
     "businessStopped": businessStopped,
     "cameraRecording": cameraRecording,
-    "date": date,
+    "nearMissDate": nearMissDate.toIso8601String(),
     "rootCauseAnalysis": rootCauseAnalysis,
     "creatorUserId": creatorUserId,
     "affectedEmployeeWithPropertyForNearMiss": List<dynamic>.from(affectedEmployeeWithPropertyForNearMiss.map((x) => x.toJson())),

@@ -16,7 +16,7 @@ class Employee extends StatelessWidget {
   Widget build(BuildContext context) {
     //final LoginResponse _loginResponse = ModalRoute.of(context)?.settings.arguments as LoginResponse;
     ScrollController horizontalController = ScrollController();
-    context.watch<StatisticBloc>().add(const GetStatisticData());
+    context.read<StatisticBloc>().add(const GetStatisticData());
     return CustomScaffold(
       body: Column(
         mainAxisSize: MainAxisSize.max,

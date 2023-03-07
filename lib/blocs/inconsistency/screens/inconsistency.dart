@@ -15,7 +15,7 @@ class Inconsistency extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScrollController horizontalController = ScrollController();
-    context.watch<StatisticBloc>().add(const GetStatisticData());
+    context.read<StatisticBloc>().add(const GetStatisticData());
     return CustomScaffold(
       body: Column(
         mainAxisSize: MainAxisSize.max,

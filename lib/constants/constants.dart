@@ -21,3 +21,13 @@ var employeeInstance = Employee(
     address: 'Test', affectedAccident: [], affectedNearMisses: [], affectedChronicDisease: [], affectedOccupationDisease: [],
 );
 
+class EmployeeItem {
+    final String label;
+    dynamic value;
+
+    EmployeeItem({required this.label, this.value});
+
+    factory EmployeeItem.fromJson(Map<String, dynamic> json) {
+        return EmployeeItem(label: json['label'], value: json['value']);
+    }
+}

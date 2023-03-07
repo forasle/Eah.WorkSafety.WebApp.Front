@@ -92,7 +92,7 @@ class NearMissDetailPage extends StatelessWidget {
                               child: Center(
                                 child: FormBuilderTextField(
                                   readOnly: true,
-                                  initialValue: DateFormat('dd-MM-yyyy    HH:mm').format(_nearMissResponse.date),
+                                  initialValue: DateFormat('dd-MM-yyyy    HH:mm').format(_nearMissResponse.nearMissDate),
                                   name: 'nearMissDate',
                                   decoration: InputDecoration(
                                     labelText: 'Kaza Tarihi',

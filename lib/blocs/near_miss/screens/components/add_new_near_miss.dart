@@ -1,6 +1,8 @@
-import 'package:aeah_work_safety/blocs/near_miss/add_new_near_miss_bloc.dart';
-import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
 import 'package:aeah_work_safety/blocs/near_miss/near_miss_bloc.dart';
+import 'package:aeah_work_safety/blocs/near_miss/add_new_near_miss_bloc.dart';
+import 'package:aeah_work_safety/constants/textfield_search_modified.dart';
+import 'package:aeah_work_safety/blocs/employee/employee_bloc.dart';
+import 'package:aeah_work_safety/constants/constants.dart';
 import 'package:aeah_work_safety/constants/routes.dart';
 import 'package:aeah_work_safety/widgets/appBar/app_bar.dart';
 import 'package:aeah_work_safety/widgets/components/routing_bar_widget.dart';
@@ -10,7 +12,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:textfield_search/textfield_search.dart';
 
 class AddNewNearMiss extends StatelessWidget {
   const AddNewNearMiss({Key? key}) : super(key: key);
@@ -19,8 +20,8 @@ class AddNewNearMiss extends StatelessWidget {
     final _formKey = GlobalKey<FormBuilderState>();
     TextEditingController myController = TextEditingController();
     myController.addListener(() {
-      if (myController.text.length > 5) {
-        context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: myController.text,needsRefresh: true));
+      if (myController.text.length > 3) {
+        context.read<EmployeeBloc>().add(GetEmployeeFiltered(filter: myController.text, needsRefresh: true));
       }
     });
     return CustomScaffold(
@@ -39,7 +40,7 @@ class AddNewNearMiss extends StatelessWidget {
                   children: [
                     RoutingBarWidget(pageName: 'Panorama', routeName: panoramaRoute),
                     const Icon(Icons.arrow_right),
-                    RoutingBarWidget(pageName: 'Ramak Kala Olaylar', routeName: nearMissPageRoute),
+                    RoutingBarWidget(pageName: 'Ramak Kala', routeName: nearMissPageRoute),
                     const Icon(Icons.arrow_right),
                     RoutingBarWidget(pageName: 'Yeni Ramak Kala Ekle', routeName: addNewNearMiss),
                   ],
@@ -81,7 +82,10 @@ class AddNewNearMiss extends StatelessWidget {
                               height: 80,
                               child: BlocBuilder<EmployeeBloc, EmployeeState>(
                                 builder: (context, state) {
-                                  return TextFieldSearch(
+                                  return TextFieldSearchModified(
+                                    getSelectedValue: (var value) {
+                                      //myController.text = value;
+                                    },
                                     label: 'Kimlik Numarası',
                                     controller: myController,
                                     future: () async {
@@ -89,8 +93,13 @@ class AddNewNearMiss extends StatelessWidget {
                                       if (state is EmployeeDataLoaded) {
                                         if (state.employeeResponse.isNotEmpty) {
                                           for (var employee in state.employeeResponse) {
-                                            _list.add(employee.identificationNumber);
-                                            //print(state.employeeResponse.data)
+                                            //_list.add(employee.identificationNumber.toString());
+                                            //_list.add('Test' + ' Item 1');
+                                            //print(_list);
+                                            _list.add(EmployeeItem.fromJson({
+                                              'label': employee.identificationNumber.toString(),
+                                              'value': employee.name.toString()
+                                            }));
                                           }
                                         }
 
@@ -239,8 +248,8 @@ class AddNewNearMiss extends StatelessWidget {
                         children: [
                           subtitle(subtitle: 'Departman:', height: 90, width: 150),
                           subtitle(subtitle: 'Olay Yeri:', height: 80, width: 150),
-                          subtitle(subtitle: 'Olayın Konusu:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
-                          subtitle(subtitle: 'Alınması Gereken Önlem:', height: Constant.heightOfAccidentAndNearMissCheckBox, width: 150),
+                          subtitle(subtitle: 'Olayın Konusu:', height: 500, width: 150),
+                          subtitle(subtitle: 'Alınması Gereken Önlem:', height: 500, width: 150),
                           subtitle(subtitle: 'Kök Neden Analizi Gereksinimi:', height: 80, width: 150),
                         ],
                       ),
@@ -297,7 +306,7 @@ class AddNewNearMiss extends StatelessWidget {
                           Padding(
                             padding: Constant.padding,
                             child: SizedBox(
-                              height: Constant.heightOfAccidentAndNearMissCheckBox,
+                              height: 500,
                               child: FormBuilderCheckboxGroup<String>(
                                 decoration: InputDecoration(
                                   hintText: 'Olayın Konusunu Seçiniz',
@@ -323,7 +332,7 @@ class AddNewNearMiss extends StatelessWidget {
                           Padding(
                             padding: Constant.padding,
                             child: SizedBox(
-                              height: Constant.heightOfAccidentAndNearMissCheckBox,
+                              height: 500,
                               child: FormBuilderCheckboxGroup<String>(
                                 decoration: InputDecoration(
                                   hintText: 'Alınması Gereken Önlem',
@@ -371,7 +380,7 @@ class AddNewNearMiss extends StatelessWidget {
             ),
             Constant.sizedBox50,
             Row(
-              children: <Widget>[
+              children: [
                 Expanded(
                   child: BlocListener<AddNewNearMissBloc, AddNewNearMissState>(
                     listener: (context, state) {
@@ -382,20 +391,45 @@ class AddNewNearMiss extends StatelessWidget {
                         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Kaza eklendi")));
                       }
                       if (state is NewNearMissCreationError) {
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text("Kaza eklenemedi. Lütfen kimlik numarasını kontrol ediniz.")));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("Kaza eklenemedi. Lütfen kimlik numarasını kontrol ediniz.")));
                       }
                     },
                     child: ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState?.saveAndValidate() ?? false) {
                           Map<String, dynamic>? value = _formKey.currentState?.value;
-                          context
-                              .read<AddNewNearMissBloc>()
-                              .add(CreateNewNearMiss(nearMiss: value!, identificationNumber: myController.text));
-                          //LoadingDialog.hide(context);
-
-                          //ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Kaza Eklendi")));
+                          if (DateTime.now().difference(value?["nearMissDate"] as DateTime).inDays > 3) {
+                            showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                title: const Text(
+                                    "İş kazası üzerinden 3 günden fazla gün geçmiş. Yinede kazayı eklemek istiyor musunuz?",
+                                    style: Constant.allertDialogTextStyle),
+                                actions: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      ElevatedButton(
+                                          child: const Text('Evet'),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                            context.read<AddNewNearMissBloc>().add(CreateNewNearMiss(
+                                                nearMiss: value!, identificationNumber: myController.text));
+                                          }),
+                                      Constant.sizedBox,
+                                      ElevatedButton(
+                                          child: const Text('İptal'), onPressed: () => Navigator.pop(context)),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            );
+                          }
+                          else{
+                            context.read<AddNewNearMissBloc>().add(CreateNewNearMiss(
+                                nearMiss: value!, identificationNumber: myController.text));
+                          }
                         } else {
                           ScaffoldMessenger.of(context)
                               .showSnackBar(const SnackBar(content: Text("Tüm bilgileri eksiksiz doldurun")));

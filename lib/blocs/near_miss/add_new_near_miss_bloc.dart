@@ -15,7 +15,7 @@ class AddNewNearMissBloc extends Bloc<AddNewNearMissEvent, AddNewNearMissState> 
   final NearMissRepository _nearMissRepository = locator<NearMissRepository>();
   final EmployeeRepository _employeeRepository = locator<EmployeeRepository>();
 
-  AddNewNearMissBloc() : super(AddNewNearMissInitial()) {
+  AddNewNearMissBloc() : super(const AddNewNearMissInitial()) {
     on<CreateNewNearMiss>((event, emit) async {
       const storage = FlutterSecureStorage();
       final String? token = await storage.read(key: "token");
@@ -32,11 +32,11 @@ class AddNewNearMissBloc extends Bloc<AddNewNearMissEvent, AddNewNearMissState> 
 
         final CreateNearMissModel _nearMiss;
         _nearMiss = CreateNearMissModel(
-          date: event.nearMiss["nearMissDate"],
+          nearMissDate: event.nearMiss["nearMissDate"],
           nearMissInfo: event.nearMiss["nearMissInfo"],
           performedJob: event.nearMiss["performedJob"],
           relatedDepartment: event.nearMiss["relatedDepartment"],
-          referenceNumber: event.nearMiss["sceneOfNearMiss"],
+          sceneOfNearMiss: event.nearMiss["sceneOfNearMiss"],
           id: 0,
           businessStopped: false,
           cameraRecording: false,

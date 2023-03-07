@@ -14,7 +14,7 @@ class AccidentPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<StatisticBloc>().add(const GetStatisticData());
+    context.read<StatisticBloc>().add(const GetStatisticData());
     ScrollController horizontalController = ScrollController();
     return CustomScaffold(
       body: Column(

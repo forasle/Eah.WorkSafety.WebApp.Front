@@ -113,7 +113,7 @@ class UpdateNearMissPage extends StatelessWidget {
                             child: SizedBox(
                               height: 80,
                               child: FormBuilderDateTimePicker(
-                                initialValue: _nearMissResponse.date,
+                                initialValue: _nearMissResponse.nearMissDate,
                                 validator: (value) {
                                   if (value == null) {
                                     return "Lütfen Tarih Giriniz";

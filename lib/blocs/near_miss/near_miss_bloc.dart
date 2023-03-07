@@ -55,7 +55,7 @@ class NearMissBloc extends Bloc<NearMissEvent, NearMissState> {
         emit(NearMissDataLoaded(nearMissResponse: _nearMiss, isReachedMax: nearMissResponse.nextPage==null));
       }
       catch(e){
-        emit(NearMissDataError(message: "Kaza bilgileri getirilemedi. Hata: $e"));
+        emit(NearMissDataError(message: "Ramak Kala bilgileri getirilemedi. Hata: $e"));
       }
     },
       transformer: droppable(),
